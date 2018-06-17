@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    [Header("Player attributes")]
+    public int HP;
     [SerializeField]
     private float speed; //How fast player moves
+    public bool immune;
 
     //bools that keep track of ChibiInu direction
     private bool movingUp;
@@ -31,7 +34,6 @@ public class Player : MonoBehaviour {
         skills();
         updateDirection();
         constantMove();
-        dieOnTouch();
     }
 
     void constantMove()
@@ -108,15 +110,23 @@ public class Player : MonoBehaviour {
         }
     }
 
-    void dieOnTouch()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.gameObject.tag == "attack" && immune == false)
+        {
+            HP--;
+        }
 
+        if(HP <= 0)
+        {
+            Debug.Log("you die");
+        }
     }
 
     IEnumerator dashSkill()
     {
         speed *= 10;
-        yield return 1;
+        yield return new WaitForSeconds(.02f);
         speed /= 10;
     }
     /*

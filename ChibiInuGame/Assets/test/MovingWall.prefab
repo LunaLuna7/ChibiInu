@@ -53,9 +53,9 @@ GameObject:
   - component: {fileID: 4568625415843530}
   - component: {fileID: 212927895620614622}
   - component: {fileID: 60155424290369176}
-  - component: {fileID: 114776205118455436}
+  - component: {fileID: 114335510584421300}
   m_Layer: 0
-  m_Name: Wall
+  m_Name: wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,7 +88,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4287704123541920}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4238487048376860
 Transform:
@@ -101,7 +101,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4287704123541920}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4287704123541920
 Transform:
@@ -113,9 +113,9 @@ Transform:
   m_LocalPosition: {x: 0.8701154, y: 0.10730119, z: -0.019647289}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4568625415843530}
   - {fileID: 4125490770035688}
   - {fileID: 4238487048376860}
+  - {fileID: 4568625415843530}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -126,11 +126,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1578134923071562}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.08, y: 0.04769881, z: 0.019647289}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.28631684, y: 0.28631684, z: 0.28631684}
   m_Children: []
   m_Father: {fileID: 4287704123541920}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &60155424290369176
 PolygonCollider2D:
@@ -289,7 +289,7 @@ MonoBehaviour:
   state: 
   smooth: 5
   resetTime: 2
---- !u!114 &114776205118455436
+--- !u!114 &114335510584421300
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -301,6 +301,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  immune: 0
+  regenerateTime: 3
 --- !u!212 &212927895620614622
 SpriteRenderer:
   m_ObjectHideFlags: 1

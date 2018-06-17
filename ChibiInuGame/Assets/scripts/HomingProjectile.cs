@@ -33,7 +33,6 @@ public class HomingProjectile : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
-            DestroyObject(collision.gameObject);
             DestroyObject(gameObject);
         }
     }
