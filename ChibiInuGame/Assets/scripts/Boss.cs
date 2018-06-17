@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour {
 
+    [Header("Stats")]
+    public int health;
+
     [Header("Attack Properties")]
 
     public GameObject atk1;
@@ -77,4 +80,12 @@ public class Boss : MonoBehaviour {
         }
     }
 
+    public void HitBoss()
+    {
+        health--;
+        if(health >= 0)
+        {
+            DestroyObject(gameObject);
+        }
+    }
 }

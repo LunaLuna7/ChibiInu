@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boundary : MonoBehaviour {
+public class swordAtk : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -13,13 +13,13 @@ public class Boundary : MonoBehaviour {
 	void Update () {
 		
 	}
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("a");
-        if (collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player")
         {
-            Debug.Log("dead");
-            DestroyObject(collision.gameObject);
+            Debug.Log("hit boss");
+            DestroyObject(gameObject);
         }
     }
 }
