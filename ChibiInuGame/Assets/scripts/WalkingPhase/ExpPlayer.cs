@@ -14,13 +14,20 @@ public class ExpPlayer : MonoBehaviour {
     [Space]
 
     [Header("Player state")]
+    public float moveX;
+    public int jumpsLeft;
+    public int maxJumps;
+    public bool facingRight;
     public bool Isgrounded;
-
+    public SpriteRenderer sprite;
     Rigidbody2D rb;
 	
 	void Awake () {
+        maxJumps = jumpsLeft;
         Isgrounded = true;
-        rb = gameObject.GetComponent<Rigidbody2D>();		
+        facingRight = true;
+        rb = gameObject.GetComponent<Rigidbody2D>();
+        sprite = gameObject.GetComponent<SpriteRenderer>();
 	}
 	
 	void Update () {
@@ -31,25 +38,40 @@ public class ExpPlayer : MonoBehaviour {
 	}
     void move()
     {
+        moveX = Input.GetAxis("Horizontal");
+        if(moveX < 0.0f && facingRight == true)//moving right
+        {
+
+            FlipPlayer();
+        }
+        else if(moveX > 0.0f && facingRight == false)//moving left
+        {
+            FlipPlayer();
+        }
+        rb.velocity = new Vector2(moveX * speed, rb.velocity.y);
+        /*
         if (Input.GetKey(KeyCode.LeftArrow))
         {
+            facingRight = false;
+            FlipPlayer();
             transform.position += Vector3.left * speed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
+            facingRight = true;
+            FlipPlayer();
             transform.position += Vector3.right * speed * Time.deltaTime;
-        }
-        /*
-        if (Input.GetKey(KeyCode.Space))
-        {
-            transform.position += Vector3.up * jumpForce * Time.deltaTime;
         }
         */
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Isgrounded = true;
+        if (collision.gameObject.tag == "ground")
+        {
+            Isgrounded = true;
+            jumpsLeft = maxJumps;
+        }
     }
 
     void Jump()
@@ -57,7 +79,11 @@ public class ExpPlayer : MonoBehaviour {
        
         if (Input.GetButtonDown("Jump") && Isgrounded == true)
         {
-            Isgrounded = false;
+            if(jumpsLeft == 1)
+            {
+                Isgrounded = false;
+            }
+            jumpsLeft--;
             rb.velocity = Vector2.up * jumpPower;
         }
     }
@@ -73,4 +99,17 @@ public class ExpPlayer : MonoBehaviour {
             rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpGravity - 1) * Time.deltaTime;
         }
     }
+
+
+    void FlipPlayer()
+    {
+        facingRight = !facingRight;
+        //sprite.flipX;
+        
+            Vector2 localScale = gameObject.transform.localScale;
+            localScale.x *= -1;
+            transform.localScale = localScale;
+    }
+        
 }
+
