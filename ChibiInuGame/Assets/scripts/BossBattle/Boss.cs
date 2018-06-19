@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour {
 
+    public List<BossAttack> bossAttack;
+
     [Header("Stats")]
     public int health;
-
-    [Header("Attack Properties")]
-
-    public GameObject atk1;
-    public int atk1Cooldown;
-    [Range(0, 10)]
-    public float atkWaveWait;
-
+    public int spawnWait;
     [Space]
 
     [Header("Movement")]
@@ -22,38 +17,62 @@ public class Boss : MonoBehaviour {
     [Tooltip("How often enemy moves")]
     public float horizontalMoveWait;
 
+    public GameObject bubble;
+    public ClampName clampName;
+
     [Space]
 
     [SerializeField]
     private int Lcount; //<-Makes sure enemy doesn't move out of scope
     [SerializeField]
     private int Rcount;
+    [SerializeField]
+    private bool skipNextAtk = false;
 
 
     void Start()
     {
-        InvokeRepeating("triggerAtk1", 2f, atkWaveWait); //(function name, wait seconds since Start, seconds between calls)
+        InvokeRepeating("triggerAtk", 2f, spawnWait); //(function name, wait seconds since Start, seconds between calls)
         InvokeRepeating("horizontalMove", 2f, horizontalMoveWait);
     }
 
     // Update is called once per frame
     void Update()
     {
-
     }
 
-    void triggerAtk1()
+    
+    void triggerAtk()
     {
-        Instantiate(atk1, this.transform.position, this.transform.rotation);
+        int randomAtk = Random.Range(0, bossAttack.Count);
+
+
+        if (!skipNextAtk)
+        {
+            clampName.Message(bossAttack[randomAtk].attackWarning);
+            clampName.ActiveMessage(bossAttack[randomAtk].isNormal, true);
+            StartCoroutine(ActivateAttack(randomAtk, bossAttack[randomAtk].warningWait));
+        }
+        if (!bossAttack[randomAtk].isNormal)
+        {
+            skipNextAtk = true;
+        }
+        else
+        {
+            skipNextAtk = false;
+        }
     }
+    
 
     void moveLeft()
     {
         transform.position += Vector3.left * horizontalSpd * Time.deltaTime;
+        clampName.UpdateTalkPosition();
     }
     void moveRight()
     {
         transform.position += Vector3.right * horizontalSpd * Time.deltaTime;
+        clampName.UpdateTalkPosition();
     }
 
     void horizontalMove()
@@ -87,5 +106,11 @@ public class Boss : MonoBehaviour {
         {
             DestroyObject(gameObject);
         }
+    }
+
+    IEnumerator ActivateAttack(int atk, float waitTime)
+    {
+        yield return new WaitForSeconds(bossAttack[atk].warningWait);
+        Instantiate(bossAttack[atk].attack, this.transform.position, this.transform.rotation);
     }
 }

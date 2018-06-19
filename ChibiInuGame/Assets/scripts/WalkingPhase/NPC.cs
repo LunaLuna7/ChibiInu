@@ -4,26 +4,37 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour {
 
-
+    public GameObject dialougeBox;
     public DialogueTrigger trigger;
 	// Use this for initialization
 	void Start () {
-        trigger = gameObject.GetComponent<DialogueTrigger>();
+        //trigger = gameObject.GetComponent<DialogueTrigger>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
-
     
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(Input.GetKeyDown(KeyCode.X))
+        dialougeBox.SetActive(true);
+
+    }
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (Input.GetKeyDown(KeyCode.X))
         {
-            Debug.Log(trigger.dialogue.name);
-            trigger.TriggerDialogue();
+            dialougeBox.SetActive(false);
+            //Debug.Log(trigger.dialogue.name);
+            //trigger.TriggerDialogue();
+            
             Debug.Log("talk");
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        dialougeBox.SetActive(false);    
     }
 }
