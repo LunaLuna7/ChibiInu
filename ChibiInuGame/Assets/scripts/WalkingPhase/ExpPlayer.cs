@@ -11,6 +11,8 @@ public class ExpPlayer : MonoBehaviour {
     public float fallGravity;
     public float lowJumpGravity;
 
+    private int originalspd;
+
     [Space]
 
     [Header("Player state")]
@@ -23,6 +25,7 @@ public class ExpPlayer : MonoBehaviour {
     Rigidbody2D rb;
 	
 	void Awake () {
+        originalspd = speed;
         maxJumps = jumpsLeft;
         Isgrounded = true;
         facingRight = true;
@@ -34,7 +37,7 @@ public class ExpPlayer : MonoBehaviour {
         move();
         Jump();
         JumpGravity();
-
+        Dash();
 	}
     void move()
     {
@@ -104,12 +107,27 @@ public class ExpPlayer : MonoBehaviour {
     void FlipPlayer()
     {
         facingRight = !facingRight;
-        //sprite.flipX;
-        
-            Vector2 localScale = gameObject.transform.localScale;
-            localScale.x *= -1;
-            transform.localScale = localScale;
+                
+        Vector2 localScale = gameObject.transform.localScale;
+        localScale.x *= -1;
+        transform.localScale = localScale;
     }
         
+    void Dash()
+    {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            
+            speed *= 2;
+            StartCoroutine(regularSpeed());
+            
+        }
+    }
+
+    IEnumerator regularSpeed()
+    {
+        yield return new WaitForSeconds(.4f);
+        speed = originalspd;
+    }
 }
 

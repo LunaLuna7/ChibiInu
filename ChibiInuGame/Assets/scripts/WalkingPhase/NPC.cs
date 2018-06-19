@@ -5,10 +5,11 @@ using UnityEngine;
 public class NPC : MonoBehaviour {
 
     public GameObject startDialouge;
-    //public GameObject dialogueBubble;
     public DialogueTrigger trigger;
+    public bool inConversation;
 	// Use this for initialization
 	void Start () {
+        inConversation = false;
         trigger = gameObject.GetComponent<DialogueTrigger>();
 	}
 	
@@ -20,12 +21,13 @@ public class NPC : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         startDialouge.SetActive(true);
-
+        inConversation = false;
     }
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X) && inConversation == false)
         {
+            inConversation = true;
             startDialouge.SetActive(false);
             trigger.TriggerDialogue();
             //dialogueBubble.SetActive(true);
@@ -35,6 +37,7 @@ public class NPC : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        startDialouge.SetActive(false);    
+        startDialouge.SetActive(false);
+        trigger.EndDialogue();
     }
 }
