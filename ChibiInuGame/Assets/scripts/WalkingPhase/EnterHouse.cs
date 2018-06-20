@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnterHouse : MonoBehaviour {
 
@@ -24,6 +25,7 @@ public class EnterHouse : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.X))
         {
+            SceneManager.LoadScene("houseProto");
             Debug.Log("new scene");
         }
     }

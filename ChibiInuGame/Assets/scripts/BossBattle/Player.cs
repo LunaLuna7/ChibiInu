@@ -7,7 +7,8 @@ public class Player : MonoBehaviour {
     [Header("Player attributes")]
     public int HP;
     [SerializeField]
-    private float speed; //How fast player moves
+    private float speed;
+    private float originalSpeed;
     public bool immune;
 
     //bools that keep track of ChibiInu direction
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        originalSpeed = speed;
         movingUp = true;
         movingDown = false;
         movingRight = false;
@@ -30,7 +32,6 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        //move();
         skills();
         updateDirection();
         constantMove();
@@ -98,7 +99,7 @@ public class Player : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.S))
         {
             Debug.Log("Skill in S");
-            StartCoroutine(dashSkill());
+            StartCoroutine(DashSkill());
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -107,6 +108,7 @@ public class Player : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.D))
         {
             Debug.Log("Skill in D");
+            StartCoroutine(HardenSkill());
         }
     }
 
@@ -123,33 +125,20 @@ public class Player : MonoBehaviour {
         }
     }
 
-    IEnumerator dashSkill()
+    IEnumerator DashSkill()
     {
         speed *= 10;
         yield return new WaitForSeconds(.02f);
         speed /= 10;
     }
-    /*
-    void move()
-    {
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.position += Vector3.left * speed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.position += Vector3.right * speed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.position += Vector3.up * speed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.position += Vector3.down * speed * Time.deltaTime;
-        }
 
+    IEnumerator HardenSkill()
+    {
+        speed = 0;
+        immune = true;
+        yield return new WaitForSeconds(1f);
+        speed = originalSpeed;
+        immune = false;
     }
-    */
 
 }

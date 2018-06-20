@@ -52,20 +52,7 @@ public class ExpPlayer : MonoBehaviour {
             FlipPlayer();
         }
         rb.velocity = new Vector2(moveX * speed, rb.velocity.y);
-        /*
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            facingRight = false;
-            FlipPlayer();
-            transform.position += Vector3.left * speed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            facingRight = true;
-            FlipPlayer();
-            transform.position += Vector3.right * speed * Time.deltaTime;
-        }
-        */
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
