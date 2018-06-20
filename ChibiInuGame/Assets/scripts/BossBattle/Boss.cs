@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Boss : MonoBehaviour {
 
     public List<BossAttack> bossAttack;
+    public Image healthBar;    
 
     [Header("Stats")]
-    public int health;
+    public float startHealth;
+    public float health;
     public int spawnWait;
     [Space]
 
@@ -21,17 +24,15 @@ public class Boss : MonoBehaviour {
     public ClampName clampName;
 
     [Space]
-
-    [SerializeField]
     private int Lcount; //<-Makes sure enemy doesn't move out of scope
-    [SerializeField]
     private int Rcount;
-    [SerializeField]
     private bool skipNextAtk = false;
+
 
 
     void Start()
     {
+        health = startHealth;
         InvokeRepeating("triggerAtk", 2f, spawnWait); //(function name, wait seconds since Start, seconds between calls)
         InvokeRepeating("horizontalMove", 2f, horizontalMoveWait);
     }
@@ -102,7 +103,8 @@ public class Boss : MonoBehaviour {
     public void HitBoss()
     {
         health--;
-        if(health >= 0)
+        healthBar.fillAmount = health/startHealth;
+        if(health <= 0)
         {
             DestroyObject(gameObject);
         }

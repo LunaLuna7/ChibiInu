@@ -11,6 +11,7 @@ public class HomingProjectile : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        DestroyObject(gameObject, 10);
         target = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
     }

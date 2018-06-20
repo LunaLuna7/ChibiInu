@@ -465,10 +465,10 @@ MonoBehaviour:
   health: 3
   speed: 5
   jumpPower: 7
-  fallGravity: 2.5
+  fallGravity: 3
   lowJumpGravity: 2
   moveX: 0
-  jumpsLeft: 5
+  jumpsLeft: 2
   maxJumps: 0
   facingRight: 0
   Isgrounded: 0
