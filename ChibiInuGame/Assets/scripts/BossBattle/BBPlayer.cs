@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class BBPlayer : MonoBehaviour {
 
     [Header("Player attributes")]
     public int HP;
@@ -114,12 +114,12 @@ public class Player : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "attack" && immune == false)
+        if (collision.gameObject.tag == "attack" && immune == false)
         {
             HP--;
         }
 
-        if(HP <= 0)
+        if (HP <= 0)
         {
             Debug.Log("you die");
         }
