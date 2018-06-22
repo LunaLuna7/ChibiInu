@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class Boss : MonoBehaviour {
 
     public List<BossAttack> bossAttack;
-    public Image healthBar;    
+    public Image healthBar;
+    public Text healthBarTxt;
 
     [Header("Stats")]
     public float startHealth;
@@ -20,8 +21,8 @@ public class Boss : MonoBehaviour {
     [Tooltip("How often enemy moves")]
     public float horizontalMoveWait;
 
-    public GameObject bubble;
-    public ClampName clampName;
+    public GameObject dialogueCanvas;
+    public Text dialogue;
 
     [Space]
     private int Lcount; //<-Makes sure enemy doesn't move out of scope
@@ -32,6 +33,7 @@ public class Boss : MonoBehaviour {
 
     void Start()
     {
+        healthBarTxt.text = "100%";
         health = startHealth;
         InvokeRepeating("triggerAtk", 2f, spawnWait); //(function name, wait seconds since Start, seconds between calls)
         InvokeRepeating("horizontalMove", 2f, horizontalMoveWait);
@@ -50,8 +52,8 @@ public class Boss : MonoBehaviour {
 
         if (!skipNextAtk)
         {
-            clampName.Message(bossAttack[randomAtk].attackWarning);
-            clampName.ActiveMessage(bossAttack[randomAtk].isNormal, true);
+            dialogue.text = bossAttack[randomAtk].attackWarning;
+            StopAllCoroutines();
             StartCoroutine(ActivateAttack(randomAtk, bossAttack[randomAtk].warningWait));
         }
         if (!bossAttack[randomAtk].isNormal)
@@ -68,12 +70,10 @@ public class Boss : MonoBehaviour {
     void moveLeft()
     {
         transform.position += Vector3.left * horizontalSpd * Time.deltaTime;
-        clampName.UpdateTalkPosition();
     }
     void moveRight()
     {
         transform.position += Vector3.right * horizontalSpd * Time.deltaTime;
-        clampName.UpdateTalkPosition();
     }
 
     void horizontalMove()
@@ -103,7 +103,9 @@ public class Boss : MonoBehaviour {
     public void HitBoss()
     {
         health--;
-        healthBar.fillAmount = health/startHealth;
+        float currentHP = health / startHealth;
+        healthBar.fillAmount = currentHP;
+        healthBarTxt.text = (currentHP * 100).ToString() + "%";
         if(health <= 0)
         {
             DestroyObject(gameObject);
@@ -112,7 +114,9 @@ public class Boss : MonoBehaviour {
 
     IEnumerator ActivateAttack(int atk, float waitTime)
     {
+        dialogueCanvas.SetActive(true);
         yield return new WaitForSeconds(bossAttack[atk].warningWait);
+        dialogueCanvas.SetActive(false);
         Instantiate(bossAttack[atk].attack, this.transform.position, this.transform.rotation);
     }
 }

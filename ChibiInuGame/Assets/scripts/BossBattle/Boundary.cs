@@ -15,7 +15,7 @@ public class Boundary : MonoBehaviour {
 	}
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("a");
+
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("dead");

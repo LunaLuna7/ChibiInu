@@ -34,6 +34,8 @@ public class HomingProjectile : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
+            //collision.GetComponent<BBPlayer>().TakeDamage();
+
             DestroyObject(gameObject);
         }
     }

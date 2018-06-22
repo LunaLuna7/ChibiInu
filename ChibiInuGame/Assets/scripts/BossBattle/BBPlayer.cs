@@ -17,7 +17,10 @@ public class BBPlayer : MonoBehaviour {
     private bool movingRight;
     private bool movingLeft;
 
+    private bool inDamageArea;
 
+    //skills
+    public GameObject blackHole;
 
     // Use this for initialization
     void Start()
@@ -27,17 +30,18 @@ public class BBPlayer : MonoBehaviour {
         movingDown = false;
         movingRight = false;
         movingLeft = false;
+        inDamageArea = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        skills();
-        updateDirection();
-        constantMove();
+        Skills();
+        UpdateDirection();
+        ConstantMove();
     }
 
-    void constantMove()
+    void ConstantMove()
     {
         if (movingLeft)
         {
@@ -58,7 +62,7 @@ public class BBPlayer : MonoBehaviour {
 
     }
 
-    void updateDirection()
+    void UpdateDirection()
     {
         if (Input.GetKey(KeyCode.UpArrow))
         {
@@ -90,7 +94,7 @@ public class BBPlayer : MonoBehaviour {
         }
     }
 
-    void skills()
+    void Skills()
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
@@ -104,6 +108,7 @@ public class BBPlayer : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.A))
         {
             Debug.Log("Skill in A");
+            Instantiate(blackHole, gameObject.transform.position, gameObject.transform.rotation);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
@@ -114,6 +119,13 @@ public class BBPlayer : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
+        if (collision.gameObject.tag == "AOE")
+        {
+            inDamageArea = true;
+            StartCoroutine(DamageOverTime());
+        }
+
         if (collision.gameObject.tag == "attack" && immune == false)
         {
             HP--;
@@ -122,6 +134,14 @@ public class BBPlayer : MonoBehaviour {
         if (HP <= 0)
         {
             Debug.Log("you die");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "AOE")
+        {
+            inDamageArea = false;
         }
     }
 
@@ -139,6 +159,15 @@ public class BBPlayer : MonoBehaviour {
         yield return new WaitForSeconds(1f);
         speed = originalSpeed;
         immune = false;
+    }
+
+    IEnumerator DamageOverTime()
+    {
+        while (inDamageArea)
+        {
+            HP--;
+            yield return new WaitForSeconds(2);
+        }
     }
 
 }
