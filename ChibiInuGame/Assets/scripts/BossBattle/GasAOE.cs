@@ -12,7 +12,7 @@ public class GasAOE : MonoBehaviour {
 
     void Start () {
         Gas.position = start.position;
-        DestroyObject(gameObject, 15);
+        DestroyObject(gameObject, 35);
 	}
 	
 	

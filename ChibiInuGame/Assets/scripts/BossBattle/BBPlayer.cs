@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BBPlayer : MonoBehaviour {
 
     [Header("Player attributes")]
-    public int HP;
+    public float HP;
+    private float maxHP; 
     [SerializeField]
     private float speed;
     private float originalSpeed;
     public bool immune;
+
+    public Image healthBar;
+    public Text healthBarTxt;
 
     //bools that keep track of ChibiInu direction
     private bool movingUp;
@@ -25,8 +30,10 @@ public class BBPlayer : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        healthBarTxt.text = "100%";
+        maxHP = HP;
         originalSpeed = speed;
-        movingUp = true;
+        movingUp = false;
         movingDown = false;
         movingRight = false;
         movingLeft = false;
@@ -129,6 +136,17 @@ public class BBPlayer : MonoBehaviour {
         if (collision.gameObject.tag == "attack" && immune == false)
         {
             HP--;
+            float currentHP = HP / maxHP;
+            healthBar.fillAmount = currentHP;
+            healthBarTxt.text = (currentHP * 100).ToString() + "%";
+        }
+
+        if (collision.gameObject.tag == "Boarder")
+        {
+            HP = 0;
+            float currentHP = HP / maxHP;
+            healthBar.fillAmount = currentHP;
+            healthBarTxt.text = (currentHP * 100).ToString() + "%";
         }
 
         if (HP <= 0)
@@ -142,21 +160,22 @@ public class BBPlayer : MonoBehaviour {
         if (collision.gameObject.tag == "AOE")
         {
             inDamageArea = false;
+            StopAllCoroutines();
         }
     }
 
     IEnumerator DashSkill()
     {
-        speed *= 10;
-        yield return new WaitForSeconds(.02f);
-        speed /= 10;
+        speed = 40;
+        yield return new WaitForSeconds(.07f);
+        speed = 4;
     }
 
     IEnumerator HardenSkill()
     {
         speed = 0;
         immune = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         speed = originalSpeed;
         immune = false;
     }
@@ -166,6 +185,9 @@ public class BBPlayer : MonoBehaviour {
         while (inDamageArea)
         {
             HP--;
+            float currentHP = HP / maxHP;
+            healthBar.fillAmount = currentHP;
+            healthBarTxt.text = (currentHP * 100).ToString() + "%";
             yield return new WaitForSeconds(2);
         }
     }

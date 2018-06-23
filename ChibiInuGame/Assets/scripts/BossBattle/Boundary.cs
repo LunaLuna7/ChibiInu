@@ -19,7 +19,7 @@ public class Boundary : MonoBehaviour {
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("dead");
-            DestroyObject(collision.gameObject);
+            //DestroyObject(collision.gameObject);
         }
     }
 }

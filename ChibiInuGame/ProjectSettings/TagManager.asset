@@ -10,6 +10,7 @@ TagManager:
   - NPC
   - Boss
   - AOE
+  - Boarder
   layers:
   - Default
   - TransparentFX
