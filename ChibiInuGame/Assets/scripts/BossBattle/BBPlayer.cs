@@ -27,6 +27,14 @@ public class BBPlayer : MonoBehaviour {
     //skills
     public GameObject blackHole;
 
+    //Cooldown skills
+    public bool dashOn;
+    public float dashCoolDown;
+
+    private bool hardenOn;
+    private bool holeOn;
+    
+
     // Use this for initialization
     void Start()
     {
@@ -38,6 +46,11 @@ public class BBPlayer : MonoBehaviour {
         movingRight = false;
         movingLeft = false;
         inDamageArea = false;
+
+        //coolDown reset
+        dashOn = false;
+        hardenOn = false;
+        holeOn = false;
     }
 
     // Update is called once per frame
@@ -101,16 +114,18 @@ public class BBPlayer : MonoBehaviour {
         }
     }
 
+
     void Skills()
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
             Debug.Log("Skill in W");
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) && dashOn == false)
         {
             Debug.Log("Skill in S");
             StartCoroutine(DashSkill());
+            //speed = originalSpeed;
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -121,8 +136,10 @@ public class BBPlayer : MonoBehaviour {
         {
             Debug.Log("Skill in D");
             StartCoroutine(HardenSkill());
+            //speed = originalSpeed;
         }
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -133,7 +150,7 @@ public class BBPlayer : MonoBehaviour {
             StartCoroutine(DamageOverTime());
         }
 
-        if (collision.gameObject.tag == "attack" && immune == false)
+        else if (collision.gameObject.tag == "attack" && immune == false)
         {
             HP--;
             float currentHP = HP / maxHP;
@@ -141,7 +158,7 @@ public class BBPlayer : MonoBehaviour {
             healthBarTxt.text = (currentHP * 100).ToString() + "%";
         }
 
-        if (collision.gameObject.tag == "Boarder")
+        else if (collision.gameObject.tag == "Boarder")
         {
             HP = 0;
             float currentHP = HP / maxHP;
@@ -155,6 +172,7 @@ public class BBPlayer : MonoBehaviour {
         }
     }
 
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "AOE")
@@ -164,12 +182,17 @@ public class BBPlayer : MonoBehaviour {
         }
     }
 
+
     IEnumerator DashSkill()
     {
+        dashOn = true;
         speed = 40;
         yield return new WaitForSeconds(.07f);
         speed = 4;
+        StartCoroutine(DashInactiveWait());
+        
     }
+
 
     IEnumerator HardenSkill()
     {
@@ -179,6 +202,7 @@ public class BBPlayer : MonoBehaviour {
         speed = originalSpeed;
         immune = false;
     }
+
 
     IEnumerator DamageOverTime()
     {
@@ -190,6 +214,13 @@ public class BBPlayer : MonoBehaviour {
             healthBarTxt.text = (currentHP * 100).ToString() + "%";
             yield return new WaitForSeconds(2);
         }
+    }
+
+
+    IEnumerator DashInactiveWait()
+    {
+        yield return new WaitForSeconds(dashCoolDown);
+        dashOn = false;
     }
 
 }

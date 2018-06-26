@@ -8,6 +8,8 @@ public class HomingProjectile : MonoBehaviour {
     public Rigidbody2D rb;
     public float speed;
     public float rotateSpeed;
+
+    private float counter = 2;
     // Use this for initialization
     void Start()
     {
@@ -32,9 +34,14 @@ public class HomingProjectile : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "AOE")
+        if (collision.gameObject.tag == "Player")
         {
             DestroyObject(gameObject);
         }
+        else if(collision.gameObject.tag == "AOE")
+        {
+            DestroyObject(gameObject, 2);
+        }
     }
+    
 }

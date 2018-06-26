@@ -29,41 +29,23 @@ public class Boss : MonoBehaviour {
     private int Rcount;
     private bool skipNextAtk = false;
 
+    private bool AOE;
+    private bool bossAlive;
 
 
     void Start()
     {
+        bossAlive = true;
+        AOE = false;
         healthBarTxt.text = "100%";
         health = startHealth;
-        InvokeRepeating("triggerAtk", 2f, spawnWait); //(function name, wait seconds since Start, seconds between calls)
+        StartCoroutine(Attack());
         InvokeRepeating("horizontalMove", 2f, horizontalMoveWait);
     }
 
     // Update is called once per frame
     void Update()
     {
-    }
-
-    
-    void triggerAtk()
-    {
-        int randomAtk = Random.Range(0, bossAttack.Count);
-
-
-        if (!skipNextAtk)
-        {
-            dialogue.text = bossAttack[randomAtk].attackWarning;
-            StopAllCoroutines();
-            StartCoroutine(ActivateAttack(randomAtk, bossAttack[randomAtk].warningWait));
-        }
-        if (!bossAttack[randomAtk].isNormal)
-        {
-            skipNextAtk = true;
-        }
-        else
-        {
-            skipNextAtk = false;
-        }
     }
     
 
@@ -112,11 +94,42 @@ public class Boss : MonoBehaviour {
         }
     }
 
-    IEnumerator ActivateAttack(int atk, float waitTime)
+    IEnumerator ActivateAttack(int atk)
     {
+        if(bossAttack[atk].ID == "gas")
+        {
+            AOE = true;
+            StartCoroutine(AllowAOE());
+        }
         dialogueCanvas.SetActive(true);
         yield return new WaitForSeconds(bossAttack[atk].warningWait);
         dialogueCanvas.SetActive(false);
-        Instantiate(bossAttack[atk].attack, this.transform.position, this.transform.rotation);
+        for (int i = bossAttack[atk].repetitions; i > 0; --i)
+        {
+            Instantiate(bossAttack[atk].attack, bossAttack[atk].location.position, bossAttack[atk].location.rotation);
+            yield return new WaitForSeconds(bossAttack[atk].spawnWait);
+        }
+    }
+
+    IEnumerator Attack()
+    {
+        while (bossAlive)
+        {
+            int randomAtk = Random.Range(0, bossAttack.Count);
+            if(bossAttack[randomAtk].ID == "gas" && AOE == true)
+            {
+                continue;
+            }
+            dialogue.text = bossAttack[randomAtk].attackWarning;
+            StartCoroutine(ActivateAttack(randomAtk));
+            Debug.Log("loop");
+            yield return new WaitForSeconds(bossAttack[randomAtk].coolDown);
+        }
+    }
+
+    IEnumerator AllowAOE()
+    {
+        yield return new WaitForSeconds(35);
+        AOE = false;
     }
 }

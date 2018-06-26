@@ -16,9 +16,9 @@ public class BlackHole : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "attack" || collision.gameObject.tag == "AOE")
+        if (collision.gameObject.tag == "attack" || collision.gameObject.tag == "AOE" || collision.gameObject.tag == "Wall")
         {
-            collision.transform.position = Vector3.MoveTowards(collision.transform.position, transform.position, .05f);
+            collision.transform.position = Vector3.MoveTowards(collision.transform.position, transform.position, .1f);//.05
         }
     }
 
