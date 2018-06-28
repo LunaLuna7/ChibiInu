@@ -9,7 +9,7 @@ public class BossAttack{
     public string ID;
     public GameObject attack; //Pysical attack object
     public float spawnWait;       //wait between each repetition of attack
-    public int coolDown;      //how much time to wait for next attack
+    public float coolDown;      //how much time to wait for next attack
     public float warningWait;    //wait between string and actual attack
     public string attackWarning; //string that boss speaks
     public bool isNormal;   //check if special attack to give more wait time and warning

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -62,10 +62,10 @@ public class Boss : MonoBehaviour {
     {
         int randomInt = Random.Range(0, 2);
 
-        if (Lcount > 3 && randomInt == 0)
+        if (Lcount > 4 && randomInt == 0)
             randomInt = 1;
 
-        else if (Rcount > 3 && randomInt == 1)
+        else if (Rcount > 4 && randomInt == 1)
             randomInt = 0;
 
         if (randomInt == 0)

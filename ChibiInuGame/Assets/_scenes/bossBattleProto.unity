@@ -834,7 +834,7 @@ MonoBehaviour:
   - ID: homming
     attack: {fileID: 1785567481030648, guid: 20e68b4d39f6be646a4acc25683d6702, type: 2}
     spawnWait: 0
-    coolDown: 5
+    coolDown: 2
     warningWait: 0
     attackWarning: 
     isNormal: 1
@@ -842,8 +842,8 @@ MonoBehaviour:
     location: {fileID: 485160916}
   - ID: ball
     attack: {fileID: 1515843602358166, guid: 4a12982adc3b0d64092b607876c08788, type: 2}
-    spawnWait: 0.25
-    coolDown: 5
+    spawnWait: 0.15
+    coolDown: 2
     warningWait: 1
     attackWarning: DIE
     isNormal: 1
@@ -864,7 +864,7 @@ MonoBehaviour:
   health: 0
   spawnWait: 2
   horizontalSpd: 50
-  horizontalMoveWait: 2
+  horizontalMoveWait: 1
   dialogueCanvas: {fileID: 366521939}
   dialogue: {fileID: 473767207}
 --- !u!1 &512930818

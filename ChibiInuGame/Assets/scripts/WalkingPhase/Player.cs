@@ -26,7 +26,7 @@ public class Player : MonoBehaviour {
     public bool Isgrounded;
     public SpriteRenderer sprite;
     Rigidbody2D rb;
-
+    
 
     public void Save()
     {
@@ -45,6 +45,7 @@ public class Player : MonoBehaviour {
 
     void Awake()
     {
+        
         originalspd = speed;
         maxJumps = jumpsLeft;
         Isgrounded = true;
@@ -126,7 +127,7 @@ public class Player : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.S))
         {
 
-            speed *= 2;
+            speed *= 3;
             StartCoroutine(regularSpeed());
 
         }
@@ -134,7 +135,7 @@ public class Player : MonoBehaviour {
 
     IEnumerator regularSpeed()
     {
-        yield return new WaitForSeconds(.4f);
+        yield return new WaitForSeconds(.3f);
         speed = originalspd;
     }
 }

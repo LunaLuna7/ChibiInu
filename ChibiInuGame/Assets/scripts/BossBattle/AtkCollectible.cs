@@ -15,7 +15,6 @@ public class AtkCollectible : MonoBehaviour {
         if(collision.gameObject.tag == "Player")
         {
             DestroyObject(gameObject);
-            boss.HitBoss();
         }
     }
 }

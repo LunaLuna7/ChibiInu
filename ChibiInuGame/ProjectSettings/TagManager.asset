@@ -12,6 +12,7 @@ TagManager:
   - AOE
   - Boarder
   - Coin
+  - food
   layers:
   - Default
   - TransparentFX
