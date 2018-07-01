@@ -13,6 +13,7 @@ TagManager:
   - Boarder
   - Coin
   - food
+  - snake
   layers:
   - Default
   - TransparentFX

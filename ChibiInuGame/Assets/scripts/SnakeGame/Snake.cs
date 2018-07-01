@@ -5,6 +5,7 @@ using UnityEngine;
 public class Snake : MonoBehaviour {
 
     private Snake next;
+    static public System.Action<System.String> hit;
 
     public void SetNext(Snake snake)
     {
@@ -21,5 +22,20 @@ public class Snake : MonoBehaviour {
         DestroyObject(this.gameObject);
     }
 
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(hit != null)
+        {
+            hit(collision.tag);
+        }
+
+        if(collision.tag == "food")
+        {
+            Destroy(collision.gameObject);
+        }
+
+        
+    }
+
 }

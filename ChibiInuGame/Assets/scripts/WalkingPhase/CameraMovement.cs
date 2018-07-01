@@ -5,22 +5,47 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour {
 
     private GameObject player;
+    private Rigidbody2D rb;
+    private bool isGrounded;
 
     public float xMin;
     public float xMax;
     public float yMin;
     public float yMax;
 
-	
+    public float smoothUp;
+    public float smoothDown;
+    public float currentHeight;
 	void Start () {
-        player = GameObject.FindGameObjectWithTag("Player");	
-	}
+        player = GameObject.FindGameObjectWithTag("Player");
+        currentHeight = player.transform.position.y;
+        rb = player.GetComponent<Rigidbody2D>();
+        
+    }
 	
 	
 	void LateUpdate () {
         float x = Mathf.Clamp(player.transform.position.x, xMin, xMax);
         float y = Mathf.Clamp(player.transform.position.y, yMin, yMax);
 
-        gameObject.transform.position = new Vector3(x, y, gameObject.transform.position.z);
+        
+        if(player.transform.position.y > currentHeight)
+        {
+            transform.position = Vector3.Lerp(transform.position, new Vector3(x, y + 1f, gameObject.transform.position.z), smoothUp);
+            
+            Debug.Log("Move camera");
+        }
+        else if(player.transform.position.y < currentHeight)
+        {
+            transform.position = Vector3.Lerp(transform.position, new Vector3(x, currentHeight, gameObject.transform.position.z), smoothUp);   
+        }
+        else
+        {
+            currentHeight = player.transform.position.y;
+        }
+        
+        
+       
     }
+    
 }
