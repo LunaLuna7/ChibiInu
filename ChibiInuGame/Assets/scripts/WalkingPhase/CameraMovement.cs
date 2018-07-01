@@ -28,24 +28,26 @@ public class CameraMovement : MonoBehaviour {
         float x = Mathf.Clamp(player.transform.position.x, xMin, xMax);
         float y = Mathf.Clamp(player.transform.position.y, yMin, yMax);
 
-        
-        if(player.transform.position.y > currentHeight)
+       
+        if (player.transform.position.y > currentHeight + 5) //above
         {
-            transform.position = Vector3.Lerp(transform.position, new Vector3(x, y + 1f, gameObject.transform.position.z), smoothUp);
-            
-            Debug.Log("Move camera");
+            //try to do y + some formula that the higher the current height the more you can see below you
+            transform.position = Vector3.Lerp(transform.position, new Vector3(x, y + 1f, gameObject.transform.position.z), smoothUp); //1f
         }
         else if(player.transform.position.y < currentHeight)
         {
-            transform.position = Vector3.Lerp(transform.position, new Vector3(x, currentHeight, gameObject.transform.position.z), smoothUp);   
+            transform.position = Vector3.Lerp(transform.position, new Vector3(x, y + 1f, gameObject.transform.position.z), smoothDown);
         }
-        else
+        else if(player.transform.position.y < currentHeight + 5)
+        {
+            transform.position = Vector3.Lerp(transform.position, new Vector3(x, currentHeight, gameObject.transform.position.z), smoothDown);   
+        }
+        if (rb.velocity.y == 0)
         {
             currentHeight = player.transform.position.y;
         }
-        
-        
        
+        Debug.Log(rb.velocity.y);
     }
     
 }

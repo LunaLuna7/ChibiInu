@@ -209,8 +209,8 @@ MonoBehaviour:
   xMin: -25
   xMax: 25
   yMin: 0
-  yMax: 7
-  smoothUp: 0.05
+  yMax: 10
+  smoothUp: 0.04
   smoothDown: 0.04
   currentHeight: 0
 --- !u!1001 &493148175
@@ -370,13 +370,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 605722354}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.29237175, w: 0.9563048}
   m_LocalPosition: {x: -13.85, y: 5.88, z: 0}
   m_LocalScale: {x: 0.5942053, y: 0.14772584, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -34}
 --- !u!1 &610154123
 GameObject:
   m_ObjectHideFlags: 0
