@@ -56,7 +56,7 @@ public class Player : MonoBehaviour {
 
     void Update()
     {
-        move();
+        move(); 
         Jump();
         JumpGravity();
         Dash();
