@@ -18,8 +18,14 @@ public class PlayerController : MonoBehaviour {
     public int maxJumps;
     public bool grounded;
     public Transform groundCheck;
-    private Rigidbody2D rb;
     public LayerMask groundLayer;
+
+    public bool onWall;
+    public Transform wallCheck;
+    public LayerMask wallLayer;
+    public bool wallSliding;
+
+    private Rigidbody2D rb;
     
 
     void Start()
@@ -43,6 +49,44 @@ public class PlayerController : MonoBehaviour {
             rb.velocity = Vector2.up * jumpPower;
         }
         JumpGravity();
+
+        if (!grounded)
+        {
+            onWall = Physics2D.OverlapCircle(wallCheck.position,.2f, wallLayer);
+            
+            
+            //if(facingRight && Input.GetAxis("Horizontal") > 0.1f || !facingRight && Input.GetAxis("Horizontal") <= 0.1f)
+            //{
+                if (onWall)
+                {
+                    WallSliding();
+                }
+           // }
+        }
+        if(!wallCheck || grounded)
+        {
+            wallSliding = false;
+        }
+    }
+
+    void WallSliding()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, -.5f);
+        wallSliding = true;
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            if (facingRight)
+            {
+                Flip();
+                rb.AddForce(new Vector2(-3, 50) * jumpPower);
+            }
+            else
+            {
+                Flip();
+                rb.AddForce(new Vector2(3, 50) * jumpPower);
+            }
+        }
     }
 
     void FixedUpdate()
@@ -82,4 +126,6 @@ public class PlayerController : MonoBehaviour {
         localScale.x *= -1;
         transform.localScale = localScale;
     }
+
+    
 }
