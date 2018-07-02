@@ -32,7 +32,7 @@ public class CameraMovement : MonoBehaviour {
         if (player.transform.position.y > currentHeight + 5) //above
         {
             //try to do y + some formula that the higher the current height the more you can see below you
-            transform.position = Vector3.Lerp(transform.position, new Vector3(x, y + 1f, gameObject.transform.position.z), smoothUp); //1f
+            transform.position = Vector3.Lerp(transform.position, new Vector3(x, y + 1 , gameObject.transform.position.z), smoothUp); //y + 1f
         }
         else if(player.transform.position.y < currentHeight)
         {
