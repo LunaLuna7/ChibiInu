@@ -16,38 +16,56 @@ public class PlayerController : MonoBehaviour {
     public float moveX;
     public int jumpsLeft;
     public int maxJumps;
+    public int divePower;
+
+    [Space]
     public bool grounded;
     public Transform groundCheck;
     public LayerMask groundLayer;
-
+    [Space]
     public bool onWall;
     public Transform wallCheck;
     public LayerMask wallLayer;
     public bool wallSliding;
+    public bool onDive;
+
+    public float diveCoolDown;
+    public float timetrack;
 
     private Rigidbody2D rb;
     
 
     void Start()
     {
+        onDive = false;
         rb = GetComponent<Rigidbody2D>();
+        jumpsLeft = maxJumps;
+        timetrack = 0;
     }
 
     void Update()
     {
         grounded = Physics2D.Linecast(transform.position, groundCheck.position, groundLayer);
-        if (grounded)
-            jumpsLeft = maxJumps;
 
-        if (Input.GetButtonDown("Jump") && jumpsLeft > 0)
+        if (grounded)
+            onDive = false;
+        
+        
+        if (Input.GetButtonDown("Jump") && grounded)
+        {
+            jumpsLeft = maxJumps;
+            rb.velocity = Vector2.up * jumpPower;
+            if (!onWall)
+                jumpsLeft--;
+            
+        }
+        else if (Input.GetButtonDown("Jump") && jumpsLeft > 0)
         {
             rb.velocity = Vector2.up * jumpPower;
-            jumpsLeft--;
+            if (!onWall)
+                jumpsLeft--;
         }
-        else if (Input.GetButtonDown("Jump") && jumpsLeft == 0 && grounded == true)
-        {
-            rb.velocity = Vector2.up * jumpPower;
-        }
+
         JumpGravity();
 
         if (!grounded)
@@ -56,26 +74,29 @@ public class PlayerController : MonoBehaviour {
             
             
             //if(facingRight && Input.GetAxis("Horizontal") > 0.1f || !facingRight && Input.GetAxis("Horizontal") <= 0.1f)
-            //{
-                if (onWall)
+                if (onWall && !onDive)
                 {
                     WallSliding();
-                }
-           // }
+                }  
         }
         if(!wallCheck || grounded)
         {
             wallSliding = false;
         }
+        if (Input.GetKeyDown(KeyCode.S) && !grounded && timetrack <= Time.time)
+        {
+            Dive();
+        }
     }
 
     void WallSliding()
     {
-        rb.velocity = new Vector2(rb.velocity.x, -.5f);
+        rb.velocity = new Vector2(rb.velocity.x, -1f);
         wallSliding = true;
 
         if (Input.GetButtonDown("Jump"))
         {
+           
             if (facingRight)
             {
                 Flip();
@@ -92,7 +113,9 @@ public class PlayerController : MonoBehaviour {
     void FixedUpdate()
     {
         moveX = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(moveX * speed, rb.velocity.y);
+
+        if(!onDive)
+            rb.velocity = new Vector2(moveX * speed, rb.velocity.y);
 
         if (moveX < 0 && facingRight == true)//moving right
             Flip();
@@ -117,6 +140,13 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    void Dive()
+    {
+        onDive = true;
+        timetrack = diveCoolDown + Time.time;
+        rb.AddForce(new Vector2(0, -100) * divePower);
+        
+    }
 
     void Flip()
     {

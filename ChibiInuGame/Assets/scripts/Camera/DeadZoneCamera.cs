@@ -14,7 +14,7 @@ public class DeadZoneCamera : MonoBehaviour {
 
     public Rect[] limits;
 
-    protected Camera _camera;
+    protected Camera _camera; //used by DeadZonEditor
     protected Vector3 _currentVelocity;
 
 	
