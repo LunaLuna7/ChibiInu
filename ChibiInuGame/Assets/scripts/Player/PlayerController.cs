@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
     public float lowJumpGravity;
     
     [Header("Player States")]
-    public bool facingRight = false;
+    public bool facingRight = true;
     public float moveX;
     public int jumpsLeft;
     public int maxJumps;
@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour {
     public LayerMask wallLayer;
     public bool wallSliding;
     public bool onDive;
+    private bool onJumpPad;
 
     public float diveCoolDown;
     public float timetrack;
@@ -48,24 +49,28 @@ public class PlayerController : MonoBehaviour {
         grounded = Physics2D.Linecast(transform.position, groundCheck.position, groundLayer);
 
         if (grounded)
+            JumpadOff();
             onDive = false;
         
         
         if (Input.GetButtonDown("Jump") && grounded)
         {
+            
             jumpsLeft = maxJumps;
             rb.velocity = Vector2.up * jumpPower;
             if (!onWall)
                 jumpsLeft--;
             
         }
+        
         else if (Input.GetButtonDown("Jump") && jumpsLeft > 0)
         {
+            Debug.Log("double jump");
             rb.velocity = Vector2.up * jumpPower;
             if (!onWall)
                 jumpsLeft--;
         }
-
+        
         JumpGravity();
 
         if (!grounded)
@@ -91,6 +96,7 @@ public class PlayerController : MonoBehaviour {
 
     void WallSliding()
     {
+
         rb.velocity = new Vector2(rb.velocity.x, -1f);
         wallSliding = true;
 
@@ -127,10 +133,10 @@ public class PlayerController : MonoBehaviour {
         if (!onDive)
             rb.velocity = new Vector2(moveX * speed, rb.velocity.y);
 
-        if (moveX < 0 && facingRight == true)//moving right
+        if (moveX < 0 && facingRight == false)//moving right
             Flip();
         
-        else if (moveX > 0 && facingRight == false)//moving left
+        else if (moveX > 0 && facingRight == true)//moving left
             Flip();
 
 
@@ -139,16 +145,23 @@ public class PlayerController : MonoBehaviour {
 
     void JumpGravity()
     {
+
         if (rb.velocity.y < 0) //we are falling
         {
+
             rb.velocity += Vector2.up * Physics2D.gravity.y * (fallGravity - 1) * Time.deltaTime;
-            
+
 
         }
         else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))//tab jump
         {
             rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpGravity - 1) * Time.deltaTime;
         }
+        else if( rb.velocity.y > 0 && Input.GetButton("Jump") && onJumpPad)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpGravity - 1) * Time.deltaTime;
+        }
+
     }
 
     void Dive()
@@ -168,13 +181,7 @@ public class PlayerController : MonoBehaviour {
         transform.localScale = localScale;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("JumpPad"))
-        {
-            //rb.AddForce(new Vector2(0, 1200));
-        }
-    }
+
 
     void OnTriggerEnter2D(Collider2D collide)
     {
@@ -182,13 +189,23 @@ public class PlayerController : MonoBehaviour {
         {
             //to kill enemy, we tell the enemy script
             StateController script = collide.gameObject.GetComponentInParent<StateController>();
-            rb.AddForce(new Vector2(0, 1400));
+            //rb.AddForce(new Vector2(0, 1400));
+            rb.velocity = new Vector2(0,10);
             script.Die();
         }
     }
 
-        public bool isGrounded()
+    public bool isGrounded()
     {
         return grounded;
+    }
+
+    public void JumpadOn()
+    {
+        onJumpPad = true;
+    }
+    public void JumpadOff()
+    {
+        onJumpPad = false;
     }
 }

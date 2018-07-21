@@ -11,15 +11,26 @@ public class StateController : MonoBehaviour {
 
     public List<Transform> patrolLocations;
     [HideInInspector] public int nextPatrolLocation;
+    [HideInInspector] public Rigidbody2D rb;
+    [HideInInspector] public float stateTimeElapsed;
+
+   
+
     public bool playerInRange;
+    private Collider2D col;
+    public Collider2D colOther;
     // Use this for initialization
     void Start () {
         playerInRange = false;
+        col = GetComponent<Collider2D>();
+        Physics2D.IgnoreCollision(colOther.GetComponent<Collider2D>(), col);
+        rb = GetComponent<Rigidbody2D>();
 
     }
 	
 	// Update is called once per frame
 	void Update () {
+        
         currentState.UpdateState(this);
 	}
 
@@ -43,7 +54,7 @@ public class StateController : MonoBehaviour {
 
     public void OnExitState()
     {
-
+        stateTimeElapsed = 0;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -62,4 +73,19 @@ public class StateController : MonoBehaviour {
     {
         Destroy(gameObject);
     }
+
+    public bool CheckIfCountDOwnElapsed(float duration)
+    {
+        stateTimeElapsed += Time.deltaTime;
+        return (stateTimeElapsed >= duration);
+    }
+    /*
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("enemy"))
+        {
+            Physics2D.IgnoreCollision(col, collision.collider);
+        }
+    }*/
+
 }

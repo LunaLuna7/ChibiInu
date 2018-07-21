@@ -11,3 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_scenes/houseProto.unity
     guid: e2f726da95a3b6a4b915e2f9f442e5ab
+  - enabled: 1
+    path: Assets/_scenes/LearningScene.unity
+    guid: 9a55c01e0c224244f8764d7b8f825deb
+  m_configObjects: {}

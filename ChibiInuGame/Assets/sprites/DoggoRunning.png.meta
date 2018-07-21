@@ -1,11 +1,14 @@
 fileFormatVersion: 2
-guid: d6329503f87e9334fa4a1d892b88ebea
+guid: 242794f938b19f2488a3f9566c1bc6ce
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Doggo_0
-    21300002: Doggo_1
-    21300004: Doggo_2
-    21300006: Doggo_3
+    21300000: DoggoRunning_0
+    21300002: DoggoRunning_1
+    21300004: DoggoRunning_2
+    21300006: DoggoRunning_3
+    21300008: DoggoRunning_4
+    21300010: DoggoRunning_5
+    21300012: DoggoRunning_6
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -121,11 +124,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Doggo_0
+      name: DoggoRunning_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 7
+        x: 9
+        y: 23
         width: 90
         height: 68
       alignment: 0
@@ -135,19 +138,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b531d9cc9779b3241b99acf15ee08306
+      spriteID: 386f2b7607f8b4d43bbd629ae33a16d4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doggo_1
+      name: DoggoRunning_1
       rect:
         serializedVersion: 2
-        x: 101
-        y: 4
+        x: 113
+        y: 23
         width: 90
-        height: 72
+        height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,17 +158,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1e1f9b76da43784a9d23c7f3cbd953e
+      spriteID: 44acaa6be80d52c469e17ae886414b02
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doggo_2
+      name: DoggoRunning_2
       rect:
         serializedVersion: 2
-        x: 200
-        y: 2
+        x: 216
+        y: 23
         width: 87
         height: 71
       alignment: 0
@@ -175,17 +178,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f34b6cdeece5e584e9d2378702ed6dfd
+      spriteID: df368f5ed8a256c4289ff8d6e6f3135a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doggo_3
+      name: DoggoRunning_3
       rect:
         serializedVersion: 2
-        x: 299
-        y: 0
+        x: 323
+        y: 23
         width: 81
         height: 71
       alignment: 0
@@ -195,7 +198,67 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7eee8a6974f0bd84d923c4b5f8779e61
+      spriteID: bb8e3414f68485b4bab4bf0c3558a960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoggoRunning_4
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 23
+        width: 81
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b917e012f4dd404e8db927ec0358a5d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoggoRunning_5
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 23
+        width: 77
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb44654c8868e464bbe0d29b866f5963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoggoRunning_6
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 23
+        width: 80
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ad876ef9e33c53438dede0687341516
       vertices: []
       indices: 
       edges: []
@@ -203,7 +266,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ebebe1efd8df2f64c8611f14e4c262de
+    spriteID: 4f35fefc94c8c14409f1fc7fe043ef3d
     vertices: []
     indices: 
     edges: []

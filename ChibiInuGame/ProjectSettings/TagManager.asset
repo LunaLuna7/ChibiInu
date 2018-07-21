@@ -17,6 +17,7 @@ TagManager:
   - JumpPad
   - projectile
   - hurtBox
+  - enemy
   layers:
   - Default
   - TransparentFX

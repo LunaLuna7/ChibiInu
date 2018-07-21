@@ -13,8 +13,9 @@ public class TempPlatform : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        //Transform shake = Mathf.Sin(Time.time * 5) * 10;
+        //transform.position = shake.position;
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -24,7 +25,7 @@ public class TempPlatform : MonoBehaviour {
 
     IEnumerator TempPlatTrigger()
     {
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.3f);
         platform.SetActive(false);
         yield return new WaitForSeconds(inactiveTime);
         platform.SetActive(true);

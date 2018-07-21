@@ -15,5 +15,6 @@ MonoBehaviour:
   moveSpeed: 2
   lookRange: 3
   timeBeforeAttack: 0
-  jumpPower: 0
+  jumpPower: 5
+  jumpRate: 5
   attackDamage: 1

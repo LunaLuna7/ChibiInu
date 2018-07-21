@@ -4,30 +4,18 @@ using UnityEngine;
 
 public class JumpPad : MonoBehaviour {
 
-    public float angle;
-    public float power;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-   
+    public float jumpPower;
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+            PlayerController pc = collision.gameObject.GetComponent<PlayerController>();
 
-            //rb.AddForce(Vector3.up * 300 * power);
-
-            Vector3 dir = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
-            rb.AddForce(dir * 100 * power);
+            rb.velocity = new Vector2(0, jumpPower);
+            pc.JumpadOn();
         }
     }
 }

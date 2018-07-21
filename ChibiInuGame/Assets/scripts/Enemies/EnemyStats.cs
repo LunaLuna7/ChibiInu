@@ -10,5 +10,6 @@ public class EnemyStats : ScriptableObject {
     public float lookRange;
     public float timeBeforeAttack;
     public float jumpPower;
+    public float jumpRate;
     public float attackDamage;
 }
