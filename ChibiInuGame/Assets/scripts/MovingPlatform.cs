@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingWall : MonoBehaviour {
+public class MovingPlatform : MonoBehaviour {
 
-    [Header("Wall locations")]
-    public Transform platform;
-    public Transform positionA;
-    public Transform positionB;
+    [Header("Platform Positions")]
+    public Transform movingPlatform;
+    public Transform position1;
+    public Transform position2;
     public Vector3 newPosition;
 
     [Space]
 
-    [Header("Walls Attributes")]
+    [Header("Platform Attributes")]
     public string state;
-    public float smooth;
+    public float platformVelocity;
     public float movementTime;
 
     void Start()
@@ -24,7 +24,7 @@ public class MovingWall : MonoBehaviour {
 
     void FixedUpdate()
     {
-        platform.position = Vector3.Lerp(platform.position, newPosition, smooth * Time.deltaTime);
+        movingPlatform.position = Vector3.Lerp(movingPlatform.position, newPosition, platformVelocity * Time.deltaTime);
     }
 
     void ChangeTarget()
@@ -32,23 +32,18 @@ public class MovingWall : MonoBehaviour {
         if (state == "Move1")
         {
             state = "Move2";
-            newPosition = positionB.position;
+            newPosition = position2.position;
         }
         else if (state == "Move2")
         {
             state = "Move1";
-            newPosition = positionA.position;
+            newPosition = position1.position;
         }
         else if (state == "")
         {
             state = "Move2";
-            newPosition = positionB.position;
+            newPosition = position2.position;
         }
         Invoke("ChangeTarget", movementTime);
     }
-    /*
-    void moveLeft()
-    {
-        transform.position += Vector3.left * horizontalSpd * Time.deltaTime;
-    }*/
 }

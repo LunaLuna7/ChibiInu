@@ -1,22 +1,17 @@
 fileFormatVersion: 2
-guid: b614159d07d55ba4aa72638bf8e1345b
-timeCreated: 1530504174
-licenseType: Free
+guid: 21054ebebdcb71b419c8bbeed20c9768
 TextureImporter:
   fileIDToRecycleName:
-    21300000: plants_0
-    21300002: plants_1
-    21300004: plants_2
-    21300006: plants_3
-    21300008: plants_4
-    21300010: plants_5
-    21300012: plants_6
-    21300014: plants_7
-    21300016: plants_8
-    21300018: plants_9
-    21300020: plants_10
+    21300000: Bomb1_0
+    21300002: Bomb1_1
+    21300004: Bomb1_2
+    21300006: Bomb1_3
+    21300008: Bomb1_4
+    21300010: Bomb1_5
+    21300012: Bomb1_6
+    21300014: Bomb1_7
   externalObjects: {}
-  serializedVersion: 4
+  serializedVersion: 6
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -34,6 +29,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -42,9 +39,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -56,18 +53,21 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
+  singleChannelComponent: 0
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - buildTarget: DefaultTexturePlatform
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -77,7 +77,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: Standalone
+  - serializedVersion: 2
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -87,7 +88,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: iPhone
+  - serializedVersion: 2
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -97,7 +99,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: Android
+  - serializedVersion: 2
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -107,7 +110,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: WebGL
+  - serializedVersion: 2
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -121,161 +125,173 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: plants_0
+      name: Bomb1_0
       rect:
         serializedVersion: 2
-        x: 110
-        y: 507
-        width: 474
-        height: 249
+        x: 0
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: d66d70dd0afe67342ac9c0bb0f1918ff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
-      name: plants_1
+      name: Bomb1_1
       rect:
         serializedVersion: 2
-        x: 635
-        y: 423
-        width: 547
-        height: 157
+        x: 48
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: f62856971949595459abbe3ee4c7d5a9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
-      name: plants_2
+      name: Bomb1_2
       rect:
         serializedVersion: 2
-        x: 1259
-        y: 574
-        width: 249
-        height: 227
+        x: 96
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b313c2cbd0d79b14ca7282fbf2db685a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
-      name: plants_3
+      name: Bomb1_3
       rect:
         serializedVersion: 2
-        x: 1535
-        y: 63
-        width: 778
-        height: 620
+        x: 144
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b34244d3adfddbe40aea43403473afef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
-      name: plants_4
+      name: Bomb1_4
       rect:
         serializedVersion: 2
-        x: 2318
-        y: 542
-        width: 422
-        height: 287
+        x: 192
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 7a545d1015673e34ba6ed73eb27553dc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
-      name: plants_5
+      name: Bomb1_5
       rect:
         serializedVersion: 2
-        x: 2766
-        y: 143
-        width: 1067
-        height: 619
+        x: 240
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 029e4fd0c6609424082c0324d60c3be8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
-      name: plants_6
+      name: Bomb1_6
       rect:
         serializedVersion: 2
-        x: 140
-        y: 46
-        width: 594
-        height: 332
+        x: 288
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2614a00ef6511e346b56eee0779c19a8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
-      name: plants_7
+      name: Bomb1_7
       rect:
         serializedVersion: 2
-        x: 993
-        y: 291
-        width: 504
-        height: 96
+        x: 336
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
-    - serializedVersion: 2
-      name: plants_8
-      rect:
-        serializedVersion: 2
-        x: 2392
-        y: 132
-        width: 318
-        height: 313
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: plants_9
-      rect:
-        serializedVersion: 2
-        x: 848
-        y: 74
-        width: 227
-        height: 163
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: plants_10
-      rect:
-        serializedVersion: 2
-        x: 1107
-        y: 85
-        width: 252
-        height: 83
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      bones: []
+      spriteID: a4139180fd5d44145913eda1052fd2b0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
+    bones: []
+    spriteID: 9199a3f610cf7074897fea5c5a5b330b
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

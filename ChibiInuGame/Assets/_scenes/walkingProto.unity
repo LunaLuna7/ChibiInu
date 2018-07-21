@@ -404,6 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b201f93b151af4092e2c4a90f3754f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   xMin: -25
   xMax: 25
   yMin: 0
@@ -746,6 +747,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114184466639603556, guid: b9a59a40385f96e438c910bfdcb289d6,
+        type: 2}
+      propertyPath: dialogue.sentences.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4776998562735552, guid: b9a59a40385f96e438c910bfdcb289d6, type: 2}
       propertyPath: m_LocalPosition.x
       value: 4.75
@@ -781,6 +787,11 @@ Prefab:
     - target: {fileID: 1955826312145236, guid: b9a59a40385f96e438c910bfdcb289d6, type: 2}
       propertyPath: m_Name
       value: npc
+      objectReference: {fileID: 0}
+    - target: {fileID: 114184466639603556, guid: b9a59a40385f96e438c910bfdcb289d6,
+        type: 2}
+      propertyPath: dialogue.sentences.Array.data[3]
+      value: i wanna die
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9a59a40385f96e438c910bfdcb289d6, type: 2}

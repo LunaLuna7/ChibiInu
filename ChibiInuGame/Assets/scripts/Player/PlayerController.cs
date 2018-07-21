@@ -157,5 +157,17 @@ public class PlayerController : MonoBehaviour {
         transform.localScale = localScale;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("JumpPad"))
+        {
+            //rb.AddForce(new Vector2(0, 1200));
+        }
+    }
+     
     
+    public bool isGrounded()
+    {
+        return grounded;
+    }
 }
