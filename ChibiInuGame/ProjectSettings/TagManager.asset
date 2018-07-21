@@ -15,6 +15,7 @@ TagManager:
   - food
   - snake
   - JumpPad
+  - projectile
   layers:
   - Default
   - TransparentFX

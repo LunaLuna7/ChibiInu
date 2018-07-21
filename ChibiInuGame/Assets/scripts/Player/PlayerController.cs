@@ -114,7 +114,17 @@ public class PlayerController : MonoBehaviour {
     {
         moveX = Input.GetAxis("Horizontal");
 
-        if(!onDive)
+        if (Input.GetKey(KeyCode.LeftShift) && grounded)
+        {
+            moveX = moveX * 2;
+        }
+
+        else if (Input.GetKey(KeyCode.LeftShift) && !grounded)
+        {
+                moveX = moveX * 1.5f;
+        }
+
+        if (!onDive)
             rb.velocity = new Vector2(moveX * speed, rb.velocity.y);
 
         if (moveX < 0 && facingRight == true)//moving right
@@ -132,6 +142,7 @@ public class PlayerController : MonoBehaviour {
         if (rb.velocity.y < 0) //we are falling
         {
             rb.velocity += Vector2.up * Physics2D.gravity.y * (fallGravity - 1) * Time.deltaTime;
+            
 
         }
         else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))//tab jump
