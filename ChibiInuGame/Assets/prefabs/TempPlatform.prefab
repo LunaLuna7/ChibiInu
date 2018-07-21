@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114691894943990452}
   - component: {fileID: 61324969484798038}
   - component: {fileID: 114487941685015740}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TempPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

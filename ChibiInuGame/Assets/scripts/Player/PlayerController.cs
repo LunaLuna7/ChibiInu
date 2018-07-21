@@ -175,9 +175,19 @@ public class PlayerController : MonoBehaviour {
             //rb.AddForce(new Vector2(0, 1200));
         }
     }
-     
-    
-    public bool isGrounded()
+
+    void OnTriggerEnter2D(Collider2D collide)
+    {
+        if (collide.gameObject.tag == "hurtBox")
+        {
+            //to kill enemy, we tell the enemy script
+            StateController script = collide.gameObject.GetComponentInParent<StateController>();
+            rb.AddForce(new Vector2(0, 1400));
+            script.Die();
+        }
+    }
+
+        public bool isGrounded()
     {
         return grounded;
     }

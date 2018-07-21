@@ -16,6 +16,7 @@ TagManager:
   - snake
   - JumpPad
   - projectile
+  - hurtBox
   layers:
   - Default
   - TransparentFX
