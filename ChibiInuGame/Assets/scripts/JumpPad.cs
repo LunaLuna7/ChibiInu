@@ -9,7 +9,7 @@ public class JumpPad : MonoBehaviour {
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("enemy"))
         {
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
             PlayerController pc = collision.gameObject.GetComponent<PlayerController>();

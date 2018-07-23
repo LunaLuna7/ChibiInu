@@ -13,18 +13,24 @@ public class StateController : MonoBehaviour {
     [HideInInspector] public int nextPatrolLocation;
     [HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public float stateTimeElapsed;
+    [HideInInspector] public GameObject player;
 
-   
+    public GameObject attack;
+    public GameObject arrow;
+    public Transform attackSpawnPosition;
 
     public bool playerInRange;
     private Collider2D col;
-    public Collider2D colOther;
+    public Collider2D colOther = null;
+    
     // Use this for initialization
     void Start () {
         playerInRange = false;
         col = GetComponent<Collider2D>();
-        Physics2D.IgnoreCollision(colOther.GetComponent<Collider2D>(), col);
         rb = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        if(colOther != null)
+            Physics2D.IgnoreCollision(colOther.GetComponent<Collider2D>(), col);
 
     }
 	

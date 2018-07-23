@@ -15,7 +15,7 @@ public class JumpAction : Action {
     {
         if(controller.CheckIfCountDOwnElapsed(controller.enemyStats.jumpRate))
         {
-            Debug.Log("Jump");
+            
             controller.rb.AddForce(new Vector2(0,controller.enemyStats.jumpPower * 100));
             controller.stateTimeElapsed = 0;
             //controller.transform.position = new Vector2(0, 4);

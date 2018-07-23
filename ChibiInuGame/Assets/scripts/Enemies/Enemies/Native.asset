@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 1
   moveSpeed: 2
-  lookRange: 3
-  timeBeforeAttack: 0
-  jumpPower: 5
-  jumpRate: 5
+  lookRange: 2
+  attackRate: 1.7
+  jumpPower: 3
+  jumpRate: 1.5
   attackDamage: 1

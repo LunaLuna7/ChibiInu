@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85c410cb58c887448b8bb852e71fc8dc, type: 3}
-  m_Name: IdlePacifist
+  m_Name: IdleArrowAgressive
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: 1c66eccb30d16ca43832ec6dc6fd5884, type: 2}
+  - {fileID: 11400000, guid: 07f50354da6547041ac16dcf4949e0d5, type: 2}
   transitions:
   - decision: {fileID: 11400000, guid: d41102afb77054944b87738f225f179e, type: 2}
-    trueState: {fileID: 11400000, guid: 2cbca15f1f91f67469197b172b386292, type: 2}
-    falseState: {fileID: 11400000, guid: 2df2c52c7c6bda946ade5ffeb0e813fe, type: 2}
-  sceneGizmoColor: {r: 0, g: 1, b: 0.04155445, a: 1}
+    trueState: {fileID: 11400000, guid: 2df2c52c7c6bda946ade5ffeb0e813fe, type: 2}
+    falseState: {fileID: 11400000, guid: 06ed9bb2f9c549641bd4595d85941591, type: 2}
+  sceneGizmoColor: {r: 1, g: 0, b: 0, a: 1}

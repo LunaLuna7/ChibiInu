@@ -8,13 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f248d87d080f0ec419c9d7e248c18529, type: 3}
-  m_Name: FastNative
+  m_Script: {fileID: 11500000, guid: c4fecf1bebd4c3b4790a732a37f7a445, type: 3}
+  m_Name: ArrowAttackAction
   m_EditorClassIdentifier: 
-  HP: 1
-  moveSpeed: 8
-  lookRange: 2
-  attackRate: 4
-  jumpPower: 0
-  jumpRate: 0
-  attackDamage: 1
