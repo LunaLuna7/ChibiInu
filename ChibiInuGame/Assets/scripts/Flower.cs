@@ -6,6 +6,7 @@ public class Flower : MonoBehaviour {
 
     public GameObject projectile;
     public Transform projectileSpawn;
+    public GameObject mouth;
 
     public float shootRate;
     public float startDelay = 0f;
@@ -22,6 +23,14 @@ public class Flower : MonoBehaviour {
 
     public void Shoot()
     {
+        StartCoroutine(OpenMouth());
         Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation);
+    }
+
+    IEnumerator OpenMouth()
+    {
+        mouth.SetActive(true);
+        yield return new WaitForSeconds(.5f);
+        mouth.SetActive(false);
     }
 }

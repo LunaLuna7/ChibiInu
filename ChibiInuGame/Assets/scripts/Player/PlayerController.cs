@@ -206,6 +206,6 @@ public class PlayerController : MonoBehaviour {
     }
     public void JumpadOff()
     {
-        onJumpPad = false;
+      onJumpPad = false;
     }
 }

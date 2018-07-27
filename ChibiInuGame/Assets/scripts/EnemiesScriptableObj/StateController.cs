@@ -21,7 +21,7 @@ public class StateController : MonoBehaviour {
 
     public bool playerInRange;
     private Collider2D col;
-    public Collider2D colOther = null;
+    public Collider2D IgnoreCollision = null;
     
     // Use this for initialization
     void Start () {
@@ -29,8 +29,8 @@ public class StateController : MonoBehaviour {
         col = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
-        if(colOther != null)
-            Physics2D.IgnoreCollision(colOther.GetComponent<Collider2D>(), col);
+        if(IgnoreCollision != null)
+            Physics2D.IgnoreCollision(IgnoreCollision.GetComponent<Collider2D>(), col);
 
     }
 	

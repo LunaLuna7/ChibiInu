@@ -19,7 +19,7 @@ public class TempPlatform : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerController>().isGrounded())
+        if (collision.gameObject.GetComponent<CharacterController2D>().IsGrounded())
             StartCoroutine(TempPlatTrigger());
     }
 
