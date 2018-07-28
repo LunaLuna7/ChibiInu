@@ -18,6 +18,7 @@ TagManager:
   - projectile
   - hurtBox
   - enemy
+  - LevelChanger
   layers:
   - Default
   - TransparentFX

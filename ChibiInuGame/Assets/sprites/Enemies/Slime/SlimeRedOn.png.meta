@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: 90d066dc82fda074e9b02d85b6a776b5
+guid: 1baf3bc44cdade445b4d3783cba580ad
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Slime_Fire_0
-    21300002: Slime_Fire_1
-    21300004: Slime_Fire_2
-    21300006: Slime_Fire_3
-    21300008: Slime_Fire_4
-    21300010: Slime_Fire_5
-    21300012: Slime_Fire_6
-    21300014: Slime_Fire_7
+    21300000: SlimeRedOn_0
+    21300002: SlimeRedOn_1
+    21300004: SlimeRedOn_2
+    21300006: SlimeRedOn_3
+    21300008: SlimeRedOn_4
+    21300010: SlimeRedOn_5
+    21300012: SlimeRedOn_6
+    21300014: SlimeRedOn_7
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -125,13 +125,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Slime_Fire_0
+      name: SlimeRedOn_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
         width: 80
-        height: 90
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,19 +139,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 064698923734a8c4189e6ea9a7bf4152
+      spriteID: 7399b808cf173ab4fbde9f275420d1d4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Fire_1
+      name: SlimeRedOn_1
       rect:
         serializedVersion: 2
-        x: 86
+        x: 85
         y: 0
         width: 75
-        height: 94
+        height: 95
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,19 +159,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 576c05258e64e4d4e896e65ae14d2c04
+      spriteID: 197ae89078186564aaf042d74858f2d4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Fire_2
+      name: SlimeRedOn_2
       rect:
         serializedVersion: 2
-        x: 169
+        x: 168
         y: 0
         width: 64
-        height: 94
+        height: 103
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,19 +179,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9be6327e9bb925440b4a6ac502f6d249
+      spriteID: 9baa5bcb067c38a4285d3a0de3fc7039
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Fire_3
+      name: SlimeRedOn_3
       rect:
         serializedVersion: 2
-        x: 244
-        y: 5
+        x: 243
+        y: 0
         width: 61
-        height: 88
+        height: 102
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,19 +199,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec2ac516e6de7bc4b94528734cc9694b
+      spriteID: ae65f7e562dd215498d865d3f8ab949d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Fire_4
+      name: SlimeRedOn_4
       rect:
         serializedVersion: 2
-        x: 311
+        x: 310
         y: 0
         width: 67
-        height: 94
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,19 +219,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c486f754d7f1749499b0926ca78efc5b
+      spriteID: 6e74730651402a047b7716916ea267a1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Fire_5
+      name: SlimeRedOn_5
       rect:
         serializedVersion: 2
-        x: 385
+        x: 384
         y: 0
         width: 66
-        height: 84
+        height: 85
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,19 +239,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9c2cc219c08f474d94a3c84affc1d71
+      spriteID: 0d03706e06361b044813be04a713d855
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Fire_6
+      name: SlimeRedOn_6
       rect:
         serializedVersion: 2
-        x: 465
+        x: 464
         y: 0
         width: 71
-        height: 78
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -259,19 +259,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 660cb27c8353f89438ebeefe5760f3c4
+      spriteID: 91767afac1d555a49b2065d848f42935
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Fire_7
+      name: SlimeRedOn_7
       rect:
         serializedVersion: 2
-        x: 549
+        x: 548
         y: 0
         width: 70
-        height: 88
+        height: 89
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,7 +279,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1b0a61adfc25f84f8beeca922fda0da
+      spriteID: cfa3daa91075a144bbfeb449dd12df77
       vertices: []
       indices: 
       edges: []
@@ -287,7 +287,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d6c66600548c89c4eabf61efcea784a5
+    spriteID: 390bda07c2e22224f82999362fff4242
     vertices: []
     indices: 
     edges: []

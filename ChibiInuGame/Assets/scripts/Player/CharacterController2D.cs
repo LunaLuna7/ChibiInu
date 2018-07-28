@@ -20,10 +20,10 @@ public class CharacterController2D : MonoBehaviour {
     private bool m_OnJumpPad = false;
     private int m_AirJumpsLeft;
     private Vector3 m_Velocity = Vector3.zero;
-    private float maxWalkAngel = 85f;
 
 
     void Awake () {
+        
         m_RigidBody2D = GetComponent<Rigidbody2D>();
 	}
 	
@@ -62,7 +62,7 @@ public class CharacterController2D : MonoBehaviour {
         if (m_Grounded && jump)
         {
             m_Grounded = false;
-            m_RigidBody2D.AddForce(new Vector2(0f, m_JumpForce));
+            m_RigidBody2D.AddForce(new Vector2(m_RigidBody2D.velocity.x, m_JumpForce));
         }
 
         //air Jump
@@ -80,7 +80,8 @@ public class CharacterController2D : MonoBehaviour {
 
         if (jump && m_AirJumpsLeft >= 1)
         {
-            m_RigidBody2D.velocity = Vector2.zero;
+
+            m_RigidBody2D.velocity = new Vector2(m_RigidBody2D.velocity.x, 0);
         }
 
         if (m_RigidBody2D.velocity.y < 0) //we are falling
@@ -96,7 +97,6 @@ public class CharacterController2D : MonoBehaviour {
             m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime;
         }
     }
-
 
     void Flip()
     {
@@ -118,6 +118,7 @@ public class CharacterController2D : MonoBehaviour {
         }
     }
 
+ 
    
     //Used by other objects to check Character status
     public bool IsGrounded()

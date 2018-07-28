@@ -7,7 +7,7 @@ public class FireSlime : MonoBehaviour {
     public Animator anim;
     public GameObject hurtBox;
 	void Start () {
-        anim = GetComponentInChildren<Animator>();
+        //anim = GetComponentInChildren<Animator>();
         StartCoroutine(FireAttackOff());
 	}
 	
@@ -21,10 +21,10 @@ public class FireSlime : MonoBehaviour {
         while (true)
         {
             yield return new WaitForSeconds(1f);
-            anim.SetBool("Fire", false);
+            anim.SetBool("FireOn", false);
             hurtBox.SetActive(true);
             yield return new WaitForSeconds(1f);
-            anim.SetBool("Fire", true);
+            anim.SetBool("FireOn", true);
             hurtBox.SetActive(false);
 
         }

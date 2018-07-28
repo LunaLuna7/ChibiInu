@@ -1,15 +1,11 @@
 fileFormatVersion: 2
-guid: 4696949b5bb20844d8fb96eefcbbf5b2
+guid: 26ca3ea748eb4794d854c46729888d58
 TextureImporter:
   fileIDToRecycleName:
-    21300000: G_Slime_0
-    21300002: G_Slime_1
-    21300004: G_Slime_2
-    21300006: G_Slime_3
-    21300008: G_Slime_4
-    21300010: G_Slime_5
-    21300012: G_Slime_6
-    21300014: G_Slime_7
+    21300000: P_slime_0
+    21300002: P_slime_1
+    21300004: P_slime_2
+    21300006: P_slime_3
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -125,161 +121,81 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: G_Slime_0
+      name: P_slime_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 127
+        width: 96
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0289accf897c5446b0f9e6c85ada36e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_slime_1
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 146
+        width: 173
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaf37732f7f92b2459a7ec4fdb500bd9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_slime_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 78
-        height: 62
+        width: 121
+        height: 107
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: faafd08a20a81f2408bc224dc816f068
+      spriteID: a8190ce557a896941aff8f3b4d3424aa
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: G_Slime_1
+      name: P_slime_3
       rect:
         serializedVersion: 2
-        x: 85
-        y: 0
-        width: 75
-        height: 66
+        x: 126
+        y: 32
+        width: 148
+        height: 76
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c9c021acd19d4d4d931d8406a3f7d85
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: G_Slime_2
-      rect:
-        serializedVersion: 2
-        x: 168
-        y: 0
-        width: 63
-        height: 73
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6f25a470f66309e478c41559628308d8
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: G_Slime_3
-      rect:
-        serializedVersion: 2
-        x: 243
-        y: 0
-        width: 59
-        height: 73
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1c069dbf6c26c74a99a0d55afd6ee9b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: G_Slime_4
-      rect:
-        serializedVersion: 2
-        x: 315
-        y: 0
-        width: 59
-        height: 67
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 81cf9cc75c81fb041820bb3f9ea0c198
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: G_Slime_5
-      rect:
-        serializedVersion: 2
-        x: 388
-        y: 0
-        width: 62
-        height: 55
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef7e6741217cb714094b0bd9808b505f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: G_Slime_6
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 0
-        width: 71
-        height: 49
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 902c77db882105f4fa8f1695fd342516
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: G_Slime_7
-      rect:
-        serializedVersion: 2
-        x: 548
-        y: 0
-        width: 70
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 52d2fc5215056754cb2732f4420d4b1f
+      spriteID: a4fcd7ced4a488345b55daedc848b41d
       vertices: []
       indices: 
       edges: []
@@ -287,7 +203,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: a4712531d7d96e04184f545cd676059e
+    spriteID: 25d438b29d91bca4196d592b070bde6c
     vertices: []
     indices: 
     edges: []

@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: 4696949b5bb20844d8fb96eefcbbf5b2
+guid: 516f9cf6f8fd12240afd0b59d6a3af03
 TextureImporter:
   fileIDToRecycleName:
-    21300000: G_Slime_0
-    21300002: G_Slime_1
-    21300004: G_Slime_2
-    21300006: G_Slime_3
-    21300008: G_Slime_4
-    21300010: G_Slime_5
-    21300012: G_Slime_6
-    21300014: G_Slime_7
+    21300000: SlimeRedOff_0
+    21300002: SlimeRedOff_1
+    21300004: SlimeRedOff_2
+    21300006: SlimeRedOff_3
+    21300008: SlimeRedOff_4
+    21300010: SlimeRedOff_5
+    21300012: SlimeRedOff_6
+    21300014: SlimeRedOff_7
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -125,7 +125,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: G_Slime_0
+      name: SlimeRedOff_0
       rect:
         serializedVersion: 2
         x: 0
@@ -133,19 +133,19 @@ TextureImporter:
         width: 78
         height: 62
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: faafd08a20a81f2408bc224dc816f068
+      spriteID: f3f91119b2fed0e45bc8d4ae1d700dbf
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: G_Slime_1
+      name: SlimeRedOff_1
       rect:
         serializedVersion: 2
         x: 85
@@ -153,19 +153,19 @@ TextureImporter:
         width: 75
         height: 66
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c9c021acd19d4d4d931d8406a3f7d85
+      spriteID: 0495f92fd163b914187c84d66572c881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: G_Slime_2
+      name: SlimeRedOff_2
       rect:
         serializedVersion: 2
         x: 168
@@ -173,19 +173,19 @@ TextureImporter:
         width: 63
         height: 73
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f25a470f66309e478c41559628308d8
+      spriteID: d8622fdcdbbe0c64fa542c940577131c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: G_Slime_3
+      name: SlimeRedOff_3
       rect:
         serializedVersion: 2
         x: 243
@@ -193,19 +193,19 @@ TextureImporter:
         width: 59
         height: 73
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1c069dbf6c26c74a99a0d55afd6ee9b
+      spriteID: 08e318002618ca64a9e4e61c72fd6f6e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: G_Slime_4
+      name: SlimeRedOff_4
       rect:
         serializedVersion: 2
         x: 315
@@ -213,19 +213,19 @@ TextureImporter:
         width: 59
         height: 67
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81cf9cc75c81fb041820bb3f9ea0c198
+      spriteID: a6a8cce5973f1a148a544e3776a47822
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: G_Slime_5
+      name: SlimeRedOff_5
       rect:
         serializedVersion: 2
         x: 388
@@ -233,19 +233,19 @@ TextureImporter:
         width: 62
         height: 55
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef7e6741217cb714094b0bd9808b505f
+      spriteID: 0ff180e22b924924ea322ada122251b2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: G_Slime_6
+      name: SlimeRedOff_6
       rect:
         serializedVersion: 2
         x: 464
@@ -253,19 +253,19 @@ TextureImporter:
         width: 71
         height: 49
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 902c77db882105f4fa8f1695fd342516
+      spriteID: fa9c48782c6f77243b3d509734bd748a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: G_Slime_7
+      name: SlimeRedOff_7
       rect:
         serializedVersion: 2
         x: 548
@@ -273,13 +273,13 @@ TextureImporter:
         width: 70
         height: 60
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52d2fc5215056754cb2732f4420d4b1f
+      spriteID: 5c6deef3e99c7444b807183d0ac0de08
       vertices: []
       indices: 
       edges: []
@@ -287,7 +287,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: a4712531d7d96e04184f545cd676059e
+    spriteID: 8ddfcb969500fdf46bf2ee4f631fa596
     vertices: []
     indices: 
     edges: []

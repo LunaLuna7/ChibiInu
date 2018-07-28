@@ -6,12 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_scenes/walkingProto.unity
-    guid: 4a4cf532345efc547beb5c79a83dd1bf
-  - enabled: 1
-    path: Assets/_scenes/houseProto.unity
-    guid: e2f726da95a3b6a4b915e2f9f442e5ab
-  - enabled: 1
-    path: Assets/_scenes/LearningScene.unity
-    guid: 9a55c01e0c224244f8764d7b8f825deb
+    path: Assets/_scenes/Level1.unity
+    guid: adde8df533e68ff4abbc8ec5b395e89f
   m_configObjects: {}

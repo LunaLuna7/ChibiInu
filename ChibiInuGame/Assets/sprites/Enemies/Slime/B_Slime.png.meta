@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: e070f4a9eeccf8c4fbfad0518f78cca8
+guid: 9160d53fd79c8fe4e8f41f8ab601e024
 TextureImporter:
   fileIDToRecycleName:
-    21300000: fire-slime_0
-    21300002: fire-slime_1
-    21300004: fire-slime_2
-    21300006: fire-slime_3
-    21300008: fire-slime_4
-    21300010: fire-slime_5
-    21300012: fire-slime_6
-    21300014: fire-slime_7
+    21300000: B_Slime_0
+    21300002: B_Slime_1
+    21300004: B_Slime_2
+    21300006: B_Slime_3
+    21300008: B_Slime_4
+    21300010: B_Slime_5
+    21300012: B_Slime_6
+    21300014: B_Slime_7
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -125,10 +125,10 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fire-slime_0
+      name: B_Slime_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
         width: 78
         height: 62
@@ -139,16 +139,16 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6173efe9acbf34548b75ccaa4fdd3984
+      spriteID: 80f4c7dee24407d44a71c313b39e1a12
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire-slime_1
+      name: B_Slime_1
       rect:
         serializedVersion: 2
-        x: 86
+        x: 85
         y: 0
         width: 75
         height: 66
@@ -159,16 +159,36 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1d3904a711bff1488db86b9e0e7e15b
+      spriteID: f61720f354c8a8e47a0dd4f6d8a23282
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire-slime_2
+      name: B_Slime_2
       rect:
         serializedVersion: 2
-        x: 173
+        x: 168
+        y: 0
+        width: 63
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 965564b8ce9d99d42978976e9191a469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B_Slime_3
+      rect:
+        serializedVersion: 2
+        x: 243
         y: 0
         width: 59
         height: 73
@@ -179,36 +199,16 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2def4e6302398e14e9b450bd14b75b54
+      spriteID: f606871542f50c44598406e35b347ac1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire-slime_3
+      name: B_Slime_4
       rect:
         serializedVersion: 2
-        x: 244
-        y: 5
-        width: 59
-        height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 394dbabd3d8ba574fb6facb6d0ad76c0
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fire-slime_4
-      rect:
-        serializedVersion: 2
-        x: 316
+        x: 315
         y: 0
         width: 59
         height: 67
@@ -219,16 +219,16 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9afb7146df07080429de9c11a2662e63
+      spriteID: 489e143b45019f7459c11faec5e32ce8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire-slime_5
+      name: B_Slime_5
       rect:
         serializedVersion: 2
-        x: 389
+        x: 388
         y: 0
         width: 62
         height: 55
@@ -239,16 +239,16 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 073ff29ae9d30894cb32e72e4f5c1c0b
+      spriteID: bf47114686785a74f851258f4e823c95
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire-slime_6
+      name: B_Slime_6
       rect:
         serializedVersion: 2
-        x: 465
+        x: 464
         y: 0
         width: 71
         height: 49
@@ -259,16 +259,16 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3dfee41ba58df904c9ccbabee20a2e6b
+      spriteID: d143cdc5dcc398a459bad80c2c3850f0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire-slime_7
+      name: B_Slime_7
       rect:
         serializedVersion: 2
-        x: 549
+        x: 548
         y: 0
         width: 70
         height: 60
@@ -279,7 +279,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c21e9300c4f1ca42bc8c7c6db5747af
+      spriteID: fb1a8ccf90e96e84994db5f9b765c25e
       vertices: []
       indices: 
       edges: []
@@ -287,7 +287,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 9b3fb55ce539d2f41923dba28daf7523
+    spriteID: 062b6f89ad14aa841b94f916bc9f6b01
     vertices: []
     indices: 
     edges: []
