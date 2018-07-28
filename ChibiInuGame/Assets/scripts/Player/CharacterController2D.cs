@@ -113,7 +113,7 @@ public class CharacterController2D : MonoBehaviour {
         {
             //to kill enemy, we tell the enemy script
             //StateController script = collide.gameObject.GetComponentInParent<StateController>();
-            m_RigidBody2D.velocity = new Vector2(0, 10);
+            m_RigidBody2D.velocity = new Vector2(m_RigidBody2D.velocity.x, 25);
             //script.Die();
         }
     }
