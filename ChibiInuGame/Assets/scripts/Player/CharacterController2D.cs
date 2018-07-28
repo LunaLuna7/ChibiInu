@@ -10,6 +10,7 @@ public class CharacterController2D : MonoBehaviour {
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;
     [SerializeField] private LayerMask m_GroundLayer;
     [SerializeField] private Transform m_GroundCheck;
+    [SerializeField] private Transform m_GroundCheck2;
     [SerializeField] private Transform m_HorizontalCheck;
     [SerializeField] private bool m_AirControl = false;
 
@@ -28,7 +29,7 @@ public class CharacterController2D : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-        m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, m_GroundLayer);
+        m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, m_GroundLayer) || Physics2D.Linecast(transform.position, m_GroundCheck2.position, m_GroundLayer);
         if (m_Grounded)
         {
             JumpadOff();
