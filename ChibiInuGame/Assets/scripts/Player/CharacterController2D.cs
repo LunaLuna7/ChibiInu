@@ -15,10 +15,12 @@ public class CharacterController2D : MonoBehaviour {
     [SerializeField] private bool m_AirControl = false;
 
 
-    private Rigidbody2D m_RigidBody2D;
+    [HideInInspector] public Rigidbody2D m_RigidBody2D;
     private bool m_Grounded;
     bool m_FacingRight = true;
     private bool m_OnJumpPad = false;
+    public bool m_Damaged;
+    public bool m_Immune = false;
     private int m_AirJumpsLeft;
     private Vector3 m_Velocity = Vector3.zero;
 
@@ -110,15 +112,17 @@ public class CharacterController2D : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collide)
     {
-        if (collide.gameObject.tag == "hurtBox")
+        if (collide.gameObject.tag == "hurtBox" && this.gameObject.transform.position.y - collide.gameObject.transform.position.y >= 0)
         {
-            //to kill enemy, we tell the enemy script
-            //StateController script = collide.gameObject.GetComponentInParent<StateController>();
             m_RigidBody2D.velocity = new Vector2(m_RigidBody2D.velocity.x, 25);
-            //script.Die();
         }
+        /*
+        if(collide.gameObject.tag == "hitBox")
+        {
+            if(!m_Immune)
+                StartCoroutine(DamageState());
+        }*/
     }
-
  
    
     //Used by other objects to check Character status

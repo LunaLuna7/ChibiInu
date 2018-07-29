@@ -8,6 +8,7 @@ public class StateController : MonoBehaviour {
     public State currentState;
     public EnemyStats enemyStats;
     public State remainState;
+    
 
     public List<Transform> patrolLocations;
     [HideInInspector] public int nextPatrolLocation;
@@ -15,9 +16,9 @@ public class StateController : MonoBehaviour {
     [HideInInspector] public float stateTimeElapsed;
     [HideInInspector] public GameObject player;
 
-    public GameObject attack;
-    public GameObject arrow;
-    public Transform attackSpawnPosition;
+    //public GameObject attack;
+    //public GameObject arrow;
+    //public Transform attackSpawnPosition;
 
     public bool playerInRange;
     private Collider2D col;

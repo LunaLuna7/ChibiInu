@@ -9,7 +9,7 @@ public class hurtBox : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && this.gameObject.transform.position.y - collision.gameObject.transform.position.y < 1)//Player above
         {
             Destroy(EnemyToKill);
         }

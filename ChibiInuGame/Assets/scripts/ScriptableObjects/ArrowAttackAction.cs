@@ -4,12 +4,12 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "PluggableAI/Actions/ArrowAttack")]
 public class ArrowAttackAction : Action {
-
+    
     public override void Act(StateController controller)
     {
-        Arrow(controller);
+        //Arrow(controller);
     }
-
+    /*
     private void Arrow(StateController controller)
     {
         if(!controller.arrow.activeSelf && controller.CheckIfCountDOwnElapsed(1f))
@@ -21,6 +21,6 @@ public class ArrowAttackAction : Action {
             controller.stateTimeElapsed = 0;
             controller.arrow.SetActive(false);
         }
-    }
+    }*/
 
 }

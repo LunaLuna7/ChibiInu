@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4272156696573406}
   - component: {fileID: 61306409579249938}
   - component: {fileID: 114612930885420286}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SeedBoundary
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}

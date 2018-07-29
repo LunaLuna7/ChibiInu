@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 61090398001004468}
   - component: {fileID: 50167598855767716}
   - component: {fileID: 114250076222605620}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DeadBoundary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
