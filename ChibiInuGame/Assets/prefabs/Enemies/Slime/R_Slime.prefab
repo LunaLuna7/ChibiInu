@@ -39,13 +39,42 @@ GameObject:
   - component: {fileID: 4483674792332140}
   - component: {fileID: 61553284867928534}
   - component: {fileID: 114712933466985820}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: hurtBox
   m_TagString: hurtBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1528492973245482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4097397527143260}
+  - component: {fileID: 61442987604464466}
+  m_Layer: 10
+  m_Name: hitBox
+  m_TagString: hitBox
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4097397527143260
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1528492973245482}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4651662843422036}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4483674792332140
 Transform:
   m_ObjectHideFlags: 1
@@ -65,14 +94,40 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1050568256549764}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 434.62534, y: 99.94685, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.315979, y: 14.563029, z: 0.23236431}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 4483674792332140}
+  - {fileID: 4097397527143260}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61442987604464466
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1528492973245482}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.30626088, y: -0.27000004}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.8325218, y: 1.39}
+  m_EdgeRadius: 0
 --- !u!61 &61553284867928534
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -129,6 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 95404969599225986}
   hurtBox: {fileID: 1184452091578726}
+  slimsOnTop: []
 --- !u!114 &114712933466985820
 MonoBehaviour:
   m_ObjectHideFlags: 1
