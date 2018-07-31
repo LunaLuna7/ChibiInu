@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4541441098640004}
   - component: {fileID: 114027227054728498}
-  - component: {fileID: 58290553864891938}
+  - component: {fileID: 60471190040042820}
   m_Layer: 8
   m_Name: JumpPad
   m_TagString: JumpPad
@@ -94,16 +94,16 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1811736333028510}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.581322, y: 0.39, z: 0.1906007}
-  m_LocalScale: {x: 0.119808, y: 0.119808, z: 0.119808}
+  m_LocalPosition: {x: 58.75, y: 7.03, z: 0.7504913}
+  m_LocalScale: {x: 0.11981, y: 0.11981, z: 0.11981}
   m_Children:
   - {fileID: 4341061434814702}
   - {fileID: 4143940906868868}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58290553864891938
-CircleCollider2D:
+--- !u!60 &60471190040042820
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -114,9 +114,29 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -5.55, y: 9.29}
-  serializedVersion: 2
-  m_Radius: 7.41
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -7.876215, y: 18.157578}
+      - {x: -13.345105, y: 16.891335}
+      - {x: -17.161013, y: 14.237731}
+      - {x: -20.284346, y: 10.548927}
+      - {x: -21.474762, y: 7.4296694}
+      - {x: -19.992313, y: 4.772722}
+      - {x: -11.323293, y: 0.8295518}
+      - {x: -0.9944131, y: 0.6600539}
+      - {x: 8.41545, y: 4.412107}
+      - {x: 8.415705, y: 10.566312}
+      - {x: 0.66850334, y: 17.09027}
 --- !u!95 &95659359437609230
 Animator:
   serializedVersion: 3
@@ -146,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11f0f793bba73494d90e0f29b77901e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpPower: 30
+  jumpPower: 45
   jumpAnim: {fileID: 0}
 --- !u!212 &212010989215941310
 SpriteRenderer:
@@ -181,7 +201,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1970243025
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: be1dc593f3610aa43b3d8dc3732556c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -227,7 +247,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1970243025
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 0b5a4916044f34a48bab85c9ebd73903, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

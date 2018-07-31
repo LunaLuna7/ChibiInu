@@ -91,11 +91,11 @@ public class CharacterController2D : MonoBehaviour {
         {
             m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime;
         }
-        else if (m_RigidBody2D.velocity.y > 0 && !Input.GetButton("Jump"))//tab jump
+        else if ((m_RigidBody2D.velocity.y > 0 || m_OnJumpPad) && !Input.GetButton("Jump"))//tab jump
         {
             m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime;
         }
-        else if (m_RigidBody2D.velocity.y > 0 && Input.GetButton("Jump") && m_OnJumpPad)
+        else if ((m_RigidBody2D.velocity.y > 0 || m_OnJumpPad )&& Input.GetButton("Jump") && m_OnJumpPad)
         {
             m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime;
         }
