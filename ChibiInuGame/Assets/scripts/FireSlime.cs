@@ -6,15 +6,18 @@ public class FireSlime : MonoBehaviour {
 
     public Animator anim;
     public GameObject hurtBox;
-
-    public List<GameObject> slimsOnTop;
+    public bool vunerable = true;
+    public float startDelay = 0f;
+    public List<GameObject>slimsOnTop;
     private bool triggeredOnce = false;
 
 	void Start () {
+        anim.SetBool("FireOn", true);
+        hurtBox.SetActive(false);
         //anim = GetComponentInChildren<Animator>();
         //StartCoroutine(FireAttackOff());
-       
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -32,19 +35,21 @@ public class FireSlime : MonoBehaviour {
         if(counter == slimsOnTop.Count && !triggeredOnce)
         {
             triggeredOnce = true;
-            StartCoroutine(FireAttackOff());
+            if(vunerable)
+                StartCoroutine(FireAttackOff());
 
         }
 	}
 
     IEnumerator FireAttackOff()
     {
+        yield return new WaitForSeconds(startDelay);
         while (true)
         {
             yield return new WaitForSeconds(1f);
             anim.SetBool("FireOn", false);
             hurtBox.SetActive(true);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.5f);
             anim.SetBool("FireOn", true);
             hurtBox.SetActive(false);
 

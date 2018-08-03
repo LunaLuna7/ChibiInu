@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_scenes/Level1.unity
+    path: Assets/_scenes/LevelSelect.unity
+    guid: 9879acd21713b2842aa3bfab324830d1
+  - enabled: 1
+    path: Assets/_scenes/ForestWorld/Level1.unity
     guid: adde8df533e68ff4abbc8ec5b395e89f
+  - enabled: 1
+    path: Assets/_scenes/ForestWorld/BulletHell.unity
+    guid: 002394a0ca71a9f4282d232e8ffd377a
   m_configObjects: {}

@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class LvlSelectMovement : MonoBehaviour {
 
     public LevelSelectManager levelSelectManager;
+    public LevelChanger levelChanger;
     public int position;
     public Text levelName;
+    
 
     private const float speed = 10f;
     float moveX;
@@ -29,6 +32,10 @@ public class LvlSelectMovement : MonoBehaviour {
         if(transform.position == levelSelectManager.levels[position].transform.position)
         {
             levelName.text = levelSelectManager.levels[position].name;
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                levelChanger.FadeToLevel(position + 1);
+            }
         }
 
         if (moveX > 0 && transform.position == levelSelectManager.levels[position].transform.position)
@@ -43,6 +50,7 @@ public class LvlSelectMovement : MonoBehaviour {
                 position -= 1;
         }
 
+        
 
     }
 
