@@ -20,6 +20,7 @@ TagManager:
   - enemy
   - LevelChanger
   - hitBox
+  - Boundary
   layers:
   - Default
   - TransparentFX

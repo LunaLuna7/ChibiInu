@@ -116,12 +116,7 @@ public class CharacterController2D : MonoBehaviour {
         {
             m_RigidBody2D.velocity = new Vector2(m_RigidBody2D.velocity.x, 25);
         }
-        /*
-        if(collide.gameObject.tag == "hitBox")
-        {
-            if(!m_Immune)
-                StartCoroutine(DamageState());
-        }*/
+       
     }
  
    
