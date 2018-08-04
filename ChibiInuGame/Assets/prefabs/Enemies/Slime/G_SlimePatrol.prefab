@@ -333,6 +333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1306293244890892}
+  stateController: {fileID: 0}
 --- !u!114 &114768002654044588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -345,7 +346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: {fileID: 11400000, guid: 10a152b5cf567e1419739e5a0db7a708, type: 2}
-  enemyStats: {fileID: 11400000, guid: b5a17249b30ade74f8ec2caec091fd74, type: 2}
+  enemyStats: {fileID: 11400000, guid: 7a2a365f111a4cf4a867ed518095fc0c, type: 2}
   remainState: {fileID: 11400000, guid: 2df2c52c7c6bda946ade5ffeb0e813fe, type: 2}
   patrolLocations:
   - {fileID: 4621148353907250}

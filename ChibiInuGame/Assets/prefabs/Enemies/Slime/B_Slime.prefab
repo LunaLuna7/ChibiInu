@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 212951152129892654}
   - component: {fileID: 95964706477441782}
   - component: {fileID: 114533821236939120}
+  - component: {fileID: 114886209947646260}
+  - component: {fileID: 50043774147039508}
   m_Layer: 0
   m_Name: B_Slime
   m_TagString: Untagged
@@ -102,6 +104,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50043774147039508
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1050568256549764}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!61 &61553284867928534
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -172,6 +194,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1050568256549764}
+  stateController: {fileID: 0}
+--- !u!114 &114886209947646260
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1050568256549764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c06965ad3e76d474a8458ed8cf3415d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: {fileID: 11400000, guid: 06ed9bb2f9c549641bd4595d85941591, type: 2}
+  enemyStats: {fileID: 11400000, guid: d10791884ddc2da418e4f3b68462bb9e, type: 2}
+  remainState: {fileID: 11400000, guid: 2df2c52c7c6bda946ade5ffeb0e813fe, type: 2}
+  patrolLocations: []
+  nextPatrolLocation: 0
+  rb: {fileID: 0}
+  stateTimeElapsed: 0
+  player: {fileID: 0}
+  playerInRange: 0
+  IgnoreCollision: {fileID: 0}
 --- !u!212 &212951152129892654
 SpriteRenderer:
   m_ObjectHideFlags: 1

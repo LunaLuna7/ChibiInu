@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_scenes/ForestWorld/BulletHell.unity
     guid: 002394a0ca71a9f4282d232e8ffd377a
+  - enabled: 1
+    path: Assets/_scenes/ForestWorld/IntoTheCave.unity
+    guid: b3d6492d039b4be41a54b893d5580a1e
   m_configObjects: {}

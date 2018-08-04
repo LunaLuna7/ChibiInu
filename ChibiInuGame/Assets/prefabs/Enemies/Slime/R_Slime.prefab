@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 212951152129892654}
   - component: {fileID: 95404969599225986}
   - component: {fileID: 114585785677511878}
+  - component: {fileID: 114081208562725752}
+  - component: {fileID: 50755982717499008}
   m_Layer: 0
   m_Name: R_Slime
   m_TagString: Untagged
@@ -103,6 +105,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50755982717499008
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1050568256549764}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!61 &61442987604464466
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -171,6 +193,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114081208562725752
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1050568256549764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c06965ad3e76d474a8458ed8cf3415d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: {fileID: 11400000, guid: 06ed9bb2f9c549641bd4595d85941591, type: 2}
+  enemyStats: {fileID: 11400000, guid: 2ac374e9f07e7f44faaa8f08fe2db390, type: 2}
+  remainState: {fileID: 11400000, guid: 2df2c52c7c6bda946ade5ffeb0e813fe, type: 2}
+  patrolLocations: []
+  nextPatrolLocation: 0
+  rb: {fileID: 0}
+  stateTimeElapsed: 0
+  player: {fileID: 0}
+  playerInRange: 0
+  IgnoreCollision: {fileID: 0}
 --- !u!114 &114585785677511878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,6 +227,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 95404969599225986}
   hurtBox: {fileID: 1184452091578726}
+  vunerable: 1
+  startDelay: 0
   slimsOnTop: []
 --- !u!114 &114712933466985820
 MonoBehaviour:
@@ -197,6 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1050568256549764}
+  stateController: {fileID: 0}
 --- !u!212 &212951152129892654
 SpriteRenderer:
   m_ObjectHideFlags: 1

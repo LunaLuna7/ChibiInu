@@ -240,7 +240,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61223661174052288
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -322,6 +322,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 95243903913738944}
   hurtBox: {fileID: 1755401091730642}
+  vunerable: 1
+  startDelay: 0
   slimsOnTop: []
 --- !u!114 &114353916101127686
 MonoBehaviour:
@@ -335,6 +337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1875949964335200}
+  stateController: {fileID: 0}
 --- !u!114 &114956992709248430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -347,7 +350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: {fileID: 11400000, guid: 10a152b5cf567e1419739e5a0db7a708, type: 2}
-  enemyStats: {fileID: 11400000, guid: b5a17249b30ade74f8ec2caec091fd74, type: 2}
+  enemyStats: {fileID: 11400000, guid: 2ac374e9f07e7f44faaa8f08fe2db390, type: 2}
   remainState: {fileID: 11400000, guid: 2df2c52c7c6bda946ade5ffeb0e813fe, type: 2}
   patrolLocations:
   - {fileID: 4784819565403704}

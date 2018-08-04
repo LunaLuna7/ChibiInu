@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: {fileID: 11400000, guid: 10a152b5cf567e1419739e5a0db7a708, type: 2}
-  enemyStats: {fileID: 11400000, guid: b5a17249b30ade74f8ec2caec091fd74, type: 2}
+  enemyStats: {fileID: 11400000, guid: d10791884ddc2da418e4f3b68462bb9e, type: 2}
   remainState: {fileID: 11400000, guid: 2df2c52c7c6bda946ade5ffeb0e813fe, type: 2}
   patrolLocations:
   - {fileID: 4642671474557342}
@@ -403,6 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1461122285966986}
+  stateController: {fileID: 0}
 --- !u!212 &212134597578680722
 SpriteRenderer:
   m_ObjectHideFlags: 1

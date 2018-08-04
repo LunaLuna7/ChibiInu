@@ -134,8 +134,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 2.3056452}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4641777754639064}
   - {fileID: 4752885745565934}
+  - {fileID: 4641777754639064}
   m_Father: {fileID: 4207883219375824}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -146,7 +146,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1151064472516288}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 114.226776, y: 10.188858, z: -2.1948838}
+  m_LocalPosition: {x: 66.8, y: 31.4, z: -2.1948838}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4109177515469096}
@@ -178,7 +178,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4109177515469096}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4752714043760918
 Transform:
@@ -206,7 +206,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4109177515469096}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4922790901830742
 Transform:
@@ -348,7 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: {fileID: 11400000, guid: 10a152b5cf567e1419739e5a0db7a708, type: 2}
-  enemyStats: {fileID: 11400000, guid: b5a17249b30ade74f8ec2caec091fd74, type: 2}
+  enemyStats: {fileID: 11400000, guid: 4e93ade658c01ce459f938b74c64f405, type: 2}
   remainState: {fileID: 11400000, guid: 2df2c52c7c6bda946ade5ffeb0e813fe, type: 2}
   patrolLocations:
   - {fileID: 4922790901830742}
@@ -371,6 +371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1151064472516288}
+  stateController: {fileID: 114142600458513216}
 --- !u!212 &212034652151061884
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -403,8 +404,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1970243025
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 318581c3bec058d4493428c001045e86, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
