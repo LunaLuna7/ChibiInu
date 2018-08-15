@@ -22,8 +22,9 @@ public class SpriteMask : MonoBehaviour {
     bool itemOn = false;
 	// Use this for initialization
 	void Start () {
-		
-	}
+        transform.localScale = new Vector3(0, 0, 1);
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -57,11 +58,18 @@ public class SpriteMask : MonoBehaviour {
 
     void SlowlyShrink()
     {
-        if(transform.localScale.x > 1f && transform.localScale.y > 1f)
+        if(transform.localScale.x > 0f && transform.localScale.y > 0f)
             transform.localScale = new Vector3(transform.localScale.x - shrinkRate, transform.localScale.y - shrinkRate, transform.localScale.z);
         else
         {
             itemOn = false;
         }
+    }
+
+    public void LightUp()
+    {
+        transform.localScale = new Vector3(transform.localScale.x + itemAddSize, transform.localScale.y + itemAddSize, transform.localScale.z);
+        itemOn = true;
+
     }
 }

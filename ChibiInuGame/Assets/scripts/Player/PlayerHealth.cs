@@ -10,23 +10,17 @@ public class PlayerHealth : MonoBehaviour {
     public CharacterController2D controller;
     public SpriteRenderer m_SpriteRender;
 
-    // Use this for initialization
+
     void Awake () {
         levelChanger = GameObject.FindGameObjectWithTag("LevelChanger").GetComponent<LevelChanger>();
         m_SpriteRender = GetComponent<SpriteRenderer>();
     }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     
     void OnTriggerStay2D(Collider2D collide)
     {
         if (collide.gameObject.tag == "hurtBox")
         {
-            
             controller.m_RigidBody2D.velocity = new Vector2(controller.m_RigidBody2D.velocity.x, 25);
         }
         if (collide.gameObject.tag == "hitBox")
@@ -35,7 +29,6 @@ public class PlayerHealth : MonoBehaviour {
             {
                 StartCoroutine(BlinkSprite());
                 StartCoroutine(DamageState());
-                
             }
         }
     }
@@ -59,11 +52,11 @@ public class PlayerHealth : MonoBehaviour {
             yield return new WaitForSeconds(.05f);
             if (m_SpriteRender.enabled == true)
             {
-                m_SpriteRender.enabled = false;  //make changes
+                m_SpriteRender.enabled = false;
             }
             else
             {
-                m_SpriteRender.enabled = true;   //make changes
+                m_SpriteRender.enabled = true;
             }
         }
     }

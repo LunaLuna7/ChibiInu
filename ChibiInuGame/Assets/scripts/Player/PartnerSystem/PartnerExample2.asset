@@ -11,8 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b889d70a5b3cb5f41ae59adab84a77fe, type: 3}
   m_Name: PartnerExample2
   m_EditorClassIdentifier: 
-  partnerName: BOMB
+  partnerName: Light
   partnerID: 1
   unlocked: 1
   selected: 0
   image: {fileID: 21300000, guid: 3e40b9e7bfa898c418ebc16df491cccb, type: 3}
+  skillInfo: Shines

@@ -6,66 +6,136 @@ using UnityEngine.UI;
 public class PartnerUI : MonoBehaviour {
 
     public PartnerManager partnerManager;
-    private Partner currentPartner;
-    public Text partnerName;
-    public Text partnerSkillInfo;
-    public Image partnerPicture;
 
-	// Use this for initialization
-	void Start () {
-        currentPartner = partnerManager.allPartners[0];
-        partnerName.text = currentPartner.partnerName.ToString();
-        partnerPicture.sprite = currentPartner.image;
-        partnerSkillInfo.text = currentPartner.skillInfo;
+    private Partner currentLeftPartner;
+    public Text partnerLeftName;
+    public Image partnerLeftPicture;
+    public Text partnerLeftSkillInfo;
+   
+    [Space]
+
+    private Partner currentRightPartner;
+    public Text partnerRightName;
+    public Image partnerRightPicture;
+    public Text partnerRightSkillInfo;
+    
+
+    void Start () {
+        currentLeftPartner = partnerManager.allPartners[0];
+        partnerLeftName.text = currentLeftPartner.partnerName.ToString();
+        partnerLeftPicture.sprite = currentLeftPartner.image;
+        partnerLeftSkillInfo.text = currentLeftPartner.skillInfo;
+
+        currentRightPartner = partnerManager.allPartners[1];
+        partnerRightName.text = currentRightPartner.partnerName.ToString();
+        partnerRightPicture.sprite = currentRightPartner.image;
+        partnerRightSkillInfo.text = currentRightPartner.skillInfo;
 		
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-    
 
     public void RightArrow()
     {
-        int next = (currentPartner.partnerID + 1) % partnerManager.allPartners.Count;
-        while (!partnerManager.allPartners[next].unlocked )
+        int leftNext = (currentLeftPartner.partnerID + 2) % partnerManager.allPartners.Count;
+        int rightNext = (currentRightPartner.partnerID + 2) % partnerManager.allPartners.Count;
+
+        while (!partnerManager.allPartners[leftNext].unlocked)
         {
-            next = (next + 1) % partnerManager.allPartners.Count;
+            leftNext = (leftNext + 2) % partnerManager.allPartners.Count;
         }
-        
-        currentPartner = partnerManager.allPartners[next];
-        partnerName.text = currentPartner.partnerName.ToString();
-        partnerPicture.sprite = currentPartner.image;
-        partnerSkillInfo.text = currentPartner.skillInfo;
+
+        while (!partnerManager.allPartners[rightNext].unlocked)
+        {
+            rightNext = (rightNext + 2) % partnerManager.allPartners.Count;
+        }
+
+        currentLeftPartner = partnerManager.allPartners[leftNext];
+        partnerLeftName.text = currentLeftPartner.partnerName.ToString();
+        partnerLeftPicture.sprite = currentLeftPartner.image;
+        partnerLeftSkillInfo.text = currentLeftPartner.skillInfo;
+
+        currentRightPartner = partnerManager.allPartners[rightNext];
+        partnerRightName.text = currentRightPartner.partnerName.ToString();
+        partnerRightPicture.sprite = currentRightPartner.image;
+        partnerRightSkillInfo.text = currentRightPartner.skillInfo;
     }
 
     public void LeftArrow()
     {
-        int next = (currentPartner.partnerID - 1) % partnerManager.allPartners.Count;
-        while (!partnerManager.allPartners[next].unlocked)
+        int leftNext = (currentLeftPartner.partnerID - 2) % partnerManager.allPartners.Count;
+        int rightNext = (currentRightPartner.partnerID - 2) % partnerManager.allPartners.Count;
+
+        while (!partnerManager.allPartners[leftNext].unlocked)
         {
-            next = (next - 1) % partnerManager.allPartners.Count;
+            leftNext = (leftNext - 2) % partnerManager.allPartners.Count;
         }
 
-        currentPartner = partnerManager.allPartners[next];
-        partnerName.text = currentPartner.partnerName.ToString();
-        partnerPicture.sprite = currentPartner.image;
-        partnerSkillInfo.text = currentPartner.skillInfo;
+        while (!partnerManager.allPartners[rightNext].unlocked)
+        {
+            rightNext = (rightNext - 2) % partnerManager.allPartners.Count;
+        }
+
+        currentLeftPartner = partnerManager.allPartners[leftNext];
+        partnerLeftName.text = currentLeftPartner.partnerName.ToString();
+        partnerLeftPicture.sprite = currentLeftPartner.image;
+        partnerLeftSkillInfo.text = currentLeftPartner.skillInfo;
+
+        currentRightPartner = partnerManager.allPartners[rightNext];
+        partnerRightName.text = currentRightPartner.partnerName.ToString();
+        partnerRightPicture.sprite = currentRightPartner.image;
+        partnerRightSkillInfo.text = currentRightPartner.skillInfo;
     }
 
-    public void QSkill()
+    public void QRightSkill()
     {
-        partnerManager.AssignQSkillSlot(currentPartner.partnerID);
+        partnerManager.AssignQSkillSlot(currentRightPartner.partnerID);
+        partnerManager.allPartners[currentRightPartner.partnerID].selected = true;
+        partnerManager.partners[currentRightPartner.partnerID].transform.position = partnerManager.partnerSpawnLocations[currentRightPartner.partnerID].position;
+        partnerManager.partners[currentRightPartner.partnerID].SetActive(true);
+        
     }
 
-    public void WSkill()
+    public void WRightSkill()
     {
-        partnerManager.AssignWSkillSlot(currentPartner.partnerID);
+        partnerManager.AssignWSkillSlot(currentRightPartner.partnerID);
+        partnerManager.allPartners[currentRightPartner.partnerID].selected = true;
+        partnerManager.partners[currentRightPartner.partnerID].transform.position = partnerManager.partnerSpawnLocations[currentRightPartner.partnerID].position;
+        partnerManager.partners[currentRightPartner.partnerID].SetActive(true);
     }
 
-    public void ESkill()
+    public void ERightSkill()
     {
-        partnerManager.AssignESkillSlot(currentPartner.partnerID);
+        partnerManager.AssignESkillSlot(currentRightPartner.partnerID);
+        partnerManager.allPartners[currentRightPartner.partnerID].selected = true;
+        partnerManager.partners[currentRightPartner.partnerID].transform.position = partnerManager.partnerSpawnLocations[currentRightPartner.partnerID].position;
+        partnerManager.partners[currentRightPartner.partnerID].SetActive(true);
     }
+
+    public void QLeftSkill()
+    {
+        partnerManager.AssignQSkillSlot(currentLeftPartner.partnerID);
+        partnerManager.allPartners[currentLeftPartner.partnerID].selected = true;
+        partnerManager.partners[currentLeftPartner.partnerID].transform.position = partnerManager.partnerSpawnLocations[currentLeftPartner.partnerID].position;
+        partnerManager.partners[currentLeftPartner.partnerID].SetActive(true);
+
+    }
+
+    public void WLeftSkill()
+    {
+        partnerManager.AssignWSkillSlot(currentLeftPartner.partnerID);
+        partnerManager.allPartners[currentLeftPartner.partnerID].selected = true;
+        partnerManager.partners[currentLeftPartner.partnerID].transform.position = partnerManager.partnerSpawnLocations[currentLeftPartner.partnerID].position;
+        partnerManager.partners[currentLeftPartner.partnerID].SetActive(true);
+    }
+
+    public void ELeftSkill()
+    {
+        partnerManager.AssignESkillSlot(currentLeftPartner.partnerID);
+        partnerManager.allPartners[currentLeftPartner.partnerID].selected = true;
+        partnerManager.partners[currentLeftPartner.partnerID].transform.position = partnerManager.partnerSpawnLocations[currentLeftPartner.partnerID].position;
+        partnerManager.partners[currentLeftPartner.partnerID].SetActive(true);
+    }
+
+
+
 }

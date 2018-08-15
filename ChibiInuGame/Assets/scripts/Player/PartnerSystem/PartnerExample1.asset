@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b889d70a5b3cb5f41ae59adab84a77fe, type: 3}
   m_Name: PartnerExample1
   m_EditorClassIdentifier: 
-  partnerName: Archer
+  partnerName: PlatformWizard
   partnerID: 0
   unlocked: 1
   selected: 0
