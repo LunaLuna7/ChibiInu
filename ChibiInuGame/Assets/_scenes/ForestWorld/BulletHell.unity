@@ -37409,6 +37409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newCheckPoint: 3
+  book: {fileID: 0}
 --- !u!1001 &539603648
 Prefab:
   m_ObjectHideFlags: 0
@@ -38571,6 +38572,11 @@ Prefab:
         type: 2}
       propertyPath: runSpeed
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 114315122488471298, guid: c6b571c349e83944faa1834deb832e5c,
+        type: 2}
+      propertyPath: m_AirJumps
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6b571c349e83944faa1834deb832e5c, type: 2}
@@ -41098,6 +41104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newCheckPoint: 2
+  book: {fileID: 0}
 --- !u!1001 &1227267892
 Prefab:
   m_ObjectHideFlags: 0
@@ -68405,6 +68412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newCheckPoint: 1
+  book: {fileID: 0}
 --- !u!1001 &2055713564
 Prefab:
   m_ObjectHideFlags: 0

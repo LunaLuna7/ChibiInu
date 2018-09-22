@@ -44,16 +44,20 @@ public class PartnerManager : MonoBehaviour {
         switch (partnerCode)
         {
             case 0:
-                skill = CreateMagicPlatform;
-                
+                characterController.m_AirJumps = 1;
+                skill = DoubleJump;
                 break;
+
             case 1:
                 skill = LightPartner;
                 break;
 
             case 2:
-                characterController.m_AirJumps = 1;
-                skill = DoubleJump;
+                skill = CreateMagicPlatform;
+                break;
+
+            case 7:
+                skill = NoSkill;
                 break;
            
         }
@@ -81,4 +85,6 @@ public class PartnerManager : MonoBehaviour {
     {
         characterController.m_AirJumps = 1;
     }
+
+    public void NoSkill() { }
 }

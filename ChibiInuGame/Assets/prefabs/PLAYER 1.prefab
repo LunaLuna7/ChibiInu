@@ -101,7 +101,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1957829206356312}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.46, y: -0.33, z: 0}
+  m_LocalPosition: {x: -1.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4981810698456138}
@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_JumpForce: 900
-  m_AirJumps: 1
+  m_AirJumps: 0
   m_FallGravity: 4
   m_MovementSmoothing: 0.05
   m_GroundLayer:
@@ -290,6 +290,7 @@ MonoBehaviour:
   m_HorizontalCheck: {fileID: 4738573377972002}
   m_AirControl: 1
   m_RigidBody2D: {fileID: 0}
+  m_FacingRight: 1
   m_Damaged: 0
   m_Immune: 0
 --- !u!114 &114966116211257704
