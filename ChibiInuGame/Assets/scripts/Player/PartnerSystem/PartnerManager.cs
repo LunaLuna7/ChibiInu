@@ -86,5 +86,10 @@ public class PartnerManager : MonoBehaviour {
         characterController.m_AirJumps = 1;
     }
 
-    public void NoSkill() { }
+    public void NoSkill() {}
+
+    public void Hookshot()
+    {
+        //add arrow partner
+    }
 }

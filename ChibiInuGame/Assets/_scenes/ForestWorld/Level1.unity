@@ -81973,8 +81973,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -28.981049}
-  m_SizeDelta: {x: 100, y: 57.962097}
+  m_AnchoredPosition: {x: 50, y: -29.247726}
+  m_SizeDelta: {x: 100, y: 58.495453}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &853659351
 GameObject:
@@ -83860,7 +83860,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.03029605, y: 0.22328849}
   m_AnchorMax: {x: 0.96700007, y: 0.66428846}
-  m_AnchoredPosition: {x: -0.5, y: 3.8925972}
+  m_AnchoredPosition: {x: -0.5, y: 3.8926735}
   m_SizeDelta: {x: 1.8, y: 4.45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1137310715
@@ -90131,8 +90131,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 163.91937, y: -28.981049}
-  m_SizeDelta: {x: 100, y: 57.962097}
+  m_AnchoredPosition: {x: 164.85742, y: -29.247726}
+  m_SizeDelta: {x: 100, y: 58.495453}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1668391993
 GameObject:
@@ -112117,7 +112117,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1803934979}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.0455117, y: 3.1106925, z: -10.09375}
+  m_LocalPosition: {x: -1.7431024, y: 2.108173, z: -10.09375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 12305083}
@@ -112950,8 +112950,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 391.75812, y: -28.981049}
-  m_SizeDelta: {x: 100, y: 57.962097}
+  m_AnchoredPosition: {x: 394.57227, y: -29.247726}
+  m_SizeDelta: {x: 100, y: 58.495453}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1922112605
 Prefab:
@@ -114941,8 +114941,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 277.83875, y: -28.981049}
-  m_SizeDelta: {x: 100, y: 57.962097}
+  m_AnchoredPosition: {x: 279.71484, y: -29.247726}
+  m_SizeDelta: {x: 100, y: 58.495453}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2137193269
 GameObject:
