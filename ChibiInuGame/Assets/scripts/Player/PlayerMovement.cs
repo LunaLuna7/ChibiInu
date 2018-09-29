@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             jump = true;
         }
+        
 	}
 
     private void FixedUpdate()

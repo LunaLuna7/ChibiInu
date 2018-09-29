@@ -5,24 +5,31 @@ using UnityEngine;
 public class CharacterController2D : MonoBehaviour {
 
     [SerializeField] private float m_JumpForce = 800f;
+    [SerializeField] private float m_WallJumpForce = 3000f;
     [SerializeField] public int m_AirJumps = 0;
     [SerializeField] private float m_FallGravity = 4f;
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;
     [SerializeField] private LayerMask m_GroundLayer;
+    [SerializeField] private LayerMask m_WallLayer;
     [SerializeField] private Transform m_GroundCheck;
     [SerializeField] private Transform m_GroundCheck2;
-    [SerializeField] private Transform m_HorizontalCheck;
+    [SerializeField] private Transform m_WallCheck;
     [SerializeField] private bool m_AirControl = false;
 
 
     [HideInInspector] public Rigidbody2D m_RigidBody2D;
     private bool m_Grounded;
+    private bool m_OnWall;
+    public bool m_limitLeftMove;
+    public bool m_limitRightMove;
+    public bool m_OnSwing;
     public bool m_FacingRight = true;
     private bool m_OnJumpPad = false;
     public bool m_Damaged;
     public bool m_Immune = false;
-    private int m_AirJumpsLeft;
+    public int m_AirJumpsLeft;
     private Vector3 m_Velocity = Vector3.zero;
+
 
 
     void Awake () {
@@ -32,17 +39,31 @@ public class CharacterController2D : MonoBehaviour {
 	
 	void FixedUpdate () {
         m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, m_GroundLayer) || Physics2D.Linecast(transform.position, m_GroundCheck2.position, m_GroundLayer);
+        m_OnWall = Physics2D.OverlapCircle(m_WallCheck.position, .2f, m_WallLayer);
+
         if (m_Grounded)
         {
             JumpadOff();
             m_AirJumpsLeft = m_AirJumps;
         }
+
+    
     }
 
     public void Move(float move, bool jump)
     {
+        if (m_limitRightMove && move > 0)
+            move = 0;
 
-       
+        if (m_limitLeftMove && move < 0)
+            move = 0;
+
+        if(m_Grounded)
+        {
+            m_limitLeftMove = false;
+            m_limitRightMove = false;
+        }
+     
         if (m_Grounded || m_AirControl)
         {
             Vector3 targetVelocity = new Vector2(move * 10f, m_RigidBody2D.velocity.y);
@@ -56,27 +77,50 @@ public class CharacterController2D : MonoBehaviour {
             else if (move < 0 && m_FacingRight)
             {
                 Flip();
-            }
+            }  
 
         }
 
         JumpGravity(jump);
 
-        if (m_Grounded && jump)
+        if (m_Grounded && jump && !m_OnWall && !m_OnSwing)
         {
             m_Grounded = false;
             m_RigidBody2D.AddForce(new Vector2(m_RigidBody2D.velocity.x, m_JumpForce));
         }
 
         //air Jump
-        else if (jump && m_AirJumpsLeft > 0)
+        else if (jump && m_AirJumpsLeft > 0 && !m_OnWall && !m_OnSwing)
         {
             m_Grounded = false;
             m_RigidBody2D.AddForce(new Vector2(0f,  m_JumpForce));
-            m_AirJumpsLeft--;
+            m_AirJumpsLeft--; //delay teh swing false
         }
 
+        else if(jump && !m_Grounded && m_OnWall &&!m_OnSwing)
+        {
+            m_RigidBody2D.velocity = new Vector3();
+            Flip();
+            if (m_FacingRight)
+            {
+                m_limitLeftMove = true;
+                m_RigidBody2D.AddForce(new Vector2(m_WallJumpForce, m_JumpForce));
+
+            }
+
+            else if (!m_FacingRight)
+            {
+                m_limitRightMove = true;
+                m_RigidBody2D.AddForce(new Vector2(-m_WallJumpForce, m_JumpForce));
+            }
+            StartCoroutine(LimitWallJumpMove());
+
+       
+        }
+
+
     }
+   
 
     void JumpGravity(bool jump)
     {
@@ -134,4 +178,14 @@ public class CharacterController2D : MonoBehaviour {
     {
         m_OnJumpPad = false;
     }
+
+    IEnumerator LimitWallJumpMove()
+    {
+
+        yield return new WaitForSeconds(.6f);
+        
+        m_limitLeftMove = false;
+        m_limitRightMove = false;
+    }
+
 }
