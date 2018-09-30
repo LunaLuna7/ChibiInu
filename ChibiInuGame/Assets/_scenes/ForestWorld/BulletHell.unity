@@ -38566,7 +38566,7 @@ Prefab:
     - target: {fileID: 114966116211257704, guid: c6b571c349e83944faa1834deb832e5c,
         type: 2}
       propertyPath: health
-      value: 2
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 114210447594797022, guid: c6b571c349e83944faa1834deb832e5c,
         type: 2}
@@ -38576,7 +38576,7 @@ Prefab:
     - target: {fileID: 114315122488471298, guid: c6b571c349e83944faa1834deb832e5c,
         type: 2}
       propertyPath: m_AirJumps
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6b571c349e83944faa1834deb832e5c, type: 2}

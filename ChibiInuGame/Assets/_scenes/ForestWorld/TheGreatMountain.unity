@@ -554,6 +554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newCheckPoint: 3
+  book: {fileID: 0}
 --- !u!1 &166622754
 GameObject:
   m_ObjectHideFlags: 0
