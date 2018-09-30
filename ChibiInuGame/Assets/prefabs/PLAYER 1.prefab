@@ -35,9 +35,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4738573377972002}
   m_Layer: 10
-  m_Name: HorizontalCheck
+  m_Name: WallCheck
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -279,20 +279,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_JumpForce: 900
-  m_AirJumps: 0
+  m_WallJumpForce: 3000
+  m_AirJumps: 1
   m_FallGravity: 4
   m_MovementSmoothing: 0.05
   m_GroundLayer:
     serializedVersion: 2
     m_Bits: 256
+  m_WallLayer:
+    serializedVersion: 2
+    m_Bits: 512
   m_GroundCheck: {fileID: 4981810698456138}
   m_GroundCheck2: {fileID: 4277934490660100}
-  m_HorizontalCheck: {fileID: 4738573377972002}
+  m_WallCheck: {fileID: 4738573377972002}
   m_AirControl: 1
   m_RigidBody2D: {fileID: 0}
+  m_limitLeftMove: 0
+  m_limitRightMove: 0
+  m_OnSwing: 0
   m_FacingRight: 1
   m_Damaged: 0
   m_Immune: 0
+  m_AirJumpsLeft: 0
 --- !u!114 &114966116211257704
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RopeSwing : MonoBehaviour {
-
     public HingeJoint2D hingeJoint;
     JointMotor2D newMotor;
+    JointAngleLimits2D limits;
     public float swingTime;
     public float detachPower;
     public float attachCooldownTime;
@@ -19,33 +19,36 @@ public class RopeSwing : MonoBehaviour {
     public GameObject player;
 
     [Header("States")]
-    private bool grabbable;
+    public bool Off = false;
+    public bool grabbable = true;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         characterController2D = player.GetComponent<CharacterController2D>();
         hingeJoint = GetComponent<HingeJoint2D>();
         newMotor = hingeJoint.motor;
-        StartCoroutine(Swing());
-        anchor = new Vector3(hingeJoint.anchor.x * transform.localScale.x, hingeJoint.anchor.y * transform.localScale.y, 0)   +   transform.position;
-
-        grabbable = true;
+        limits = hingeJoint.limits;
+        anchor = new Vector3(hingeJoint.anchor.x * transform.localScale.x, hingeJoint.anchor.y * transform.localScale.y, 0) + transform.position;
+        this.gameObject.SetActive(false);
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         if (characterController2D.m_OnSwing)
         {
             playerCol.transform.position = anchor + (2 * (transform.position - anchor));
             playerCol.transform.rotation = transform.rotation;
-            if(Input.GetKeyDown(detachKey))
-                LetGo();
+            if (Input.GetKeyDown(detachKey))
+            {
+                Off = true;
+                StartCoroutine(DelayLetGo());
+
+            }
             prevprevPosition = prevPosition;
             prevPosition = playerCol.transform.position;
         }
-
-        
-
     }
 
     public void SwitchMotorSpeed()
@@ -58,7 +61,6 @@ public class RopeSwing : MonoBehaviour {
     {
         while (true)
         {
-           
             yield return new WaitForSeconds(swingTime);
             SwitchMotorSpeed();
         }
@@ -66,15 +68,13 @@ public class RopeSwing : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player" && grabbable)
+        if (collision.tag == "Player")
         {
             playerCol = collision;
             rb = playerCol.transform.GetComponent<Rigidbody2D>();
             characterController2D.m_OnSwing = true;
-            grabbable = false;
-            
         }
-        
+
     }
 
     public void LetGo()
@@ -85,50 +85,58 @@ public class RopeSwing : MonoBehaviour {
 
         float currentAngle = playerCol.transform.rotation.eulerAngles.z;
         Vector3 detachDir = new Vector2();
-        
+
         //checking edge cases 1st
-        if (Mathf.Abs(currentAngle - 70) < 5){
-           
+        if (Mathf.Abs(currentAngle - 70) < 5)
             detachDir = playerCol.transform.rotation * Vector2.right;
-            //Debug.Log("\t R " + detachDir);
-        }
 
-        else if(Mathf.Abs(currentAngle - 290) < 5)
-        {
-            detachDir = playerCol.transform.rotation * Vector2.left;    
-            //Debug.Log("\t L " + detachDir.ToString());
-        }
+        else if (Mathf.Abs(currentAngle - 290) < 5)
+            detachDir = playerCol.transform.rotation * Vector2.left;
 
-        else if(playerCol.transform.position != prevprevPosition)
+        else if (playerCol.transform.position != prevprevPosition)
         {
-            //Vector3 a = new Vector3(-playerCol.transform.position.x + prevprevPosition.x, 10, 0);
             detachDir = playerCol.transform.position - prevprevPosition;
-            //detachDir = a;
-            //Debug.Log(detachDir);
         }
         else
         {
-            //Debug.Log(prevprevPosition);
-            //Debug.Log(playerCol.transform.position);
             Debug.Log("RopeSwing gone wrong");
         }
 
-        Debug.Log("Adding Force");
         playerCol.transform.rotation = new Quaternion();
 
-        for(int i = 0; i < 5; ++i)
+        for (int i = 0; i < 5; ++i)
             rb.transform.Translate(detachDir.normalized * Time.deltaTime);
-        
+
         rb.velocity = new Vector3();
-        rb.AddForce( detachDir.normalized * detachPower , ForceMode2D.Impulse);
+        rb.AddForce(detachDir.normalized * detachPower, ForceMode2D.Impulse);
+        Debug.Log(detachPower);
         characterController2D.m_OnSwing = false;
-        StartCoroutine(GrabDelay());
         characterController2D.m_AirJumpsLeft += 1;
+        grabbable = false;
+        this.gameObject.SetActive(false);
+}
+
+
+    private void OnEnable()
+    {
+        Off = false;
+        player.transform.position = anchor + (2 * (transform.position - anchor));
+        characterController2D.m_OnSwing = true;
+        StartCoroutine(Swing());
+        limits.min = -70;//290
+        limits.max = 70;//430
+        hingeJoint.limits = limits;
     }
 
-    IEnumerator GrabDelay()
+    private void OnDisable()
     {
-        yield return new WaitForSeconds(attachCooldownTime);
-        grabbable = true;
+        Off = true;
     }
+
+    IEnumerator DelayLetGo()
+    {
+        yield return new WaitForSeconds(.2f);
+        LetGo();
+    }
+
 }

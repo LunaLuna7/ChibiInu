@@ -20,12 +20,20 @@ public class PlayerMovement : MonoBehaviour {
         {
             jump = true;
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetButtonDown("Fire2"))
+        {
+            controller.Dash();
+        }
         
 	}
 
     private void FixedUpdate()
     {
+        
         controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
         jump = false;
     }
+
+    
 }

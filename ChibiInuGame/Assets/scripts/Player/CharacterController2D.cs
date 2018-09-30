@@ -16,6 +16,8 @@ public class CharacterController2D : MonoBehaviour {
     [SerializeField] private Transform m_WallCheck;
     [SerializeField] private bool m_AirControl = false;
 
+    [SerializeField] private float m_DashForce = 1000f;
+    public int m_DashLeft;
 
     [HideInInspector] public Rigidbody2D m_RigidBody2D;
     private bool m_Grounded;
@@ -28,12 +30,15 @@ public class CharacterController2D : MonoBehaviour {
     public bool m_Damaged;
     public bool m_Immune = false;
     public int m_AirJumpsLeft;
+    public bool m_GroundDash;
     private Vector3 m_Velocity = Vector3.zero;
+    
 
 
 
     void Awake () {
-        
+        m_GroundDash = true;
+        m_DashLeft = 1;
         m_RigidBody2D = GetComponent<Rigidbody2D>();
 	}
 	
@@ -60,10 +65,13 @@ public class CharacterController2D : MonoBehaviour {
 
         if(m_Grounded)
         {
+            
             m_limitLeftMove = false;
             m_limitRightMove = false;
         }
-     
+
+       
+
         if (m_Grounded || m_AirControl)
         {
             Vector3 targetVelocity = new Vector2(move * 10f, m_RigidBody2D.velocity.y);
@@ -87,6 +95,7 @@ public class CharacterController2D : MonoBehaviour {
         {
             m_Grounded = false;
             m_RigidBody2D.AddForce(new Vector2(m_RigidBody2D.velocity.x, m_JumpForce));
+            m_DashLeft = 1;
         }
 
         //air Jump
@@ -95,10 +104,12 @@ public class CharacterController2D : MonoBehaviour {
             m_Grounded = false;
             m_RigidBody2D.AddForce(new Vector2(0f,  m_JumpForce));
             m_AirJumpsLeft--; //delay teh swing false
+            m_DashLeft = 1;
         }
 
         else if(jump && !m_Grounded && m_OnWall &&!m_OnSwing)
         {
+            m_DashLeft = 1;
             m_RigidBody2D.velocity = new Vector3();
             Flip();
             if (m_FacingRight)
@@ -188,4 +199,43 @@ public class CharacterController2D : MonoBehaviour {
         m_limitRightMove = false;
     }
 
+    public void Dash()
+    {
+        if (!m_Grounded)
+        {
+
+            if(m_FacingRight && m_DashLeft == 1)
+            {
+                m_RigidBody2D.AddForce(Vector3.right * m_DashForce * 100 );
+                m_DashLeft--;
+            }
+            else if(!m_FacingRight && m_DashLeft == 1)
+            {
+                m_RigidBody2D.AddForce(Vector3.right * m_DashForce * -100);
+                m_DashLeft--;
+            }
+        }
+        else
+        {
+            if(m_FacingRight && m_GroundDash)
+            {
+                m_GroundDash = false;
+                m_RigidBody2D.AddForce(Vector3.right * m_DashForce * 100);
+            }
+            else if(!m_FacingRight && m_GroundDash)
+            {
+                m_GroundDash = false;
+                m_RigidBody2D.AddForce(Vector3.right * m_DashForce * -100);
+            }
+            StartCoroutine(GroundDashCooldown());
+        }
+    }
+
+    IEnumerator GroundDashCooldown()
+    {
+
+        yield return new WaitForSeconds(2.7f);
+        m_GroundDash = true;
+    }
+  
 }
