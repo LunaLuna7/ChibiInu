@@ -8,7 +8,6 @@ public class SwitchCamera : MonoBehaviour {
     
     public GameObject[] cameras;
     
-	// Use this for initialization
 	void Start () {
 	}
 	

@@ -9,6 +9,7 @@ public class CameraSwitchTrigger : MonoBehaviour {
     public int EnterCamera;
     public int ExitCamera;
 
+
 	void Start () {
         sw = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SwitchCamera>();
 	}
