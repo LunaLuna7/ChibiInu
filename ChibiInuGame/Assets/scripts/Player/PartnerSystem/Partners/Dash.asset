@@ -11,12 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b889d70a5b3cb5f41ae59adab84a77fe, type: 3}
   m_Name: Dash
   m_EditorClassIdentifier: 
-  partnerName: Dash
-  partnerID: 3
+  partnerName: DashPartner
+  partnerID: 2
   unlocked: 1
   selected: 0
-  image: {fileID: 21300000, guid: 3ad108e4815b6f44797b8d116eb533de, type: 3}
-  skillInfo: Player gains the ability to Dash
+  image: {fileID: 21300000, guid: 992fcd2f8a612ed449e3a1e526e83c8f, type: 3}
+  skillInfo: 
   W: 0
   Q: 0
   E: 0
