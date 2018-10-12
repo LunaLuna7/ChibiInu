@@ -17,6 +17,7 @@ public class PartnerManager : MonoBehaviour {
 
     public SpriteMask spriteMask;
     public GameObject magicPlatform;
+    public GameObject FireBall;
 
     void Start()
     {
@@ -44,8 +45,7 @@ public class PartnerManager : MonoBehaviour {
         switch (partnerCode)
         {
             case 0:
-                characterController.m_AirJumps = 1;
-                skill = DoubleJump;
+                skill = FireBallShot;
                 break;
 
             case 1:
@@ -63,10 +63,31 @@ public class PartnerManager : MonoBehaviour {
         }
     }
 
+    public void FireBallShot()
+    {
+        Instantiate(FireBall, characterController.fireSpawn.position, Quaternion.identity);
+    }
+
     public void LightPartner()
     {
+        Debug.Log("Light");
         spriteMask.LightUp();
 
+    }
+
+    public void Dash()
+    {
+        Debug.Log("Dash");
+    }
+
+    public void Hookshot()
+    {
+        Debug.Log("ArrowRope");
+    }
+
+    public void Shield()
+    {
+        Debug.Log("Shield");
     }
 
     public void CreateMagicPlatform()
@@ -81,17 +102,8 @@ public class PartnerManager : MonoBehaviour {
         }
     }
 
-    public void DoubleJump()
-    {
-        characterController.m_AirJumps = 1;
-    }
-
     public void NoSkill() {}
 
-    public void Hookshot()
-    {
-        //add arrow partner
-    }
 
    
 }

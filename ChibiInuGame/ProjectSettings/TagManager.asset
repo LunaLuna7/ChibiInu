@@ -21,6 +21,9 @@ TagManager:
   - LevelChanger
   - hitBox
   - Boundary
+  - FxTemporaire
+  - FireBall
+  - DestructibleWall
   layers:
   - Default
   - TransparentFX

@@ -15,6 +15,7 @@ public class CharacterController2D : MonoBehaviour {
     [SerializeField] private Transform m_GroundCheck2;
     [SerializeField] private Transform m_WallCheck;
     [SerializeField] private bool m_AirControl = false;
+    public Transform fireSpawn;
 
     [SerializeField] private float m_DashForce = 1000f;
     public int m_DashLeft;
@@ -24,14 +25,16 @@ public class CharacterController2D : MonoBehaviour {
     private bool m_OnWall;
     public bool m_limitLeftMove;
     public bool m_limitRightMove;
-    public bool m_OnSwing;
     public bool m_FacingRight = true;
     private bool m_OnJumpPad = false;
     public bool m_Damaged;
     public bool m_Immune = false;
     public int m_AirJumpsLeft;
-    public bool m_GroundDash;
     private Vector3 m_Velocity = Vector3.zero;
+    
+    //CoolDowns
+    public bool m_GroundDash;
+    public bool m_OnSwing;
     
 
 
@@ -91,7 +94,7 @@ public class CharacterController2D : MonoBehaviour {
 
         JumpGravity(jump);
 
-        if (m_Grounded && jump && !m_OnWall && !m_OnSwing)
+        if (m_Grounded && jump && (!m_OnWall || m_OnWall) && !m_OnSwing)
         {
             m_Grounded = false;
             m_RigidBody2D.AddForce(new Vector2(m_RigidBody2D.velocity.x, m_JumpForce));
@@ -115,14 +118,16 @@ public class CharacterController2D : MonoBehaviour {
             if (m_FacingRight)
             {
                 m_limitLeftMove = true;
-                m_RigidBody2D.AddForce(new Vector2(m_WallJumpForce, m_JumpForce));
+                //m_RigidBody2D.AddForce(new Vector2(m_WallJumpForce, m_JumpForce));
+                m_RigidBody2D.velocity = new Vector3(30, 20);
 
             }
 
             else if (!m_FacingRight)
             {
                 m_limitRightMove = true;
-                m_RigidBody2D.AddForce(new Vector2(-m_WallJumpForce, m_JumpForce));
+                //m_RigidBody2D.AddForce(new Vector2(-m_WallJumpForce, m_JumpForce));
+                m_RigidBody2D.velocity = new Vector3(-30, 20);
             }
             StartCoroutine(LimitWallJumpMove());
 
@@ -142,10 +147,16 @@ public class CharacterController2D : MonoBehaviour {
             m_RigidBody2D.velocity = new Vector2(m_RigidBody2D.velocity.x, 0);
         }
 
-        if (m_RigidBody2D.velocity.y < 0) //we are falling
+        if (m_RigidBody2D.velocity.y < 0 && !m_OnWall) //we are falling
         {
             m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime;
         }
+        else if(m_RigidBody2D.velocity.y < 0 && m_OnWall)
+        {
+            m_RigidBody2D.velocity = Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime * 10;
+            Debug.Log("OnWall");
+        }
+
         else if ((m_RigidBody2D.velocity.y > 0 || m_OnJumpPad) && !Input.GetButton("Jump"))//tab jump
         {
             m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime;
@@ -237,5 +248,7 @@ public class CharacterController2D : MonoBehaviour {
         yield return new WaitForSeconds(2.7f);
         m_GroundDash = true;
     }
+
+    
   
 }

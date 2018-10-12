@@ -52,7 +52,7 @@ GameObject:
   m_Layer: 0
   m_Name: B
   m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -67,7 +67,7 @@ GameObject:
   m_Layer: 0
   m_Name: A
   m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1306293244890892}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.842495, y: -2.085688, z: -0.47752482}
+  m_LocalPosition: {x: 12.981525, y: 6, z: -0.47752482}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4612736449946996}
@@ -334,6 +334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1306293244890892}
   stateController: {fileID: 0}
+  m_SpriteRender: {fileID: 0}
 --- !u!114 &114768002654044588
 MonoBehaviour:
   m_ObjectHideFlags: 1
