@@ -5,6 +5,9 @@ using UnityEngine;
 public class DeadBoundary : MonoBehaviour {
 
     private LevelChanger levelChanger;
+    public List<Transform> checkPointsPosition;
+    public List<CheckPoint> checkPoints;
+
 	// Use this for initialization
 	void Start () {
         levelChanger = GetComponentInParent<LevelChanger>();
@@ -20,7 +23,13 @@ public class DeadBoundary : MonoBehaviour {
        
         if (collision.gameObject.tag == "Player")
         {
-            levelChanger.FadeToSameLevel();
+            //levelChanger.FadeToSameLevel();
+            collision.gameObject.transform.position = checkPointsPosition[UpdateCheckPoint.currentCheckPoint - 1].transform.position;
+            
+            for(int i = 0; i != checkPoints.Count; ++i)
+            {
+                checkPoints[i].ResetingLevel();
+            }
         }
     }
 }

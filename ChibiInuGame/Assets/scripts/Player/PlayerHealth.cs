@@ -6,9 +6,9 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour {
 
     public float health = 2;
-    public LevelChanger levelChanger;
+    [HideInInspector]public LevelChanger levelChanger;
     public CharacterController2D controller;
-    public SpriteRenderer m_SpriteRender;
+    [HideInInspector]public SpriteRenderer m_SpriteRender;
 
 
     void Awake () {
