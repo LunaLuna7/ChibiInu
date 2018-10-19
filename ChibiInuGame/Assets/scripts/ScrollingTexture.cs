@@ -8,8 +8,12 @@ public class ScrollingTexture : MonoBehaviour {
     private MeshRenderer mr;
     private Material mat;
     private Vector2 offset;
+    private Renderer r;
 	// Use this for initialization
 	void Start () {
+        r = GetComponent<Renderer>();
+        r.sortingLayerName = "Foreground";
+        r.sortingOrder = -5;
         mr = GetComponent<MeshRenderer>();
 	}
 	
@@ -17,7 +21,7 @@ public class ScrollingTexture : MonoBehaviour {
 	void Update () {
         mat = mr.material;
         offset = mat.mainTextureOffset;
-        offset.x += Time.deltaTime/10 *  speed;
+        offset.y += Time.deltaTime/10 *  speed;
         mat.mainTextureOffset = offset;
 		
 	}

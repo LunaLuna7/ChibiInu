@@ -73,7 +73,7 @@ GameObject:
   m_Layer: 0
   m_Name: B
   m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -88,7 +88,7 @@ GameObject:
   m_Layer: 0
   m_Name: A
   m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 4641777754639064}
   - component: {fileID: 61918868766826324}
   - component: {fileID: 60377062902573534}
+  - component: {fileID: 114852075080345046}
   m_Layer: 10
   m_Name: hitBox
   m_TagString: hitBox
@@ -146,7 +147,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1151064472516288}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 32.75, y: -4.040001, z: -2.1948838}
+  m_LocalPosition: {x: 312.09888, y: 1.9426479, z: -2.1948838}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4109177515469096}
@@ -372,6 +373,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1151064472516288}
   stateController: {fileID: 114142600458513216}
+  m_SpriteRender: {fileID: 0}
+--- !u!114 &114852075080345046
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1964092599302532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f33ad35eebb00a842b0ccf0adf7c348a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyToKill: {fileID: 1151064472516288}
+  stateController: {fileID: 0}
   m_SpriteRender: {fileID: 0}
 --- !u!212 &212034652151061884
 SpriteRenderer:

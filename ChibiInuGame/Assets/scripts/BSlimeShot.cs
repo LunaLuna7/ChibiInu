@@ -6,6 +6,7 @@ public class BSlimeShot : MonoBehaviour {
 
     public GameObject projectile;
     public Transform projectileSpawn;
+    public StateController sc;
 
     public float shootRate;
     public float startDelay = 0f;
@@ -13,6 +14,7 @@ public class BSlimeShot : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        sc = gameObject.GetComponentInParent<StateController>();
         InvokeRepeating("Shoot", startDelay, shootRate);
     }
 
@@ -22,6 +24,15 @@ public class BSlimeShot : MonoBehaviour {
 
     }
 
+    private void OnEnable()
+    {
+        InvokeRepeating("Shoot", startDelay, shootRate);
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke();
+    }
     public void Shoot()
     {
         Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation);

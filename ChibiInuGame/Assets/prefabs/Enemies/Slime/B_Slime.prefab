@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 4483674792332140}
   - component: {fileID: 61553284867928534}
   - component: {fileID: 114712933466985820}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: hurtBox
   m_TagString: hurtBox
   m_Icon: {fileID: 0}
@@ -82,13 +82,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1295187995102752}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
   m_LocalPosition: {x: 0.69, y: -0.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4651662843422036}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
 --- !u!4 &4651662843422036
 Transform:
   m_ObjectHideFlags: 1
@@ -96,8 +96,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1050568256549764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 440.51196, y: 97.92427, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -71.430244, y: 4.4132442, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 4483674792332140}
   - {fileID: 4530284091907726}
@@ -194,7 +194,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1050568256549764}
-  stateController: {fileID: 0}
+  stateController: {fileID: 114886209947646260}
+  m_SpriteRender: {fileID: 212951152129892654}
 --- !u!114 &114886209947646260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -216,6 +217,8 @@ MonoBehaviour:
   player: {fileID: 0}
   playerInRange: 0
   IgnoreCollision: {fileID: 0}
+  killed: 0
+  permaDead: 0
 --- !u!212 &212951152129892654
 SpriteRenderer:
   m_ObjectHideFlags: 1

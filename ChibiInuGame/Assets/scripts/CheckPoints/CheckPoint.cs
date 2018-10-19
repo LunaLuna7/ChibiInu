@@ -6,6 +6,23 @@ public class CheckPoint : MonoBehaviour {
 
     public int newCheckPoint;
     public GameObject book;
+    public List<GameObject> enemies;
+
+    public void ResetingLevel()
+    {
+        if (newCheckPoint == UpdateCheckPoint.currentCheckPoint)
+        {
+            for (int i = 0; i < enemies.Count; ++i)
+            {
+                enemies[i].SetActive(true);
+            }
+        }
+    }
+
+    public void Start()
+    {
+        
+    }
 
     public void SetCheckPointTo()
     {

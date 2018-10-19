@@ -16,15 +16,16 @@ public class StateController : MonoBehaviour {
     [HideInInspector] public float stateTimeElapsed;
     [HideInInspector] public GameObject player;
 
-    //public GameObject attack;
-    //public GameObject arrow;
-    //public Transform attackSpawnPosition;
 
     public bool playerInRange;
     private Collider2D col;
     public Collider2D IgnoreCollision = null;
-    
+
+    public bool killed = false; //If the player killed the enemy
+    public bool permaDead = false; //if the player past the checkPoint
+
     // Use this for initialization
+
     void Start () {
         playerInRange = false;
         col = GetComponent<Collider2D>();
@@ -86,13 +87,6 @@ public class StateController : MonoBehaviour {
         stateTimeElapsed += Time.deltaTime;
         return (stateTimeElapsed >= duration);
     }
-    /*
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("enemy"))
-        {
-            Physics2D.IgnoreCollision(col, collision.collider);
-        }
-    }*/
+   
 
 }

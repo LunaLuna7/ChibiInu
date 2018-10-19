@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4389216077847840}
   - component: {fileID: 61443445200941766}
+  - component: {fileID: 114588612145276720}
   m_Layer: 10
   m_Name: hitBox
   m_TagString: hitBox
@@ -213,6 +214,20 @@ MonoBehaviour:
   player: {fileID: 0}
   playerInRange: 0
   IgnoreCollision: {fileID: 0}
+--- !u!114 &114588612145276720
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1218661154993692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f33ad35eebb00a842b0ccf0adf7c348a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyToKill: {fileID: 1605383586183848}
+  stateController: {fileID: 0}
+  m_SpriteRender: {fileID: 0}
 --- !u!114 &114681357086360512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -226,6 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1605383586183848}
   stateController: {fileID: 0}
+  m_SpriteRender: {fileID: 0}
 --- !u!212 &212626990747167238
 SpriteRenderer:
   m_ObjectHideFlags: 1

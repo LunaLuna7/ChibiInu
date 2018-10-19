@@ -1,21 +1,16 @@
 fileFormatVersion: 2
-guid: b33caed3485bc0841bab710a5964bd28
+guid: 4b27623cb1940104e9783c8a865e8713
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ramp_0
-    21300002: ramp_1
-    21300004: ramp_2
-    21300006: ramp_3
-    21300008: ramp_4
-    21300010: ramp_5
-    21300012: ramp_6
-    21300014: ramp_7
-    21300016: ramp_8
-    21300018: ramp_9
-    21300020: ramp_10
-    21300022: ramp_11
+    21300000: ShibaRunning_0
+    21300002: ShibaRunning_1
+    21300004: ShibaRunning_2
+    21300006: ShibaRunning_3
+    21300008: ShibaRunning_4
+    21300010: ShibaRunning_5
+    21300012: ShibaRunning_6
   externalObjects: {}
-  serializedVersion: 6
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -93,28 +88,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -129,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ramp_0
+      name: ShibaRunning_0
       rect:
         serializedVersion: 2
-        x: 128
-        y: 236
-        width: 64
-        height: 64
+        x: 9
+        y: 23
+        width: 90
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,19 +116,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb39d081e7f805d4a978df3fb90f1fed
+      spriteID: c2fc0c7eee390164493cfe4c61e5c023
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramp_1
+      name: ShibaRunning_1
       rect:
         serializedVersion: 2
-        x: 192
-        y: 236
-        width: 64
-        height: 64
+        x: 113
+        y: 23
+        width: 90
+        height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,19 +136,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e609ea36057b73540a3735e974edabdc
+      spriteID: 5aea7db081d8da44ca67507470bca96d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramp_2
+      name: ShibaRunning_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 172
-        width: 64
-        height: 64
+        x: 216
+        y: 23
+        width: 87
+        height: 71
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,19 +156,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc2039fd86a5e0e4eb1a6b0fb7dfd05e
+      spriteID: 6008f0c9beeb0c84aa301e051d6fe628
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramp_3
+      name: ShibaRunning_3
       rect:
         serializedVersion: 2
-        x: 192
-        y: 172
-        width: 64
-        height: 64
+        x: 323
+        y: 23
+        width: 81
+        height: 71
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,19 +176,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ecf0860abe57f14e9c302d57ba3d557
+      spriteID: 45d3fcb86dfdc864c957670110f6bb09
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramp_4
+      name: ShibaRunning_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 108
-        width: 64
-        height: 64
+        x: 424
+        y: 23
+        width: 81
+        height: 71
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,19 +196,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 977eabba809835b419d78b225f15e0fb
+      spriteID: 22ceed99727d9b14f98a16f06ad4faea
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramp_5
+      name: ShibaRunning_5
       rect:
         serializedVersion: 2
-        x: 64
-        y: 108
-        width: 64
-        height: 64
+        x: 524
+        y: 23
+        width: 77
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,19 +216,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24d5ada9c44385847b8304191c50d15c
+      spriteID: a67b7dbd0e325364da9c92c1079d622a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ramp_6
+      name: ShibaRunning_6
       rect:
         serializedVersion: 2
-        x: 128
-        y: 108
-        width: 64
-        height: 64
+        x: 619
+        y: 23
+        width: 80
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,107 +236,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec7056b690c5705448ca4e2aaa34b4fb
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ramp_7
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 108
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f2ee16e01e1e2be4ba4d1889b7c0c526
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ramp_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 44
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7e0f356f4f5986148b8ce4c3c42413a2
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ramp_9
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 44
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 07026e9f63f080044af161c83fe69d0a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ramp_10
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 44
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 937f8bb21fccb684db8d7fe751402efa
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ramp_11
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 44
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4fc54f9d5301a454082ad8072b3814fe
+      spriteID: c13713139020aa34a8944a7edac54f41
       vertices: []
       indices: 
       edges: []
@@ -371,12 +244,14 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 03946cb125b1ac34f86c075f56d91c20
+    spriteID: 81b79f669269f914bb5ccead08f7b3d7
     vertices: []
     indices: 
     edges: []
     weights: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -6,9 +6,9 @@ public class hurtBox : MonoBehaviour {
 
     //public BoxCollider2D collider;
     public GameObject EnemyToKill;
-    public StateController stateController;
-    private float health;
-    public SpriteRenderer m_SpriteRender;
+    [HideInInspector]public StateController stateController;
+    public float health;
+    [HideInInspector]public SpriteRenderer m_SpriteRender;
 
     private float timeBeforeDamageAgain = .1f; //delay to prevent multi hits in trigger enter frames
     private float timetrack;
@@ -35,7 +35,12 @@ public class hurtBox : MonoBehaviour {
             }
 
             if (health == 0)
-                Destroy(EnemyToKill);
+            {
+                EnemyToKill.SetActive(false);
+                health = stateController.enemyStats.HP;
+                //stateController.killed = true;
+                //Destroy(EnemyToKill);
+            }
         }
     }
     IEnumerator BlinkSprite()

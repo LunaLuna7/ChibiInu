@@ -52,7 +52,7 @@ GameObject:
   m_Layer: 0
   m_Name: B
   m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -67,7 +67,7 @@ GameObject:
   m_Layer: 0
   m_Name: A
   m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -320,7 +320,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f33ad35eebb00a842b0ccf0adf7c348a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitDamage: 1
+  EnemyToKill: {fileID: 1306293244890892}
+  stateController: {fileID: 0}
+  m_SpriteRender: {fileID: 0}
 --- !u!114 &114326655704062028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -358,6 +360,8 @@ MonoBehaviour:
   player: {fileID: 0}
   playerInRange: 0
   IgnoreCollision: {fileID: 0}
+  killed: 0
+  permaDead: 0
 --- !u!212 &212817446063961446
 SpriteRenderer:
   m_ObjectHideFlags: 1
