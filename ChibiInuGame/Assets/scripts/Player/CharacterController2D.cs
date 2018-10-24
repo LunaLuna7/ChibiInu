@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using Cinemachine;
 
 public class CharacterController2D : MonoBehaviour {
 
     [SerializeField] private float m_JumpForce = 900f;
-    [SerializeField] private float m_WallJumpForce = 30f;
+    [SerializeField] private float m_WallJumpTime = .5f;
     [SerializeField] public int m_AirJumps = 0;
     [SerializeField] private float m_FallGravity = 4f;
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;
@@ -31,13 +33,16 @@ public class CharacterController2D : MonoBehaviour {
     public bool m_Immune = false;
     public int m_AirJumpsLeft;
     private Vector3 m_Velocity = Vector3.zero;
-    
+
+    public GameObject cam;
+
     //CoolDowns
     public bool m_GroundDash;
     public bool m_OnSwing;
-    
 
 
+    private IEnumerator activeJumpCoroutine;
+    public float JumpProgress { get; private set; }
 
     void Awake () {
         m_GroundDash = true;
@@ -110,18 +115,23 @@ public class CharacterController2D : MonoBehaviour {
             m_DashLeft = 1;
         }
 
+
         //wall jump
         else if(jump && !m_Grounded && m_OnWall &&!m_OnSwing)
         {
             m_DashLeft = 1;
-            m_RigidBody2D.velocity = new Vector3();
+            //m_RigidBody2D.velocity = new Vector3();
             Flip();
             if (m_FacingRight)
             {
                 m_limitLeftMove = true;
                 m_limitRightMove = false;
+
+
                 //m_RigidBody2D.AddForce(new Vector2(m_WallJumpForce, m_JumpForce));
                 m_RigidBody2D.velocity = new Vector3(60, 20);
+                //ParabolaJump(transform.position + new Vector3(5, 0, 0), 3, m_WallJumpTime); //(5, 3f, 0), 3, m_wallJumpTime
+
                 StartCoroutine(LimitWallJumpMoveLeft());
 
             }
@@ -132,6 +142,8 @@ public class CharacterController2D : MonoBehaviour {
                 m_limitLeftMove = false;
                 //m_RigidBody2D.AddForce(new Vector2(-m_WallJumpForce, m_JumpForce));
                 m_RigidBody2D.velocity = new Vector3(-60, 20);
+                //ParabolaJump(transform.position + new Vector3(-5, 0, 0), 3, m_WallJumpTime); //(5, 3f, 0), 3, m_wallJumpTime
+
                 StartCoroutine(LimitWallJumpMoveRight());
             }
 
@@ -259,6 +271,45 @@ public class CharacterController2D : MonoBehaviour {
         m_GroundDash = true;
     }
 
+
+    public void ParabolaJump(Vector3 destination, float maxHeight, float time)
+    {
+        if (activeJumpCoroutine != null)
+        {
+            StopCoroutine(activeJumpCoroutine);
+            activeJumpCoroutine = null;
+            JumpProgress = 0.0f;
+        }
+        activeJumpCoroutine = JumpCoroutine(destination, maxHeight, time);
+        StartCoroutine(activeJumpCoroutine);
+    }
+
+    private IEnumerator JumpCoroutine(Vector3 destination, float maxHeight, float time)
+    {
+        var startPos = transform.position;
+        while(JumpProgress <= 1.0)
+        {
+            JumpProgress += Time.deltaTime / time;
+            var height = Mathf.Sin(Mathf.PI * JumpProgress) * maxHeight;
+
+            if(height < 0f)
+            {
+                height = 0f;
+            }
+            transform.position = Vector3.Lerp(startPos, destination, JumpProgress) + Vector3.up * height;
+            yield return null;
+        }
+        //transform.position = destination;
+        m_RigidBody2D.velocity = new Vector3(20, -15);
+        //m_RigidBody2D.AddForce(new Vector2(600, -600));
+
+    }
+
+    private void WallJump3()
+    {
+        m_RigidBody2D.velocity = new Vector2(0,0);
+
+    }
     
   
 }
