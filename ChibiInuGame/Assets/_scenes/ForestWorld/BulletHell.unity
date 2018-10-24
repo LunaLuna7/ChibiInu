@@ -37319,6 +37319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newCheckPoint: 3
   book: {fileID: 0}
+  enemies: []
 --- !u!1001 &539603648
 Prefab:
   m_ObjectHideFlags: 0
@@ -40932,6 +40933,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newCheckPoint: 2
   book: {fileID: 0}
+  enemies: []
 --- !u!1001 &1227267892
 Prefab:
   m_ObjectHideFlags: 0
@@ -68090,6 +68092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newCheckPoint: 1
   book: {fileID: 0}
+  enemies: []
 --- !u!1001 &2055713564
 Prefab:
   m_ObjectHideFlags: 0
