@@ -4,32 +4,19 @@ using UnityEngine;
 
 public class DeadBoundary : MonoBehaviour {
 
-    private LevelChanger levelChanger;
-    public List<Transform> checkPointsPosition;
-    public List<CheckPoint> checkPoints;
+    public Transform player;
+    public GameManager gameManager;
 
-	// Use this for initialization
-	void Start () {
-        levelChanger = GetComponentInParent<LevelChanger>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
        
         if (collision.gameObject.tag == "Player")
         {
-            //levelChanger.FadeToSameLevel();
-            collision.gameObject.transform.position = checkPointsPosition[UpdateCheckPoint.currentCheckPoint - 1].transform.position;
+            gameManager.GameOver(collision.gameObject.transform);
             
-            for(int i = 0; i != checkPoints.Count; ++i)
-            {
-                checkPoints[i].ResetingLevel();
-            }
         }
     }
+
+   
 }
