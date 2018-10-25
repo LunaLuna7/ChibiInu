@@ -5,15 +5,16 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class PlayerHealth : MonoBehaviour {
 
-    public float health = 2;
-    [HideInInspector]public LevelChanger levelChanger;
+    public float HP = 2;
+    public float HPLeft;
     public CharacterController2D controller;
     [HideInInspector]public SpriteRenderer m_SpriteRender;
+    public GameManager gameManager;
 
 
     void Awake () {
-        levelChanger = GameObject.FindGameObjectWithTag("LevelChanger").GetComponent<LevelChanger>();
         m_SpriteRender = GetComponent<SpriteRenderer>();
+        HPLeft = HP;
     }
 	
     
@@ -66,19 +67,17 @@ public class PlayerHealth : MonoBehaviour {
         if(!controller.m_Immune)
         {
             
-            health -= damage;
+            HPLeft -= damage;
             controller.m_Immune = true;
         }
-        if(health == 0)
+        if(HPLeft == 0)
         {
-            GameOver();
+            HPLeft = HP;
+            gameManager.GameOver(this.transform);
         }
     }
 
-    public void GameOver()
-    {
-        levelChanger.FadeToSameLevel();
-    }
+    
 
     
 }

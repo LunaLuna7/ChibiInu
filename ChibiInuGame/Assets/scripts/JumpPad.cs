@@ -17,6 +17,7 @@ public class JumpPad : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Player"))// || collision.gameObject.CompareTag("enemy"))
         {
+
             StartCoroutine(JumpAnimation());
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
             CharacterController2D cc = collision.gameObject.GetComponent<CharacterController2D>();
@@ -25,8 +26,11 @@ public class JumpPad : MonoBehaviour {
             cc.JumpadOn();
         }
     }
+
+   
     IEnumerator JumpAnimation()
     {
+        jumpAnim.SetBool("PlayerJumped", false);
         jumpAnim.SetBool("PlayerJumped", true);
         yield return new WaitForSeconds(.1f);
         jumpAnim.SetBool("PlayerJumped", false);
