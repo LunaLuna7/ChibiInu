@@ -10,6 +10,7 @@ public class BSlimeShot : MonoBehaviour {
 
     public float shootRate;
     public float startDelay = 0f;
+   // public bool facingRight;
 
     // Use this for initialization
     void Start()
@@ -35,6 +36,15 @@ public class BSlimeShot : MonoBehaviour {
     }
     public void Shoot()
     {
-        Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation);
+        /*
+        if (facingRight)
+        {
+            GameObject a = (GameObject)Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation);
+            //Transform trans = a.GetComponent<Transform>();
+            //trans.localScale = trans.localScale * -1;
+        }
+
+        else*/
+            Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation);
     }
 }

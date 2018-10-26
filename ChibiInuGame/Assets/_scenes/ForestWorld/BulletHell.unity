@@ -38723,7 +38723,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2.8125, y: 2.125}
-    newSize: {x: 2.8125, y: 2.125}
+    newSize: {x: 0.9, y: 0.68}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -40346,7 +40346,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1114679015}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.674005, y: 3.1106925, z: -10.09375}
+  m_LocalPosition: {x: -8.701005, y: 3.1106925, z: -10.09375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1930538158}
@@ -43661,11 +43661,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83a7e015debfdbc48bbd516d26af438b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkPoints:
-  - {fileID: 2038533585}
-  - {fileID: 1208784082}
-  - {fileID: 537046667}
-  player: {fileID: 700009986}
 --- !u!4 &1921969772 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4424658526854072, guid: a4eb09ac1a9f3b94a8e45922b0e3213e,
