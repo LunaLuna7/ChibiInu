@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 114304686798358920}
   - component: {fileID: 50846541222688542}
   - component: {fileID: 58637273662339618}
+  - component: {fileID: 95403846578234264}
   m_Layer: 10
   m_Name: seed
   m_TagString: projectile
@@ -52,14 +53,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1175872315216460}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 146.61737, y: 7.459447, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 134.822, y: 6.2319164, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4987829767886244}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!4 &4987829767886244
 Transform:
   m_ObjectHideFlags: 1
@@ -105,7 +106,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.36, y: 0}
   serializedVersion: 2
   m_Radius: 0.37
 --- !u!58 &58637273662339618
@@ -120,9 +121,27 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.32, y: 0}
   serializedVersion: 2
   m_Radius: 0.390625
+--- !u!95 &95403846578234264
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1175872315216460}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ef28656061c9b9046b98f695f4987d91, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114304686798358920
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -171,7 +190,7 @@ SpriteRenderer:
   m_SortingLayerID: 1970243025
   m_SortingLayer: 1
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 6db04c53123397547ba4973482e13d2d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 32777571f42771f409fcbe12ecd1fc04, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
