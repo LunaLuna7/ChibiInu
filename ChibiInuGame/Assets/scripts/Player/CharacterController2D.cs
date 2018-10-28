@@ -129,9 +129,9 @@ public class CharacterController2D : MonoBehaviour {
 
 
                 //m_RigidBody2D.AddForce(new Vector2(m_WallJumpForce, m_JumpForce));
-                m_RigidBody2D.velocity = new Vector3(60, 20);
-                //ParabolaJump(transform.position + new Vector3(5, 0, 0), 3, m_WallJumpTime); //(5, 3f, 0), 3, m_wallJumpTime
-
+                //m_RigidBody2D.velocity = new Vector3(60, 20);
+                ParabolaJump(transform.position + new Vector3(5, 5, 0), 3, m_WallJumpTime); //(5, 3f, 0), 3, m_wallJumpTime
+                
                 StartCoroutine(LimitWallJumpMoveLeft());
 
             }
@@ -141,8 +141,8 @@ public class CharacterController2D : MonoBehaviour {
                 m_limitRightMove = true;
                 m_limitLeftMove = false;
                 //m_RigidBody2D.AddForce(new Vector2(-m_WallJumpForce, m_JumpForce));
-                m_RigidBody2D.velocity = new Vector3(-60, 20);
-                //ParabolaJump(transform.position + new Vector3(-5, 0, 0), 3, m_WallJumpTime); //(5, 3f, 0), 3, m_wallJumpTime
+                //m_RigidBody2D.velocity = new Vector3(-60, 20);
+                ParabolaJump(transform.position + new Vector3(-5, 5, 0), 3, m_WallJumpTime); //(5, 3f, 0), 3, m_wallJumpTime
 
                 StartCoroutine(LimitWallJumpMoveRight());
             }
@@ -287,7 +287,7 @@ public class CharacterController2D : MonoBehaviour {
     private IEnumerator JumpCoroutine(Vector3 destination, float maxHeight, float time)
     {
         var startPos = transform.position;
-        while(JumpProgress <= 1.0)
+        while (JumpProgress <= 1.0)
         {
             JumpProgress += Time.deltaTime / time;
             var height = Mathf.Sin(Mathf.PI * JumpProgress) * maxHeight;
@@ -299,8 +299,9 @@ public class CharacterController2D : MonoBehaviour {
             transform.position = Vector3.Lerp(startPos, destination, JumpProgress) + Vector3.up * height;
             yield return null;
         }
-        //transform.position = destination;
-        m_RigidBody2D.velocity = new Vector3(20, -15);
+        m_RigidBody2D.velocity = new Vector3(10, -15);
+        //m_RigidBody2D.velocity = new Vector3(20, -15);
+        //m_RigidBody2D.velocity = Vector3.Lerp(m_RigidBody2D.velocity, new Vector3(0, 0, 0) ,50f);//20, -15
         //m_RigidBody2D.AddForce(new Vector2(600, -600));
 
     }
