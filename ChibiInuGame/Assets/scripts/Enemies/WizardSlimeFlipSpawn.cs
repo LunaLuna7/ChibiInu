@@ -14,7 +14,7 @@ public class WizardSlimeFlipSpawn : MonoBehaviour {
 
     void Update()
     {
-        Debug.Log(currentState);
+
         if (currentState != stateController.nextPatrolLocation)
         {
             currentState = stateController.nextPatrolLocation;
