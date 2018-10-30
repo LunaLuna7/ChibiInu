@@ -13,6 +13,7 @@ public class DeadBoundary : MonoBehaviour {
        
         if (collision.gameObject.tag == "Player")
         {
+            
             gameManager.GameOver(collision.gameObject.transform);
             
         }
