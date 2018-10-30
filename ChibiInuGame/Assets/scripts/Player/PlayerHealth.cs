@@ -37,10 +37,10 @@ public class PlayerHealth : MonoBehaviour {
 
     IEnumerator DamageState()
     {
-        controller.m_Damaged = true;
+        //controller.m_Damaged = true;
         TakeDamage(1);
         yield return new WaitForSeconds(1f);
-        controller.m_Damaged = false;
+        //controller.m_Damaged = false;
         controller.m_Immune = false;
         
     }
@@ -69,12 +69,17 @@ public class PlayerHealth : MonoBehaviour {
             
             HPLeft -= damage;
             controller.m_Immune = true;
+
+            if (HPLeft == 0)
+            {
+                HPLeft = HP;
+                gameManager.GameOver(this.transform);
+                //controller.m_Immune = false;
+               
+
+            }
         }
-        if(HPLeft == 0)
-        {
-            HPLeft = HP;
-            gameManager.GameOver(this.transform);
-        }
+        
     }
 
     

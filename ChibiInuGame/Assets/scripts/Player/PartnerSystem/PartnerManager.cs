@@ -19,6 +19,9 @@ public class PartnerManager : MonoBehaviour {
     public GameObject magicPlatform;
     public GameObject FireBall;
 
+    //=====CoolDowns============
+    public float fireBallCoolDown;
+
     void Start()
     {
         characterController = player.GetComponent<CharacterController2D>();

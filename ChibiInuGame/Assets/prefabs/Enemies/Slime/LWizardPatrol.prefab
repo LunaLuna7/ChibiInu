@@ -118,6 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4659025890593418}
   - component: {fileID: 61075199892257932}
+  - component: {fileID: 114528409720921060}
   m_Layer: 10
   m_Name: hitBox
   m_TagString: hitBox
@@ -370,6 +371,21 @@ MonoBehaviour:
   stateController: {fileID: 114622016683366062}
   currentState: 0
   facingRight: 0
+--- !u!114 &114528409720921060
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1531701000980050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f33ad35eebb00a842b0ccf0adf7c348a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyToKill: {fileID: 1372847627421148}
+  stateController: {fileID: 0}
+  health: 0
+  m_SpriteRender: {fileID: 0}
 --- !u!114 &114622016683366062
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -406,7 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83f6dfe8455f3c14fa22f6f523300d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyToKill: {fileID: 1173604931489906}
+  EnemyToKill: {fileID: 1372847627421148}
   stateController: {fileID: 0}
   health: 0
   m_SpriteRender: {fileID: 0}
