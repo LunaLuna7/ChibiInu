@@ -18,8 +18,6 @@ public class DestructibleWall : MonoBehaviour {
     {
         if (collision.gameObject.tag == ("FireBall"))
         {
-            //Play Animation
-            Debug.Log("WTF");
             Destroy(this.gameObject);
         }      
     }

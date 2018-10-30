@@ -8,10 +8,12 @@ public class GameManager : MonoBehaviour {
     public List<Transform> checkPointsPosition;
     public List<CheckPoint> checkPoints;
     public GameObject player;
+    private PlayerHealth playerHealth;
 
 
     void Start()
     {
+        playerHealth = player.GetComponent<PlayerHealth>();
         player.transform.position = checkPointsPosition[UpdateCheckPoint.currentCheckPoint - 1].position;
     }
 
@@ -30,6 +32,6 @@ public class GameManager : MonoBehaviour {
     {
         yield return new WaitForSeconds(1f);
         playerTransform.position = checkPointsPosition[UpdateCheckPoint.currentCheckPoint - 1].transform.position;
-
+        playerHealth.HPLeft = playerHealth.HP;
     }
 }

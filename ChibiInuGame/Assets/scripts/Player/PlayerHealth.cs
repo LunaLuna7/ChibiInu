@@ -72,7 +72,7 @@ public class PlayerHealth : MonoBehaviour {
 
             if (HPLeft == 0)
             {
-                HPLeft = HP;
+                //HPLeft = HP;
                 gameManager.GameOver(this.transform);
                 //controller.m_Immune = false;
                

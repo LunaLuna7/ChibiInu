@@ -20,6 +20,7 @@ public class PartnerManager : MonoBehaviour {
     public GameObject FireBall;
 
     //=====CoolDowns============
+    public bool fireBallOnCoolDown;
     public float fireBallCoolDown;
 
     void Start()
@@ -68,7 +69,20 @@ public class PartnerManager : MonoBehaviour {
 
     public void FireBallShot()
     {
-        Instantiate(FireBall, characterController.fireSpawn.position, Quaternion.identity);
+        if (!fireBallOnCoolDown)
+        {
+            if (characterController.m_FacingRight)
+                Instantiate(FireBall, characterController.fireSpawn.position, Quaternion.identity);
+            else
+            {
+                GameObject a = (GameObject)Instantiate(FireBall, characterController.fireSpawn.position, Quaternion.identity);
+                Transform trans = a.GetComponent<Transform>();
+                trans.localScale = trans.localScale * -1;
+            }
+            fireBallOnCoolDown = true;
+            StartCoroutine(FireCoolDown(fireBallCoolDown));
+            
+        }
     }
 
     public void LightPartner()
@@ -107,6 +121,11 @@ public class PartnerManager : MonoBehaviour {
 
     public void NoSkill() {}
 
-
+    IEnumerator FireCoolDown(float coolDown)
+    {
+        
+        yield return new WaitForSeconds(coolDown);
+        fireBallOnCoolDown = false;
+    }
    
 }

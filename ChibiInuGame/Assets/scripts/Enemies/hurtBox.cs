@@ -31,6 +31,7 @@ public class hurtBox : MonoBehaviour {
             {
                 timetrack = timeBeforeDamageAgain + Time.time;
                 health--;
+                
                 StartCoroutine(BlinkSprite());
             }
 

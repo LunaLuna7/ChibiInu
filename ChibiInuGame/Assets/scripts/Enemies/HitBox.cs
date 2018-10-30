@@ -30,7 +30,8 @@ public class HitBox : MonoBehaviour {
             {
                 timetrack = timeBeforeDamageAgain + Time.time;
                 health--;
-                StartCoroutine(BlinkSprite());
+                if(this.enabled)
+                    StartCoroutine(BlinkSprite());
             }
 
             if (health == 0)
