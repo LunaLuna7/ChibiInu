@@ -5,6 +5,7 @@ using UnityEngine;
 public class PurpleSlimeTriggerMove : MonoBehaviour {
 
     public bool wallDown;
+    public float moveSpeed;
     public List<GameObject> slimesType;
 	void Start () {
 		
@@ -25,7 +26,7 @@ public class PurpleSlimeTriggerMove : MonoBehaviour {
             {
                 StateController sc;
                 sc = slimesType[i].GetComponent<StateController>();
-                sc.enemyStats.moveSpeed = 6;
+                sc.enemyStats.moveSpeed = moveSpeed;
             }
         }
 	}

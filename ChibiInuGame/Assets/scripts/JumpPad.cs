@@ -7,6 +7,7 @@ public class JumpPad : MonoBehaviour {
 
     public float jumpPower;
     public Animator jumpAnim;
+    public bool rightJumpad;
 
     private void Start()
     {
@@ -22,7 +23,11 @@ public class JumpPad : MonoBehaviour {
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
             CharacterController2D cc = collision.gameObject.GetComponent<CharacterController2D>();
 
-            rb.velocity = new Vector2(0, jumpPower);
+            if(rightJumpad)
+                rb.velocity = new Vector2(jumpPower, 0);
+
+            else
+                rb.velocity = new Vector2(0, jumpPower);
             cc.JumpadOn();
         }
     }
