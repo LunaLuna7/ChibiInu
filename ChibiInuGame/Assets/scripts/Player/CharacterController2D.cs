@@ -25,6 +25,8 @@ public class CharacterController2D : MonoBehaviour {
     [HideInInspector] public Rigidbody2D m_RigidBody2D;
     private bool m_Grounded;
     private bool m_OnWall;
+    private bool doingWallJump = false;
+    private bool wallDeadTime;
     public bool m_limitLeftMove;
     public bool m_limitRightMove;
     public bool m_FacingRight = true;
@@ -58,9 +60,17 @@ public class CharacterController2D : MonoBehaviour {
         {
             JumpadOff();
             m_AirJumpsLeft = m_AirJumps;
+            /*if (!wallBlock.activeSelf)
+                wallBlock.SetActive(true);*/
         }
 
-    
+        if (!m_Grounded)
+        {
+            /*if (wallBlock.activeSelf)
+                wallBlock.SetActive(false);*/
+
+        }
+
     }
 
     public void Move(float move, bool jump)
@@ -78,7 +88,20 @@ public class CharacterController2D : MonoBehaviour {
             m_limitRightMove = false;
         }
 
-       
+        if (m_OnWall)
+        {
+            if((move < 0  && m_FacingRight) && wallDeadTime || (move > 0 && !m_FacingRight) && wallDeadTime)
+            {
+                move = 0;
+                StartCoroutine(WallDeadTime());
+            }
+           
+        }
+        else if (!m_OnWall)
+        {
+            wallDeadTime = true;
+        }
+    
 
         if (m_Grounded || m_AirControl)
         {
@@ -107,11 +130,11 @@ public class CharacterController2D : MonoBehaviour {
         }
 
         //air Jump
-        else if (jump && m_AirJumpsLeft > 0 && !m_OnWall && !m_OnSwing)
+        else if (jump && m_AirJumpsLeft > 0 && !m_OnWall && !m_OnSwing && !doingWallJump)
         {
             m_Grounded = false;
             m_RigidBody2D.AddForce(new Vector2(0f,  m_JumpForce));
-            m_AirJumpsLeft--; //delay teh swing false
+            m_AirJumpsLeft--;
             m_DashLeft = 1;
         }
 
@@ -120,36 +143,33 @@ public class CharacterController2D : MonoBehaviour {
         else if(jump && !m_Grounded && m_OnWall &&!m_OnSwing)
         {
             m_DashLeft = 1;
-            //m_RigidBody2D.velocity = new Vector3();
+            
             Flip();
             if (m_FacingRight)
             {
-                m_limitLeftMove = true;
-                m_limitRightMove = false;
+                //m_limitLeftMove = true;
+                //m_limitRightMove = false;
 
 
                 //m_RigidBody2D.AddForce(new Vector2(m_WallJumpForce, m_JumpForce));
                 //m_RigidBody2D.velocity = new Vector3(60, 20);
                 ParabolaJump(transform.position + new Vector3(5, 5, 0), 3, m_WallJumpTime); //(5, 3f, 0), 3, m_wallJumpTime
                 
-                StartCoroutine(LimitWallJumpMoveLeft());
+                //StartCoroutine(LimitWallJumpMoveLeft());
 
             }
 
             else if (!m_FacingRight)
             {
-                m_limitRightMove = true;
-                m_limitLeftMove = false;
+                //m_limitRightMove = true;
+                //m_limitLeftMove = false;
                 //m_RigidBody2D.AddForce(new Vector2(-m_WallJumpForce, m_JumpForce));
                 //m_RigidBody2D.velocity = new Vector3(-60, 20);
                 ParabolaJump(transform.position + new Vector3(-5, 5, 0), 3, m_WallJumpTime); //(5, 3f, 0), 3, m_wallJumpTime
 
-                StartCoroutine(LimitWallJumpMoveRight());
+                //StartCoroutine(LimitWallJumpMoveRight());
             }
-
-       
         }
-
 
     }
    
@@ -227,7 +247,7 @@ public class CharacterController2D : MonoBehaviour {
 
     IEnumerator LimitWallJumpMoveRight()
     {
-
+        
         yield return new WaitForSeconds(.6f);
         m_limitRightMove = false;
     }
@@ -286,9 +306,16 @@ public class CharacterController2D : MonoBehaviour {
 
     private IEnumerator JumpCoroutine(Vector3 destination, float maxHeight, float time)
     {
+        doingWallJump = true;
+        bool jumped = false;
         var startPos = transform.position;
-        while (JumpProgress <= 1.0)
+        while (JumpProgress <= 1.0 && !jumped)
         {
+            if (Input.GetButtonDown("Jump") && m_AirJumpsLeft == 1)
+            {
+                doingWallJump = false;
+                jumped = true;
+            }
             JumpProgress += Time.deltaTime / time;
             var height = Mathf.Sin(Mathf.PI * JumpProgress) * maxHeight;
 
@@ -296,21 +323,41 @@ public class CharacterController2D : MonoBehaviour {
             {
                 height = 0f;
             }
-            transform.position = Vector3.Lerp(startPos, destination, JumpProgress) + Vector3.up * height;
+            //transform.position = Vector3.Lerp(startPos, destination, JumpProgress) + Vector3.up * height;
+            m_RigidBody2D.MovePosition(Vector3.Lerp(startPos, destination, JumpProgress) + Vector3.up * height);
             yield return null;
         }
-        m_RigidBody2D.velocity = new Vector3(10, -15);
+        doingWallJump = false;
+        if (!jumped)
+        {
+            m_RigidBody2D.velocity = new Vector3(10, -15);
+        }
+
+        else if (jumped)
+        {
+
+            StartCoroutine(Delay());
+        }
         //m_RigidBody2D.velocity = new Vector3(20, -15);
         //m_RigidBody2D.velocity = Vector3.Lerp(m_RigidBody2D.velocity, new Vector3(0, 0, 0) ,50f);//20, -15
         //m_RigidBody2D.AddForce(new Vector2(600, -600));
 
     }
 
-    private void WallJump3()
+    IEnumerator Delay()
     {
-        m_RigidBody2D.velocity = new Vector2(0,0);
-
+        yield return new WaitForSeconds(.01f);
+        m_RigidBody2D.velocity = new Vector2(0, 0);
+        m_RigidBody2D.AddForce(new Vector2(0f, m_JumpForce));
+        m_AirJumpsLeft--;
+        m_DashLeft = 1;
     }
     
+    IEnumerator WallDeadTime()
+    {
+        yield return new WaitForSeconds(.1f);
+        wallDeadTime = false;
+    }
+
   
 }

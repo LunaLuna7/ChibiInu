@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class GSlimeBossHitBox : MonoBehaviour {
 
-    public GameObject EnemyToKill;
-    [HideInInspector] public StateController stateController;
-    [HideInInspector] public GSlimeBossHealth Bosshealth;
+    public GameObject DeadStateEnemy;
     [HideInInspector] public SpriteRenderer m_SpriteRender;
-
 
     private float timeBeforeDamageAgain = .1f; //delay to prevent multi hits in trigger enter frames
     private float timetrack;
@@ -16,13 +13,12 @@ public class GSlimeBossHitBox : MonoBehaviour {
     public void Awake()
     {
         m_SpriteRender = GetComponentInParent<SpriteRenderer>();
-        stateController = GetComponentInParent<StateController>();
-        Bosshealth = GetComponentInParent<GSlimeBossHealth>();
         timetrack = timeBeforeDamageAgain + Time.time;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        /*
         if (collision.gameObject.CompareTag("FireBall"))//Player above
         {
             if (timetrack <= Time.time)
@@ -31,7 +27,7 @@ public class GSlimeBossHitBox : MonoBehaviour {
                 Bosshealth.health--;
                 StartCoroutine(BlinkSprite());
             }
-        }
+        }*/
     }
     IEnumerator BlinkSprite()
     {

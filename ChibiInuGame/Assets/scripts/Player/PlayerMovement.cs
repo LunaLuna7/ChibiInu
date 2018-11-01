@@ -5,9 +5,11 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     [SerializeField] private float runSpeed;
+
     float horizontalMove = 0f;
     bool jump = false;
     public CharacterController2D controller;
+
 
     void Start () {
 		
