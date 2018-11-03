@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f248d87d080f0ec419c9d7e248c18529, type: 3}
   m_Name: GKing_SlimeBoss
   m_EditorClassIdentifier: 
-  HP: 80
+  HP: 100
   moveSpeed: 8
   lookRange: 2
   attackRate: 5

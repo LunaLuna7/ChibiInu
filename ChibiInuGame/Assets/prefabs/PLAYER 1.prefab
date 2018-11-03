@@ -37,7 +37,7 @@ GameObject:
   m_Layer: 10
   m_Name: WallCheck
   m_TagString: Untagged
-  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -56,7 +56,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1687154412253784
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,7 +389,6 @@ MonoBehaviour:
   m_Immune: 0
   m_AirJumpsLeft: 0
   cam: {fileID: 0}
-  wallBlock: {fileID: 1481071949941370}
   m_GroundDash: 1
   m_OnSwing: 0
 --- !u!114 &114339156566937732

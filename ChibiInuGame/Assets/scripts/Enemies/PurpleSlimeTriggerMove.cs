@@ -14,6 +14,7 @@ public class PurpleSlimeTriggerMove : MonoBehaviour {
             StateController sc;
             sc = slimesType[i].GetComponent<StateController>();
             sc.enemyStats.moveSpeed = 0;
+           
         }
 	}
 	

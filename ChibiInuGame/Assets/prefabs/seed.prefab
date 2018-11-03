@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  lifeSpam: 12
+  lifeSpam: 50
 --- !u!212 &212941307440705714
 SpriteRenderer:
   m_ObjectHideFlags: 1
