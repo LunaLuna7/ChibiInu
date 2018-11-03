@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1729890706554902}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 252.55005, y: 14.150002, z: 11.994537}
+  m_LocalPosition: {x: 191.53622, y: 13.854226, z: 11.994537}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 4412730324800398}
@@ -264,7 +264,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5559387, y: 0.26631284}
+  m_Size: {x: 3.27, y: 0.26631284}
   m_EdgeRadius: 0
 --- !u!61 &61625286572254408
 BoxCollider2D:
@@ -278,7 +278,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.09516382, y: -0.8421855}
+  m_Offset: {x: 0.09516382, y: -0.53}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -289,7 +289,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8247557, y: 3.0628834}
+  m_Size: {x: 3.15, y: 2.4}
   m_EdgeRadius: 0
 --- !u!95 &95078012120783990
 Animator:
@@ -322,6 +322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1729890706554902}
   stateController: {fileID: 0}
+  health: 0
   m_SpriteRender: {fileID: 0}
 --- !u!114 &114560295228969784
 MonoBehaviour:
@@ -336,6 +337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1729890706554902}
   stateController: {fileID: 0}
+  health: 0
   m_SpriteRender: {fileID: 0}
 --- !u!114 &114814395771528748
 MonoBehaviour:
@@ -361,7 +363,7 @@ MonoBehaviour:
   playerInRange: 0
   IgnoreCollision: {fileID: 0}
   killed: 0
-  permaKill: 0
+  permaDead: 0
 --- !u!212 &212964378403460086
 SpriteRenderer:
   m_ObjectHideFlags: 1
