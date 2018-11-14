@@ -17,14 +17,14 @@ public class PlayerPartnerSkills : MonoBehaviour {
         {
             partnerManager.QSkill();
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        /*if (Input.GetKeyDown(KeyCode.W))
         {
             partnerManager.WSkill();
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
             partnerManager.ESkill();
-        }
+        }*/
 
     }
 
