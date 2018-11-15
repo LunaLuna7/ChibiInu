@@ -338,9 +338,6 @@ public class CharacterController2D : MonoBehaviour {
 
             StartCoroutine(Delay());
         }
-        //m_RigidBody2D.velocity = new Vector3(20, -15);
-        //m_RigidBody2D.velocity = Vector3.Lerp(m_RigidBody2D.velocity, new Vector3(0, 0, 0) ,50f);//20, -15
-        //m_RigidBody2D.AddForce(new Vector2(600, -600));
 
     }
 
