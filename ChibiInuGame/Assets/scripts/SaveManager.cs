@@ -8,38 +8,27 @@ using Newtonsoft.Json.Bson;
 
 
 public class SaveManager : MonoBehaviour {
-	public void Save()
+	public static void Save(string fileName, Player player)
 	{
 
 		//construct the save date
-		//status related
 		SaveData saveData = new SaveData();
+		saveData.GetPlayerData(player);
 
-		//map related
-
-		//event related
 
 		//save it to the local path
-		SaveToPath(saveData, GeneratePath("save1"));
+		SaveToPath(saveData, GeneratePath(fileName));
 	}
 	
-	public void LoadButton()
-	{
-		Load();
-	}
 
-	public bool Load()
+	public static bool Load(string fileName)
 	{
 		//load the savedata from the path
-		SaveData saveData = ReadFromPath(GeneratePath("save1"));
+		SaveData saveData = ReadFromPath(GeneratePath(fileName));
 		//if savedata exists, use the info in the game
 		if(saveData == null)
 			return false;
-		//status related
 
-		//map related
-
-		//event related
 
 		return true;
 	}
@@ -47,16 +36,25 @@ public class SaveManager : MonoBehaviour {
 	//==============================================================
 	//Save Strings to local position
 	//==============================================================
-	private string GeneratePath(string fileName)
+	private static string GeneratePath(string fileName)
 	{
-		//construct the path
 		string path = "";
-		path = Path.Combine(Application.dataPath,"Save");
-		path = Path.Combine(path, fileName + ".data");
+		//when at PC, give the path inside the game folder
+		if(Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+		{
+			//construct the path
+			path = Path.Combine(Application.dataPath,"Save");
+			path = Path.Combine(path, fileName + ".data");
+		}
+		else
+		{
+			path = Application.persistentDataPath;
+			path = Path.Combine(path, fileName + ".data");
+		}
 		return path;
 	}
 
-	private void SaveToPath(SaveData data, string path)
+	private static void SaveToPath(SaveData data, string path)
 	{
 		//if the path do not exist, create the folder
 		if(!Directory.Exists(Path.GetDirectoryName(path)))
@@ -73,7 +71,7 @@ public class SaveManager : MonoBehaviour {
 		File.WriteAllText(path,bsonData);
 	}
 
-	private SaveData ReadFromPath(string path)
+	private static SaveData ReadFromPath(string path)
 	{
 		//if the file does not exist, return null
 		if(!File.Exists(path))
@@ -90,10 +88,25 @@ public class SaveManager : MonoBehaviour {
 		return saveData;
 	}
 
+	private static void DebugJsonData(SaveData data)
+	{
+		string js = UnityEngine.JsonUtility.ToJson(data);
+		Debug.Log(js);
+	}
 }
 
 [System.Serializable]
 public class SaveData
 {
+    public int[] stats = new int[3];
+
+    public void GetPlayerData(Player player)
+    {
+        stats[0] = player.level;
+        stats[1] = player.maxHealth;
+        stats[2] = player.money;
+    }
+
+
 
 }
