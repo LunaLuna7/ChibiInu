@@ -90,8 +90,8 @@ public class CharacterController2D : MonoBehaviour {
             m_limitRightMove = false;
             if(move != 0) //FootStep Sound
             {
-                Debug.Log("STEEEEPS");
-                FindObjectOfType<SoundEffectManager>().Play("Jump");
+                
+               
             }
         }
 
@@ -129,8 +129,11 @@ public class CharacterController2D : MonoBehaviour {
 
         JumpGravity(jump);
 
+        //jump
         if (m_Grounded && jump && (!m_OnWall || m_OnWall) && !m_OnSwing)
         {
+            FindObjectOfType<SoundEffectManager>().Play("Jump");
+            Debug.Log("JUMP");
             m_Grounded = false;
             m_RigidBody2D.AddForce(new Vector2(m_RigidBody2D.velocity.x, m_JumpForce));
             m_DashLeft = 1;
