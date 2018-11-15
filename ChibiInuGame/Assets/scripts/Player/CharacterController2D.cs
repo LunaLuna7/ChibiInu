@@ -35,6 +35,7 @@ public class CharacterController2D : MonoBehaviour {
     public bool m_Immune = false;
     public int m_AirJumpsLeft;
     private Vector3 m_Velocity = Vector3.zero;
+    private SoundEffectManager soundEffectManager;
 
     public GameObject cam;
 
@@ -50,6 +51,7 @@ public class CharacterController2D : MonoBehaviour {
         m_GroundDash = true;
         m_DashLeft = 1;
         m_RigidBody2D = GetComponent<Rigidbody2D>();
+        soundEffectManager = FindObjectOfType<SoundEffectManager>();
 	}
 	
 	void FixedUpdate () {
@@ -86,6 +88,11 @@ public class CharacterController2D : MonoBehaviour {
             
             m_limitLeftMove = false;
             m_limitRightMove = false;
+            if(move != 0) //FootStep Sound
+            {
+                
+               
+            }
         }
 
         if (m_OnWall)
@@ -122,8 +129,11 @@ public class CharacterController2D : MonoBehaviour {
 
         JumpGravity(jump);
 
+        //jump
         if (m_Grounded && jump && (!m_OnWall || m_OnWall) && !m_OnSwing)
         {
+            FindObjectOfType<SoundEffectManager>().Play("Jump");
+            Debug.Log("JUMP");
             m_Grounded = false;
             m_RigidBody2D.AddForce(new Vector2(m_RigidBody2D.velocity.x, m_JumpForce));
             m_DashLeft = 1;
@@ -338,9 +348,6 @@ public class CharacterController2D : MonoBehaviour {
 
             StartCoroutine(Delay());
         }
-        //m_RigidBody2D.velocity = new Vector3(20, -15);
-        //m_RigidBody2D.velocity = Vector3.Lerp(m_RigidBody2D.velocity, new Vector3(0, 0, 0) ,50f);//20, -15
-        //m_RigidBody2D.AddForce(new Vector2(600, -600));
 
     }
 
