@@ -41,7 +41,7 @@ public class CheckPoint : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Player")
         {
-            if (Input.GetKeyDown(KeyCode.X))
+            if (Input.GetKeyDown(KeyCode.P))
             {
                 book.SetActive(true);
             }
