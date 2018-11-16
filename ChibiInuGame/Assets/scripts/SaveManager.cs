@@ -99,6 +99,7 @@ public class SaveManager : MonoBehaviour {
 public class SaveData
 {
     public int[] stats = new int[3];
+	public int highestLevelAchieved;
 
     public void GetPlayerData(Player player)
     {
