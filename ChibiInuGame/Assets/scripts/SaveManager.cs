@@ -8,29 +8,21 @@ using Newtonsoft.Json.Bson;
 
 
 public class SaveManager : MonoBehaviour {
-	public static void Save(string fileName, Player player)
+	public static void Save(string fileName)
 	{
 
 		//construct the save date
 		SaveData saveData = new SaveData();
-		saveData.GetPlayerData(player);
-
 
 		//save it to the local path
 		SaveToPath(saveData, GeneratePath(fileName));
 	}
 	
 
-	public static bool Load(string fileName)
+	public static SaveData Load(string fileName)
 	{
 		//load the savedata from the path
-		SaveData saveData = ReadFromPath(GeneratePath(fileName));
-		//if savedata exists, use the info in the game
-		if(saveData == null)
-			return false;
-
-
-		return true;
+		return ReadFromPath(GeneratePath(fileName));
 	}
 
 	//==============================================================
@@ -99,6 +91,7 @@ public class SaveManager : MonoBehaviour {
 public class SaveData
 {
     public int[] stats = new int[3];
+	public string playerName;
 	public int highestLevelAchieved;
 
     public void GetPlayerData(Player player)
