@@ -91,6 +91,7 @@ public class SaveManager : MonoBehaviour {
 public class SaveData
 {
     public int[] stats = new int[3];
+	public LevelInfo[] levels= new LevelInfo[8];
 	public string playerName;
 	public int highestLevelAchieved;
 
@@ -101,6 +102,10 @@ public class SaveData
         stats[2] = player.money;
     }
 
+}
 
-
+public class LevelInfo
+{
+	public bool unlocked;
+	public bool[] collectable;
 }
