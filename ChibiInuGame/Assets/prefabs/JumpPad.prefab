@@ -94,7 +94,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1811736333028510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -129.89087, y: -1.7644787, z: 0.7504913}
+  m_LocalPosition: {x: -17.29, y: 34.25, z: 0}
   m_LocalScale: {x: 0.11981, y: 0.11981, z: 0.11981}
   m_Children:
   - {fileID: 4341061434814702}
@@ -169,6 +169,7 @@ MonoBehaviour:
   jumpPower: 55
   jumpAnim: {fileID: 0}
   rightJumpad: 0
+  leftUpJumpda: 0
 --- !u!212 &212010989215941310
 SpriteRenderer:
   m_ObjectHideFlags: 1

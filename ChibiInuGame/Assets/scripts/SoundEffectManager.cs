@@ -68,7 +68,7 @@ public class SoundEffectManager : MonoBehaviour {
     {
         foreach (Sound s in sounds)
         {
-            s.volume = .225f;
+            s.volume = .425f;
             s.source.volume = s.volume;
             //PlayerPrefs.SetInt("AudioSound", 1);
         }

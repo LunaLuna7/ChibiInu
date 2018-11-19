@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PartnerManager : MonoBehaviour {
 
+    private SoundEffectManager soundEffectManager;
     public List<Partner> allPartners;
     public List<GameObject> partners;
     public List<Transform> partnerSpawnLocations;
@@ -26,6 +27,7 @@ public class PartnerManager : MonoBehaviour {
     void Start()
     {
         characterController = player.GetComponent<CharacterController2D>();
+        soundEffectManager = FindObjectOfType<SoundEffectManager>();
     }
 
     public void AssignQSkillSlot(int partnerCode)
@@ -71,6 +73,7 @@ public class PartnerManager : MonoBehaviour {
     {
         if (!fireBallOnCoolDown)
         {
+            soundEffectManager.Play("FireBall");
             if (characterController.m_FacingRight)
                 Instantiate(FireBall, characterController.fireSpawn.position, Quaternion.identity);
             else
