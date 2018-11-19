@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour {
             jump = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))// || Input.GetButtonDown("Fire2"))
+        if (Input.GetKeyDown(KeyCode.K))// || Input.GetButtonDown("Fire2"))
         {
             controller.Dash();
         }

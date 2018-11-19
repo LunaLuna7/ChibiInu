@@ -55,30 +55,60 @@ MonoBehaviour:
   - name: FootStep1
     clip: {fileID: 8300000, guid: da906809c3ce50848a1c47349e38dfac, type: 3}
     volume: 1
-    pitch: 0
-    loop: 1
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
   - name: FootStep2
     clip: {fileID: 8300000, guid: 2d493e52581e5f449bceba3bc0ffd3e6, type: 3}
     volume: 0
-    pitch: 0
-    loop: 1
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
   - name: FootStep3
     clip: {fileID: 8300000, guid: 4a0127218d880654986de771758c9d47, type: 3}
     volume: 0
-    pitch: 0
-    loop: 1
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
   - name: FootStep4
     clip: {fileID: 8300000, guid: 10c0d527523b96c409e9177edfbbf6b0, type: 3}
     volume: 0
-    pitch: 0
-    loop: 1
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
   - name: Jump
     clip: {fileID: 8300000, guid: e89730f82072e014abf9e41b5c546605, type: 3}
     volume: 0.287
-    pitch: 0
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: AirJump
+    clip: {fileID: 8300000, guid: a15509839103a2d44a7332b0d934c957, type: 3}
+    volume: 0.287
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: WallJump
+    clip: {fileID: 8300000, guid: 25833afbe172bda4c9cfd29346e7b40e, type: 3}
+    volume: 0.287
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Dash
+    clip: {fileID: 8300000, guid: 1c5dec1e2959cf6439726e6d1c9c1f2b, type: 3}
+    volume: 0.287
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: WallSlide
+    clip: {fileID: 8300000, guid: 9e46ce5c13438fc4787c20171d63e90a, type: 3}
+    volume: 0.287
+    pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: FireBall
+    clip: {fileID: 8300000, guid: 3268bb7afae13d5418075926f52cf0d7, type: 3}
+    volume: 0.287
+    pitch: 1
+    loop: 0
     source: {fileID: 0}

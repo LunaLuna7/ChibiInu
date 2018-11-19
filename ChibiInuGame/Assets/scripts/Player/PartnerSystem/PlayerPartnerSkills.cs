@@ -13,7 +13,7 @@ public class PlayerPartnerSkills : MonoBehaviour {
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown("Fire2"))
+        if (Input.GetKeyDown(KeyCode.J) || Input.GetButtonDown("Fire2"))
         {
             partnerManager.QSkill();
         }

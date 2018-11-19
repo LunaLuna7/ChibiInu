@@ -24,20 +24,23 @@ public class CharacterController2D : MonoBehaviour {
 
     [HideInInspector] public Rigidbody2D m_RigidBody2D;
     private bool m_Grounded;
-    private bool m_OnWall;
     private bool doingWallJump = false;
     private bool wallDeadTime;
     public bool m_limitLeftMove;
     public bool m_limitRightMove;
     public bool m_FacingRight = true;
-    private bool m_OnJumpPad = false;
     public bool m_Damaged;
     public bool m_Immune = false;
     public int m_AirJumpsLeft;
     private Vector3 m_Velocity = Vector3.zero;
     private SoundEffectManager soundEffectManager;
 
-    public GameObject cam;
+    public Camera cam;
+    
+    //States
+    private bool m_OnWall;
+    public bool m_OnDash;
+    private bool m_OnJumpPad = false;
 
     //CoolDowns
     public bool m_GroundDash;
@@ -62,6 +65,8 @@ public class CharacterController2D : MonoBehaviour {
 	void FixedUpdate () {
         m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, m_GroundLayer) || Physics2D.Linecast(transform.position, m_GroundCheck2.position, m_GroundLayer);
         m_OnWall = Physics2D.OverlapCircle(m_WallCheck.position, .2f, m_WallLayer);
+
+
 
         if (m_Grounded)
         {
@@ -89,7 +94,15 @@ public class CharacterController2D : MonoBehaviour {
         if (m_limitLeftMove && move < 0)
             move = 0;
 
-        if(m_Grounded)
+        if(m_OnDash)
+        {
+            if(m_FacingRight)
+                m_RigidBody2D.velocity = new Vector2(50, 0);
+            else
+                m_RigidBody2D.velocity = new Vector2(-50, 0);
+        }
+
+        if (m_Grounded)
         {
             
             m_limitLeftMove = false;
@@ -136,7 +149,7 @@ public class CharacterController2D : MonoBehaviour {
         JumpGravity(jump);
 
         //jump
-        if (m_Grounded && jump && (!m_OnWall || m_OnWall) && !m_OnSwing)
+        if (m_Grounded && jump && (!m_OnWall || m_OnWall) && !m_OnSwing && !m_OnDash)
         {
             soundEffectManager.Play("Jump");
             m_Grounded = false;
@@ -145,7 +158,7 @@ public class CharacterController2D : MonoBehaviour {
         }
 
         //air Jump
-        else if (jump && m_AirJumpsLeft > 0 && !m_OnWall && !m_OnSwing && !doingWallJump)
+        else if (jump && m_AirJumpsLeft > 0 && !m_OnWall && !m_OnSwing && !doingWallJump && !m_OnDash)
         {
             soundEffectManager.Play("AirJump");
             m_Grounded = false;
@@ -156,7 +169,7 @@ public class CharacterController2D : MonoBehaviour {
 
 
         //wall jump
-        else if(jump && !m_Grounded && m_OnWall &&!m_OnSwing)
+        else if(jump && !m_Grounded && m_OnWall &&!m_OnSwing && !m_OnDash)
         {
             m_DashLeft = 1;
             OffWallSound();
@@ -164,26 +177,12 @@ public class CharacterController2D : MonoBehaviour {
             Flip();
             if (m_FacingRight)
             {
-                //m_limitLeftMove = true;
-                //m_limitRightMove = false;
-
-
-                //m_RigidBody2D.AddForce(new Vector2(m_WallJumpForce, m_JumpForce));
-                //m_RigidBody2D.velocity = new Vector3(60, 20);
-                ParabolaJump(transform.position + new Vector3(5, 5, 0), 3, m_WallJumpTime); //(5, 3f, 0), 3, m_wallJumpTime
-                //StartCoroutine(LimitWallJumpMoveLeft());
-
+                ParabolaJump(transform.position + new Vector3(5, 5, 0), 3, m_WallJumpTime);
             }
 
             else if (!m_FacingRight)
             {
-                //m_limitRightMove = true;
-                //m_limitLeftMove = false;
-                //m_RigidBody2D.AddForce(new Vector2(-m_WallJumpForce, m_JumpForce));
-                //m_RigidBody2D.velocity = new Vector3(-60, 20);
-                ParabolaJump(transform.position + new Vector3(-5, 5, 0), 3, m_WallJumpTime); //(5, 3f, 0), 3, m_wallJumpTime
-               
-                //StartCoroutine(LimitWallJumpMoveRight());
+                ParabolaJump(transform.position + new Vector3(-5, 5, 0), 3, m_WallJumpTime);
             }
         }
 
@@ -192,33 +191,33 @@ public class CharacterController2D : MonoBehaviour {
 
     void JumpGravity(bool jump)
     {
+            if (jump && m_AirJumpsLeft >= 1)
+            {
 
-        if (jump && m_AirJumpsLeft >= 1)
-        {
+               m_RigidBody2D.velocity = new Vector2(m_RigidBody2D.velocity.x, 0);
+            }
 
-           m_RigidBody2D.velocity = new Vector2(m_RigidBody2D.velocity.x, 0);
-        }
+            if (m_RigidBody2D.velocity.y < 0 && !m_OnWall) //we are falling
+            {
+                m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime;
+            }
+            else if(m_RigidBody2D.velocity.y < 0 && m_OnWall)
+            {
+                m_RigidBody2D.velocity = Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime * 10;
+                if (!PlayingWallSlide)
+                    OnWallSound();
 
-        if (m_RigidBody2D.velocity.y < 0 && !m_OnWall) //we are falling
-        {
-            m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime;
-        }
-        else if(m_RigidBody2D.velocity.y < 0 && m_OnWall)
-        {
-            m_RigidBody2D.velocity = Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime * 10;
-            if (!PlayingWallSlide)
-                OnWallSound();
+            }
 
-        }
-
-        else if ((m_RigidBody2D.velocity.y > 0 || m_OnJumpPad) && !Input.GetButton("Jump"))//tab jump
-        {
-            m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime;
-        }
-        else if ((m_RigidBody2D.velocity.y > 0 || m_OnJumpPad )&& Input.GetButton("Jump") && m_OnJumpPad)
-        {
-            m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime;
-        }
+            else if ((m_RigidBody2D.velocity.y > 0 || m_OnJumpPad) && !Input.GetButton("Jump"))//tab jump
+            {
+                m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime;
+            }
+            else if ((m_RigidBody2D.velocity.y > 0 || m_OnJumpPad )&& Input.GetButton("Jump") && m_OnJumpPad)
+            {
+                m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime;
+            }
+        
     }
     
     void Flip()
@@ -272,34 +271,45 @@ public class CharacterController2D : MonoBehaviour {
 
     public void Dash()
     {
+        
         if (!m_Grounded)
         {
-
-            if(m_FacingRight && m_DashLeft == 1)
+            
+            soundEffectManager.Play("Dash");
+            
+            if (m_FacingRight && m_DashLeft == 1)
             {
-                m_RigidBody2D.AddForce(Vector3.right * m_DashForce * 100 );
+                
+
+                StartCoroutine(PerformingDash());
+                m_RigidBody2D.AddForce(Vector3.right * m_DashForce * 150 );
                 m_DashLeft--;
             }
             else if(!m_FacingRight && m_DashLeft == 1)
             {
-                m_RigidBody2D.AddForce(Vector3.right * m_DashForce * -100);
+                
+                StartCoroutine(PerformingDash());
+                m_RigidBody2D.AddForce(Vector3.right * m_DashForce * -150);
                 m_DashLeft--;
             }
         }
+        /*
         else
         {
             if(m_FacingRight && m_GroundDash)
             {
                 m_GroundDash = false;
-                m_RigidBody2D.AddForce(Vector3.right * m_DashForce * 100);
+                StartCoroutine(PerformingDash());
+                m_RigidBody2D.AddForce(Vector3.right * m_DashForce * 150);
             }
             else if(!m_FacingRight && m_GroundDash)
             {
                 m_GroundDash = false;
-                m_RigidBody2D.AddForce(Vector3.right * m_DashForce * -100);
+                StartCoroutine(PerformingDash());
+                m_RigidBody2D.AddForce(Vector3.right * m_DashForce * -150);
             }
             StartCoroutine(GroundDashCooldown());
-        }
+        }*/
     }
 
     IEnumerator GroundDashCooldown()
@@ -327,7 +337,7 @@ public class CharacterController2D : MonoBehaviour {
         doingWallJump = true;
         bool jumped = false;
         var startPos = transform.position;
-        while (JumpProgress <= 1.0 && !jumped)
+        while (JumpProgress <= 1.0 && !jumped && !m_OnDash)
         {
             if (Input.GetButtonDown("Jump") && m_AirJumpsLeft == 1)
             {
@@ -372,6 +382,13 @@ public class CharacterController2D : MonoBehaviour {
     {
         yield return new WaitForSeconds(.1f);
         wallDeadTime = false;
+    }
+
+    IEnumerator PerformingDash()
+    {
+        m_OnDash = true;
+        yield return new WaitForSeconds(.2f);
+        m_OnDash = false;
     }
 
     private void OnWallSound()
