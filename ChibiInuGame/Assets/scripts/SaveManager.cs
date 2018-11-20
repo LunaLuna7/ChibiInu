@@ -8,14 +8,13 @@ using Newtonsoft.Json.Bson;
 
 
 public class SaveManager : MonoBehaviour {
+	public static string filename;
+	public static SaveData dataInUse;
+
 	public static void Save(string fileName)
 	{
-
-		//construct the save date
-		SaveData saveData = new SaveData();
-
 		//save it to the local path
-		SaveToPath(saveData, GeneratePath(fileName));
+		SaveToPath(SaveManager.dataInUse, GeneratePath(fileName));
 	}
 	
 
@@ -80,7 +79,7 @@ public class SaveManager : MonoBehaviour {
 		return saveData;
 	}
 
-	private static void DebugJsonData(SaveData data)
+	public static void DebugJsonData(SaveData data)
 	{
 		string js = UnityEngine.JsonUtility.ToJson(data);
 		Debug.Log(js);
@@ -90,22 +89,67 @@ public class SaveManager : MonoBehaviour {
 [System.Serializable]
 public class SaveData
 {
-    public int[] stats = new int[3];
-	public LevelInfo[] levels= new LevelInfo[8];
 	public string playerName;
-	public int highestLevelAchieved;
+	public LevelInfo[] levels = new LevelInfo[12];
+	public List<PartnerInfo> partners;
 
-    public void GetPlayerData(Player player)
-    {
-        stats[0] = player.level;
-        stats[1] = player.maxHealth;
-        stats[2] = player.money;
-    }
+
+	public SaveData(string name)
+	{
+		playerName = name;
+		//default levels, only the first is on
+		levels[0] = new LevelInfo(true, false, false, false);
+		for(int index = 1; index < levels.Length; ++index)
+		{
+			levels[index] = new LevelInfo(false, false, false, false);
+		}
+		//default parter
+		partners = new List<PartnerInfo>();
+	}
+
+	public void GetPartnerInfo(PartnerManager pm)
+	{
+		//clean the list first
+		partners.Clear();
+		foreach(Partner partner in pm.allPartners)
+		{
+			//record the partners that are in use
+			if(partner.selected)
+			{
+				//check which skill slot its in is on
+				if(partner.J)
+					partners.Add(new PartnerInfo(partner.partnerID, "J"));
+				else
+					partners.Add(new PartnerInfo(partner.partnerID, "K"));
+			}
+		}
+	}
 
 }
 
+[System.Serializable]
 public class LevelInfo
 {
 	public bool unlocked;
 	public bool[] collectable;
+
+	public LevelInfo(bool unlocked, bool collectable1, bool collectable2, bool collectable3)
+	{
+		this.unlocked = unlocked;
+		this.collectable = new bool[3]{collectable1, collectable2, collectable3};
+	}
+}
+
+
+[System.Serializable]
+public class PartnerInfo
+{
+	public int index;
+	public string skillSlot;
+
+	public PartnerInfo(int index, string skillSlot)
+	{
+		this.index = index;
+		this.skillSlot = skillSlot;
+	}
 }

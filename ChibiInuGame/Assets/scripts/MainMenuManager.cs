@@ -26,9 +26,9 @@ public class MainMenuManager : MonoBehaviour {
 	{
 		chooseFilePage.SetActive(true);
 		//load files
-		saveDatas[0] = SaveManager.Load("Save1");
-		saveDatas[1] = SaveManager.Load("Save2");
-		saveDatas[2] = SaveManager.Load("Save3");
+		saveDatas[0] = SaveManager.Load("save1");
+		saveDatas[1] = SaveManager.Load("save2");
+		saveDatas[2] = SaveManager.Load("save3");
 		//update the contents
 		for(int index = 0; index < saveDatas.Length; ++index)
 		{
@@ -39,7 +39,23 @@ public class MainMenuManager : MonoBehaviour {
 	//load the level info and go to the level switch page
 	public void LoadSaveFile(int index)
 	{
-		
+		//no safe data, ask users enter name and create a new save file for them
+		if(saveDatas[index] == null)
+		{
+			//get name
+			//create new saveData
+			SaveData newData = new SaveData("Test");
+			//SaveManager.DebugJsonData(newData);
+			SaveManager.dataInUse = newData;
+			SaveManager.filename = "save" + (index + 1);
+			SaveManager.Save(SaveManager.filename);
+		}else//load the save file and update the levels
+		{
+			SaveManager.dataInUse = saveDatas[index];
+			SaveManager.filename = "save" + (index + 1);
+		}
+		//go to levelSelectionScene
+		UnityEngine.SceneManagement.SceneManager.LoadScene("LevelSelect");
 	}
 
 	public void ReturnFromChooseFileButton()
@@ -60,7 +76,7 @@ public class MainMenuManager : MonoBehaviour {
 			slotUI.text = "Start a New Game";
 		}
 		else{
-			slotUI.text = data.playerName + "\n" + (data.highestLevelAchieved/10);
+			slotUI.text = data.playerName;// + "\n" + (data.highestLevelAchieved/10) + "%";
 		}
 	}
 
