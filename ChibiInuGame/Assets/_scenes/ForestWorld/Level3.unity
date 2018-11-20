@@ -6954,6 +6954,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd279eac5bf9cc42bd78e461cd68b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeCheckPoint: {fileID: 0}
+  checkPointImage: {fileID: 0}
   newCheckPoint: 1
   book: {fileID: 1349805950}
   enemies: []

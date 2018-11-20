@@ -343,9 +343,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allPartners:
   - {fileID: 11400000, guid: 24c36a375c41c8742887b64eade69767, type: 2}
-  - {fileID: 11400000, guid: acd1fbbbb8b507e419d4c2266c4b8c98, type: 2}
   - {fileID: 11400000, guid: b2898ccbdba9b0c44bcc1521e187b465, type: 2}
-  - {fileID: 11400000, guid: 9d0506cfb2308f2488b29b70c01a9105, type: 2}
+  - {fileID: 11400000, guid: 4081693f4f1b918479609a4f18ff12b8, type: 2}
+  - {fileID: 11400000, guid: acd1fbbbb8b507e419d4c2266c4b8c98, type: 2}
   partners:
   - {fileID: 1538525762815378}
   - {fileID: 1906305279625296}
@@ -443,7 +443,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8ea8a6d15b7a0474b80e3d1baffe1f2a, type: 3}
+  m_Sprite: {fileID: 21300008, guid: 2166dd67582ac6f45836e6fc451ce409, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

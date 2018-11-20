@@ -13,7 +13,7 @@ public class ScrollingTexture : MonoBehaviour {
 	void Start () {
         r = GetComponent<Renderer>();
         r.sortingLayerName = "Foreground";
-        r.sortingOrder = -5;
+        r.sortingOrder = 5;
         mr = GetComponent<MeshRenderer>();
 	}
 	

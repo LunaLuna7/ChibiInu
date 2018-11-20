@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: Shield
   m_EditorClassIdentifier: 
   partnerName: Shield
-  partnerID: 4
-  unlocked: 1
+  partnerID: 2
+  unlocked: 0
   selected: 0
   image: {fileID: 0}
   skillInfo: Ability to swing with wood tiles?

@@ -25,12 +25,12 @@ public class CurrentTeamSlotUI : MonoBehaviour {
     {
         for(int i = 0; i < partnerManager.allPartners.Count; ++i)
         {
-            if (partnerManager.allPartners[i].W)
+            if (partnerManager.allPartners[i].K)
             {
                 partnerW = partnerManager.allPartners[i];
             }
 
-            if (partnerManager.allPartners[i].Q)
+            if (partnerManager.allPartners[i].J)
             {
                 partnerQ = partnerManager.allPartners[i];
             }

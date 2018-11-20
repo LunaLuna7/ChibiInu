@@ -14,9 +14,9 @@ MonoBehaviour:
   partnerName: Merlin
   partnerID: 0
   unlocked: 1
-  selected: 1
+  selected: 0
   image: {fileID: 21300006, guid: f71aad39814db914f9aa0849fbab5dab, type: 3}
   skillInfo: Shoots horizontal fire ball
-  W: 0
-  Q: 1
+  K: 0
+  J: 0
   E: 0
