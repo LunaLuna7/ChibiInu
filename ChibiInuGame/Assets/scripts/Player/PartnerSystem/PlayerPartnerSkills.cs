@@ -15,16 +15,14 @@ public class PlayerPartnerSkills : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.J) || Input.GetButtonDown("Fire2"))
         {
-            partnerManager.QSkill();
+            partnerManager.JSkill();
         }
-        /*if (Input.GetKeyDown(KeyCode.W))
+        /*
+        if (Input.GetKeyDown(KeyCode.K))
         {
-            partnerManager.WSkill();
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            partnerManager.ESkill();
+            partnerManager.KSkill();
         }*/
+       
 
     }
 

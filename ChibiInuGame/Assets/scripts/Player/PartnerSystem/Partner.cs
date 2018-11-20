@@ -15,7 +15,7 @@ public class Partner : ScriptableObject {
     [TextArea(3,10)]
     public string skillInfo;
 
-    public bool W;
-    public bool Q;
+    public bool K;
+    public bool J;
     public bool E;
 }

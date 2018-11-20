@@ -22,19 +22,21 @@ public class PlayerMovement : MonoBehaviour {
         {
             jump = true;
         }
-
-        if (Input.GetKeyDown(KeyCode.K))// || Input.GetButtonDown("Fire2"))
-        {
-            controller.Dash();
-        }
         
 	}
 
     private void FixedUpdate()
     {
-        
-        controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
-        jump = false;
+        if (!controller.m_Paralyzed)
+        {
+            controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
+            jump = false;
+
+        }
+        else
+        {
+            controller.Move(0, false);
+        }
     }
 
     

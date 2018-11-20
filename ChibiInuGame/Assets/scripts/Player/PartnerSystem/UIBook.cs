@@ -16,10 +16,37 @@ public class UIBook : MonoBehaviour {
 
     public List<GameObject> partnerBookMarks;
     public List<GameObject> partnerLightMark;
+    public CharacterController2D characterController;
+    private SkillSummonUI skillSummonUI;
 
+    private void Start()
+    {
+        skillSummonUI = GetComponent<SkillSummonUI>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+            LeftArrow();
+        
+        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+            RightArrow();
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            skillSummonUI.SummonPartner("J");
+
+        }
+
+        else if (Input.GetKeyDown(KeyCode.K))
+        {
+            skillSummonUI.SummonPartner("K");
+        }
+    }
 
     void OnEnable()
     {
+        characterController.m_Paralyzed = true;
         CheckUnlockedPartners();
         if (partnerManager.allPartners[0].unlocked)
         {
@@ -30,6 +57,26 @@ public class UIBook : MonoBehaviour {
         else
         {
             DisableBook();
+        }
+    }
+
+    private void OnDisable()
+    {
+        characterController.m_Paralyzed = false;
+
+        bool noPartner = true;
+        for (int i = 0; i < partnerManager.allPartners.Capacity; ++i)
+        {
+            if (partnerManager.allPartners[i].selected)
+                noPartner = false;
+        }
+        if (noPartner)
+        {
+            characterController.m_AirJumps = 2;
+        }
+        else
+        {
+            characterController.m_AirJumps = 1;
         }
     }
 
