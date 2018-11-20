@@ -8,6 +8,7 @@ public class JumpPad : MonoBehaviour {
     public float jumpPower;
     public Animator jumpAnim;
     public bool rightJumpad;
+    public bool leftUpJumpda;
 
     private void Start()
     {
@@ -26,6 +27,10 @@ public class JumpPad : MonoBehaviour {
             if(rightJumpad)
                 rb.velocity = new Vector2(jumpPower, 0);
 
+            else if (leftUpJumpda)
+            {
+                rb.velocity = new Vector2(-jumpPower * 4, jumpPower);
+            }
             else
                 rb.velocity = new Vector2(0, jumpPower);
             cc.JumpadOn();

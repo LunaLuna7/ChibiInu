@@ -11,12 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b889d70a5b3cb5f41ae59adab84a77fe, type: 3}
   m_Name: FireBall
   m_EditorClassIdentifier: 
-  partnerName: FireShotPartner
+  partnerName: Merlin
   partnerID: 0
   unlocked: 1
-  selected: 0
-  image: {fileID: 21300000, guid: 0b4a5df51a34c17449f6d53503422198, type: 3}
+  selected: 1
+  image: {fileID: 21300006, guid: f71aad39814db914f9aa0849fbab5dab, type: 3}
   skillInfo: Shoots horizontal fire ball
   W: 0
-  Q: 0
+  Q: 1
   E: 0
