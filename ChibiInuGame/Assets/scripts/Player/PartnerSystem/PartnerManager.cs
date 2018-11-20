@@ -9,8 +9,8 @@ public class PartnerManager : MonoBehaviour {
     public List<GameObject> partners;
     public List<Transform> partnerSpawnLocations;
     public delegate void Skill();
-    public Skill QSkill = null;
-    public Skill WSkill = null;
+    public Skill JSkill = null;
+    public Skill KSkill = null;
     public Skill ESkill = null;
 
     public GameObject player;
@@ -30,15 +30,15 @@ public class PartnerManager : MonoBehaviour {
         soundEffectManager = FindObjectOfType<SoundEffectManager>();
     }
 
-    public void AssignQSkillSlot(int partnerCode)
+    public void AssignJSkillSlot(int partnerCode)
     {
-        AssignSkillToSlot(partnerCode, ref QSkill);
+        AssignSkillToSlot(partnerCode, ref JSkill);
         
     }
 
-    public void AssignWSkillSlot(int partnerCode)
+    public void AssignKSkillSlot(int partnerCode)
     {
-        AssignSkillToSlot(partnerCode, ref WSkill);
+        AssignSkillToSlot(partnerCode, ref KSkill);
     }
 
     public void AssignESkillSlot(int partnerCode)
@@ -55,7 +55,7 @@ public class PartnerManager : MonoBehaviour {
                 break;
 
             case 1:
-                skill = LightPartner;
+                skill = Dash;
                 break;
 
             case 2:
@@ -68,6 +68,8 @@ public class PartnerManager : MonoBehaviour {
            
         }
     }
+
+
 
     public void FireBallShot()
     {
@@ -97,7 +99,7 @@ public class PartnerManager : MonoBehaviour {
 
     public void Dash()
     {
-        Debug.Log("Dash");
+        characterController.Dash();
     }
 
     public void Hookshot()
@@ -129,6 +131,11 @@ public class PartnerManager : MonoBehaviour {
         
         yield return new WaitForSeconds(coolDown);
         fireBallOnCoolDown = false;
+    }
+
+    public void DeselectPartner(int partnerCode)
+    {
+        
     }
    
 }

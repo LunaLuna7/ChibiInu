@@ -31,12 +31,13 @@ public class CharacterController2D : MonoBehaviour {
     public bool m_FacingRight = true;
     public bool m_Damaged;
     public bool m_Immune = false;
+    public bool m_Paralyzed;
     public int m_AirJumpsLeft;
     private Vector3 m_Velocity = Vector3.zero;
     private SoundEffectManager soundEffectManager;
 
     public Camera cam;
-    
+
     //States
     private bool m_OnWall;
     public bool m_OnDash;
@@ -54,6 +55,7 @@ public class CharacterController2D : MonoBehaviour {
     public float JumpProgress { get; private set; }
 
     void Awake () {
+        m_Paralyzed = false;
         PlayingWallSlide = false;
         m_GroundDash = true;
         m_DashLeft = 1;
@@ -63,25 +65,15 @@ public class CharacterController2D : MonoBehaviour {
     }
 	
 	void FixedUpdate () {
+
         m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, m_GroundLayer) || Physics2D.Linecast(transform.position, m_GroundCheck2.position, m_GroundLayer);
         m_OnWall = Physics2D.OverlapCircle(m_WallCheck.position, .2f, m_WallLayer);
-
-
 
         if (m_Grounded)
         {
             JumpadOff();
             m_AirJumpsLeft = m_AirJumps;
-            OffWallSound();
-            /*if (!wallBlock.activeSelf)
-                wallBlock.SetActive(true);*/
-        }
-
-        if (!m_Grounded)
-        {
-            /*if (wallBlock.activeSelf)
-                wallBlock.SetActive(false);*/
-
+            OffWallSound();    
         }
 
     }
