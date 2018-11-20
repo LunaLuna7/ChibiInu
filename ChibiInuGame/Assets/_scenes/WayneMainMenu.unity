@@ -1433,8 +1433,9 @@ GameObject:
   - component: {fileID: 1418522085}
   - component: {fileID: 1418522087}
   - component: {fileID: 1418522086}
+  - component: {fileID: 1418522088}
   m_Layer: 5
-  m_Name: ChoiceFilePage
+  m_Name: ChooseFilePage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1494,6 +1495,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1418522084}
   m_CullTransparentMesh: 0
+--- !u!114 &1418522088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1418522084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb56b542348d39949a4ab1d19370deb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1557264327
 GameObject:
   m_ObjectHideFlags: 0
