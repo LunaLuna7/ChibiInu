@@ -15,7 +15,12 @@ public class LevelSelectManager : MonoBehaviour {
     public List<Level> levels;
 
 	void Start () {
-		
+		//read and set the levels depends on the info get from saveData
+        for(int index = 0; index < levels.Count; ++index)
+        {
+            levels[index].unlocked = SaveManager.dataInUse.levels[index].unlocked;
+        }
+        levels[0].unlocked = true;
 	}
 	
 	// Update is called once per frame
