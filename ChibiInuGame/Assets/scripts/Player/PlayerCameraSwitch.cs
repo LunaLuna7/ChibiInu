@@ -19,11 +19,11 @@ public class PlayerCameraSwitch : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-         if (characterController2D.m_FacingRight)
+         if (!characterController2D.m_OnOtherCamera &&  characterController2D.m_FacingRight)
          {
             sw.ChangeCamera(cameraRight);
          }
-            else if (!characterController2D.m_FacingRight)
+            else if (!characterController2D.m_OnOtherCamera && !characterController2D.m_FacingRight)
          {
             sw.ChangeCamera(cameraLeft);
          }

@@ -42,6 +42,7 @@ public class CharacterController2D : MonoBehaviour {
     private bool m_OnWall;
     public bool m_OnDash;
     private bool m_OnJumpPad = false;
+    public bool m_OnOtherCamera = false;
 
     //CoolDowns
     public bool m_GroundDash;
@@ -226,6 +227,7 @@ public class CharacterController2D : MonoBehaviour {
         if (collide.gameObject.tag == "hurtBox" && this.gameObject.transform.position.y - collide.gameObject.transform.position.y >= 0)
         {
             m_RigidBody2D.velocity = new Vector2(m_RigidBody2D.velocity.x, 25);
+            m_DashLeft = 1;
         }
        
     }
@@ -331,7 +333,7 @@ public class CharacterController2D : MonoBehaviour {
         var startPos = transform.position;
         while (JumpProgress <= 1.0 && !jumped && !m_OnDash)
         {
-            if (Input.GetButtonDown("Jump") && m_AirJumpsLeft == 1)
+            if (Input.GetButtonDown("Jump") && m_AirJumpsLeft >= 1)
             {
                 doingWallJump = false;
                 jumped = true;
@@ -366,7 +368,7 @@ public class CharacterController2D : MonoBehaviour {
         yield return new WaitForSeconds(.01f);
         m_RigidBody2D.velocity = new Vector2(0, 0);
         m_RigidBody2D.AddForce(new Vector2(0f, m_JumpForce));
-        m_AirJumpsLeft--;
+        //m_AirJumpsLeft--;
         m_DashLeft = 1;
     }
     

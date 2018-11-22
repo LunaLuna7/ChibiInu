@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 114710873842708068}
   - component: {fileID: 114336484512229048}
   - component: {fileID: 50402119177068728}
-  - component: {fileID: 95204588485934390}
+  - component: {fileID: 95690333819921698}
   m_Layer: 0
   m_Name: CircleWizard_Slime
   m_TagString: Untagged
@@ -263,7 +263,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1741995346591478}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -140.01, y: -0.01, z: 1.1197813}
+  m_LocalPosition: {x: -91.887665, y: -7.140801, z: 1.1197813}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4185920313686386}
@@ -535,7 +535,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8174438, y: 1.1767597}
   m_EdgeRadius: 0
---- !u!95 &95204588485934390
+--- !u!95 &95690333819921698
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -544,7 +544,7 @@ Animator:
   m_GameObject: {fileID: 1741995346591478}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2c569ee51e3bdea44be4af72f8f74fba, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7b24e9e411cf8c14db7e0299e8216843, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -847,7 +847,7 @@ SpriteRenderer:
   m_SortingLayerID: 1970243025
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: f71aad39814db914f9aa0849fbab5dab, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 574cc290e4729e14bad7a4e7bd92aa5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
