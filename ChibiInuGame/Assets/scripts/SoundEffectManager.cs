@@ -55,7 +55,7 @@ public class SoundEffectManager : MonoBehaviour {
             return;
         }
         s.source.Play();
-        Debug.Log("SHOULD PLAY");
+
     }
 
     public void Stop(string name)

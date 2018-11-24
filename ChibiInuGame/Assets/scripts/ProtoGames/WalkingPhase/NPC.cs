@@ -20,24 +20,22 @@ public class NPC : MonoBehaviour {
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        startDialouge.SetActive(true);
         inConversation = false;
     }
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.X) && inConversation == false)
+       
+        if(collision.gameObject.tag == "Player")
         {
             inConversation = true;
-            startDialouge.SetActive(false);
             trigger.TriggerDialogue();
-            //dialogueBubble.SetActive(true);
         }
+        
         
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    IEnumerator Delay()
     {
-        startDialouge.SetActive(false);
-        trigger.EndDialogue();
+        yield return new WaitForSeconds(2f);
     }
 }
