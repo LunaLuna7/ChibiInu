@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: P_SlimeDoorWall
   m_EditorClassIdentifier: 
   HP: 1
-  moveSpeed: 8
+  moveSpeed: 0
   lookRange: 2
   attackRate: 5
   jumpPower: 4

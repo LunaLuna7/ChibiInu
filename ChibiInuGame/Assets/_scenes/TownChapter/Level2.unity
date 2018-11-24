@@ -11214,6 +11214,7 @@ MonoBehaviour:
   nameText: {fileID: 1188197233}
   dialogueText: {fileID: 1188197232}
   animator: {fileID: 1188197231}
+  characterController2D: {fileID: 0}
 --- !u!4 &212620701
 Transform:
   m_ObjectHideFlags: 0
