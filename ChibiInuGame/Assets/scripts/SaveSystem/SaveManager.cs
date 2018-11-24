@@ -86,6 +86,9 @@ public class SaveManager : MonoBehaviour {
 	}
 }
 
+//========================================================================
+//Save Data
+//========================================================================
 [System.Serializable]
 public class SaveData
 {
