@@ -8,8 +8,10 @@ public class ChooseFilePage : MonoBehaviour {
 	public GameObject[] buttons;
 	public Text[] saveSlotUI = new Text[3];
 	private SaveData[] saveDatas = new SaveData[3];
+	public GameObject createNewFilePage;
 	void Update () {
-		CheckInput();
+		if(!createNewFilePage.activeSelf)
+			CheckInput();
 	}
 
 	//========================================================
@@ -29,9 +31,9 @@ public class ChooseFilePage : MonoBehaviour {
 			UpdateArrow(++arrowIndex);
 		}
 		//when press Space
-		else if(Input.GetButtonDown("Jump"))
+		else if(Input.GetButtonDown("Submit"))
 			LoadSaveFile(arrowIndex);
-		else if(Input.GetButtonDown("Cancel") || Input.GetMouseButtonDown(2))
+		else if(Input.GetButtonDown("Cancel") || Input.GetMouseButtonDown(1))
 			ReturnFromChooseFile();
 	}
 
@@ -44,7 +46,6 @@ public class ChooseFilePage : MonoBehaviour {
 	}
 	public void ReturnFromChooseFile()
 	{
-		Debug.Log(1);
 		gameObject.SetActive(false);
 	}
 
@@ -70,22 +71,26 @@ public class ChooseFilePage : MonoBehaviour {
 		//no safe data, ask users enter name and create a new save file for them
 		if(saveDatas[index] == null)
 		{
-			//get name
-			//create new saveData
-			SaveData newData = new SaveData("Test");
-			//SaveManager.DebugJsonData(newData);
-			SaveManager.dataInUse = newData;
-			SaveManager.filename = "save" + (index + 1);
-			SaveManager.Save(SaveManager.filename);
+			createNewFilePage.GetComponent<CreateNewFilePage>().Initalize(index);
 		}else//load the save file and update the levels
 		{
 			SaveManager.dataInUse = saveDatas[index];
 			SaveManager.filename = "save" + (index + 1);
+			//go to levelSelectionScene
+			UnityEngine.SceneManagement.SceneManager.LoadScene("LevelSelect");
 		}
-		//go to levelSelectionScene
-		UnityEngine.SceneManagement.SceneManager.LoadScene("LevelSelect");
 	}
 
+	public void CreateNewFile(int slotIndex, string playerName)
+	{
+		//create new saveData
+		SaveData newData = new SaveData(playerName);
+		SaveManager.dataInUse = newData;
+		SaveManager.filename = "save" + (slotIndex + 1);
+		SaveManager.Save(SaveManager.filename);
+		saveDatas[slotIndex] = newData;
+		UpdateSaveSlotUI(saveSlotUI[slotIndex], newData);
+	}
 	
 	//========================================================
 	//Modifing UI contents

@@ -40,7 +40,7 @@ public class MainMenuManager : MonoBehaviour {
 			UpdateArrow(mainArrowIndex);
 		}
 		//when press Space
-		else if(Input.GetButtonDown("Jump"))
+		else if(Input.GetButtonDown("Submit"))
 		{
 			switch(mainArrowIndex)
 			{
