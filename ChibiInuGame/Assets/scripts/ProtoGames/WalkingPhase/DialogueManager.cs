@@ -8,6 +8,7 @@ public class DialogueManager : MonoBehaviour {
     public Text nameText;
     public Text dialogueText;
     public Animator animator;
+    public CharacterController2D characterController2D;
 
     private Queue<string> sentences;
 	// Use this for initialization
@@ -24,6 +25,7 @@ public class DialogueManager : MonoBehaviour {
     {
         animator.SetBool("IsOpen", true);
         nameText.text = dialogue.name;
+        
 
         sentences.Clear();
         foreach( string sentence in dialogue.sentences)
@@ -49,6 +51,7 @@ public class DialogueManager : MonoBehaviour {
 
     IEnumerator TypeSentence(string sentence)
     {
+        
         dialogueText.text = "";
         foreach(char letter in sentence.ToCharArray())
         {
@@ -60,5 +63,6 @@ public class DialogueManager : MonoBehaviour {
     public void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
+        characterController2D.m_Paralyzed = false;
     }
 }
