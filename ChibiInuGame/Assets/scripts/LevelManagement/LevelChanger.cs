@@ -36,7 +36,7 @@ public class LevelChanger : MonoBehaviour {
 
     public void FakeFade()
     {
-        animator.Play("Fade_Out");
+        animator.Play("Fake_Fade_Out");
     }
 
     public void FakeFadeIn()

@@ -94,6 +94,7 @@ public class SaveData
 {
 	public string playerName;
 	public LevelInfo[] levels = new LevelInfo[12];
+	public int lastLevelEntered = 0;
 	//public List<PartnerInfo> partners;
 
 
