@@ -6,6 +6,8 @@ using Cinemachine;
 
 public class CharacterController2D : MonoBehaviour {
 
+    public Animator anim;
+
     [SerializeField] private float m_JumpForce = 900f;
     [SerializeField] private float m_WallJumpTime = .5f;
     [SerializeField] public int m_AirJumps = 0;
@@ -62,6 +64,7 @@ public class CharacterController2D : MonoBehaviour {
         m_DashLeft = 1;
         m_RigidBody2D = GetComponent<Rigidbody2D>();
         soundEffectManager = FindObjectOfType<SoundEffectManager>();
+        anim = GetComponent<Animator>();
       
     }
 	
@@ -72,6 +75,7 @@ public class CharacterController2D : MonoBehaviour {
 
         if (m_Grounded)
         {
+            anim.Play("ShibaRunning");
             JumpadOff();
             m_AirJumpsLeft = m_AirJumps;
             OffWallSound();    
@@ -145,6 +149,7 @@ public class CharacterController2D : MonoBehaviour {
         if (m_Grounded && jump && (!m_OnWall || m_OnWall) && !m_OnSwing && !m_OnDash)
         {
             soundEffectManager.Play("Jump");
+            anim.Play("ShibaJump");
             m_Grounded = false;
             m_RigidBody2D.AddForce(new Vector2(m_RigidBody2D.velocity.x, m_JumpForce));
             m_DashLeft = 1;

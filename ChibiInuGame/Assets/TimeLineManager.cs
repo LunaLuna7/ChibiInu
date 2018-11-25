@@ -9,9 +9,10 @@ public class TimeLineManager : MonoBehaviour {
 
     public PlayableDirector playableDirector;
     public CharacterController2D characterController2D;
-	// Use this for initialization
-	void Start () {
-		
+    public bool conversationFinish;
+    // Use this for initialization
+    void Start () {
+        conversationFinish = false;
 	}
 	
 	// Update is called once per frame
@@ -21,11 +22,12 @@ public class TimeLineManager : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (!conversationFinish && collision.gameObject.tag == "Player")
         {
             playableDirector.Play();
             characterController2D.m_Paralyzed = true;
-            //StartCoroutine(StopAnimation());
+
+            conversationFinish = true;
         }
     }
     
