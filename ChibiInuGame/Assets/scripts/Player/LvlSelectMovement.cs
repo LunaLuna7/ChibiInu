@@ -14,12 +14,13 @@ public class LvlSelectMovement : MonoBehaviour {
 
     private const float speed = 10f;
     float moveX;
+    private bool canMove;
 
 	void Start () {
         levelName.text = "[Level Name]";
         position = 0; //current level
         transform.position = levelSelectManager.levels[position].transform.position;
-		
+		canMove = true;
 	}
 	
 	// Update is called once per frame
@@ -29,33 +30,31 @@ public class LvlSelectMovement : MonoBehaviour {
 
         MovePlayer(position);
         
-        if(transform.position == levelSelectManager.levels[position].transform.position)
+        //when not moving
+        if(transform.position == levelSelectManager.levels[position].transform.position && canMove)
         {
             levelName.text = levelSelectManager.levels[position].name;
             if (Input.GetKeyDown(KeyCode.X))
             {
-                levelChanger.FadeToLevel(position + 1);
+                levelChanger.FadeToLevel(levelSelectManager.levels[position].sceneIndex);
+                canMove = false;
             }
-        }
-
-        if (moveX > 0 && transform.position == levelSelectManager.levels[position].transform.position)
-        {
-            if(position + 1 < levelSelectManager.levels.Capacity)
+            else if (moveX > 0)
             {
-                //only able to go to that level when it is unlocked
-                if(levelSelectManager.levels[position + 1].unlocked)
-                    position += 1;
+                if(position + 1 < levelSelectManager.levels.Capacity)
+                {
+                    //only able to go to that level when it is unlocked
+                    if(levelSelectManager.levels[position + 1].unlocked)
+                        position += 1;
+                }
+            }
+            else if (moveX < 0)
+            {
+                if (position - 1 >= 0)
+                    position -= 1;
             }
         }
-
-        if (moveX < 0 && transform.position == levelSelectManager.levels[position].transform.position)
-        {
-            if (position - 1 >= 0)
-                position -= 1;
-        }
-
         
-
     }
 
     void MovePlayer(int i)

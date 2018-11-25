@@ -498,30 +498,39 @@ MonoBehaviour:
   - name: In a Forest
     unlocked: 0
     transform: {fileID: 404699007}
+    sceneIndex: 2
   - name: Bullet Hell
     unlocked: 0
     transform: {fileID: 1593215001}
+    sceneIndex: 0
   - name: Into the Cave
     unlocked: 0
     transform: {fileID: 1196785325}
+    sceneIndex: 0
   - name: The Boss
     unlocked: 0
     transform: {fileID: 671523369}
+    sceneIndex: 0
   - name: The Town
     unlocked: 0
     transform: {fileID: 1027135262}
+    sceneIndex: 0
   - name: Slime Infestation
     unlocked: 0
     transform: {fileID: 977538949}
+    sceneIndex: 0
   - name: Towards the Forest Guardian
     unlocked: 0
     transform: {fileID: 1072736361}
+    sceneIndex: 0
   - name: Scape the Trap
     unlocked: 0
     transform: {fileID: 6292861}
+    sceneIndex: 0
   - name: The Great Forest Tree
     unlocked: 0
     transform: {fileID: 1132717003}
+    sceneIndex: 0
 --- !u!1001 &671523368
 Prefab:
   m_ObjectHideFlags: 0
@@ -1591,7 +1600,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1422434800
 RectTransform:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class LevelSelectManager : MonoBehaviour {
         public string name;
         public bool unlocked;
         public Transform transform;
+        public int sceneIndex;
     }
 
     public List<Level> levels;
