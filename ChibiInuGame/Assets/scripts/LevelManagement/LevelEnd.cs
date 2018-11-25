@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LevelEnd : MonoBehaviour {
 	private bool[] collectable;
+	public LevelChanger levelChanger;
 	[SerializeField]private int levelIndex;
 	[SerializeField]private int nextLevelIndex;
 	// Use this for initialization
@@ -19,9 +20,10 @@ public class LevelEnd : MonoBehaviour {
 			//unlock next level, update the stuff collected, save
 			SaveManager.dataInUse.levels[nextLevelIndex].unlocked = true;
 			SaveManager.dataInUse.levels[levelIndex].collectable = collectable;
+			SaveManager.dataInUse.lastLevelEntered = levelIndex;
 			SaveManager.Save(SaveManager.filename);
 			//transfer to LevelSeletion Scene
-			UnityEngine.SceneManagement.SceneManager.LoadScene("LevelSelect");
+			levelChanger.FadeToLevel(1);
 		}
 	}
 

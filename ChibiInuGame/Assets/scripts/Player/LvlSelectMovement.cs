@@ -18,7 +18,7 @@ public class LvlSelectMovement : MonoBehaviour {
 
 	void Start () {
         levelName.text = "[Level Name]";
-        position = 0; //current level
+        position = SaveManager.dataInUse.lastLevelEntered; //current level
         transform.position = levelSelectManager.levels[position].transform.position;
 		canMove = true;
 	}
@@ -34,7 +34,7 @@ public class LvlSelectMovement : MonoBehaviour {
         if(transform.position == levelSelectManager.levels[position].transform.position && canMove)
         {
             levelName.text = levelSelectManager.levels[position].name;
-            if (Input.GetKeyDown(KeyCode.X))
+            if (Input.GetButtonDown("Submit"))
             {
                 levelChanger.FadeToLevel(levelSelectManager.levels[position].sceneIndex);
                 canMove = false;

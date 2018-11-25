@@ -9,6 +9,7 @@ public class ChooseFilePage : MonoBehaviour {
 	public Text[] saveSlotUI = new Text[3];
 	private SaveData[] saveDatas = new SaveData[3];
 	public GameObject createNewFilePage;
+	public LevelChanger levelChanger;
 	void Update () {
 		if(!createNewFilePage.activeSelf)
 			CheckInput();
@@ -77,7 +78,7 @@ public class ChooseFilePage : MonoBehaviour {
 			SaveManager.dataInUse = saveDatas[index];
 			SaveManager.filename = "save" + (index + 1);
 			//go to levelSelectionScene
-			UnityEngine.SceneManagement.SceneManager.LoadScene("LevelSelect");
+			levelChanger.FadeToLevel(1);
 		}
 	}
 
