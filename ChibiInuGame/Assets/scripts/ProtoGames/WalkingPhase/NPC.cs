@@ -6,10 +6,11 @@ public class NPC : MonoBehaviour {
 
     public GameObject startDialouge;
     public DialogueTrigger trigger;
-    public bool inConversation;
+    public bool conversationFinish;
+    public float delayTime;
 	// Use this for initialization
 	void Start () {
-        inConversation = false;
+        conversationFinish = false;
         trigger = gameObject.GetComponent<DialogueTrigger>();
 	}
 	
@@ -18,24 +19,21 @@ public class NPC : MonoBehaviour {
 		
 	}
     
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        inConversation = false;
-    }
-    public void OnTriggerStay2D(Collider2D collision)
+   
+    public void OnTriggerEnter2D(Collider2D collision)
     {
        
-        if(collision.gameObject.tag == "Player")
+        if(!conversationFinish && collision.gameObject.tag == "Player")
         {
-            inConversation = true;
-            trigger.TriggerDialogue();
+            conversationFinish = true;
+            StartCoroutine(Delay());
         }
-        
         
     }
 
     IEnumerator Delay()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(delayTime);
+        trigger.TriggerDialogue();
     }
 }
