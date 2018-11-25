@@ -86,12 +86,15 @@ public class SaveManager : MonoBehaviour {
 	}
 }
 
+//========================================================================
+//Save Data
+//========================================================================
 [System.Serializable]
 public class SaveData
 {
 	public string playerName;
 	public LevelInfo[] levels = new LevelInfo[12];
-	public List<PartnerInfo> partners;
+	//public List<PartnerInfo> partners;
 
 
 	public SaveData(string name)
@@ -104,9 +107,9 @@ public class SaveData
 			levels[index] = new LevelInfo(false, false, false, false);
 		}
 		//default parter
-		partners = new List<PartnerInfo>();
+		//partners = new List<PartnerInfo>();
 	}
-
+	/* 
 	public void GetPartnerInfo(PartnerManager pm)
 	{
 		//clean the list first
@@ -123,7 +126,7 @@ public class SaveData
 					partners.Add(new PartnerInfo(partner.partnerID, "K"));
 			}
 		}
-	}
+	}*/
 
 }
 
@@ -140,7 +143,7 @@ public class LevelInfo
 	}
 }
 
-
+/* 
 [System.Serializable]
 public class PartnerInfo
 {
@@ -152,4 +155,4 @@ public class PartnerInfo
 		this.index = index;
 		this.skillSlot = skillSlot;
 	}
-}
+}*/

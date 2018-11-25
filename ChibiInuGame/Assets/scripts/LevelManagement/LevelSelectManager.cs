@@ -10,15 +10,19 @@ public class LevelSelectManager : MonoBehaviour {
         public string name;
         public bool unlocked;
         public Transform transform;
+        public int sceneIndex;
     }
 
     public List<Level> levels;
 
 	void Start () {
 		//read and set the levels depends on the info get from saveData
-        for(int index = 0; index < levels.Count; ++index)
+        for(int levelIndex = 0; levelIndex < levels.Count; ++levelIndex)
         {
-            levels[index].unlocked = SaveManager.dataInUse.levels[index].unlocked;
+            Level level = levels[levelIndex];
+            level.unlocked = SaveManager.dataInUse.levels[levelIndex].unlocked;
+            if(level.unlocked)
+                levels[levelIndex].transform.GetComponent<LevelImage>().UpdateCollectableSprites(SaveManager.dataInUse.levels[levelIndex].collectable);
         }
         levels[0].unlocked = true;
 	}

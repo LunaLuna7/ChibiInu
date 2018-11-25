@@ -31,6 +31,7 @@ public class LevelChanger : MonoBehaviour {
     public void OnFadeComplete()
     {
         SceneManager.LoadScene(levelToLoad);
+        animator.Play("Fade_In");
     }
 
     public void FakeFade()
