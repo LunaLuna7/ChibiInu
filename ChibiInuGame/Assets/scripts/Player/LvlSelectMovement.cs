@@ -28,7 +28,7 @@ public class LvlSelectMovement : MonoBehaviour {
         moveX = Input.GetAxisRaw("Horizontal");
 
         MovePlayer(position);
-
+        
         if(transform.position == levelSelectManager.levels[position].transform.position)
         {
             levelName.text = levelSelectManager.levels[position].name;
@@ -41,7 +41,11 @@ public class LvlSelectMovement : MonoBehaviour {
         if (moveX > 0 && transform.position == levelSelectManager.levels[position].transform.position)
         {
             if(position + 1 < levelSelectManager.levels.Capacity)
-                position += 1;
+            {
+                //only able to go to that level when it is unlocked
+                if(levelSelectManager.levels[position + 1].unlocked)
+                    position += 1;
+            }
         }
 
         if (moveX < 0 && transform.position == levelSelectManager.levels[position].transform.position)
