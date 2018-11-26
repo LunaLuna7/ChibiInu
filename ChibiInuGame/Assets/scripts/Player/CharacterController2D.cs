@@ -7,6 +7,9 @@ using Cinemachine;
 public class CharacterController2D : MonoBehaviour {
 
     public Animator anim;
+    public Transform fireSpawn;
+    [HideInInspector] public Rigidbody2D m_RigidBody2D;
+    public int m_DashLeft;
 
     [SerializeField] private float m_JumpForce = 900f;
     [SerializeField] private float m_WallJumpTime = .5f;
@@ -19,12 +22,9 @@ public class CharacterController2D : MonoBehaviour {
     [SerializeField] private Transform m_GroundCheck2;
     [SerializeField] private Transform m_WallCheck;
     [SerializeField] private bool m_AirControl = false;
-    public Transform fireSpawn;
 
     [SerializeField] private float m_DashForce = 1000f;
-    public int m_DashLeft;
 
-    [HideInInspector] public Rigidbody2D m_RigidBody2D;
     private bool m_Grounded;
     private bool doingWallJump = false;
     private bool wallDeadTime;
@@ -104,10 +104,9 @@ public class CharacterController2D : MonoBehaviour {
             
             m_limitLeftMove = false;
             m_limitRightMove = false;
-            if(move != 0) //FootStep Sound
+            if(move != 0)
             {
-                
-               
+                //FootStep Sound
             }
         }
 
@@ -292,33 +291,11 @@ public class CharacterController2D : MonoBehaviour {
                 m_DashLeft--;
             }
         }
-        /*
-        else
-        {
-            if(m_FacingRight && m_GroundDash)
-            {
-                m_GroundDash = false;
-                StartCoroutine(PerformingDash());
-                m_RigidBody2D.AddForce(Vector3.right * m_DashForce * 150);
-            }
-            else if(!m_FacingRight && m_GroundDash)
-            {
-                m_GroundDash = false;
-                StartCoroutine(PerformingDash());
-                m_RigidBody2D.AddForce(Vector3.right * m_DashForce * -150);
-            }
-            StartCoroutine(GroundDashCooldown());
-        }*/
-    }
-
-    IEnumerator GroundDashCooldown()
-    {
-
-        yield return new WaitForSeconds(3f);
-        m_GroundDash = true;
+        
     }
 
 
+    //Used for the wall Jump
     public void ParabolaJump(Vector3 destination, float maxHeight, float time)
     {
         if (activeJumpCoroutine != null)
@@ -373,7 +350,6 @@ public class CharacterController2D : MonoBehaviour {
         yield return new WaitForSeconds(.01f);
         m_RigidBody2D.velocity = new Vector2(0, 0);
         m_RigidBody2D.AddForce(new Vector2(0f, m_JumpForce));
-        //m_AirJumpsLeft--;
         m_DashLeft = 1;
     }
     
