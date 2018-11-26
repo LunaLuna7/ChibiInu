@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour {
     {
         yield return new WaitForSeconds(1f);
         playerTransform.position = checkPointsPosition[UpdateCheckPoint.currentCheckPoint - 1].transform.position;
-        playerHealth.HPLeft = playerHealth.HP;
+        playerHealth.ResetPlayer();
+
     }
 }

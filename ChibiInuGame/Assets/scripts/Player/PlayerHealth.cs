@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class PlayerHealth : MonoBehaviour {
@@ -10,11 +11,18 @@ public class PlayerHealth : MonoBehaviour {
     public CharacterController2D controller;
     [HideInInspector]public SpriteRenderer m_SpriteRender;
     public GameManager gameManager;
+    public GameObject HealthUI;
+    public Sprite fullHearth;
+    public Sprite halfHearth;
+    public Sprite emptyHearth;
 
+    private Image playerHealth;
 
     void Awake () {
         m_SpriteRender = GetComponent<SpriteRenderer>();
         HPLeft = HP;
+        playerHealth = HealthUI.GetComponent<Image>();
+        playerHealth.sprite = fullHearth;
     }
 	
     
@@ -70,16 +78,35 @@ public class PlayerHealth : MonoBehaviour {
             HPLeft -= damage;
             controller.m_Immune = true;
 
+            if (HPLeft == 1)
+                playerHealth.sprite = halfHearth;
+
+            else if (HPLeft == 2)
+                playerHealth.sprite = fullHearth;
+
+          
+
             if (HPLeft == 0)
             {
-                //HPLeft = HP;
+                playerHealth.sprite = emptyHearth;
                 gameManager.GameOver(this.transform);
-                //controller.m_Immune = false;
-               
 
+                StartCoroutine(DelayHearth());
             }
         }
         
+    }
+
+    public void ResetPlayer()
+    {
+        HPLeft = HP;
+        playerHealth.sprite = fullHearth;
+    }
+
+    IEnumerator DelayHearth()
+    {
+        yield return new WaitForSeconds(1f);
+        playerHealth.sprite = fullHearth;
     }
 
     

@@ -145,7 +145,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1957829206356312}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -136.11, y: -0.75, z: 0}
+  m_LocalPosition: {x: -135.6, y: -0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4981810698456138}
@@ -337,9 +337,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b2a45578376e4c4ebdfaf3a9d2b7a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  fireSpawn: {fileID: 4851936563729748}
+  m_RigidBody2D: {fileID: 0}
+  m_DashLeft: 1
   m_JumpForce: 1100
   m_WallJumpTime: 0.5
-  m_AirJumps: 1
+  m_AirJumps: 2
   m_FallGravity: 4
   m_MovementSmoothing: 0.05
   m_GroundLayer:
@@ -352,17 +356,17 @@ MonoBehaviour:
   m_GroundCheck2: {fileID: 4277934490660100}
   m_WallCheck: {fileID: 4738573377972002}
   m_AirControl: 1
-  fireSpawn: {fileID: 4851936563729748}
   m_DashForce: 50
-  m_DashLeft: 1
-  m_RigidBody2D: {fileID: 0}
   m_limitLeftMove: 0
   m_limitRightMove: 0
   m_FacingRight: 1
   m_Damaged: 0
   m_Immune: 0
+  m_Paralyzed: 0
   m_AirJumpsLeft: 0
   cam: {fileID: 0}
+  m_OnDash: 0
+  m_OnOtherCamera: 0
   m_GroundDash: 1
   m_OnSwing: 0
 --- !u!114 &114339156566937732
@@ -377,7 +381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController2D: {fileID: 0}
-  cameraRight: 5
+  cameraRight: 2
   cameraLeft: 1
 --- !u!114 &114966116211257704
 MonoBehaviour:
@@ -395,6 +399,10 @@ MonoBehaviour:
   controller: {fileID: 114315122488471298}
   m_SpriteRender: {fileID: 0}
   gameManager: {fileID: 0}
+  HealthUI: {fileID: 0}
+  fullHearth: {fileID: 21300006, guid: a6413028dc209f04faa6f3e9013fedfd, type: 3}
+  halfHearth: {fileID: 21300008, guid: a6413028dc209f04faa6f3e9013fedfd, type: 3}
+  emptyHearth: {fileID: 21300004, guid: a6413028dc209f04faa6f3e9013fedfd, type: 3}
 --- !u!212 &212028893414867744
 SpriteRenderer:
   m_ObjectHideFlags: 1
