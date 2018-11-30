@@ -15,11 +15,13 @@ public class PlayerHealth : MonoBehaviour {
     public Sprite fullHearth;
     public Sprite halfHearth;
     public Sprite emptyHearth;
+    public Animator anim;
 
     private Image playerHealth;
 
     void Awake () {
         m_SpriteRender = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
         HPLeft = HP;
         playerHealth = HealthUI.GetComponent<Image>();
         playerHealth.sprite = fullHearth;
@@ -39,6 +41,11 @@ public class PlayerHealth : MonoBehaviour {
                 StartCoroutine(BlinkSprite());
                 StartCoroutine(DamageState());
             }
+        }
+        if(collide.gameObject.tag == "GSlimeHitBox")
+        {
+            TakeDamage(2);
+            controller.m_Immune = false;
         }
     }
 
@@ -86,8 +93,9 @@ public class PlayerHealth : MonoBehaviour {
 
           
 
-            if (HPLeft == 0)
+            if (HPLeft <= 0)
             {
+                anim.Play("ShibaDead");
                 playerHealth.sprite = emptyHearth;
                 gameManager.GameOver(this.transform);
 

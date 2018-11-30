@@ -8,6 +8,7 @@ public class CharacterController2D : MonoBehaviour {
 
     public Animator anim;
     public Transform fireSpawn;
+    public PlayerHealth playerHealth;
     [HideInInspector] public Rigidbody2D m_RigidBody2D;
     public int m_DashLeft;
 
@@ -65,7 +66,7 @@ public class CharacterController2D : MonoBehaviour {
         m_RigidBody2D = GetComponent<Rigidbody2D>();
         soundEffectManager = FindObjectOfType<SoundEffectManager>();
         anim = GetComponent<Animator>();
-      
+        playerHealth = GetComponent<PlayerHealth>();
     }
 	
 	void FixedUpdate () {
@@ -75,7 +76,9 @@ public class CharacterController2D : MonoBehaviour {
 
         if (m_Grounded)
         {
-            anim.Play("ShibaRunning");
+            if(playerHealth.HPLeft >= 1)
+                anim.Play("ShibaRunning");
+
             JumpadOff();
             m_AirJumpsLeft = m_AirJumps;
             OffWallSound();    
@@ -158,6 +161,14 @@ public class CharacterController2D : MonoBehaviour {
         else if (jump && m_AirJumpsLeft > 0 && !m_OnWall && !m_OnSwing && !doingWallJump && !m_OnDash)
         {
             soundEffectManager.Play("AirJump");
+            if (m_AirJumpsLeft == 2)
+            {
+                anim.Play("ShibaAirJump");
+            }
+            else if (m_AirJumpsLeft == 1)
+            {
+                anim.Play("ShibaAirJump2");
+            }
             m_Grounded = false;
             m_RigidBody2D.AddForce(new Vector2(0f,  m_JumpForce));
             m_AirJumpsLeft--;
@@ -171,6 +182,8 @@ public class CharacterController2D : MonoBehaviour {
             m_DashLeft = 1;
             OffWallSound();
             soundEffectManager.Play("WallJump");
+            
+            anim.Play("ShibaAirJump");
             Flip();
             if (m_FacingRight)
             {

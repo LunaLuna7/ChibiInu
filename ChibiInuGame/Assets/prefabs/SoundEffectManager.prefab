@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114857102991829966}
   m_Layer: 0
   m_Name: SoundEffectManager
-  m_TagString: Untagged
+  m_TagString: SoundEffect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,4 +111,16 @@ MonoBehaviour:
     volume: 0.287
     pitch: 1
     loop: 0
+    source: {fileID: 0}
+  - name: CheckPoint
+    clip: {fileID: 8300000, guid: f369b3f3ed0067f42bf08626533b1af0, type: 3}
+    volume: 0.287
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Boss
+    clip: {fileID: 8300000, guid: c6c0b6389c248774dbff9ac587f3afa1, type: 3}
+    volume: 0.287
+    pitch: 1
+    loop: 1
     source: {fileID: 0}

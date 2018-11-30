@@ -24,6 +24,8 @@ TagManager:
   - FxTemporaire
   - FireBall
   - DestructibleWall
+  - GSlimeHitBox
+  - SoundEffect
   layers:
   - Default
   - TransparentFX
