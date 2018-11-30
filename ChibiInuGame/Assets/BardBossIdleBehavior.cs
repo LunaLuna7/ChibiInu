@@ -9,6 +9,7 @@ public class BardBossIdleBehavior : StateMachineBehaviour {
     public float maxTime;
 
     public float action;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         timer = Random.Range(minTime, maxTime);

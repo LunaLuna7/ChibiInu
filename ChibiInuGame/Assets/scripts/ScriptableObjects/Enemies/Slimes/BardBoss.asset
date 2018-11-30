@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: BardBoss
   m_EditorClassIdentifier: 
   HP: 20
-  moveSpeed: 5
+  moveSpeed: 8
   lookRange: 5
   attackRate: 0
   jumpPower: 0

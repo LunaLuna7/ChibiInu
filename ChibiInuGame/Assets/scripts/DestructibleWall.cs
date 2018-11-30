@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DestructibleWall : MonoBehaviour {
 
+
 	// Use this for initialization
 	void Start () {
 		
@@ -18,7 +19,8 @@ public class DestructibleWall : MonoBehaviour {
     {
         if (collision.gameObject.tag == ("FireBall"))
         {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
+            //Destroy(this.gameObject);
         }      
     }
 }

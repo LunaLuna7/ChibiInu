@@ -29,17 +29,18 @@ public class FireBall : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {   
-        if(collision.gameObject.tag == "hurtBox" || collision.gameObject.tag == "hitBox"  || collision.gameObject.tag == "DestructibleWall"
+        if(collision.gameObject.tag == "projectile")
+        {
+            Destroy(this.gameObject);
+            Destroy(collision.gameObject);
+        }
+
+        else if (collision.gameObject.tag == "hurtBox" || collision.gameObject.tag == "hitBox"  || collision.gameObject.tag == "DestructibleWall"
             || collision.gameObject.layer == LayerMask.NameToLayer("Wall") || collision.gameObject.layer == LayerMask.NameToLayer("Limit"))
         {
             Destroy(this.gameObject);
             
         }
 
-        if(collision.gameObject.tag == "projectile")
-        {
-            Destroy(this.gameObject);
-            Destroy(collision.gameObject);
-        }
     }
 }
