@@ -30,6 +30,7 @@ public class CheckPoint : MonoBehaviour {
     public void Start()
     {
         checkPointImage = GetComponent<SpriteRenderer>();
+        soundEffectManager = GameObject.FindGameObjectWithTag("SoundEffect").GetComponent<SoundEffectManager>();
     }
 
     public void Update()
