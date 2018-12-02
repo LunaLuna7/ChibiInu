@@ -24,8 +24,7 @@ public class StateController : MonoBehaviour {
     public bool killed = false; //If the player killed the enemy
     public bool permaDead = false; //if the player past the checkPoint
 
-    // Use this for initialization
-
+ 
     void Start () {
         playerInRange = false;
         col = GetComponent<Collider2D>();
@@ -36,9 +35,7 @@ public class StateController : MonoBehaviour {
 
     }
 	
-	// Update is called once per frame
 	void Update () {
-        
         currentState.UpdateState(this);
 	}
 

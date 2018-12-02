@@ -4,13 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour {
-	public GameObject chooseFilePage;
+
+    public GameObject chooseFilePage;
 	public GameObject arrow;
 	public GameObject[] buttons;
-	
+    public SoundEffectManager soundEffectManager;
+
 	// Use this for initialization
 	void Start () {
 		chooseFilePage.SetActive(false);
+        soundEffectManager = GameObject.FindGameObjectWithTag("SoundEffect").GetComponent<SoundEffectManager>();
 		//UpdateArrow(0);
 	}
 	
@@ -30,19 +33,22 @@ public class MainMenuManager : MonoBehaviour {
 		//when press up button
 		if(Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") > 0 && mainArrowIndex >0)
 		{
+            soundEffectManager.Play("MenuScroll");
 			--mainArrowIndex;
 			UpdateArrow(mainArrowIndex);
 		}
 		//when press down
 		else if(Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") < 0 && mainArrowIndex < buttons.Length - 1)
 		{
-			++mainArrowIndex;
+            soundEffectManager.Play("MenuScroll");
+            ++mainArrowIndex;
 			UpdateArrow(mainArrowIndex);
 		}
 		//when press Space
 		else if(Input.GetButtonDown("Submit"))
 		{
-			switch(mainArrowIndex)
+            soundEffectManager.Play("MenuSelect");
+            switch (mainArrowIndex)
 			{
 				//start game
 				case 0:
