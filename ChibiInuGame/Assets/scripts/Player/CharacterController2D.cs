@@ -6,11 +6,6 @@ using Cinemachine;
 
 public class CharacterController2D : MonoBehaviour {
 
-    public Animator anim;
-    public Transform fireSpawn;
-    public PlayerHealth playerHealth;
-    [HideInInspector] public Rigidbody2D m_RigidBody2D;
-    public int m_DashLeft;
 
     [SerializeField] private float m_JumpForce = 900f;
     [SerializeField] private float m_WallJumpTime = .5f;
@@ -23,29 +18,35 @@ public class CharacterController2D : MonoBehaviour {
     [SerializeField] private Transform m_GroundCheck2;
     [SerializeField] private Transform m_WallCheck;
     [SerializeField] private bool m_AirControl = false;
-
     [SerializeField] private float m_DashForce = 1000f;
 
-    private bool m_Grounded;
-    private bool doingWallJump = false;
-    private bool wallDeadTime;
-    public bool m_limitLeftMove;
-    public bool m_limitRightMove;
-    public bool m_FacingRight = true;
-    public bool m_Damaged;
-    public bool m_Immune = false;
-    public bool m_Paralyzed;
-    public int m_AirJumpsLeft;
-    private Vector3 m_Velocity = Vector3.zero;
-    private SoundEffectManager soundEffectManager;
-
-    public Camera cam;
-
     //States
+    public bool m_limitRightMove;
+    public bool m_limitLeftMove;
+    public bool m_FacingRight = true;
+    private bool m_Grounded;
+    public bool m_Paralyzed;
+    private bool doingWallJump = false;
+    public bool m_Immune = false;
+    public bool m_Damaged;
     private bool m_OnWall;
     public bool m_OnDash;
     private bool m_OnJumpPad = false;
     public bool m_OnOtherCamera = false;
+
+    public int m_AirJumpsLeft;
+    public int m_DashLeft;
+    private bool wallDeadTime;
+
+    public Camera cam;
+    public PlayerHealth playerHealth;
+    [HideInInspector] public Rigidbody2D m_RigidBody2D;
+    public Animator anim;
+    public Transform fireSpawn;
+    private Vector3 m_Velocity = Vector3.zero;
+    private SoundEffectManager soundEffectManager;
+
+
 
     //CoolDowns
     public bool m_GroundDash;
@@ -76,9 +77,6 @@ public class CharacterController2D : MonoBehaviour {
 
         if (m_Grounded)
         {
-            if(playerHealth.HPLeft >= 1)
-                anim.Play("ShibaRunning");
-
             JumpadOff();
             m_AirJumpsLeft = m_AirJumps;
             OffWallSound();    
@@ -88,6 +86,14 @@ public class CharacterController2D : MonoBehaviour {
 
     public void Move(float move, bool jump)
     {
+        if (m_Grounded)
+        {
+            if (playerHealth.HPLeft >= 1 && move != 0)
+                anim.Play("ShibaRunning");
+
+            else if (move == 0)
+                anim.Play("ShibIdle");
+        }
         if (m_limitRightMove && move > 0)
             move = 0;
 
@@ -308,7 +314,9 @@ public class CharacterController2D : MonoBehaviour {
     }
 
 
-    //Used for the wall Jump
+    //==================================================================
+    //Makes player follow a parabolic path base on destination Transform
+    //==================================================================
     public void ParabolaJump(Vector3 destination, float maxHeight, float time)
     {
         if (activeJumpCoroutine != null)
@@ -358,6 +366,9 @@ public class CharacterController2D : MonoBehaviour {
 
     }
 
+    //==============================================
+    //Handles dash delay for ground dash(not being used
+    //==============================================
     IEnumerator Delay()
     {
         yield return new WaitForSeconds(.01f);
@@ -365,13 +376,19 @@ public class CharacterController2D : MonoBehaviour {
         m_RigidBody2D.AddForce(new Vector2(0f, m_JumpForce));
         m_DashLeft = 1;
     }
-    
+
+    //==================================================================
+    //Allows players to move joystick and press Jump button to wall jump
+    //==================================================================
     IEnumerator WallDeadTime()
     {
         yield return new WaitForSeconds(.1f);
         wallDeadTime = false;
     }
 
+    //==================================================================
+    //Keeps track of dashing state of the player
+    //==================================================================
     IEnumerator PerformingDash()
     {
         m_OnDash = true;
@@ -379,6 +396,9 @@ public class CharacterController2D : MonoBehaviour {
         m_OnDash = false;
     }
 
+    //=======================================================
+    //Handles wall Sound duration depending on player's state
+    //=======================================================
     private void OnWallSound()
     {
 

@@ -10,7 +10,15 @@ public class ChooseFilePage : MonoBehaviour {
 	private SaveData[] saveDatas = new SaveData[3];
 	public GameObject createNewFilePage;
 	public LevelChanger levelChanger;
-	void Update () {
+    public SoundEffectManager soundEffectManager;
+
+    private void Start()
+    {
+        soundEffectManager = GameObject.FindGameObjectWithTag("SoundEffect").GetComponent<SoundEffectManager>();
+
+    }
+
+    void Update () {
 		if(!createNewFilePage.activeSelf)
 			CheckInput();
 	}
@@ -24,18 +32,27 @@ public class ChooseFilePage : MonoBehaviour {
 		//when press up button
 		if(Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") > 0 && arrowIndex >0)
 		{
-			UpdateArrow(--arrowIndex);
+            soundEffectManager.Play("MenuScroll");
+
+            UpdateArrow(--arrowIndex);
 		}
 		//when press down
 		else if(Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") < 0 && arrowIndex < buttons.Length - 1)
 		{
-			UpdateArrow(++arrowIndex);
+            soundEffectManager.Play("MenuScroll");
+
+            UpdateArrow(++arrowIndex);
 		}
 		//when press Space
-		else if(Input.GetButtonDown("Submit"))
-			LoadSaveFile(arrowIndex);
-		else if(Input.GetButtonDown("Cancel") || Input.GetMouseButtonDown(1))
-			ReturnFromChooseFile();
+		else if (Input.GetButtonDown("Submit"))
+        {
+            soundEffectManager.Play("MenuSelect");
+            LoadSaveFile(arrowIndex);
+        }
+		else if(Input.GetButtonDown("Cancel") || Input.GetMouseButtonDown(1)) {
+            soundEffectManager.Play("MenuSelect");
+            ReturnFromChooseFile();
+        }
 	}
 
 	private void UpdateArrow(int index)

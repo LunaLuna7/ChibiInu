@@ -4,59 +4,69 @@ using UnityEngine;
 
 public class hurtBox : MonoBehaviour {
 
-    //public BoxCollider2D collider;
-    public GameObject EnemyToKill;
-    [HideInInspector]public StateController stateController;
-    public float health;
-    [HideInInspector]public SpriteRenderer m_SpriteRender;
+    //==========================================================
+    //If player gets in contact with hit box the enemy gets hit
+    //==========================================================
 
+    public GameObject EnemyToKill;
+    public float health;
+    private SoundEffectManager soundEffectManager;
     private float timeBeforeDamageAgain = .1f; //delay to prevent multi hits in trigger enter frames
     private float timetrack;
+    [HideInInspector]public StateController stateController;
+    [HideInInspector]public SpriteRenderer m_SpriteRender;
+
 
     public void Awake()
     {
+        soundEffectManager = GameObject.FindGameObjectWithTag("SoundEffect").GetComponent<SoundEffectManager>();
         m_SpriteRender = GetComponentInParent<SpriteRenderer>();
         stateController = GetComponentInParent<StateController>();
         health = stateController.enemyStats.HP;
         timetrack = timeBeforeDamageAgain + Time.time;
 
     }
+
+    //==============================================================
+    //A enemy can be damaged if its hit by a FireBall or by a player
+    //==============================================================
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         
         if ((collision.gameObject.CompareTag("Player" ) && this.gameObject.transform.position.y - collision.gameObject.transform.position.y < 1)
-            || collision.gameObject.CompareTag("FireBall"))//Player above
+            || collision.gameObject.CompareTag("FireBall"))//Checks if Player is truly above the hitbox to make sure they die on contact only if player jumps on them
         {
             if (timetrack <= Time.time)
             {
                 timetrack = timeBeforeDamageAgain + Time.time;
                 health--;
-                
                 StartCoroutine(BlinkSprite());
             }
 
             if (health == 0)
             {
+                soundEffectManager.Play("EnemyDeath");
                 EnemyToKill.SetActive(false);
                 health = stateController.enemyStats.HP;
-                //stateController.killed = true;
-                //Destroy(EnemyToKill);
             }
         }
     }
+
+    //=========================================
+    //Makes the Sprite of the Game Object blink
+    //=========================================
+
     IEnumerator BlinkSprite()
     {
         for (int i = 0; i < 6; ++i)
         {
             yield return new WaitForSeconds(.05f);
             if (m_SpriteRender.enabled == true)
-            {
-                m_SpriteRender.enabled = false;  //make changes
-            }
+                m_SpriteRender.enabled = false;
+            
             else
-            {
-                m_SpriteRender.enabled = true;   //make changes
-            }
+                m_SpriteRender.enabled = true;
         }
     }
 
