@@ -13,6 +13,7 @@ public class CreateNewFilePage : MonoBehaviour {
 	public Text confirmText;
 	private string newName;
 	private int newSlotIndex;
+	public VirtualKeyboard virtualKeyboard;
 
 	// Use this for initialization
 	void Start () {
@@ -26,7 +27,8 @@ public class CreateNewFilePage : MonoBehaviour {
 		if(!confirmWindow.activeSelf)
 		{
 			CheckModifyName();
-			CheckFinish();
+			CheckVirtualKeyboardInput();
+			CheckFinishAndCancel();
 		}
 		else//confirm if 
 		{
@@ -41,35 +43,68 @@ public class CreateNewFilePage : MonoBehaviour {
 		UpdateInputText("");
 		confirmWindow.SetActive(false);
 		newSlotIndex = targetIndex;
+		virtualKeyboard.Reset();
 	}
+
+	//==========================================================================================================================
+	//Check input
+	//==========================================================================================================================
 	public void CheckModifyName()
 	{
 		//users type new name
-		if(newName.Length < maxCharacterAllowed && Input.anyKeyDown)
+		if(Input.anyKeyDown)
 		{
 			string character = Input.inputString;
 			//make sure it is a character
 			if(character.GetHashCode() <= 122 && character.GetHashCode() >= 65)
 			{
-				newName += character;
-				UpdateInputText(newName);
+				AddCharacter(character);
 			}
 		}
 		//users delete character
-		if(newName.Length > 0 && Input.GetKeyDown(KeyCode.Backspace))
+		if(Input.GetKeyDown(KeyCode.Backspace))
 		{
-			newName = newName.Substring(0, newName.Length - 1);
-			UpdateInputText(newName);
+			DeleteCharacter();
 		}
 	}
 
-	public void CheckFinish()
+	public void CheckVirtualKeyboardInput()
+	{
+		//navigate the board
+		if(Input.GetKeyDown(KeyCode.LeftArrow))
+			virtualKeyboard.MoveLeft();
+		else if(Input.GetKeyDown(KeyCode.RightArrow))
+			virtualKeyboard.MoveRight();
+		else if(Input.GetKeyDown(KeyCode.UpArrow))
+			virtualKeyboard.MoveUp();
+		else if(Input.GetKeyDown(KeyCode.DownArrow))
+			virtualKeyboard.MoveDown();
+		//comfirm/type
+		else if(Input.GetKeyDown(KeyCode.Alpha1))
+		{
+			string key = virtualKeyboard.GetKeyValue();
+			if(key == "caps")
+			{
+				virtualKeyboard.ChangeCapitalization();
+			}else if(key == "enter")
+			{
+				FinishInput();
+			}else if(key == "delete"){
+				DeleteCharacter();
+			}else{
+				AddCharacter(key);
+			}
+		}
+	}
+	//==========================================================================================================================
+	//Process
+	//==========================================================================================================================
+	public void CheckFinishAndCancel()
 	{
 		//confirm typing
 		if(Input.GetButtonDown("Submit") && newName != "")
 		{
-			confirmWindow.SetActive(true);
-			confirmText.text = "Your name is " + newName +" ?";
+			FinishInput();
 		}
 		//cancel creating new file
 		if(Input.GetButtonDown("Cancel"))
@@ -94,6 +129,30 @@ public class CreateNewFilePage : MonoBehaviour {
 		}
 	}
 
+	//add a new character to the end of name
+	private void AddCharacter(string character)
+	{
+		if(newName.Length < maxCharacterAllowed)
+		{
+			newName += character;
+				UpdateInputText(newName);
+		}
+	}
+	//remove the last character in the name
+	private void DeleteCharacter()
+	{
+		if(newName.Length > 0)
+		{
+			newName = newName.Substring(0, newName.Length - 1);
+			UpdateInputText(newName);
+		}
+	}
+	//finish input and open comfirm page
+	private void FinishInput()
+	{
+		confirmWindow.SetActive(true);
+		confirmText.text = "Your name is " + newName +" ?";
+	}
 	private void UpdateInputText(string value)
 	{
 		inputFieldText.text = value;

@@ -1,21 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class VirtualKeyboard : MonoBehaviour {
-	public GameObject choiceBox;
-	private Dictionary<int, string> keyDict = new Dictionary<int, string>{
-		{0, "q"}, {1, "w"}, {2, "e"}, {3, "r"}, {4, "t"}, {5, "y"}, {6, "u"}, {7, "i"}, {8, "o"}, {9, "p"}, {10, "delete"},
-		{11, "a"}, {12, "s"}, {13, "d"}, {14, "f"}, {15, "g"}, {16, "h"}, {17, "j"}, {18, "k"}, {19, "l"}, {20, "enter"}, {21, "enter"},
-		{22, "z"}, {23, "x"}, {24, "c"}, {25, "v"}, {26, "b"}, {27, "n"}, {28, "m"}, {29, ":"}, {30, "!"}, {31, "caps"}, {32, "caps"},
-	};
+	public GameObject chosenKey;
+	[SerializeField]private GameObject[] keys;
+	public Color selectedColor;
+	public Color unSelectedColor;
 	private bool caps = false;
 	private int currentIndex = 0;
 	
+
 	public void Reset()
 	{
+		chosenKey = keys[0];
+		SelectKey(0);
 		currentIndex = 0;
-		caps = false;
+		//default caps is false
+		caps = true;
+		ChangeCapitalization();
 	}
 
 	//==========================================================================================================================
@@ -34,6 +38,7 @@ public class VirtualKeyboard : MonoBehaviour {
 			currentIndex = 30;
 		else
 			currentIndex -= 1;
+		SelectKey(currentIndex);
 	}
 
 	public void MoveRight()
@@ -43,6 +48,7 @@ public class VirtualKeyboard : MonoBehaviour {
 			return;
 		else
 			currentIndex += 1;
+		SelectKey(currentIndex);
 	}
 
 	public void MoveUp()
@@ -54,6 +60,7 @@ public class VirtualKeyboard : MonoBehaviour {
 			currentIndex = 10;
 		else
 			currentIndex -= 11;
+		SelectKey(currentIndex);
 	}
 
 	public void MoveDown()
@@ -63,15 +70,67 @@ public class VirtualKeyboard : MonoBehaviour {
 			return;
 		else
 			currentIndex += 11;
+		SelectKey(currentIndex);
 	}
 
-	public string GetCharacter()
+	private void SelectKey(int keyIndex)
 	{
-		return keyDict[currentIndex];
+		//change color to show the selected key
+		chosenKey.GetComponent<Image>().color = unSelectedColor;
+		chosenKey = keys[keyIndex];
+		chosenKey.GetComponent<Image>().color = selectedColor;
+	}
+	//==========================================================================================================================
+	//Interact with ChangeNewFilePage
+	//==========================================================================================================================
+	public string GetKeyValue()
+	{
+		return GetTextCompoent(chosenKey).text;
 	}
 
-	private void UpdateChoiceBox(int currentIndex)
+	//return Text Component of a key object
+	private Text GetTextCompoent(GameObject key)
 	{
-		
+		return key.transform.Find("Text").GetComponent<Text>();
 	}
+	public void ChangeCapitalization()
+	{
+		//change to lower case
+		if(caps)
+		{
+			caps = false;
+			for(int x = 0; x<=30; ++x)
+			{
+				//do nothing for delete and enter key
+				if(x == 10 || x == 20 || x == 21)
+					continue;
+				//:/;
+				else if(x == 29)
+					GetTextCompoent(keys[x]).text = ":";
+				//!/?
+				else if(x == 30)
+					GetTextCompoent(keys[x]).text = "!";
+				else
+					GetTextCompoent(keys[x]).text = GetTextCompoent(keys[x]).text.ToLower();
+			}
+		}else//chaneg to upper case
+		{
+			caps = true;
+			for(int x = 0; x<=30; ++x)
+			{
+				//do nothing for delete and enter key
+				if(x == 10 || x == 20 || x == 21)
+					continue;
+				//:/;
+				else if(x == 29)
+					GetTextCompoent(keys[x]).text = ";";
+				//!/?
+				else if(x == 30)
+					GetTextCompoent(keys[x]).text = "?";
+				else
+					GetTextCompoent(keys[x]).text = GetTextCompoent(keys[x]).text.ToUpper();
+			}
+		}
+	}
+
 }
