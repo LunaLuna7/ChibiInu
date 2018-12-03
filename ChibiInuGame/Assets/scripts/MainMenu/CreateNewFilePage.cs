@@ -102,7 +102,7 @@ public class CreateNewFilePage : MonoBehaviour {
 	public void CheckFinishAndCancel()
 	{
 		//confirm typing
-		if(Input.GetButtonDown("Submit") && newName != "")
+		if(Input.GetButtonDown("Submit"))
 		{
 			FinishInput();
 		}
@@ -150,8 +150,11 @@ public class CreateNewFilePage : MonoBehaviour {
 	//finish input and open comfirm page
 	private void FinishInput()
 	{
-		confirmWindow.SetActive(true);
-		confirmText.text = "Your name is " + newName +" ?";
+		if(newName != "")
+		{
+			confirmWindow.SetActive(true);
+			confirmText.text = "Your name is " + newName +" ?";
+		}
 	}
 	private void UpdateInputText(string value)
 	{
