@@ -25,7 +25,6 @@ public class CameraSwitchTrigger : MonoBehaviour {
         if(collision.gameObject.tag == "Player")
         {
             characterController2D.m_OnOtherCamera = true;
-            Debug.Log("HERE");
             sw.ChangeCamera(EnterCamera);
         }
     }
