@@ -2114,7 +2114,7 @@ Prefab:
     - target: {fileID: 114857102991829966, guid: 6ca2ba6ec9497294ca861b17ce4ff58f,
         type: 2}
       propertyPath: sounds.Array.size
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4847291552744438, guid: 6ca2ba6ec9497294ca861b17ce4ff58f, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2256,6 +2256,26 @@ Prefab:
     - target: {fileID: 114857102991829966, guid: 6ca2ba6ec9497294ca861b17ce4ff58f,
         type: 2}
       propertyPath: sounds.Array.data[16].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114857102991829966, guid: 6ca2ba6ec9497294ca861b17ce4ff58f,
+        type: 2}
+      propertyPath: sounds.Array.data[17].name
+      value: CheckPointAura
+      objectReference: {fileID: 0}
+    - target: {fileID: 114857102991829966, guid: 6ca2ba6ec9497294ca861b17ce4ff58f,
+        type: 2}
+      propertyPath: sounds.Array.data[17].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a93b356e3e95fdc4991a72ba2e068f86, type: 3}
+    - target: {fileID: 114857102991829966, guid: 6ca2ba6ec9497294ca861b17ce4ff58f,
+        type: 2}
+      propertyPath: sounds.Array.data[17].volume
+      value: 0.287
+      objectReference: {fileID: 0}
+    - target: {fileID: 114857102991829966, guid: 6ca2ba6ec9497294ca861b17ce4ff58f,
+        type: 2}
+      propertyPath: sounds.Array.data[17].pitch
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
