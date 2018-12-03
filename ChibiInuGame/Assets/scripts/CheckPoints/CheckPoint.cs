@@ -9,11 +9,12 @@ public class CheckPoint : MonoBehaviour {
     public int newCheckPoint;
     public GameObject book;
     public List<GameObject> enemies;
-
     public SoundEffectManager soundEffectManager;
+    public GameObject CheckPointParticleAura;
+
 
     private bool onCheckPoint;
-
+    private bool activated;
 
     public void ResetingLevel()
     {
@@ -31,6 +32,8 @@ public class CheckPoint : MonoBehaviour {
     {
         checkPointImage = GetComponent<SpriteRenderer>();
         soundEffectManager = GameObject.FindGameObjectWithTag("SoundEffect").GetComponent<SoundEffectManager>();
+        activated = false;
+        
     }
 
     public void Update()
@@ -54,46 +57,34 @@ public class CheckPoint : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        /*
-        if(collision.gameObject.tag == "Player")
-        {
-            SetCheckPointTo();
-            checkPointImage.sprite = activeCheckPoint;
-        }*/
+        
         if (collision.gameObject.tag == "Player")
         {
             SetCheckPointTo();
             onCheckPoint = true;
             checkPointImage.sprite = activeCheckPoint;
-            soundEffectManager.Play("CheckPoint");
+            soundEffectManager.Play("CheckPointAura");
+            if (!activated)
+            {
+                CheckPointParticleAura.SetActive(true);
+                soundEffectManager.Play("CheckPoint");
+                activated = true;
+            }
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        /*
-        if(collision.gameObject.tag == "Player")
-        {
-            if (Input.GetKeyDown(KeyCode.P) && !book.activeSelf)
-                book.SetActive(true);
   
-            else if (Input.GetKeyDown(KeyCode.P) && book.activeSelf)
-                book.SetActive(false);
-            
-        }*/
-    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+
         if (collision.gameObject.tag == "Player")
         {
+            soundEffectManager.Stop("CheckPointAura");
             onCheckPoint = false;
             book.SetActive(false);
         }
-       /* if (collision.gameObject.tag == "Player")
-        {
-            book.SetActive(false);
-        }*/
+       
     }
 
 }

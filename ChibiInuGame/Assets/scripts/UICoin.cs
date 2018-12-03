@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UICoin : MonoBehaviour {
 
+    public List<GameObject> coins;
 
 	// Use this for initialization
 	void Start () {
