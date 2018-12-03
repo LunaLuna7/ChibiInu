@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossBattle1Killer : MonoBehaviour {
 
     private SoundEffectManager soundEffectManager;
+    public GameObject Boss;
 
 
     void Start () {
@@ -18,10 +19,10 @@ public class BossBattle1Killer : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Boss")
+        if(collision.gameObject.tag == "GSlimeHitBox")
         {
             soundEffectManager.Stop("Boss");
-            collision.gameObject.SetActive(false);
+            Boss.SetActive(false);
         }
     }
 }
