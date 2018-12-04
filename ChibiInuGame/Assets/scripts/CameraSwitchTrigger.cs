@@ -12,7 +12,7 @@ public class CameraSwitchTrigger : MonoBehaviour {
 
 	void Start () {
         sw = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SwitchCamera>();
-        characterController2D = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController2D>();
+        
 	}
 	
 	// Update is called once per frame
