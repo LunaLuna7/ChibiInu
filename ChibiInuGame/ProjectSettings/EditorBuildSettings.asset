@@ -20,13 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_scenes/ForestWorld/ForestLevel3.unity
     guid: 6dec038b4cabc8f489542652413a5999
-  - enabled: 1
+  - enabled: 0
     path: Assets/_scenes/TownChapter/TownLevel1.unity
     guid: 102ea9f7284ffef4b95720249edfa8f1
-  - enabled: 1
+  - enabled: 0
     path: Assets/_scenes/TownChapter/TownLevel2.unity
     guid: 9902d8c79de55c34f9fc0940bb6a4a49
-  - enabled: 1
+  - enabled: 0
     path: Assets/_scenes/TownChapter/TownLevel3.unity
     guid: 82ae04bfef4806a4cb603d22e956c434
   m_configObjects: {}

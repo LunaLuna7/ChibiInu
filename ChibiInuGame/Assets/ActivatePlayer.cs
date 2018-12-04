@@ -22,7 +22,7 @@ public class ActivatePlayer : MonoBehaviour {
     {
         yield return new WaitForSeconds(3f);
         dust.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(6f);
         falsePlayer.SetActive(false);
         player.SetActive(true);
         yield return new WaitForSeconds(1f);
