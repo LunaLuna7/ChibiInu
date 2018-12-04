@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour {
         {
             jump = true;
         }
+
+        
         
 	}
 
