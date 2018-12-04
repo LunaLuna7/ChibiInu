@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelImage : MonoBehaviour {
 	public GameObject collectablePage;
 	public SpriteRenderer[] collectables;
-	void Start()
+	void Awake()
 	{
 		//hide the collectables
 		collectablePage.SetActive(false);
