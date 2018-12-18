@@ -2278,6 +2278,11 @@ Prefab:
       propertyPath: sounds.Array.data[17].pitch
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114857102991829966, guid: 6ca2ba6ec9497294ca861b17ce4ff58f,
+        type: 2}
+      propertyPath: sounds.Array.data[11].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 64e7f8d48f2783d44a1757f73f7921b2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ca2ba6ec9497294ca861b17ce4ff58f, type: 2}
   m_IsPrefabAsset: 0
