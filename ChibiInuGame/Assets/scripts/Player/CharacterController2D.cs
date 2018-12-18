@@ -94,6 +94,7 @@ public class CharacterController2D : MonoBehaviour {
             else if (move == 0)
                 anim.Play("ShibIdle");
         }
+        
         if (m_limitRightMove && move > 0)
             move = 0;
 
