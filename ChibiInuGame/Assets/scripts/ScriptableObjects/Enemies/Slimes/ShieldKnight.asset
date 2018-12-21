@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f248d87d080f0ec419c9d7e248c18529, type: 3}
-  m_Name: HelmetKnight
+  m_Name: ShieldKnight
   m_EditorClassIdentifier: 
   HP: 1
-  moveSpeed: 6
-  lookRange: 5
+  moveSpeed: 4
+  lookRange: 10
   attackRate: 1
   jumpPower: 0
   jumpRate: 0

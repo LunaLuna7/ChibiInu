@@ -25,7 +25,7 @@ public class Laser : MonoBehaviour {
         if(collision.tag == "Player")
         {
             if(!collision.GetComponent<CharacterController2D>().m_Immune)
-                collision.GetComponent<PlayerHealth>().TakeDamage(2);
+                collision.GetComponent<PlayerHealth>().gameManager.GameOver(collision.gameObject.transform);
         }
     }
 

@@ -17,11 +17,11 @@ public class PlayerPartnerSkills : MonoBehaviour {
         {
             partnerManager.JSkill();
         }
-        /*
+        
         if (Input.GetKeyDown(KeyCode.K))
         {
             partnerManager.KSkill();
-        }*/
+        }
        
 
     }

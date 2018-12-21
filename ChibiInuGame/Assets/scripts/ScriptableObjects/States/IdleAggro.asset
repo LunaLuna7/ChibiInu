@@ -9,13 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85c410cb58c887448b8bb852e71fc8dc, type: 3}
-  m_Name: Chaser
+  m_Name: IdleAggro
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: 96c8ac239f123904c9b3ab0cbdccd49a, type: 2}
+  - {fileID: 11400000, guid: 1c66eccb30d16ca43832ec6dc6fd5884, type: 2}
   - {fileID: 11400000, guid: 9aa65ca66f7615644927cfd224b37b0d, type: 2}
-  transitions:
-  - decision: {fileID: 11400000, guid: 19e95e15846060944b1212d2b0bff479, type: 2}
-    trueState: {fileID: 11400000, guid: 4f3bac85d308c25498f923490fa8ea4c, type: 2}
-    falseState: {fileID: 11400000, guid: 2df2c52c7c6bda946ade5ffeb0e813fe, type: 2}
-  sceneGizmoColor: {r: 0.8962264, g: 0.18891138, b: 0, a: 1}
+  transitions: []
+  sceneGizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
