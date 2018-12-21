@@ -4,10 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UIBook : MonoBehaviour {
+    /// <summary>
+    /// UIBook.cs hadles all the partners info(picture, name, description) in the UI of the Book. It checks if partners are unlock 
+    /// and if so it shows them in the UI
+    /// </summary>
+
 
     public PartnerManager partnerManager;
+    [HideInInspector]public Partner currentPartner; //The scriptable Obj partner we are currently reading data from
 
-    [HideInInspector]public Partner currentPartner;
+    //====All the UI elements in the book that will be updated to the Scriptable Obj partner data
     public Text partnerName;
     public Image partnerPicture;
     public Text partnerSkillInfo;
@@ -44,6 +50,7 @@ public class UIBook : MonoBehaviour {
         }
     }
 
+    //Called when UI Book is openned, checks if first partner unlock if so it UpdatesPage and current partner
     void OnEnable()
     {
         characterController.m_Paralyzed = true;
@@ -60,6 +67,7 @@ public class UIBook : MonoBehaviour {
         }
     }
 
+    //called after book is closed, it checks if any partner is selected. If not then player gets 3 jumps
     private void OnDisable()
     {
         characterController.m_Paralyzed = false;
@@ -71,26 +79,27 @@ public class UIBook : MonoBehaviour {
                 noPartner = false;
         }
         if (noPartner)
-        {
             characterController.m_AirJumps = 2;
-        }
+        
         else
-        {
             characterController.m_AirJumps = 1;
-        }
+        
     }
 
+
+    //Moves right(+1 index) through the partnerManager.cs allPartners list of Scriptable Partners objects and if unlock it updats the page and currentPartner
     public void RightArrow()
     {
         int nextPartner = (currentPartner.partnerID + 1) % partnerManager.allPartners.Count;
         while (!partnerManager.allPartners[nextPartner].unlocked)
         {
-            nextPartner = (nextPartner + 1) % partnerManager.allPartners.Count;
+            nextPartner = (nextPartner + 1) % partnerManager.allPartners.Count; //makes it so we dont indexOutOfBound and loops back through list index
         }
 
         UpdatePartnerPage(nextPartner);
     }
 
+    //Moves Left(-1 index) through the partnerManager.cs allPartners list of Scriptable Partners objects and if unlock it updats the page and currentPartner
     public void LeftArrow()
     {
         int nextPartner;
@@ -98,8 +107,8 @@ public class UIBook : MonoBehaviour {
         if (currentPartner.partnerID == 0)
             nextPartner = partnerManager.allPartners.Count -1;
         else
-            nextPartner = (currentPartner.partnerID - 1) % partnerManager.allPartners.Count;
-      
+            nextPartner = (currentPartner.partnerID - 1) % partnerManager.allPartners.Count; //makes it so we dont indexOutOfBound and loops back through list index
+
         while (!partnerManager.allPartners[nextPartner].unlocked)
         {
             nextPartner = (nextPartner - 1) % partnerManager.allPartners.Count;
@@ -113,6 +122,7 @@ public class UIBook : MonoBehaviour {
         UpdatePartnerPage(nextPartner);
     }
 
+    //Updates the UI page base on currentPartner
     private void UpdatePartnerPage(int nextPartner)
     {
         partnerLightMark[currentPartner.partnerID].SetActive(false);
@@ -124,6 +134,7 @@ public class UIBook : MonoBehaviour {
 
     }
 
+    //turns off all UI book elements
     private void DisableBook()
     {
         partnerName.enabled = false;
@@ -133,6 +144,7 @@ public class UIBook : MonoBehaviour {
         leftArrow.enabled = false;
     }
 
+    //tunr on all UI book elements
     private void EnableBook()
     {
         partnerName.enabled = true;
@@ -143,6 +155,7 @@ public class UIBook : MonoBehaviour {
 
     }
 
+    //CHecks if partner is unlocked based on the scriptable Obj
     private void CheckUnlockedPartners()
     {
         for(int i = 0; i < partnerManager.allPartners.Count; ++i)
