@@ -34,6 +34,38 @@ public class PartnerManager : MonoBehaviour {
     {
         characterController = player.GetComponent<CharacterController2D>();
         soundEffectManager = FindObjectOfType<SoundEffectManager>();
+        //initialize partners
+        //reset for level
+        foreach(Partner p in allPartners) 
+        {
+            p.J = false;
+            p.K = false;
+            p.selected = false;
+        }
+        //get the partner in use
+        foreach(PartnerInfo pi in SaveManager.dataInUse.partners)
+        {
+            if(pi.skillSlot != "J" && pi.skillSlot != "K")
+            {
+                Debug.LogWarning("Unknown key stored in partner save data: " + pi.skillSlot + " should be J or K.");
+                continue;
+            }
+            //assign different keys
+            if(pi.skillSlot == "J")
+            {
+                AssignJSkillSlot(pi.index);
+                allPartners[pi.index].J = true;
+            }
+            else
+            {
+                AssignKSkillSlot(pi.index);
+                allPartners[pi.index].K = true;
+            }
+            allPartners[pi.index].selected = true;
+            //spawn the character
+            partners[pi.index].transform.position = partnerSpawnLocations[pi.index].position;
+            partners[pi.index].SetActive(true);
+        }
     }
 
     //calls assingSkillToSlot with JSkill as paramter so it calls such method in PlayerPartnerSkills.cs
