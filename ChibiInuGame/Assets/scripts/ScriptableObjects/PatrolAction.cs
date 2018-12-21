@@ -12,13 +12,12 @@ public class PatrolAction : Action {
 
     private void Patrol(StateController controller)
     {
-        //Look(controller, controller.patrolLocations[controller.nextPatrolLocation]);
         controller.transform.position = Vector2.MoveTowards(controller.transform.position, 
             controller.patrolLocations[controller.nextPatrolLocation].position, controller.enemyStats.moveSpeed * Time.deltaTime);
 
+        Flip(controller);
         if (Vector2.Distance(controller.transform.position, controller.patrolLocations[controller.nextPatrolLocation].position) <= 2)
         {
-            Flip(controller);
             controller.nextPatrolLocation = (controller.nextPatrolLocation + 1) % controller.patrolLocations.Count;
         }
     }
@@ -33,7 +32,10 @@ public class PatrolAction : Action {
     private void Flip(StateController controller)
     {
         Vector2 localScale = controller.gameObject.transform.localScale;
-        localScale.x *= -1;
+        if (controller.transform.position.x - controller.patrolLocations[controller.nextPatrolLocation].position.x > 0)
+            localScale.x = -1;
+        else
+            localScale.x = 1;
         controller.transform.localScale = localScale;
     }
 }
