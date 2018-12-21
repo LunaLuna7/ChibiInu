@@ -1231,12 +1231,12 @@ Prefab:
     - target: {fileID: 224995498661658816, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 224949416451493350, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224278788814600126, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
@@ -1247,6 +1247,31 @@ Prefab:
         type: 2}
       propertyPath: m_AnchoredPosition.y
       value: -1.756012
+      objectReference: {fileID: 0}
+    - target: {fileID: 224083763712137354, guid: f380a7ca4200865469262eed46aa0676,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224856033425318722, guid: f380a7ca4200865469262eed46aa0676,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 224215224849271358, guid: f380a7ca4200865469262eed46aa0676,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224061660774797932, guid: f380a7ca4200865469262eed46aa0676,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.7000122
+      objectReference: {fileID: 0}
+    - target: {fileID: 224241648355968452, guid: f380a7ca4200865469262eed46aa0676,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f380a7ca4200865469262eed46aa0676, type: 2}
@@ -1469,6 +1494,7 @@ MonoBehaviour:
   book: {fileID: 379626322}
   enemies: []
   soundEffectManager: {fileID: 1968070999}
+  CheckPointParticleAura: {fileID: 0}
 --- !u!1 &493453736
 GameObject:
   m_ObjectHideFlags: 0
@@ -2078,6 +2104,7 @@ GameObject:
   - component: {fileID: 675663131}
   - component: {fileID: 675663133}
   - component: {fileID: 675663132}
+  - component: {fileID: 675663134}
   m_Layer: 10
   m_Name: BardBoss
   m_TagString: Untagged
@@ -2191,7 +2218,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 675663127}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4905f0d96a010c43ba678f7d91bf3e7, type: 3}
   m_Name: 
@@ -2221,6 +2248,23 @@ MonoBehaviour:
   stateController: {fileID: 0}
   health: 0
   healthBar: {fileID: 397203216}
+--- !u!114 &675663134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 675663127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 747348006856a32488386f7dac894cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minTime: 2
+  maxTime: 4
+  stateTimeElapsed: 0
+  inState: 0
+  spikesLeft: {fileID: 782207045}
+  spikesRight: {fileID: 767964335}
 --- !u!1 &677992791
 GameObject:
   m_ObjectHideFlags: 0
