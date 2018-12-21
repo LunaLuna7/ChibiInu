@@ -11,7 +11,7 @@ public class PartnerManager : MonoBehaviour {
 
     private SoundEffectManager soundEffectManager;
     public List<Partner> allPartners; //Partner Scriptable Objects with each partner data
-    public List<GameObject> partners; //Scene game objects that when selected follow the player around
+    public List<GameObject> partners; //Scene game objects that when selected follow the player around. They can be found in PartnersSystem GameObject in the scene always right bellow Player Game Obj
     public List<Transform> partnerSpawnLocations; //the 3 locations in whihc partners cna spawn and follow the player
 
     //Skills objects are used to determine which skill will be call when clicking J or K keybord key depending on selected partner

@@ -4,10 +4,15 @@ using UnityEngine;
 
 [RequireComponent(typeof(UIBook))]
 public class SkillSummonUI : MonoBehaviour {
+    /// <summary>
+    /// SkillSummonUI handles the assinging skills to specific key codes when the player presses a UI button depending on the string given as a parameter when
+    /// succh button is pressed. The string parameter can be specified in the Unity console where the Button is located adn when it calls AssignSKill method onClick
+    /// </summary>
 
     public UIBook uiBook;
     public CurrentTeamSlotUI teamSlot;
 
+    //If partner selected through book, set such partner game object active in the scene
     public void SummonPartner(string skill)
     {
         AssignSkill(skill);
@@ -35,16 +40,11 @@ public class SkillSummonUI : MonoBehaviour {
                 teamSlot.UpdateImages();
                 break;
 
-            /*case "L":
-                ResetEPartner();
-                uiBook.partnerManager.AssignESkillSlot(uiBook.currentPartner.partnerID);
-                uiBook.currentPartner.E = true;
-                teamSlot.UpdatePartners();
-                teamSlot.UpdateImages();
-                break;*/
+            
         }
     }
 
+    //unasing J skill by assinging it to 7(which is in PartnerManager.cs  AssingSkillToSlot method in the switch loop)
     public void ResetJPartner()
     {
         for(int i = 0; i < uiBook.partnerManager.allPartners.Count; ++i)
@@ -56,6 +56,7 @@ public class SkillSummonUI : MonoBehaviour {
         uiBook.partnerManager.AssignJSkillSlot(7); //7 is empty skill
     }
 
+    //unasing K skill by assinging it to 7(which is in PartnerManager.cs  AssingSkillToSlot method in the switch loop)
     public void ResetKPartner()
     {
         for (int i = 0; i < uiBook.partnerManager.allPartners.Count; ++i)
@@ -66,6 +67,7 @@ public class SkillSummonUI : MonoBehaviour {
         uiBook.partnerManager.AssignKSkillSlot(7);
     }
 
+    //Calls reset K or J depending on currentPartner
     public void CallBackPartner()
     {
         if (uiBook.currentPartner.J == true)
@@ -75,15 +77,7 @@ public class SkillSummonUI : MonoBehaviour {
             ResetKPartner();
     }
 
-    /*
-    public void ResetEPartner()
-    {
-        for (int i = 0; i < uiBook.partnerManager.allPartners.Count; ++i)
-        {
-            uiBook.partnerManager.allPartners[i].E = false;
-        }
-        uiBook.partnerManager.AssignESkillSlot(7);
-    }*/
+   
     /*
       public enum Skills {
           Qskill,
