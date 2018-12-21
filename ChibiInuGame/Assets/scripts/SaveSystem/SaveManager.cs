@@ -27,6 +27,7 @@ public class SaveManager : MonoBehaviour {
 	//==============================================================
 	//Save Strings to local position
 	//==============================================================
+	//generate the path we store save files
 	private static string GeneratePath(string fileName)
 	{
 		string path = "";
@@ -67,10 +68,12 @@ public class SaveManager : MonoBehaviour {
 		//if the file does not exist, return null
 		if(!File.Exists(path))
 			return null;
+		//read the Bson string
 		string bsonData = File.ReadAllText(path);
 		byte[] data = Convert.FromBase64String(bsonData);
 		MemoryStream ms = new MemoryStream(data);
 		SaveData saveData;
+		//convert Bson string back to saveData
 		using (BsonReader reader = new BsonReader(ms))
 		{
 			JsonSerializer serializer = new JsonSerializer();
@@ -95,7 +98,8 @@ public class SaveData
 	public string playerName;
 	public LevelInfo[] levels = new LevelInfo[12];
 	public int lastLevelEntered = 0;
-	//public List<PartnerInfo> partners;
+	public List<PartnerInfo> partners;
+	public bool[] unlockPartners = new bool[4]; //an array shows what partners are un locked
 
 
 	public SaveData(string name)
@@ -108,15 +112,22 @@ public class SaveData
 			levels[index] = new LevelInfo(false, false, false, false);
 		}
 		//default parter
-		//partners = new List<PartnerInfo>();
+		partners = new List<PartnerInfo>();
+		//default all partners are locked
+		for(int index = 0; index < unlockPartners.Length; ++index)
+			unlockPartners[index] = false;
 	}
-	/* 
+	
 	public void GetPartnerInfo(PartnerManager pm)
 	{
 		//clean the list first
 		partners.Clear();
+		//now add partners
 		foreach(Partner partner in pm.allPartners)
 		{
+			//record if partners are unlocked
+			if(partner.unlocked)
+				unlockPartners[partner.partnerID] = true;
 			//record the partners that are in use
 			if(partner.selected)
 			{
@@ -127,7 +138,7 @@ public class SaveData
 					partners.Add(new PartnerInfo(partner.partnerID, "K"));
 			}
 		}
-	}*/
+	}
 
 }
 
@@ -144,7 +155,7 @@ public class LevelInfo
 	}
 }
 
-/* 
+
 [System.Serializable]
 public class PartnerInfo
 {
@@ -156,4 +167,4 @@ public class PartnerInfo
 		this.index = index;
 		this.skillSlot = skillSlot;
 	}
-}*/
+}

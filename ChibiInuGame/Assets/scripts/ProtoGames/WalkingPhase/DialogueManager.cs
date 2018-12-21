@@ -7,13 +7,14 @@ public class DialogueManager : MonoBehaviour {
 
     public Text nameText;
     public Text dialogueText;
+    public Image speakerImage;
     public Animator animator;
     public CharacterController2D characterController2D;
 
-    private Queue<string> sentences;
+    private Queue<Dialogue> dialogueQueue;
 	// Use this for initialization
 	void Start () {
-        sentences = new Queue<string>();
+        dialogueQueue = new Queue<Dialogue>();
 	}
 	
 	// Update is called once per frame
@@ -21,32 +22,50 @@ public class DialogueManager : MonoBehaviour {
 		
 	}
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(Dialogue[] dialogueSequence)
     {
         animator.SetBool("IsOpen", true);
-        nameText.text = dialogue.name;
-        
+        //nameText.text = dialogue.name;
 
-        sentences.Clear();
-        foreach( string sentence in dialogue.sentences)
+        //put all dialogues to the queue
+        dialogueQueue.Clear();
+        foreach(Dialogue dialogue in dialogueSequence)
         {
-            sentences.Enqueue(sentence);
+            dialogueQueue.Enqueue(dialogue);
         }
-        DisplayNextSentence();
+        //DisplayNextSentence();
+        StartCoroutine(DisplaySentences());
     }
 
+    /* 
     public void DisplayNextSentence()
     {
-        if (sentences.Count == 0)
+        if (dialogueQueue.Count == 0)
         {
             EndDialogue();  
         }
         else
         {
-            string sentence = sentences.Dequeue();
+            Dialogue dialogue = dialogueQueue.Dequeue();
             StopAllCoroutines();
-            StartCoroutine(TypeSentence(sentence));
+            StartCoroutine(TypeSentence(dialogue.sentence));
         }
+    }*/
+    public IEnumerator DisplaySentences()
+    {
+        while(dialogueQueue.Count > 0)
+        {
+            //display a single sentence
+            Dialogue dialogue = dialogueQueue.Dequeue();
+            //change name and sprite
+            nameText.text = dialogue.name;
+            speakerImage.sprite = dialogue.image;
+            //change content
+            yield return TypeSentence(dialogue.sentence);
+            //wait for input
+            yield return new WaitUntil(()=>Input.GetButtonDown("Submit"));
+        }
+        EndDialogue();
     }
 
     IEnumerator TypeSentence(string sentence)
