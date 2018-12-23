@@ -11,6 +11,7 @@ public class ChooseFilePage : MonoBehaviour {
 	public GameObject createNewFilePage;
 	public LevelChanger levelChanger;
     public SoundEffectManager soundEffectManager;
+	private bool canMove = true;
 
     private void Start()
     {
@@ -19,7 +20,7 @@ public class ChooseFilePage : MonoBehaviour {
     }
 
     void Update () {
-		if(!createNewFilePage.activeSelf)
+		if(!createNewFilePage.activeSelf && canMove)
 			CheckInput();
 	}
 
@@ -30,14 +31,14 @@ public class ChooseFilePage : MonoBehaviour {
 	public void CheckInput()
 	{
 		//when press up button
-		if(Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") > 0 && arrowIndex >0)
+		if(MenuInputManager.CheckUp() && arrowIndex >0)
 		{
             soundEffectManager.Play("MenuScroll");
 
             UpdateArrow(--arrowIndex);
 		}
 		//when press down
-		else if(Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") < 0 && arrowIndex < buttons.Length - 1)
+		else if(MenuInputManager.CheckDown() && arrowIndex < buttons.Length - 1)
 		{
             soundEffectManager.Play("MenuScroll");
 
@@ -47,6 +48,7 @@ public class ChooseFilePage : MonoBehaviour {
 		else if (Input.GetButtonDown("Submit"))
         {
             soundEffectManager.Play("MenuSelect");
+			canMove = false;
             LoadSaveFile(arrowIndex);
         }
 		else if(Input.GetButtonDown("Cancel") || Input.GetMouseButtonDown(1)) {

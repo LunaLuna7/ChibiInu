@@ -27,18 +27,18 @@ public class MainMenuManager : MonoBehaviour {
 	//deal with inputs
 	//========================================================
 	private int mainArrowIndex = 0;
-	
+	private float timer = 5;
 	public void CheckMainInput()
 	{
 		//when press up button
-		if(Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") > 0 && mainArrowIndex >0)
+		if(MenuInputManager.CheckUp() && mainArrowIndex >0)
 		{
             soundEffectManager.Play("MenuScroll");
 			--mainArrowIndex;
 			UpdateArrow(mainArrowIndex);
 		}
 		//when press down
-		else if(Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") < 0 && mainArrowIndex < buttons.Length - 1)
+		else if(MenuInputManager.CheckDown() && mainArrowIndex < buttons.Length - 1)
 		{
             soundEffectManager.Play("MenuScroll");
             ++mainArrowIndex;
@@ -89,5 +89,8 @@ public class MainMenuManager : MonoBehaviour {
 		Debug.Log("Quit Game");
 	}
 
+	//========================================================
+	//Convert Input from different devices
+	//========================================================
 
 }
