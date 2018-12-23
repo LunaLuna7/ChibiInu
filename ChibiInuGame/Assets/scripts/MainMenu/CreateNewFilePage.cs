@@ -26,7 +26,7 @@ public class CreateNewFilePage : MonoBehaviour {
 	void Update () {
 		if(!confirmWindow.activeSelf)
 		{
-			CheckModifyName();
+			//CheckModifyName();
 			CheckVirtualKeyboardInput();
 			CheckFinishAndCancel();
 		}
@@ -71,18 +71,19 @@ public class CreateNewFilePage : MonoBehaviour {
 	public void CheckVirtualKeyboardInput()
 	{
 		//navigate the board
-		if(Input.GetKeyDown(KeyCode.LeftArrow))
+		if(MenuInputManager.CheckLeft())
 			virtualKeyboard.MoveLeft();
-		else if(Input.GetKeyDown(KeyCode.RightArrow))
+		else if(MenuInputManager.CheckRight())
 			virtualKeyboard.MoveRight();
-		else if(Input.GetKeyDown(KeyCode.UpArrow))
+		else if(MenuInputManager.CheckUp())
 			virtualKeyboard.MoveUp();
-		else if(Input.GetKeyDown(KeyCode.DownArrow))
+		else if(MenuInputManager.CheckDown())
 			virtualKeyboard.MoveDown();
 		//comfirm/type
-		else if(Input.GetKeyDown(KeyCode.Alpha1))
+		else if(Input.GetButtonDown("Submit"))
 		{
 			string key = virtualKeyboard.GetKeyValue();
+			Debug.Log(key);
 			if(key == "caps")
 			{
 				virtualKeyboard.ChangeCapitalization();
@@ -101,11 +102,11 @@ public class CreateNewFilePage : MonoBehaviour {
 	//==========================================================================================================================
 	public void CheckFinishAndCancel()
 	{
-		//confirm typing
+		/*confirm typing
 		if(Input.GetButtonDown("Submit"))
 		{
 			FinishInput();
-		}
+		}*/
 		//cancel creating new file
 		if(Input.GetButtonDown("Cancel"))
 		{
