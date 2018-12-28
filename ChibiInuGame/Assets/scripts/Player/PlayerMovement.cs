@@ -17,10 +17,19 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        if(!controller.m_OnShield)
+            horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        else
+            horizontalMove = Input.GetAxisRaw("Horizontal") * (runSpeed / 2);
+
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            controller.TriggerShield();
         }
 
         
