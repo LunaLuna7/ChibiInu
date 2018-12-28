@@ -33,6 +33,7 @@ public class CharacterController2D : MonoBehaviour {
     public bool m_OnDash;
     private bool m_OnJumpPad = false;
     public bool m_OnOtherCamera = false;
+    public bool m_OnShield;
 
     public int m_AirJumpsLeft;
     public int m_DashLeft;
@@ -51,6 +52,7 @@ public class CharacterController2D : MonoBehaviour {
     //CoolDowns
     public bool m_GroundDash;
     public bool m_OnSwing;
+
 
     //SoundStates
     private bool PlayingWallSlide;
@@ -297,8 +299,6 @@ public class CharacterController2D : MonoBehaviour {
             
             if (m_FacingRight && m_DashLeft == 1)
             {
-                
-
                 StartCoroutine(PerformingDash());
                 m_RigidBody2D.AddForce(Vector3.right * m_DashForce * 150 );
                 m_DashLeft--;
@@ -314,6 +314,28 @@ public class CharacterController2D : MonoBehaviour {
         
     }
 
+    public void TriggerShield()
+    {
+        
+        if (!m_OnShield)
+            ShieldOn();
+        else if (m_OnShield)
+            ShieldOff();
+    }
+    private void ShieldOn()
+    {
+        m_RigidBody2D.gravityScale = 10;
+        m_Immune = true;
+        m_OnShield = true;
+    }
+
+    private void ShieldOff()
+    {
+        m_RigidBody2D.gravityScale = 5;
+        m_Immune = false;
+        m_OnShield = false;
+    }
+ 
 
     //==================================================================
     //Makes player follow a parabolic path base on destination Transform
