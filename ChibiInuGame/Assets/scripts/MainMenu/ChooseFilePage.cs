@@ -48,7 +48,6 @@ public class ChooseFilePage : MonoBehaviour {
 		else if (Input.GetButtonDown("Submit"))
         {
             soundEffectManager.Play("MenuSelect");
-			canMove = false;
             LoadSaveFile(arrowIndex);
         }
 		else if(Input.GetButtonDown("Cancel") || Input.GetMouseButtonDown(1)) {
@@ -94,6 +93,7 @@ public class ChooseFilePage : MonoBehaviour {
 			createNewFilePage.GetComponent<CreateNewFilePage>().Initalize(index);
 		}else//load the save file and update the levels
 		{
+			canMove = false;
 			SaveManager.dataInUse = saveDatas[index];
 			SaveManager.filename = "save" + (index + 1);
 			//go to levelSelectionScene
