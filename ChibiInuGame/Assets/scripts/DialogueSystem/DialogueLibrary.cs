@@ -29,9 +29,13 @@ public class DialogueLibrary : MonoBehaviour {
 		{
 			string path = "Dialogue/" + filePath;
 			//read the json file to text
-			string jsonData = Resources.Load<TextAsset>(path).text;
-			DialogueData dialogueData = JsonUtility.FromJson<DialogueData>(jsonData);
-			dialogueLibrary.Add(filePath, dialogueData.dialogueSequence);
+			try{
+				string jsonData = Resources.Load<TextAsset>(path).text;
+				DialogueData dialogueData = JsonUtility.FromJson<DialogueData>(jsonData);
+				dialogueLibrary.Add(filePath, dialogueData.dialogueSequence);
+			}catch{
+				Debug.LogError("Fail to load file: " + path);
+			}
 		}
 	}
 

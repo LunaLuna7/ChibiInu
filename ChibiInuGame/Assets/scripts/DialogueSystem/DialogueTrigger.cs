@@ -7,8 +7,10 @@ public class DialogueTrigger : MonoBehaviour {
 
     void Start()
     {
+        //add postfix for language
+        dialogueFilePath = "English/" + dialogueFilePath;
         //at the start of level, ask dialogue Library to load dialogue data
-        DialogueLibrary.instance.LoadDialogueJson(dialogueFilePath);
+        DialogueLibrary.instance.LoadDialogueJson(dialogueFilePath.Trim());
     }
 
     public void TriggerDialogue()
