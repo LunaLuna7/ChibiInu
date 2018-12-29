@@ -322,6 +322,48 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1637817138868202, guid: 370047f4eb85de64b96c6d661eda900d,
     type: 2}
   m_PrefabInternal: {fileID: 41000543}
+--- !u!1001 &47857143
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4179179813025458, guid: eacbf2d95e4143f4992d39de01a2b7b3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -95.11283
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179179813025458, guid: eacbf2d95e4143f4992d39de01a2b7b3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 19.848835
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179179813025458, guid: eacbf2d95e4143f4992d39de01a2b7b3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.38700074
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179179813025458, guid: eacbf2d95e4143f4992d39de01a2b7b3, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179179813025458, guid: eacbf2d95e4143f4992d39de01a2b7b3, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179179813025458, guid: eacbf2d95e4143f4992d39de01a2b7b3, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179179813025458, guid: eacbf2d95e4143f4992d39de01a2b7b3, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179179813025458, guid: eacbf2d95e4143f4992d39de01a2b7b3, type: 2}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eacbf2d95e4143f4992d39de01a2b7b3, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &82326662
 Prefab:
   m_ObjectHideFlags: 0
@@ -4150,7 +4192,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 800, y: -39.85}
+  m_AnchoredPosition: {x: 800, y: -39.850098}
   m_SizeDelta: {x: 1194.3, y: 79.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1091740171

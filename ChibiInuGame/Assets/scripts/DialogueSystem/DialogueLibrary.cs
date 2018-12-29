@@ -6,7 +6,8 @@ using UnityEngine;
 */
 public class DialogueLibrary : MonoBehaviour {
 	public static DialogueLibrary instance = null;
-	public Dictionary<string, Sprite> faceSpriteLibrary;
+	public FaceSprite[] faceSpriteList;
+	private Dictionary<string, Sprite> faceSpriteLibrary;
 	private Dictionary<string, Dialogue[]> dialogueLibrary = new Dictionary<string, Dialogue[]>(); 
 	// Use this for initialization
 	void Start () {
@@ -15,6 +16,7 @@ public class DialogueLibrary : MonoBehaviour {
 		{
 			instance = this;
 			DontDestroyOnLoad(gameObject);
+			InitializeFaceSprites();
 		}else{
 			Destroy(gameObject);
 		}
@@ -30,6 +32,16 @@ public class DialogueLibrary : MonoBehaviour {
 		dialogueLibrary.Add(filePath, dialogueData.dialogueSequence);
 	}
 
+	//use face sprites list to create the face sprite library 
+	public void InitializeFaceSprites()
+	{
+		faceSpriteLibrary.Clear();
+		foreach(FaceSprite fs in faceSpriteList)
+		{
+			faceSpriteLibrary.Add(fs.name, fs.faceSprite);
+		}
+	}
+
 	//====================================================================================
 	//Get info from the library
 	//====================================================================================
@@ -43,6 +55,13 @@ public class DialogueLibrary : MonoBehaviour {
 		return dialogueLibrary[filePath];
 	}
 
+}
+
+[System.Serializable]
+public class FaceSprite
+{
+    public string name;
+	public Sprite faceSprite;
 }
 
 [System.Serializable]
