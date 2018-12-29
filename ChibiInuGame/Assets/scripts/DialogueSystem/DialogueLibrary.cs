@@ -7,7 +7,7 @@ using UnityEngine;
 public class DialogueLibrary : MonoBehaviour {
 	public static DialogueLibrary instance = null;
 	public FaceSprite[] faceSpriteList;
-	private Dictionary<string, Sprite> faceSpriteLibrary;
+	private Dictionary<string, Sprite> faceSpriteLibrary = new Dictionary<string, Sprite>();
 	private Dictionary<string, Dialogue[]> dialogueLibrary = new Dictionary<string, Dialogue[]>(); 
 	// Use this for initialization
 	void Start () {
@@ -25,11 +25,14 @@ public class DialogueLibrary : MonoBehaviour {
 	//Load a dialogue data from JSON file, and store it in the dictionary
 	public void LoadDialogueJson(string filePath)
 	{
-		string path = "Dialogue/" + filePath;
-		//read the json file to text
-		string jsonData = Resources.Load<TextAsset>(path).text;
-		DialogueData dialogueData = JsonUtility.FromJson<DialogueData>(jsonData);
-		dialogueLibrary.Add(filePath, dialogueData.dialogueSequence);
+		if(!dialogueLibrary.ContainsKey(filePath))
+		{
+			string path = "Dialogue/" + filePath;
+			//read the json file to text
+			string jsonData = Resources.Load<TextAsset>(path).text;
+			DialogueData dialogueData = JsonUtility.FromJson<DialogueData>(jsonData);
+			dialogueLibrary.Add(filePath, dialogueData.dialogueSequence);
+		}
 	}
 
 	//use face sprites list to create the face sprite library 
