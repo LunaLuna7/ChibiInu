@@ -58,8 +58,8 @@ public class DialogueManager : MonoBehaviour {
             //display a single sentence
             Dialogue dialogue = dialogueQueue.Dequeue();
             //change name and sprite
-            nameText.text = dialogue.name;
-            //speakerImage.sprite = dialogue.image;
+            nameText.text = dialogue.speakerName;
+            speakerImage.sprite = DialogueLibrary.instance.GetFaceSprite(dialogue.imageName);
             //change content
             yield return TypeSentence(dialogue.sentence);
             //wait for input
