@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour {
-
-    public Dialogue[] dialogueSequence;
+    public string dialogueFileName;
+    private Dialogue[] dialogueSequence;
 
     public void TriggerDialogue()
     {
