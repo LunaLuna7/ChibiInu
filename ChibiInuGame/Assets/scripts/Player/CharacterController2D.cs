@@ -19,6 +19,7 @@ public class CharacterController2D : MonoBehaviour {
     [SerializeField] private Transform m_WallCheck;
     [SerializeField] private bool m_AirControl = false;
     [SerializeField] private float m_DashForce = 1000f;
+    public bool paralyzedWhenStart = false;
 
     //States
     public bool m_limitRightMove;
@@ -62,7 +63,7 @@ public class CharacterController2D : MonoBehaviour {
     public float JumpProgress { get; private set; }
 
     void Awake () {
-        m_Paralyzed = false;
+        m_Paralyzed = paralyzedWhenStart;
         PlayingWallSlide = false;
         m_GroundDash = true;
         m_DashLeft = 1;
