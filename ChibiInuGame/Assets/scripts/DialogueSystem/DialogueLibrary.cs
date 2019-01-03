@@ -7,6 +7,7 @@ using UnityEngine;
 public class DialogueLibrary : MonoBehaviour {
 	public static DialogueLibrary instance = null;
 	public FaceSprite[] faceSpriteList;
+	private Dictionary<string, string> nameLibrary = new Dictionary<string, string>();
 	private Dictionary<string, Sprite> faceSpriteLibrary = new Dictionary<string, Sprite>();
 	private Dictionary<string, Dialogue[]> dialogueLibrary = new Dictionary<string, Dialogue[]>(); 
 	// Use this for initialization
@@ -17,6 +18,7 @@ public class DialogueLibrary : MonoBehaviour {
 			instance = this;
 			DontDestroyOnLoad(gameObject);
 			InitializeFaceSprites();
+			LoadName("English");
 		}else{
 			Destroy(gameObject);
 		}
@@ -49,6 +51,20 @@ public class DialogueLibrary : MonoBehaviour {
 		}
 	}
 
+	public void LoadName(string language)
+	{
+		//generate path depends on language
+		string path = "Dialogue/" + language + "/name";
+		//read the json file to text
+		string jsonData = Resources.Load<TextAsset>(path).text;
+		NameInfo nameInfo = JsonUtility.FromJson<NameInfo>(jsonData);
+		//add name info to nameDict, but clear old language first
+		nameLibrary.Clear();
+		foreach(NameInfo.Name namePair in nameInfo.nameList)
+		{
+			nameLibrary.Add(namePair.key, namePair.value);
+		}
+	}
 	//====================================================================================
 	//Get info from the library
 	//====================================================================================
@@ -60,6 +76,11 @@ public class DialogueLibrary : MonoBehaviour {
 	public Dialogue[] GetDialogueSequence(string filePath)
 	{
 		return dialogueLibrary[filePath];
+	}
+
+	public string GetName(string key)
+	{
+		return nameLibrary[key];
 	}
 
 }
@@ -75,4 +96,16 @@ public class FaceSprite
 public class DialogueData
 {
     public Dialogue[] dialogueSequence;
+}
+
+[System.Serializable]
+public class NameInfo
+{
+	public Name[] nameList;
+	
+	[System.Serializable]
+	public class Name{
+		public string key;
+		public string value;
+	}
 }
