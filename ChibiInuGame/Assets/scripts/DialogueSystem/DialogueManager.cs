@@ -17,10 +17,6 @@ public class DialogueManager : MonoBehaviour {
         dialogueQueue = new Queue<Dialogue>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void StartDialogue(Dialogue[] dialogueSequence)
     {

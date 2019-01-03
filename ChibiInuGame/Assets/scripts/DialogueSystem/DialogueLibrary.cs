@@ -25,7 +25,7 @@ public class DialogueLibrary : MonoBehaviour {
 	}
 	
 	//Load a dialogue data from JSON file, and store it in the dictionary
-	public void LoadDialogueJson(string filePath)
+	public Dialogue[] LoadDialogueJson(string filePath)
 	{
 		if(!dialogueLibrary.ContainsKey(filePath))
 		{
@@ -35,9 +35,13 @@ public class DialogueLibrary : MonoBehaviour {
 				string jsonData = Resources.Load<TextAsset>(path).text;
 				DialogueData dialogueData = JsonUtility.FromJson<DialogueData>(jsonData);
 				dialogueLibrary.Add(filePath, dialogueData.dialogueSequence);
+				return dialogueData.dialogueSequence;
 			}catch{
 				Debug.LogError("Fail to load file: " + path);
+				return null;
 			}
+		}else{
+			return GetDialogueSequence(filePath);
 		}
 	}
 

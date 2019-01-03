@@ -9,17 +9,13 @@ public class TimeLineManager : MonoBehaviour {
 
     public PlayableDirector playableDirector;
     public CharacterController2D characterController2D;
-    public bool conversationFinish;
+    public bool conversationFinish = false;
+ 
     // Use this for initialization
     void Start () {
-        conversationFinish = false;
+        playableDirector.stopped += OnTimelineStopped;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (!conversationFinish && collision.gameObject.tag == "Player")
@@ -35,5 +31,11 @@ public class TimeLineManager : MonoBehaviour {
     {
         yield return new WaitForSeconds(4f);
         playableDirector.Pause();
+    }
+
+    public void OnTimelineStopped(PlayableDirector aDirector)
+    {
+        if(playableDirector == aDirector)
+            characterController2D.m_Paralyzed = false;
     }
 }
