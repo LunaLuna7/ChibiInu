@@ -17,10 +17,6 @@ public class DialogueManager : MonoBehaviour {
         dialogueQueue = new Queue<Dialogue>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void StartDialogue(Dialogue[] dialogueSequence)
     {
@@ -59,10 +55,10 @@ public class DialogueManager : MonoBehaviour {
             Dialogue dialogue = dialogueQueue.Dequeue();
             //change name and sprite
             //show player's name
-            if(dialogue.speakerName == "%player")
+            if(dialogue.speakerName == "player")
                 nameText.text = SaveManager.dataInUse.playerName;
             else
-                nameText.text = dialogue.speakerName;
+                nameText.text = DialogueLibrary.instance.GetName(dialogue.speakerName);
             speakerImage.sprite = DialogueLibrary.instance.GetFaceSprite(dialogue.imageName);
             //change content
             yield return TypeSentence(dialogue.sentence);
