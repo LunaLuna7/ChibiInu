@@ -62,3 +62,5 @@ MonoBehaviour:
     faceSprite: {fileID: 21300000, guid: 9cd6955c996ad8b4c9d4d81a540f787c, type: 3}
   - name: Bard
     faceSprite: {fileID: 21300000, guid: 2166dd67582ac6f45836e6fc451ce409, type: 3}
+  - name: Bard Master
+    faceSprite: {fileID: 21300012, guid: 0852ca2eb8dd20c45a331f4281934302, type: 3}
