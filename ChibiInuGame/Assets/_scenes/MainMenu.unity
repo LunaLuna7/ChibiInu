@@ -332,7 +332,7 @@ Prefab:
     - target: {fileID: 114012548370561622, guid: eacbf2d95e4143f4992d39de01a2b7b3,
         type: 2}
       propertyPath: faceSpriteList.Array.size
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4179179813025458, guid: eacbf2d95e4143f4992d39de01a2b7b3, type: 2}
       propertyPath: m_LocalPosition.x
@@ -368,15 +368,24 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114012548370561622, guid: eacbf2d95e4143f4992d39de01a2b7b3,
         type: 2}
-      propertyPath: faceSpriteList.Array.data[3].name
-      value: Wizard Master
+      propertyPath: faceSpriteList.Array.data[6].name
+      value: Knight
       objectReference: {fileID: 0}
     - target: {fileID: 114012548370561622, guid: eacbf2d95e4143f4992d39de01a2b7b3,
         type: 2}
-      propertyPath: faceSpriteList.Array.data[3].faceSprite
+      propertyPath: faceSpriteList.Array.data[6].faceSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 9cd6955c996ad8b4c9d4d81a540f787c,
-        type: 3}
+      objectReference: {fileID: 0}
+    - target: {fileID: 114012548370561622, guid: eacbf2d95e4143f4992d39de01a2b7b3,
+        type: 2}
+      propertyPath: faceSpriteList.Array.data[7].name
+      value: Knight Master
+      objectReference: {fileID: 0}
+    - target: {fileID: 114012548370561622, guid: eacbf2d95e4143f4992d39de01a2b7b3,
+        type: 2}
+      propertyPath: faceSpriteList.Array.data[7].faceSprite
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eacbf2d95e4143f4992d39de01a2b7b3, type: 2}
   m_IsPrefabAsset: 0

@@ -1,0 +1,11 @@
+{"dialogueSequence":[
+    {"speakerName":"Knight Master","imageName":"Knight Master","sentence":"Are you the ones rampaging through the capital?"},
+    {"speakerName":"player","imageName":"Shib","sentence":"Bark Bark (Rampaging is a strong word. I prefer liberating.)"},
+    {"speakerName":"Bard","imageName":"Bard","sentence":"Filthy swine, your reign of terror ends on the morrow!"},
+    {"speakerName":"Wizard","imageName":"Wizard","sentence":"That implies we let him live today."},
+    {"speakerName":"Knight","imageName":"Knight","sentence":"Master, I cannot allow your avarice to surpass mine. You die here!"},
+    {"speakerName":"player","imageName":"Shib","sentence":"(I’ll attempt knock him out and have the people exile him. No slime will be shed today.)"},
+    {"speakerName":"Knight Master","imageName":"Knight Master","sentence":"Says a coward who can only block."},
+    {"speakerName":"Bard","imageName":"Bard","sentence":"He will be the shield to your sword. Have at you!"},
+    {"speakerName":"player","imageName":"Shib","sentence":"Bark Woof (I won’t let them kill you.)"}
+]}

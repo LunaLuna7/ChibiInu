@@ -1,5 +1,8 @@
 {"nameList":[
     {"key":"Wizard","value":"Wizard"},
-    {"key":"Wizard Master","value":"Wizard GrandMaster"},
-    {"key":"111","value":"empty"}
+    {"key":"Wizard Master","value":"GrandMaster"},
+    {"key":"Bard","value":"Bard"},
+    {"key":"Bard Master","value":"Bard Master"},
+    {"key":"Knight","value":"Knight"},
+    {"key":"Knight Master","value":"Knight Master"}
 ]}
