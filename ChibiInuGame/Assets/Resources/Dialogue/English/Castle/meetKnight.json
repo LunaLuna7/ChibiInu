@@ -1,0 +1,20 @@
+{"dialogueSequence":[
+    {"speakerName":"Bard","imageName":"Bard","sentence":"Hail good knight! How might one reach the castle?"},
+    {"speakerName":"Knight","imageName":"Knight","sentence":"Oh I can tell you, but only if the price is right."},
+    {"speakerName":"player","imageName":"Shib","sentence":"Bark Bark (Does it look like we have any money?)"},
+    {"speakerName":"Knight","imageName":"Knight","sentence":"Is that your pet?"},
+    {"speakerName":"Wizard","imageName":"Wizard","sentence":"Sure is! Rufus here loves to have his belly rubbed."},
+    {"speakerName":"player","imageName":"Shib","sentence":"Bork woof (Would you please stop calling me Rufus?)"},
+    {"speakerName":"Knight","imageName":"Knight","sentence":"He’s adorable! Protecting such a creature will be payment enough for me."},
+    {"speakerName":"Wizard","imageName":"Wizard","sentence":"Be careful, this one’s bite is worse than his bark."},
+    {"speakerName":"player","imageName":"Shib","sentence":"Bork Bork (That was due to circumstances.)"},
+    {"speakerName":"player","imageName":"Shib","sentence":"(That’s such a weak excuse. Why is father making me do this?)"},
+    {"speakerName":"Knight","imageName":"Knight","sentence":"Allow me to be your shield."},
+    {"speakerName":"Knight","imageName":"Knight","sentence":"Any physical attack will bounce right off me, but magic will fry me right quick."},
+    {"speakerName":"Knight","imageName":"Knight","sentence":"My master has been acting strangely ever since he found this stone."},
+    {"speakerName":"Knight","imageName":"Knight","sentence":"He’s been extorting profits from the townsfolk, his greed surpassing my own."},
+    {"speakerName":"Bard","imageName":"Bard","sentence":"Our masters befell the same fate, one of woe whence stones taketh their righteousness and spit on their good name."},
+    {"speakerName":"Knight","imageName":"Knight","sentence":"That drawl has become tiresome."},
+    {"speakerName":"Knight","imageName":"Knight","sentence":"Oh, and before I forget: The king’s room is locked with a special mechanism."},
+    {"speakerName":"Knight","imageName":"Knight","sentence":"You must find a switch deep in the castle to unlock it."}
+]}
