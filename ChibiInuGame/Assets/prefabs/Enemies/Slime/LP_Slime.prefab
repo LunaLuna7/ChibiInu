@@ -98,7 +98,7 @@ Transform:
   m_GameObject: {fileID: 1838449178886814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 119.87642, y: 2.914805, z: 0.15334791}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4311711533176626}
   - {fileID: 4094402808264170}
@@ -228,8 +228,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1838449178886814}
-  stateController: {fileID: 0}
   health: 0
+  stateController: {fileID: 0}
   m_SpriteRender: {fileID: 0}
 --- !u!114 &114642105632526498
 MonoBehaviour:
@@ -243,9 +243,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1838449178886814}
-  stateController: {fileID: 0}
   health: 0
   m_SpriteRender: {fileID: 0}
+  stateController: {fileID: 0}
 --- !u!212 &212584019609444790
 SpriteRenderer:
   m_ObjectHideFlags: 1
