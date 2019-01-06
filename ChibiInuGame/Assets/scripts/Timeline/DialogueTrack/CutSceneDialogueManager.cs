@@ -65,11 +65,12 @@ public class CutSceneDialogueManager : MonoBehaviour {
 		speakerImage.sprite = DialogueLibrary.instance.GetFaceSprite(dialogue.imageName);
 		//show text
         dialogueText.text = "";
-        foreach(char letter in dialogue.sentence.ToCharArray())
+        for(int x = 1; x< dialogue.sentence.Length; ++x)
         {
-            dialogueText.text += letter;
+            dialogueText.text = dialogue.sentence.Substring(0, x) + "<color=#ffffff00>"+ dialogue.sentence.Substring(x)+"</color>";
             yield return null;
         }
+        dialogueText.text = dialogue.sentence;
     }
 
     public void EndDialogue()
