@@ -98,7 +98,7 @@ public class SaveData
 	public string playerName;
 	public LevelInfo[] levels = new LevelInfo[12];
 	public int lastLevelEntered = 0;
-	public List<PartnerInfo> partners;
+	public List<ActivePartnerInfo> partners;
 	public bool[] unlockPartners = new bool[4]; //an array shows what partners are un locked
 
 
@@ -112,7 +112,7 @@ public class SaveData
 			levels[index] = new LevelInfo(false, false, false, false);
 		}
 		//default parter
-		partners = new List<PartnerInfo>();
+		partners = new List<ActivePartnerInfo>();
 		//default all partners are locked
 		for(int index = 0; index < unlockPartners.Length; ++index)
 			unlockPartners[index] = false;
@@ -133,9 +133,9 @@ public class SaveData
 			{
 				//check which skill slot its in is on
 				if(partner.J)
-					partners.Add(new PartnerInfo(partner.partnerID, "J"));
+					partners.Add(new ActivePartnerInfo(partner.partnerID, "J"));
 				else
-					partners.Add(new PartnerInfo(partner.partnerID, "K"));
+					partners.Add(new ActivePartnerInfo(partner.partnerID, "K"));
 			}
 		}
 	}
@@ -157,12 +157,12 @@ public class LevelInfo
 
 
 [System.Serializable]
-public class PartnerInfo
+public class ActivePartnerInfo
 {
 	public int index;
 	public string skillSlot;
 
-	public PartnerInfo(int index, string skillSlot)
+	public ActivePartnerInfo(int index, string skillSlot)
 	{
 		this.index = index;
 		this.skillSlot = skillSlot;
