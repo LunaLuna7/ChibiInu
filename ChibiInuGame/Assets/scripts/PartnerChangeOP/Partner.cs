@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Partner: MonoBehaviour{
 
-    PartnerInfo partnerInfo;
+    public PartnerInfo partnerInfo;
     public bool inUse;
     public bool unlocked;
 
