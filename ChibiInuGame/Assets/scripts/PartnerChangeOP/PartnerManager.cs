@@ -15,16 +15,22 @@ public class PartnerManager : MonoBehaviour {
 
 
     private SoundEffectManager soundEffectManager;
-    public List<Partner> allPartners;
+    public List<Partner> partners;
     public ScenePartnerHolder scenePartnerHolder;
     public Dictionary<SkillSlot, Partner> activePartner = new Dictionary<SkillSlot, Partner>();
 
     private CharacterController2D characterController;
-  
 
 
+    delegate void skillDelegate();
+    skillDelegate firstSkill;
+    skillDelegate secondSkill;
+
+    
     public SpriteMask spriteMask; //the darkness layer that clocks the level for ch4
     public GameObject FireBall; //The fireball prefab
+
+
 
     //=====CoolDowns============
     public bool fireBallOnCoolDown;
@@ -36,7 +42,7 @@ public class PartnerManager : MonoBehaviour {
         soundEffectManager = FindObjectOfType<SoundEffectManager>();
         //initialize partners
         //reset for level
-        foreach(Partner p in allPartners) 
+        foreach(Partner p in partners) 
         {
             p.J = false;
             p.K = false;
@@ -55,53 +61,88 @@ public class PartnerManager : MonoBehaviour {
             if(pi.skillSlot == "J")
             {
                 AssignJSkillSlot(pi.index);
-                allPartners[pi.index].J = true;
+                partners[pi.index].J = true;
             }
             else
             {
                 AssignKSkillSlot(pi.index);
-                allPartners[pi.index].K = true;
+                partners[pi.index].K = true;
             }
-            allPartners[pi.index].selected = true;
+            partners[pi.index].selected = true;
             //spawn the character
             partners[pi.index].transform.position = partnerSpawnLocations[pi.index].position;
             partners[pi.index].SetActive(true);
         }
     }
-
-    //calls assingSkillToSlot with JSkill as paramter so it calls such method in PlayerPartnerSkills.cs
-    /*public void AssignJSkillSlot(int partnerCode)
+    private bool IsActive(int partnerId)
     {
-        AssignSkillToSlot(partnerCode, ref JSkill);
-        
+        return partners[partnerId].inUse;
     }
 
-    //calls assingSkillToSlot with KSkill as paramter so it calls such method in PlayerPartnerSkills.cs
-    public void AssignKSkillSlot(int partnerCode)
-    {
-        AssignSkillToSlot(partnerCode, ref KSkill);
-    }*/
+ 
 
+    public void SummonPartner(SkillSlot skill, Partner partner)
+    {   
+         if (activePartner.ContainsKey(skill))
+            activePartner[skill] = partner;
+            
+         else
+            activePartner[skill] = partner;
 
-    //PartnerCode is the ID of the scriptableObject partner and it matches the case number of switch. skill is wether it will be for J or K click
-    //Ex: ID for wizard partner is 0, so when their ID is passed in partnerCode it will go to case 0 which assigns the FireBallShot method to either J or K
-    /*void AssignSkillToSlot(int partnerCode, ref Skill skill)
-    {
-        switch (partnerCode)
+        switch (partner.partnerInfo.partnerId)
         {
             case 0:
-                skill = FireBallShot;
+                if(skill == SkillSlot.FirstSlot) firstSkill = FireBallShot;
+                else secondSkill = FireBallShot;
                 break;
 
             case 1:
-                skill = Dash;
+                if (skill == SkillSlot.FirstSlot) firstSkill = Dash;
+                else secondSkill = Dash;
                 break;
 
-            case 7:
-                skill = NoSkill;
-                break;   
+            case 2:
+                if (skill == SkillSlot.FirstSlot) firstSkill = Shield;
+                else secondSkill = Shield;
+                break;
+
+            case 3:
+                if (skill == SkillSlot.FirstSlot) firstSkill = LightPartner;
+                else secondSkill = LightPartner;
+                break;
         }
-    }*/
+
+    }
+
+   
+
+    public void UnSummonPartner(Partner partner)
+    {
+        foreach(SkillSlot slot in activePartner.Keys)
+        {
+            if (activePartner[slot] == partner)
+            {
+                if (slot == SkillSlot.FirstSlot)
+                    firstSkill = null;
+                else
+                    secondSkill = null;
+                activePartner.Remove(slot);
+            }
+
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            firstSkill();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            secondSkill();
+        }
+    }
 
 
     //==============================================================================

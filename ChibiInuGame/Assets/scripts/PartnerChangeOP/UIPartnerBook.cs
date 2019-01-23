@@ -18,7 +18,7 @@ public class UIPartnerBook : MonoBehaviour {
 
     private void UpdatePartnerPage(int nextPartner)
     {
-        currentPartner = partnerManager.allPartners[nextPartner];
+        currentPartner = partnerManager.partners[nextPartner];
         partnerName.text = currentPartner.name.ToString();
         partnerPicture.sprite = currentPartner.partnerInfo.image;
         partnerSkillInfo.text = currentPartner.partnerInfo.skillInfo;
@@ -28,9 +28,9 @@ public class UIPartnerBook : MonoBehaviour {
     void OnEnable()
     {
         characterController.m_Paralyzed = true;
-        if (partnerManager.allPartners[0].unlocked)
+        if (partnerManager.partners[0].unlocked)
         {
-            currentPartner = partnerManager.allPartners[0];
+            currentPartner = partnerManager.partners[0];
             UpdatePartnerPage(currentPartner.partnerInfo.partnerId);
             EnableBook();
         }
@@ -47,10 +47,10 @@ public class UIPartnerBook : MonoBehaviour {
     //Moves right(+1 index) through the partnerManager.cs allPartners list of Scriptable Partners objects and if unlock it updats the page and currentPartner
     public void RightArrow()
     {
-        int nextPartner = (currentPartner.partnerInfo.partnerId + 1) % partnerManager.allPartners.Count;
-        while (!partnerManager.allPartners[nextPartner].unlocked)
+        int nextPartner = (currentPartner.partnerInfo.partnerId + 1) % partnerManager.partners.Count;
+        while (!partnerManager.partners[nextPartner].unlocked)
         {
-            nextPartner = (nextPartner + 1) % partnerManager.allPartners.Count; //makes it so we dont indexOutOfBound and loops back through list index
+            nextPartner = (nextPartner + 1) % partnerManager.partners.Count; //makes it so we dont indexOutOfBound and loops back through list index
         }
 
         UpdatePartnerPage(nextPartner);
@@ -62,13 +62,13 @@ public class UIPartnerBook : MonoBehaviour {
         int nextPartner;
 
         if (currentPartner.partnerInfo.partnerId == 0)
-            nextPartner = partnerManager.allPartners.Count - 1;
+            nextPartner = partnerManager.partners.Count - 1;
         else
-            nextPartner = (currentPartner.partnerInfo.partnerId - 1) % partnerManager.allPartners.Count; //makes it so we dont indexOutOfBound and loops back through list index
+            nextPartner = (currentPartner.partnerInfo.partnerId - 1) % partnerManager.partners.Count; //makes it so we dont indexOutOfBound and loops back through list index
 
-        while (!partnerManager.allPartners[nextPartner].unlocked)
+        while (!partnerManager.partners[nextPartner].unlocked)
         {
-            nextPartner = (nextPartner - 1) % partnerManager.allPartners.Count;
+            nextPartner = (nextPartner - 1) % partnerManager.partners.Count;
         }
 
         UpdatePartnerPage(nextPartner);
