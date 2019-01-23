@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
 //[System.Serializable]
 [CreateAssetMenu(menuName = "Partner")]
 public class Partner : ScriptableObject {
@@ -18,4 +19,4 @@ public class Partner : ScriptableObject {
     public bool K;
     public bool J;
     public bool E;
-}
+}*/
