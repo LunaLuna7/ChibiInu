@@ -4,29 +4,35 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour {
 
-    [Header("Platform Positions")]
-    public Transform movingPlatform;
-    public Transform position1;
-    public Transform position2;
-    public Vector3 newPosition;
+    [Header("Init")]
+    public GameObject platform;
+    public List<Transform> positions;
 
     [Space]
-
-    [Header("Platform Attributes")]
-    public string state;
+    [Header("Stats")]
     public float platformVelocity;
-    public float movementTime;
+    //public float movementTime;
+
+    private int nextPosition;
 
     void Start()
     {
-        ChangeTarget();
+        //ChangeTarget();
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        movingPlatform.position = Vector3.Lerp(movingPlatform.position, newPosition, platformVelocity * Time.deltaTime);
+        if (Vector2.Distance(platform.transform.position, positions[nextPosition].position) <= 2)
+        {
+            nextPosition = (nextPosition + 1) % positions.Count;
+        }
+
+        platform.transform.position = Vector2.MoveTowards(platform.transform.position,
+            positions[nextPosition].position, platformVelocity * Time.deltaTime);
+        //movingPlatform.position = Vector3.Lerp(movingPlatform.position, newPosition, platformVelocity * Time.deltaTime);
     }
 
+    /*
     void ChangeTarget()
     {
         if (state == "Move1")
@@ -45,5 +51,5 @@ public class MovingPlatform : MonoBehaviour {
             newPosition = position2.position;
         }
         Invoke("ChangeTarget", movementTime);
-    }
+    }*/
 }
