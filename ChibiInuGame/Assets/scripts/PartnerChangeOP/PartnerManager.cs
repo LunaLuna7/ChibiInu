@@ -7,21 +7,20 @@ public enum SkillSlot{
     SecondSlot
 }
 
+/// <summary>
+/// Contains all the skills of each partner, Assign skills to player Input,
+/// Keeps track of active partners as well as scene partner objects, loads/saves player prefs in regard to partners, and handles user Input
+/// </summary>
 public class PartnerManager : MonoBehaviour {
-
-    //================================================================================================
-    //PartnerManager handles the assinging what skill to what Skill object depending on scriptable Obj
-    //================================================================================================
-
 
     private SoundEffectManager soundEffectManager;
     public List<Partner> partners;
     public ScenePartnerHolder scenePartnerHolder;
-    public Dictionary<SkillSlot, Partner> activePartner = new Dictionary<SkillSlot, Partner>();
+    public Dictionary<SkillSlot, Partner> activePartner = new Dictionary<SkillSlot, Partner>(); //Used to know which partner is active and make it easy to diselect
 
     private CharacterController2D characterController;
 
-
+    //Skills used on player Input
     delegate void skillDelegate();
     skillDelegate firstSkill;
     skillDelegate secondSkill;
@@ -80,7 +79,7 @@ public class PartnerManager : MonoBehaviour {
     }
 
  
-
+    //Assing the skill delegatea to the respective partner and updates the activePartners dictionary
     public void SummonPartner(SkillSlot skill, Partner partner)
     {   
          if (activePartner.ContainsKey(skill))

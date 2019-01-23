@@ -3,19 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// UIPartnerBook controls the Canvas UI Book and updates the book's pages depending on user input and partner's info
+/// </summary>
+
 public class UIPartnerBook : MonoBehaviour {
 
     public PartnerManager partnerManager;
     [HideInInspector] public Partner currentPartner;
-    public CharacterController2D characterController; //maybe
-    
+    public CharacterController2D characterController;
 
     public Text partnerName;
     public Image partnerPicture;
     public Text partnerSkillInfo;
     public Button rightArrow;
     public Button leftArrow;
+    public GameObject secondPartnerButtonSummon;
 
+
+    //Updates the individual UI objects on teh scene canvas in respect to the SCriptable Object of the current partner
     private void UpdatePartnerPage(int nextPartner)
     {
         currentPartner = partnerManager.partners[nextPartner];
@@ -25,6 +31,7 @@ public class UIPartnerBook : MonoBehaviour {
 
     }
 
+    //Checks if there is at least the first player unlocked. If so then activates the Book on Canvas. Also freezes player movement
     void OnEnable()
     {
         characterController.m_Paralyzed = true;
@@ -32,13 +39,16 @@ public class UIPartnerBook : MonoBehaviour {
         {
             currentPartner = partnerManager.partners[0];
             UpdatePartnerPage(currentPartner.partnerInfo.partnerId);
-            EnableBook();
+            //if(level2 ch2 done)
+            //    secondPartnerButtonSummon.setActive(false);
+            gameObject.SetActive(true);
         }
         else
-            DisableBook();
-        
+            gameObject.SetActive(false);
+
     }
 
+    //Unfreeze player
     private void OnDisable()
     {
         characterController.m_Paralyzed = false;
@@ -67,23 +77,13 @@ public class UIPartnerBook : MonoBehaviour {
             nextPartner = (currentPartner.partnerInfo.partnerId - 1) % partnerManager.partners.Count; //makes it so we dont indexOutOfBound and loops back through list index
 
         while (!partnerManager.partners[nextPartner].unlocked)
-        {
             nextPartner = (nextPartner - 1) % partnerManager.partners.Count;
-        }
-
+        
         UpdatePartnerPage(nextPartner);
     }
 
-    //Hide the partnerWindow in canvas
-    private void DisableBook()
-    {
-        gameObject.SetActive(false);
-    }
 
-    //tunr on all UI book elements
-    private void EnableBook()
-    {
-        gameObject.SetActive(true);
-    }
+
+  
 
 }
