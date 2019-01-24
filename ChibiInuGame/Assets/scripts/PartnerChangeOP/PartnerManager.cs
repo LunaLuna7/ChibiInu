@@ -49,6 +49,9 @@ public class PartnerManager : MonoBehaviour {
         }
         //get the partner in use
 
+        //TODO: update this code with new system
+        //TODO: load the activePartner depending on load file depending on the Partner.cs bools
+        //It should also load on scene load I believe, since it should keep track from scene to scene
         foreach (PartnerInfo pi in SaveManager.dataInUse.partners)
         {
             if(pi.skillSlot != "J" && pi.skillSlot != "K")
