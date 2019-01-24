@@ -123,7 +123,7 @@ public class SaveData
 		//clean the list first
 		partners.Clear();
 		//now add partners
-		foreach(Partner partner in pm.allPartners)
+		foreach(Partner partner in pm.partners)
 		{
 			//record if partners are unlocked
 			if(partner.unlocked)

@@ -7,29 +7,29 @@ public enum SkillSlot{
     SecondSlot
 }
 
+/// <summary>
+/// Contains all the skills of each partner, Assign skills to player Input,
+/// Keeps track of active partners as well as scene partner objects, loads/saves player prefs in regard to partners, and handles user Input
+/// </summary>
 public class PartnerManager : MonoBehaviour {
 
-    //================================================================================================
-    //PartnerManager handles the assinging what skill to what Skill object depending on scriptable Obj
-    //================================================================================================
-
-
     private SoundEffectManager soundEffectManager;
-    public List<Partner> allPartners; //Partner Scriptable Objects with each partner data
-    public List<GameObject> partners; //Scene game objects that when selected follow the player around. They can be found in PartnersSystem GameObject in the scene always right bellow Player Game Obj
-    public List<Transform> partnerSpawnLocations; //the 3 locations in whihc partners cna spawn and follow the player
+    public List<Partner> partners;
+    public ScenePartnerHolder scenePartnerHolder;
+    public Dictionary<SkillSlot, Partner> activePartner = new Dictionary<SkillSlot, Partner>(); //Used to know which partner is active and make it easy to diselect
 
-    //Skills objects are used to determine which skill will be call when clicking J or K keybord key depending on selected partner
-    //in PlayerPartnerSkills.cs
-    public delegate void Skill();   
-    public Skill JSkill = null;
-    public Skill KSkill = null;
-
-    public GameObject player;
     private CharacterController2D characterController;
 
+    //Skills used on player Input
+    delegate void skillDelegate();
+    skillDelegate firstSkill;
+    skillDelegate secondSkill;
+
+    
     public SpriteMask spriteMask; //the darkness layer that clocks the level for ch4
     public GameObject FireBall; //The fireball prefab
+
+
 
     //=====CoolDowns============
     public bool fireBallOnCoolDown;
@@ -37,18 +37,22 @@ public class PartnerManager : MonoBehaviour {
 
     void Start()
     {
-        characterController = player.GetComponent<CharacterController2D>();
+        characterController = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController2D>();
         soundEffectManager = FindObjectOfType<SoundEffectManager>();
         //initialize partners
         //reset for level
-        foreach(Partner p in allPartners) 
+        foreach(Partner p in partners) 
         {
             p.J = false;
             p.K = false;
             p.selected = false;
         }
         //get the partner in use
-        foreach(PartnerInfo pi in SaveManager.dataInUse.partners)
+
+        //TODO: update this code with new system
+        //TODO: load the activePartner depending on load file depending on the Partner.cs bools
+        //It should also load on scene load I believe, since it should keep track from scene to scene
+        foreach (PartnerInfo pi in SaveManager.dataInUse.partners)
         {
             if(pi.skillSlot != "J" && pi.skillSlot != "K")
             {
@@ -59,51 +63,86 @@ public class PartnerManager : MonoBehaviour {
             if(pi.skillSlot == "J")
             {
                 AssignJSkillSlot(pi.index);
-                allPartners[pi.index].J = true;
+                partners[pi.index].J = true;
             }
             else
             {
                 AssignKSkillSlot(pi.index);
-                allPartners[pi.index].K = true;
+                partners[pi.index].K = true;
             }
-            allPartners[pi.index].selected = true;
+            partners[pi.index].selected = true;
             //spawn the character
             partners[pi.index].transform.position = partnerSpawnLocations[pi.index].position;
             partners[pi.index].SetActive(true);
         }
     }
-
-    //calls assingSkillToSlot with JSkill as paramter so it calls such method in PlayerPartnerSkills.cs
-    public void AssignJSkillSlot(int partnerCode)
+    private bool IsActive(int partnerId)
     {
-        AssignSkillToSlot(partnerCode, ref JSkill);
-        
+        return partners[partnerId].inUse;
     }
 
-    //calls assingSkillToSlot with KSkill as paramter so it calls such method in PlayerPartnerSkills.cs
-    public void AssignKSkillSlot(int partnerCode)
-    {
-        AssignSkillToSlot(partnerCode, ref KSkill);
-    }
+ 
+    //Assing the skill delegatea to the respective partner and updates the activePartners dictionary
+    public void SummonPartner(SkillSlot skill, Partner partner)
+    {   
+         if (activePartner.ContainsKey(skill))
+            activePartner[skill] = partner;
+            
+         else
+            activePartner[skill] = partner;
 
-
-    //PartnerCode is the ID of the scriptableObject partner and it matches the case number of switch. skill is wether it will be for J or K click
-    //Ex: ID for wizard partner is 0, so when their ID is passed in partnerCode it will go to case 0 which assigns the FireBallShot method to either J or K
-    void AssignSkillToSlot(int partnerCode, ref Skill skill)
-    {
-        switch (partnerCode)
+        switch (partner.partnerInfo.partnerId)
         {
             case 0:
-                skill = FireBallShot;
+                if(skill == SkillSlot.FirstSlot) firstSkill = FireBallShot;
+                else secondSkill = FireBallShot;
                 break;
 
             case 1:
-                skill = Dash;
+                if (skill == SkillSlot.FirstSlot) firstSkill = Dash;
+                else secondSkill = Dash;
                 break;
 
-            case 7:
-                skill = NoSkill;
-                break;   
+            case 2:
+                if (skill == SkillSlot.FirstSlot) firstSkill = Shield;
+                else secondSkill = Shield;
+                break;
+
+            case 3:
+                if (skill == SkillSlot.FirstSlot) firstSkill = LightPartner;
+                else secondSkill = LightPartner;
+                break;
+        }
+
+    }
+
+   
+
+    public void UnSummonPartner(Partner partner)
+    {
+        foreach(SkillSlot slot in activePartner.Keys)
+        {
+            if (activePartner[slot] == partner)
+            {
+                if (slot == SkillSlot.FirstSlot)
+                    firstSkill = null;
+                else
+                    secondSkill = null;
+                activePartner.Remove(slot);
+            }
+
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            firstSkill();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            secondSkill();
         }
     }
 
@@ -150,18 +189,11 @@ public class PartnerManager : MonoBehaviour {
         Debug.Log("Shield");
     }
 
-    public void NoSkill() {}
-
     //CoolDown time for the fireball
     IEnumerator FireCoolDown(float coolDown)
     {       
         yield return new WaitForSeconds(coolDown);
         fireBallOnCoolDown = false;
-    }
-
-    public void DeselectPartner(int partnerCode)
-    {
-        
     }
    
 }

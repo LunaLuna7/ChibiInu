@@ -16,7 +16,7 @@ public class SkillSummonUI : MonoBehaviour {
     public void SummonPartner(string skill)
     {
         AssignSkill(skill);
-        uiBook.partnerManager.allPartners[uiBook.currentPartner.partnerID].selected = true;
+        uiBook.partnerManager.partners[uiBook.currentPartner.partnerID].selected = true;
         uiBook.partnerManager.partners[uiBook.currentPartner.partnerID].transform.position = uiBook.partnerManager.partnerSpawnLocations[uiBook.currentPartner.partnerID].position;
         uiBook.partnerManager.partners[uiBook.currentPartner.partnerID].SetActive(true);
     }
@@ -47,10 +47,10 @@ public class SkillSummonUI : MonoBehaviour {
     //unasing J skill by assinging it to 7(which is in PartnerManager.cs  AssingSkillToSlot method in the switch loop)
     public void ResetJPartner()
     {
-        for(int i = 0; i < uiBook.partnerManager.allPartners.Count; ++i)
+        for(int i = 0; i < uiBook.partnerManager.partners.Count; ++i)
         {
-            uiBook.partnerManager.allPartners[i].J = false;
-            uiBook.partnerManager.allPartners[i].selected = false;
+            uiBook.partnerManager.partners[i].J = false;
+            uiBook.partnerManager.partners[i].selected = false;
 
         }
         uiBook.partnerManager.AssignJSkillSlot(7); //7 is empty skill
@@ -59,10 +59,10 @@ public class SkillSummonUI : MonoBehaviour {
     //unasing K skill by assinging it to 7(which is in PartnerManager.cs  AssingSkillToSlot method in the switch loop)
     public void ResetKPartner()
     {
-        for (int i = 0; i < uiBook.partnerManager.allPartners.Count; ++i)
+        for (int i = 0; i < uiBook.partnerManager.partners.Count; ++i)
         {
-            uiBook.partnerManager.allPartners[i].K = false;
-            uiBook.partnerManager.allPartners[i].selected = false;
+            uiBook.partnerManager.partners[i].K = false;
+            uiBook.partnerManager.partners[i].selected = false;
         }
         uiBook.partnerManager.AssignKSkillSlot(7);
     }

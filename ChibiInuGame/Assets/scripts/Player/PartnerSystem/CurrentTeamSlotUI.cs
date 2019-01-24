@@ -23,16 +23,16 @@ public class CurrentTeamSlotUI : MonoBehaviour {
 
     public void UpdatePartners()
     {
-        for(int i = 0; i < partnerManager.allPartners.Count; ++i)
+        for(int i = 0; i < partnerManager.partners.Count; ++i)
         {
-            if (partnerManager.allPartners[i].K)
+            if (partnerManager.partners[i].K)
             {
-                partnerW = partnerManager.allPartners[i];
+                partnerW = partnerManager.partners[i];
             }
 
-            if (partnerManager.allPartners[i].J)
+            if (partnerManager.partners[i].J)
             {
-                partnerQ = partnerManager.allPartners[i];
+                partnerQ = partnerManager.partners[i];
             }
 
             /*if (partnerManager.allPartners[i].E)

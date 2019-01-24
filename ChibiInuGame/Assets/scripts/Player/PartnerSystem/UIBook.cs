@@ -55,9 +55,9 @@ public class UIBook : MonoBehaviour {
     {
         characterController.m_Paralyzed = true;
         CheckUnlockedPartners();
-        if (partnerManager.allPartners[0].unlocked)
+        if (partnerManager.partners[0].unlocked)
         {
-            currentPartner = partnerManager.allPartners[0];
+            currentPartner = partnerManager.partners[0];
             UpdatePartnerPage(currentPartner.partnerID);
             EnableBook();
         }
@@ -73,9 +73,9 @@ public class UIBook : MonoBehaviour {
         characterController.m_Paralyzed = false;
 
         bool noPartner = true;
-        for (int i = 0; i < partnerManager.allPartners.Capacity; ++i)
+        for (int i = 0; i < partnerManager.partners.Capacity; ++i)
         {
-            if (partnerManager.allPartners[i].selected)
+            if (partnerManager.partners[i].selected)
                 noPartner = false;
         }
         if (noPartner)
@@ -90,10 +90,10 @@ public class UIBook : MonoBehaviour {
     //Moves right(+1 index) through the partnerManager.cs allPartners list of Scriptable Partners objects and if unlock it updats the page and currentPartner
     public void RightArrow()
     {
-        int nextPartner = (currentPartner.partnerID + 1) % partnerManager.allPartners.Count;
-        while (!partnerManager.allPartners[nextPartner].unlocked)
+        int nextPartner = (currentPartner.partnerID + 1) % partnerManager.partners.Count;
+        while (!partnerManager.partners[nextPartner].unlocked)
         {
-            nextPartner = (nextPartner + 1) % partnerManager.allPartners.Count; //makes it so we dont indexOutOfBound and loops back through list index
+            nextPartner = (nextPartner + 1) % partnerManager.partners.Count; //makes it so we dont indexOutOfBound and loops back through list index
         }
 
         UpdatePartnerPage(nextPartner);
@@ -105,13 +105,13 @@ public class UIBook : MonoBehaviour {
         int nextPartner;
 
         if (currentPartner.partnerID == 0)
-            nextPartner = partnerManager.allPartners.Count -1;
+            nextPartner = partnerManager.partners.Count -1;
         else
-            nextPartner = (currentPartner.partnerID - 1) % partnerManager.allPartners.Count; //makes it so we dont indexOutOfBound and loops back through list index
+            nextPartner = (currentPartner.partnerID - 1) % partnerManager.partners.Count; //makes it so we dont indexOutOfBound and loops back through list index
 
-        while (!partnerManager.allPartners[nextPartner].unlocked)
+        while (!partnerManager.partners[nextPartner].unlocked)
         {
-            nextPartner = (nextPartner - 1) % partnerManager.allPartners.Count;
+            nextPartner = (nextPartner - 1) % partnerManager.partners.Count;
         }
 
         UpdatePartnerPage(nextPartner);
@@ -126,7 +126,7 @@ public class UIBook : MonoBehaviour {
     private void UpdatePartnerPage(int nextPartner)
     {
         partnerLightMark[currentPartner.partnerID].SetActive(false);
-        currentPartner = partnerManager.allPartners[nextPartner];
+        currentPartner = partnerManager.partners[nextPartner];
         partnerLightMark[currentPartner.partnerID].SetActive(true);
         partnerName.text = currentPartner.partnerName.ToString();
         partnerPicture.sprite = currentPartner.image;
@@ -158,9 +158,9 @@ public class UIBook : MonoBehaviour {
     //CHecks if partner is unlocked based on the scriptable Obj
     private void CheckUnlockedPartners()
     {
-        for(int i = 0; i < partnerManager.allPartners.Count; ++i)
+        for(int i = 0; i < partnerManager.partners.Count; ++i)
         {
-            if (partnerManager.allPartners[i].unlocked)
+            if (partnerManager.partners[i].unlocked)
             {
                 partnerBookMarks[i].SetActive(true);
             }
