@@ -43,37 +43,28 @@ public class PartnerManager : MonoBehaviour {
         //reset for level
         foreach(Partner p in partners) 
         {
-            p.J = false;
-            p.K = false;
-            p.selected = false;
+            p.inUse = false;
         }
-        //get the partner in use
+        activePartner.Clear();
 
         //TODO: update this code with new system
         //TODO: load the activePartner depending on load file depending on the Partner.cs bools
         //It should also load on scene load I believe, since it should keep track from scene to scene
-        foreach (PartnerInfo pi in SaveManager.dataInUse.partners)
+        //load the partner in use, partner's index in the arrary need to be the same as their partner id
+        foreach (ActivePartnerInfo pi in SaveManager.dataInUse.activePartners)
         {
-            if(pi.skillSlot != "J" && pi.skillSlot != "K")
+            if(pi.skillSlot != SkillSlot.FirstSlot && pi.skillSlot != SkillSlot.SecondSlot)
             {
-                Debug.LogWarning("Unknown key stored in partner save data: " + pi.skillSlot + " should be J or K.");
+                Debug.LogWarning("Unknown key stored in partner save data: " + pi.skillSlot);
                 continue;
             }
-            //assign different keys
-            if(pi.skillSlot == "J")
-            {
-                AssignJSkillSlot(pi.index);
-                partners[pi.index].J = true;
+            else{
+                //load active partner
+                SummonPartner(pi.skillSlot, partners[pi.index]);
             }
-            else
-            {
-                AssignKSkillSlot(pi.index);
-                partners[pi.index].K = true;
-            }
-            partners[pi.index].selected = true;
+            partners[pi.index].inUse = true;
             //spawn the character
-            partners[pi.index].transform.position = partnerSpawnLocations[pi.index].position;
-            partners[pi.index].SetActive(true);
+            scenePartnerHolder.ChangePartnerImage(pi.skillSlot, partners[pi.index].partnerInfo.image);
         }
     }
     private bool IsActive(int partnerId)
