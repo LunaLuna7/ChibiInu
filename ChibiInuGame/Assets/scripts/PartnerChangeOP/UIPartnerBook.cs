@@ -24,7 +24,7 @@ public class UIPartnerBook : MonoBehaviour {
     public GameObject firstPartnerButtonSummon;
     public GameObject secondPartnerButtonSummon;
     public GameObject callBackPartnerButton;
-    public bool secondPartnerSlotUnlock;
+    
 
 
     private void Update()
@@ -44,6 +44,21 @@ public class UIPartnerBook : MonoBehaviour {
         partnerPicture.sprite = currentPartner.partnerInfo.image;
         partnerSkillInfo.text = currentPartner.partnerInfo.skillInfo;
 
+        if (!currentPartner.inUse)
+        {
+            callBackPartnerButton.SetActive(false);
+            firstPartnerButtonSummon.SetActive(true);
+            if(partnerManager.secondPartnerSlotUnlock)
+                secondPartnerButtonSummon.SetActive(true);
+        }
+        else
+        {
+            callBackPartnerButton.SetActive(true);
+            firstPartnerButtonSummon.SetActive(false);
+            secondPartnerButtonSummon.SetActive(false);
+        }
+
+
     }
 
     //Checks if there is at least the first player unlocked. If so then activates the Book on Canvas. Also freezes player movement
@@ -54,7 +69,7 @@ public class UIPartnerBook : MonoBehaviour {
         {
             currentPartner = partnerManager.partners[0];
             UpdatePartnerPage(currentPartner.partnerInfo.partnerId);
-            if (secondPartnerSlotUnlock)
+            if (partnerManager.secondPartnerSlotUnlock)
                 secondPartnerButtonSummon.SetActive(true);
             gameObject.SetActive(true);
         }
@@ -106,12 +121,20 @@ public class UIPartnerBook : MonoBehaviour {
             partnerManager.SummonPartner(SkillSlot.SecondSlot, currentPartner);
 
         partnerManager.PartnerInUse(currentPartner);
+
+        firstPartnerButtonSummon.SetActive(false);
+        secondPartnerButtonSummon.SetActive(false);
+        callBackPartnerButton.SetActive(true);
     }
 
     //called when callback UI is press(ToDO: make it so either summonA button appears or summonB and summonA appears)
     public void UnSummonPartnerButton()
     {
         partnerManager.UnSummonPartner(currentPartner);
+        callBackPartnerButton.SetActive(false);
+        firstPartnerButtonSummon.SetActive(true);
+        if(partnerManager.secondPartnerSlotUnlock)
+            secondPartnerButtonSummon.SetActive(true);
     }
 
   

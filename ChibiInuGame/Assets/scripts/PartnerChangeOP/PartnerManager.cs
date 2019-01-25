@@ -13,13 +13,14 @@ public enum SkillSlot{
 /// </summary>
 public class PartnerManager : MonoBehaviour {
 
+    public CharacterController2D characterController;
     private SoundEffectManager soundEffectManager;
+
     public List<PartnerInfo> partnersInfo;
     public List<Partner> partners;
     [HideInInspector]public ScenePartnerHolder scenePartnerHolder;
     public Dictionary<SkillSlot, Partner> activePartner = new Dictionary<SkillSlot, Partner>(); //Used to know which partner is active and make it easy to diselect
 
-    public CharacterController2D characterController;
 
     //Skills used on player Input
     delegate void skillDelegate();
@@ -37,6 +38,7 @@ public class PartnerManager : MonoBehaviour {
     public float fireBallCoolDown;
 
     SkillSlot temp;
+    public bool secondPartnerSlotUnlock;
 
     private void Awake()
     {
@@ -92,9 +94,14 @@ public class PartnerManager : MonoBehaviour {
         }
     }
  
-    //Assing the skill delegatea to the respective partner and updates the activePartners dictionary
+    //Assing the skill delegate to the respective partner and updates the activePartners dictionary
     public void SummonPartner(SkillSlot skill, Partner partner)
-    {   
+    {
+        if (activePartner.ContainsKey(skill)) //if another partner is currrently occupying the skillSlot, unsummon such
+        {
+            activePartner[skill].inUse = false;
+        }
+
          if (activePartner.ContainsKey(skill))
             activePartner[skill] = partner;
             
@@ -135,6 +142,7 @@ public class PartnerManager : MonoBehaviour {
     //Updates the dict activePartner and makes the partner's in use = false 
     public void UnSummonPartner(Partner partner)
     {
+        partner.inUse = false;
         bool foundPartner = false;
         foreach(SkillSlot slot in activePartner.Keys)
         {

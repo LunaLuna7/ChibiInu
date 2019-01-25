@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 222098132161595770}
   - component: {fileID: 114972328401143150}
   m_Layer: 5
-  m_Name: PartnerImage
+  m_Name: PartnerPicture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -334,6 +334,7 @@ GameObject:
   - component: {fileID: 224241648355968452}
   - component: {fileID: 222959881827006970}
   - component: {fileID: 114133570796748016}
+  - component: {fileID: 114581092069597174}
   m_Layer: 5
   m_Name: Satan's Note
   m_TagString: Untagged
@@ -353,7 +354,7 @@ GameObject:
   - component: {fileID: 114796384503834742}
   - component: {fileID: 114058383030646548}
   m_Layer: 5
-  m_Name: JSkill
+  m_Name: FirstSlotSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -464,15 +465,14 @@ GameObject:
   - component: {fileID: 224949416451493350}
   - component: {fileID: 222669703318624836}
   - component: {fileID: 114789627274678064}
-  - component: {fileID: 114791941486808676}
-  - component: {fileID: 114086196281071126}
+  - component: {fileID: 114518207060945192}
   m_Layer: 5
-  m_Name: PartnerWindow
+  m_Name: PartnerBookWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1532099300246330
 GameObject:
   m_ObjectHideFlags: 1
@@ -578,7 +578,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1645823744697080
 GameObject:
   m_ObjectHideFlags: 1
@@ -587,7 +587,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4342490625385914}
-  - component: {fileID: 114195208582949948}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -726,7 +725,7 @@ GameObject:
   - component: {fileID: 114968581473269972}
   - component: {fileID: 114565323773670466}
   m_Layer: 5
-  m_Name: KSkill
+  m_Name: SecondSlotSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -793,7 +792,7 @@ GameObject:
   - component: {fileID: 222406709024460634}
   - component: {fileID: 114221282221099860}
   m_Layer: 5
-  m_Name: NameText
+  m_Name: PartnerNameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -910,7 +909,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224396356873430650}
-  - component: {fileID: 114882887701911436}
   m_Layer: 5
   m_Name: CurrentTeamSlot
   m_TagString: Untagged
@@ -1082,7 +1080,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114791941486808676}
+      - m_Target: {fileID: 0}
         m_MethodName: ShortCutPartner
         m_Mode: 3
         m_Arguments:
@@ -1134,17 +1132,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114086196281071126}
-        m_MethodName: SummonPartner
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: J
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1774660399176348}
         m_MethodName: SetActive
         m_Mode: 6
@@ -1167,21 +1154,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 114518207060945192}
+        m_MethodName: SummonPartnerButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1735171427661578}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114086196281071126
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1522657004460884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef70e33c03d4004c9e7b00370a6cf7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiBook: {fileID: 114791941486808676}
-  teamSlot: {fileID: 114882887701911436}
 --- !u!114 &114086953079171510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1317,22 +1313,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114195208582949948
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1645823744697080}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b2f91aced7bc4d4aa583364a38ed3c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameText: {fileID: 114597411122348374}
-  dialogueText: {fileID: 114812956336794084}
-  speakerImage: {fileID: 114594037535238130}
-  animator: {fileID: 95020109382982290}
-  characterController2D: {fileID: 0}
 --- !u!114 &114205934185627758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1372,7 +1352,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114086196281071126}
+      - m_Target: {fileID: 0}
         m_MethodName: ResetWPartner
         m_Mode: 1
         m_Arguments:
@@ -1517,7 +1497,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114791941486808676}
+      - m_Target: {fileID: 0}
         m_MethodName: ShortCutPartner
         m_Mode: 3
         m_Arguments:
@@ -1762,7 +1742,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114791941486808676}
+      - m_Target: {fileID: 0}
         m_MethodName: ShortCutPartner
         m_Mode: 3
         m_Arguments:
@@ -1984,6 +1964,32 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114518207060945192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1522657004460884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eca491accf19c94aa1bc1df89c73a59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partnerManager: {fileID: 0}
+  currentPartner:
+    inUse: 0
+    unlocked: 0
+    partnerInfo: {fileID: 0}
+  characterController: {fileID: 0}
+  partnerName: {fileID: 114221282221099860}
+  partnerPicture: {fileID: 114972328401143150}
+  partnerSkillInfo: {fileID: 114959602821193756}
+  rightArrow: {fileID: 114944589657001888}
+  leftArrow: {fileID: 114891822578732224}
+  firstPartnerButtonSummon: {fileID: 0}
+  secondPartnerButtonSummon: {fileID: 1735171427661578}
+  callBackPartnerButton: {fileID: 0}
+  secondPartnerSlotUnlock: 0
 --- !u!114 &114518921172928314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2077,19 +2083,65 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114086196281071126}
-        m_MethodName: SummonPartner
-        m_Mode: 5
+      - m_Target: {fileID: 1774660399176348}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: K
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 114518207060945192}
+        m_MethodName: SummonPartnerButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1735171427661578}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1385040654358272}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114581092069597174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1373446200629708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd9e892994586e24d9289585df3e1c6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeline: {fileID: 0}
+  canContinue: 0
 --- !u!114 &114582086663947832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2238,7 +2290,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114791941486808676}
+      - m_Target: {fileID: 0}
         m_MethodName: ShortCutPartner
         m_Mode: 3
         m_Arguments:
@@ -2413,35 +2465,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114791941486808676
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1522657004460884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4897abec47bd9ae4389ee0c3260391b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  partnerManager: {fileID: 0}
-  currentPartner: {fileID: 0}
-  partnerName: {fileID: 114221282221099860}
-  partnerPicture: {fileID: 114972328401143150}
-  partnerSkillInfo: {fileID: 114959602821193756}
-  rightArrow: {fileID: 114944589657001888}
-  leftArrow: {fileID: 114891822578732224}
-  partnerBookMarks:
-  - {fileID: 1056419367904416}
-  - {fileID: 1465320648286340}
-  - {fileID: 1755384146380390}
-  - {fileID: 1513423354642982}
-  partnerLightMark:
-  - {fileID: 1827912857586740}
-  - {fileID: 1008081430334202}
-  - {fileID: 1288103196114826}
-  - {fileID: 1028100373949882}
-  characterController: {fileID: 0}
 --- !u!114 &114796384503834742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2568,8 +2591,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114086196281071126}
-        m_MethodName: CallBackPartner
+      - m_Target: {fileID: 114518207060945192}
+        m_MethodName: UnSummonPartnerButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2684,20 +2707,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114882887701911436
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1901242400017772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 691281664acb1f448a3eb303393ae2c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  partnerManager: {fileID: 0}
-  qImage: {fileID: 114452962339255982}
-  wImage: {fileID: 114981009691931138}
 --- !u!114 &114891822578732224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2924,7 +2933,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114791941486808676}
+      - m_Target: {fileID: 0}
         m_MethodName: RightArrow
         m_Mode: 1
         m_Arguments:
@@ -2976,7 +2985,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114086196281071126}
+      - m_Target: {fileID: 0}
         m_MethodName: ResetQPartner
         m_Mode: 1
         m_Arguments:
@@ -3613,7 +3622,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.73485404, y: 0.75100005}
   m_AnchorMax: {x: 0.82941604, y: 0.9347264}
-  m_AnchoredPosition: {x: -0.7000122, y: -0.2090149}
+  m_AnchoredPosition: {x: -0.7000122, y: -0.20904541}
   m_SizeDelta: {x: -0.48000336, y: 0.51999664}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224070778165004518
@@ -3671,7 +3680,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.09017592, y: 0.8280608}
   m_AnchorMax: {x: 0.5070844, y: 0.9347264}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: -0.000061035156}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224129965904294258
@@ -3871,10 +3880,10 @@ RectTransform:
   m_Father: {fileID: 224949416451493350}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.38300002, y: 0.2317672}
-  m_AnchorMax: {x: 0.45970142, y: 0.33600003}
-  m_AnchoredPosition: {x: -0.19000244, y: -1.9750366}
-  m_SizeDelta: {x: -3.119995, y: -0.8199997}
+  m_AnchorMin: {x: 0.38300002, y: 0.17733787}
+  m_AnchorMax: {x: 0.4562947, y: 0.27726552}
+  m_AnchoredPosition: {x: 1.5, y: -0.026000977}
+  m_SizeDelta: {x: -0.11999512, y: 1.1800003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224298994437243424
 RectTransform:
@@ -4323,7 +4332,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.01817763, y: 0.7334423}
   m_AnchorMax: {x: 0.31300002, y: 0.9652885}
-  m_AnchoredPosition: {x: -1.3999634, y: 4.015579}
+  m_AnchoredPosition: {x: -1.3999634, y: 4.0155945}
   m_SizeDelta: {x: 2.600006, y: 5.9000015}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224700205509256398
