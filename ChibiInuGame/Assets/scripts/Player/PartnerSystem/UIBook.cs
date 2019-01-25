@@ -9,7 +9,7 @@ public class UIBook : MonoBehaviour {
     /// and if so it shows them in the UI
     /// </summary>
 
-
+    /*
     public PartnerManager partnerManager;
     [HideInInspector]public Partner currentPartner; //The scriptable Obj partner we are currently reading data from
 
@@ -171,5 +171,5 @@ public class UIBook : MonoBehaviour {
         }
     }
 
-
+    */
 }

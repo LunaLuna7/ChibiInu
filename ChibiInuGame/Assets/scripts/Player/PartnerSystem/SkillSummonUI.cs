@@ -8,7 +8,7 @@ public class SkillSummonUI : MonoBehaviour {
     /// SkillSummonUI handles the assinging skills to specific key codes when the player presses a UI button depending on the string given as a parameter when
     /// succh button is pressed. The string parameter can be specified in the Unity console where the Button is located adn when it calls AssignSKill method onClick
     /// </summary>
-
+    /*
     public UIBook uiBook;
     public CurrentTeamSlotUI teamSlot;
 
@@ -78,12 +78,6 @@ public class SkillSummonUI : MonoBehaviour {
     }
 
    
-    /*
-      public enum Skills {
-          Qskill,
-          Wskill,
-          Eskill
-      };
-      */
-
+  
+    */
 }

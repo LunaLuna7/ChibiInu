@@ -7,25 +7,40 @@ using UnityEngine.UI;
 /// UIPartnerBook controls the Canvas UI Book and updates the book's pages depending on user input and partner's info
 /// </summary>
 
+    //TODO: make your own button active and deactivate based on if the partner is in used and update page accordingle!!!
 public class UIPartnerBook : MonoBehaviour {
 
     public PartnerManager partnerManager;
     [HideInInspector] public Partner currentPartner;
     public CharacterController2D characterController;
 
+    [Space]
+    [Header("Book Page UI Elements")]
     public Text partnerName;
     public Image partnerPicture;
     public Text partnerSkillInfo;
     public Button rightArrow;
     public Button leftArrow;
+    public GameObject firstPartnerButtonSummon;
     public GameObject secondPartnerButtonSummon;
+    public GameObject callBackPartnerButton;
+    public bool secondPartnerSlotUnlock;
 
 
-    //Updates the individual UI objects on teh scene canvas in respect to the SCriptable Object of the current partner
-    private void UpdatePartnerPage(int nextPartner)
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+            LeftArrow();
+
+        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+            RightArrow();
+    }
+
+        //Updates the individual UI objects on teh scene canvas in respect to the SCriptable Object of the current partner
+        private void UpdatePartnerPage(int nextPartner)
     {
         currentPartner = partnerManager.partners[nextPartner];
-        partnerName.text = currentPartner.name.ToString();
+        partnerName.text = currentPartner.partnerInfo.name.ToString();
         partnerPicture.sprite = currentPartner.partnerInfo.image;
         partnerSkillInfo.text = currentPartner.partnerInfo.skillInfo;
 
@@ -39,8 +54,8 @@ public class UIPartnerBook : MonoBehaviour {
         {
             currentPartner = partnerManager.partners[0];
             UpdatePartnerPage(currentPartner.partnerInfo.partnerId);
-            //if(level2 ch2 done)
-            //    secondPartnerButtonSummon.setActive(false);
+            if (secondPartnerSlotUnlock)
+                secondPartnerButtonSummon.SetActive(true);
             gameObject.SetActive(true);
         }
         else
@@ -82,7 +97,22 @@ public class UIPartnerBook : MonoBehaviour {
         UpdatePartnerPage(nextPartner);
     }
 
+    //Button press on UI book that will call summonPartner from partnerManager with the currentpartner and skillslot base on 0 or 1 info as param
+    public void SummonPartnerButton(int keySlot)
+    {
+        if (keySlot == 0)
+            partnerManager.SummonPartner(SkillSlot.FirstSlot, currentPartner);
+        else
+            partnerManager.SummonPartner(SkillSlot.SecondSlot, currentPartner);
 
+        partnerManager.PartnerInUse(currentPartner);
+    }
+
+    //called when callback UI is press(ToDO: make it so either summonA button appears or summonB and summonA appears)
+    public void UnSummonPartnerButton()
+    {
+        partnerManager.UnSummonPartner(currentPartner);
+    }
 
   
 

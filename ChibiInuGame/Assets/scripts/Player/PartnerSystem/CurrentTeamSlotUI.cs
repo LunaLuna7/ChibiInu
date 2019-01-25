@@ -17,10 +17,11 @@ public class CurrentTeamSlotUI : MonoBehaviour {
 
     private void OnEnable()
     {
-        UpdatePartners();
-        UpdateImages();
+        //UpdatePartners();
+        //UpdateImages();
     }
 
+    /*
     public void UpdatePartners()
     {
         for(int i = 0; i < partnerManager.partners.Count; ++i)
@@ -35,12 +36,10 @@ public class CurrentTeamSlotUI : MonoBehaviour {
                 partnerQ = partnerManager.partners[i];
             }
 
-            /*if (partnerManager.allPartners[i].E)
-            {
-                partnerE = partnerManager.allPartners[i];
-            }*/
+            
         }
     }
+
 
     public void UpdateImages()
     {
@@ -54,10 +53,6 @@ public class CurrentTeamSlotUI : MonoBehaviour {
             qImage.sprite = partnerQ.image;
             qImage.enabled = true;
         }
-        /*if (partnerE != null)
-        {
-            eImage.sprite = partnerE.image;
-            eImage.enabled = true;
-        }*/
-    }
+      
+    }*/
 }

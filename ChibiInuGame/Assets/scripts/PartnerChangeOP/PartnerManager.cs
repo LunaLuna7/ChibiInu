@@ -14,31 +14,39 @@ public enum SkillSlot{
 public class PartnerManager : MonoBehaviour {
 
     private SoundEffectManager soundEffectManager;
+    public List<PartnerInfo> partnersInfo;
     public List<Partner> partners;
-    public ScenePartnerHolder scenePartnerHolder;
+    [HideInInspector]public ScenePartnerHolder scenePartnerHolder;
     public Dictionary<SkillSlot, Partner> activePartner = new Dictionary<SkillSlot, Partner>(); //Used to know which partner is active and make it easy to diselect
 
-    private CharacterController2D characterController;
+    public CharacterController2D characterController;
 
     //Skills used on player Input
     delegate void skillDelegate();
     skillDelegate firstSkill;
     skillDelegate secondSkill;
 
-    
+    [Space]
+    [Header("Skills elements")]
     public SpriteMask spriteMask; //the darkness layer that clocks the level for ch4
     public GameObject FireBall; //The fireball prefab
-
 
 
     //=====CoolDowns============
     public bool fireBallOnCoolDown;
     public float fireBallCoolDown;
 
+    SkillSlot temp;
+
+    private void Awake()
+    {
+        CreatePartners();
+    }
+
     void Start()
     {
-        characterController = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController2D>();
         soundEffectManager = FindObjectOfType<SoundEffectManager>();
+        scenePartnerHolder = GetComponent<ScenePartnerHolder>();
         //initialize partners
         //reset for level
         foreach(Partner p in partners) 
@@ -67,11 +75,22 @@ public class PartnerManager : MonoBehaviour {
             scenePartnerHolder.ChangePartnerImage(pi.skillSlot, partners[pi.index].partnerInfo.image);
         }
     }
+
     private bool IsActive(int partnerId)
     {
         return partners[partnerId].inUse;
     }
 
+    public void CreatePartners()
+    {
+        partners.Clear();
+        foreach(PartnerInfo p in partnersInfo)
+        {
+            Partner partner = new Partner(false, false);
+            partner.partnerInfo = p;
+            partners.Add(partner);
+        }
+    }
  
     //Assing the skill delegatea to the respective partner and updates the activePartners dictionary
     public void SummonPartner(SkillSlot skill, Partner partner)
@@ -85,6 +104,7 @@ public class PartnerManager : MonoBehaviour {
         switch (partner.partnerInfo.partnerId)
         {
             case 0:
+                
                 if(skill == SkillSlot.FirstSlot) firstSkill = FireBallShot;
                 else secondSkill = FireBallShot;
                 break;
@@ -107,10 +127,15 @@ public class PartnerManager : MonoBehaviour {
 
     }
 
+    public void PartnerInUse(Partner partner)
+    {
+        partner.inUse = true;
+    }
    
-
+    //Updates the dict activePartner and makes the partner's in use = false 
     public void UnSummonPartner(Partner partner)
     {
+        bool foundPartner = false;
         foreach(SkillSlot slot in activePartner.Keys)
         {
             if (activePartner[slot] == partner)
@@ -119,19 +144,24 @@ public class PartnerManager : MonoBehaviour {
                     firstSkill = null;
                 else
                     secondSkill = null;
-                activePartner.Remove(slot);
+                temp = slot;
+                foundPartner = true;
+                partner.inUse = false;
             }
 
         }
+        if (foundPartner)
+            activePartner.Remove(temp);
+
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             firstSkill();
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             secondSkill();
         }
