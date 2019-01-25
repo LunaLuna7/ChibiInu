@@ -35,7 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4881382774647028}
   - component: {fileID: 114855188201862174}
-  - component: {fileID: 114360310220169758}
+  - component: {fileID: 114134826995440366}
   - component: {fileID: 114748778495201730}
   m_Layer: 0
   m_Name: PartnersSystem
@@ -326,7 +326,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114360310220169758
+--- !u!114 &114134826995440366
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -334,7 +334,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1161947627392548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76fe66ccf8e30b4469da0dab60ea8dc1, type: 3}
+  m_Script: {fileID: 11500000, guid: 47ecc1a3eb11ea24aad727e0df5138c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114748778495201730
@@ -360,24 +360,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66195fe2669a9274784b18203fe0bb0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allPartners:
-  - {fileID: 11400000, guid: 24c36a375c41c8742887b64eade69767, type: 2}
-  - {fileID: 11400000, guid: b2898ccbdba9b0c44bcc1521e187b465, type: 2}
-  - {fileID: 11400000, guid: 4081693f4f1b918479609a4f18ff12b8, type: 2}
-  - {fileID: 11400000, guid: acd1fbbbb8b507e419d4c2266c4b8c98, type: 2}
+  partnersInfo:
+  - {fileID: 11400000, guid: 2b7deaa30df792842bbff62519c89b62, type: 2}
+  - {fileID: 11400000, guid: 5acc7efea3da69e4498b0d0d99c61d03, type: 2}
+  - {fileID: 11400000, guid: cac24081b76d91d4bbf4940caf5de5a1, type: 2}
+  - {fileID: 11400000, guid: ab74137dd99c2b6499f0e9b0461b78d7, type: 2}
   partners:
-  - {fileID: 1538525762815378}
-  - {fileID: 1906305279625296}
-  - {fileID: 1670281648678096}
-  - {fileID: 1602246013212812}
-  partnerSpawnLocations:
-  - {fileID: 4522443499801398}
-  - {fileID: 4141956818618578}
-  - {fileID: 4473907398134212}
-  player: {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  scenePartnerHolder: {fileID: 0}
   spriteMask: {fileID: 0}
-  magicPlatform: {fileID: 1816262014696704, guid: b9e5a2223cb8ab349bb578fd47eccdef,
-    type: 2}
   FireBall: {fileID: 1289930964134660, guid: 952d62ef9c1aa414bb43141cddc30c44, type: 2}
   fireBallOnCoolDown: 0
   fireBallCoolDown: 0.5

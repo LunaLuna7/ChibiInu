@@ -6,10 +6,18 @@ using UnityEngine;
 /// Partner contains the scriptable Object partner data for eahc object, as well as the information that is dependant on each save data file 
 /// </summary>
 
-public class Partner: MonoBehaviour{
+[System.Serializable]
+public class Partner {
 
-    public PartnerInfo partnerInfo;
+    public Partner(bool i, bool u)
+    {
+        inUse = i;
+        unlocked = u;
+
+    }
+
     public bool inUse;
     public bool unlocked;
+    public PartnerInfo partnerInfo;
 
 }
