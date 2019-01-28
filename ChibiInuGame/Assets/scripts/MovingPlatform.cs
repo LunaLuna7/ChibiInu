@@ -7,49 +7,46 @@ public class MovingPlatform : MonoBehaviour {
     [Header("Init")]
     public GameObject platform;
     public List<Transform> positions;
+    public bool moveOnTouch;
+    private Platform platformChild;
+    [SerializeField]private PlayerHealth playerHealth;
+
 
     [Space]
     [Header("Stats")]
     public float platformVelocity;
-    //public float movementTime;
-
     private int nextPosition;
+   
+
 
     void Start()
     {
-        //ChangeTarget();
+        platformChild = platform.GetComponent<Platform>();
     }
 
     void Update()
     {
-        if (Vector2.Distance(platform.transform.position, positions[nextPosition].position) <= 2)
+        
+
+        if (!moveOnTouch || platformChild.touchedPlayer)
         {
-            nextPosition = (nextPosition + 1) % positions.Count;
+            if (Vector2.Distance(platform.transform.position, positions[nextPosition].position) <= 2)
+                nextPosition = (nextPosition + 1) % positions.Count;
+        
+            platform.transform.position = Vector2.MoveTowards(platform.transform.position,
+                positions[nextPosition].position, platformVelocity * Time.deltaTime);
         }
 
-        platform.transform.position = Vector2.MoveTowards(platform.transform.position,
-            positions[nextPosition].position, platformVelocity * Time.deltaTime);
-        //movingPlatform.position = Vector3.Lerp(movingPlatform.position, newPosition, platformVelocity * Time.deltaTime);
+        if(moveOnTouch && playerHealth.HPLeft <= 0)
+        {
+            ResetPlatform();
+        } 
+       
     }
 
-    /*
-    void ChangeTarget()
+    private void ResetPlatform()
     {
-        if (state == "Move1")
-        {
-            state = "Move2";
-            newPosition = position2.position;
-        }
-        else if (state == "Move2")
-        {
-            state = "Move1";
-            newPosition = position1.position;
-        }
-        else if (state == "")
-        {
-            state = "Move2";
-            newPosition = position2.position;
-        }
-        Invoke("ChangeTarget", movementTime);
-    }*/
+        platformChild.touchedPlayer = false;
+        platform.transform.position = positions[0].position;
+    }
 }
