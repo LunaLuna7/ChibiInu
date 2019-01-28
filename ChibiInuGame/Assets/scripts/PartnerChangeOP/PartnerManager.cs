@@ -175,11 +175,51 @@ public class PartnerManager : MonoBehaviour {
         }
     }
 
+    //Takes the partner ID and unlcoks the partner. Partner's IDs: Wizard:0, Bard: 1, Knight: 2, Priest: 3
+    public void UnlockPartner(int Id)
+    {
+        foreach(Partner p in partners)
+        {
+            if(p.partnerInfo.partnerId == Id)
+            {
+                p.unlocked = true;
+            }
+        }
+    }
+
+    //returns wether the player is allowed to have 3 jumps depending on in used partners
+    public bool TripleJumpPartnerCapacity()
+    {
+        if (secondPartnerSlotUnlock) //If pass ch2 then player can 3 jump if they only have one partner in use
+        {
+            int counter = 0;
+            foreach (Partner p in partners)
+            {
+                if (p.inUse)
+                {
+                    counter++;
+                    if (counter >= 2)
+                        return false;
+                }
+            }
+            return true;
+        }
+        else
+        {
+            foreach(Partner p in partners)
+            {
+                if (p.inUse)
+                    return false;
+            }
+            return true;
+        }
+    }
 
     //==============================================================================
     //Methods that create or call each partner skills
     //==============================================================================
 
+    
     //Creates a Fireball
     public void FireBallShot()
     {
