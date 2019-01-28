@@ -225,7 +225,6 @@ MonoBehaviour:
   template:
     startDialogueIndex: 0
     endDialogueIndex: 999
-    hasPlayed: 0
 --- !u!114 &114481724866315082
 MonoBehaviour:
   m_ObjectHideFlags: 1

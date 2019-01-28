@@ -3,8 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ScenePartnerHolder : MonoBehaviour {
+	//the partner image players see during the game, not the actual data
 	public Dictionary<SkillSlot, GameObject> activePartners = new Dictionary<SkillSlot, GameObject>();
+	public GameObject partnerOne;
+	public GameObject partnerTwo;
+
 	// Use this for initialization
+	public void Awake()
+	{
+		activePartners.Clear();
+		activePartners.Add(SkillSlot.FirstSlot, partnerOne);
+		activePartners.Add(SkillSlot.SecondSlot, partnerTwo);
+	}
 
 	public void ChangePartnerImage(SkillSlot slot, Sprite image)
 	{
@@ -19,7 +29,11 @@ public class ScenePartnerHolder : MonoBehaviour {
 	{
 		foreach(GameObject partner in activePartners.Values)
 		{
-			partner.SetActive(false);
+			try{
+				partner.SetActive(false);
+			}catch{
+				Debug.LogError("ScenePartnerHolder:HidePartners(): Have you set the partner Images in inspector?");
+			}
 		}
 	}
 
@@ -28,7 +42,11 @@ public class ScenePartnerHolder : MonoBehaviour {
 	{
 		foreach(GameObject partner in activePartners.Values)
 		{
-			partner.SetActive(true);
+			try{
+				partner.SetActive(true);
+			}catch{
+				Debug.LogError("ScenePartnerHolder:ShowPartners(): Have you set the partner Images in inspector?");
+			}
 		}
 	}
 
