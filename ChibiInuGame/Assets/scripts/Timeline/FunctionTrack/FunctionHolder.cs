@@ -7,7 +7,7 @@ public class FunctionHolder : MonoBehaviour {
 	public UnityEvent[] myEvents;
 	// Use this for initialization
 	void Awake () {
-		for(int x = 0; x<= myEvents.Length;++x)
+		for(int x = 0; x< myEvents.Length;++x)
 		{
 			if(myEvents[x] == null)
 			{
