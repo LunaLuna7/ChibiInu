@@ -107,7 +107,8 @@ public class PartnerManager : MonoBehaviour {
             
          else
             activePartner[skill] = partner;
-
+        //change partner image in scene
+        scenePartnerHolder.ChangePartnerImage(skill, partner.partnerInfo.image);
         switch (partner.partnerInfo.partnerId)
         {
             case 0:
@@ -159,7 +160,11 @@ public class PartnerManager : MonoBehaviour {
 
         }
         if (foundPartner)
+        {
             activePartner.Remove(temp);
+            //update image in scene
+            scenePartnerHolder.ChangePartnerImage(temp, null);
+        }
 
     }
 
