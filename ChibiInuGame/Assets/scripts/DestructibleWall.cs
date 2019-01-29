@@ -12,7 +12,10 @@ public class DestructibleWall : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (Input.GetKey(KeyCode.P))
+        {
+            gameObject.SetActive(true);
+        }
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)
