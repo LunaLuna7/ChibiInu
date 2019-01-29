@@ -6,6 +6,7 @@ using UnityEngine.Events;
 
 [System.Serializable]
 public class ScriptBehaviour : PlayableBehaviour {
+    public int[] eventIndexs;
     private bool hasWorked = false;
     public override void ProcessFrame(Playable playable, FrameData info, object playerData)
     {
@@ -13,7 +14,8 @@ public class ScriptBehaviour : PlayableBehaviour {
         //play dialogue if this track hasn't been playered before
         if(!hasWorked)
         {
-            script.myEvent.Invoke();
+            foreach(int index in eventIndexs)
+                script.myEvents[index].Invoke();
             hasWorked = true;
         }
 

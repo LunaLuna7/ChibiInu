@@ -4,12 +4,15 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class FunctionHolder : MonoBehaviour {
-	public UnityEvent myEvent;
+	public UnityEvent[] myEvents;
 	// Use this for initialization
 	void Awake () {
-		if(myEvent == null)
+		for(int x = 0; x< myEvents.Length;++x)
 		{
-			myEvent = new UnityEvent();
+			if(myEvents[x] == null)
+			{
+				myEvents[x] = new UnityEvent();
+			}
 		}
 	}
 
