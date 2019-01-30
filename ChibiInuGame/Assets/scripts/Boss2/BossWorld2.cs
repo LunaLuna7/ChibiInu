@@ -11,15 +11,19 @@ public class BossWorld2 : MonoBehaviour {
     public bool inState;
 	private StateMachine StateMachine = new StateMachine();
 
-    public GameObject spikesLeft;
 
+    public GameObject spikesLeft;
     public GameObject spikesRight;
+
+    //Attacks Prefabs
+    public GameObject platformSpike;
+    
+
     private void Start()
     {
         this.StateMachine.ChangeState(new IntroState());
         //time for the animation
         this.StateMachine.ChangeState(new IdleState(this));
-        
     }
 
     private void Update()
@@ -31,7 +35,6 @@ public class BossWorld2 : MonoBehaviour {
         }
         else
             this.StateMachine.ExecuteStateUpdate();
-        
     }
 
     private void RandomState(int num)
