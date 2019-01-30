@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DestructibleWall : MonoBehaviour {
 
-
 	// Use this for initialization
 	void Start () {
 		
