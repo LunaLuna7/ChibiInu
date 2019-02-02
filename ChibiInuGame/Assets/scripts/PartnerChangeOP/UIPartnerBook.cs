@@ -125,6 +125,7 @@ public class UIPartnerBook : MonoBehaviour {
         firstPartnerButtonSummon.SetActive(false);
         secondPartnerButtonSummon.SetActive(false);
         callBackPartnerButton.SetActive(true);
+        partnerManager.LimitPlayerJump(partnerManager.TripleJumpPartnerCapacity());
     }
 
     //called when callback UI is press(ToDO: make it so either summonA button appears or summonB and summonA appears)
@@ -135,6 +136,8 @@ public class UIPartnerBook : MonoBehaviour {
         firstPartnerButtonSummon.SetActive(true);
         if(partnerManager.secondPartnerSlotUnlock)
             secondPartnerButtonSummon.SetActive(true);
+
+        partnerManager.LimitPlayerJump(partnerManager.TripleJumpPartnerCapacity());
     }
 
   

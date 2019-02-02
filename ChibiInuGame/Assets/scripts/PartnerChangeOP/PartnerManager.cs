@@ -135,6 +135,14 @@ public class PartnerManager : MonoBehaviour {
 
     }
 
+    public void LimitPlayerJump(bool b)
+    {
+        if (TripleJumpPartnerCapacity())
+            characterController.m_AirJumps = 2;
+        else
+            characterController.m_AirJumps = 1;
+    }
+
     public void PartnerInUse(Partner partner)
     {
         partner.inUse = true;
@@ -164,6 +172,8 @@ public class PartnerManager : MonoBehaviour {
             activePartner.Remove(temp);
             //update image in scene
             scenePartnerHolder.ChangePartnerImage(temp, null);
+
+            
         }
 
     }
@@ -214,7 +224,11 @@ public class PartnerManager : MonoBehaviour {
             foreach(Partner p in partners)
             {
                 if (p.inUse)
+                {
+
+                    Debug.Log("Triple");
                     return false;
+                }
             }
             return true;
         }
