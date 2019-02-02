@@ -16,8 +16,8 @@ public class BossWorld2 : MonoBehaviour {
     public GameObject spikesRight;
 
     //Attacks Prefabs
-    public GameObject platformSpike;
-    
+    public GameObject sideSpike;
+    public GameObject frontalSpike;
 
     private void Start()
     {
