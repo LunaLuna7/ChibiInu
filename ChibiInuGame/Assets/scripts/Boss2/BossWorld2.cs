@@ -27,14 +27,14 @@ public class BossWorld2 : MonoBehaviour {
         if (!inState)
         {
             var action = Random.Range(1, 3);
-            RandomState(action);
+            SwitchToState(action);
         }
         else
             this.StateMachine.ExecuteStateUpdate();
         
     }
 
-    private void RandomState(int num)
+    private void SwitchToState(int num)
     {
         switch (num)
         {
