@@ -19,6 +19,24 @@ public class BossWorld2 : MonoBehaviour {
     public GameObject sideSpike;
     public GameObject frontalSpike;
 
+    private IState[] states;
+
+    [Header("for FastSpikeState")]
+    public GameObject warningBlock;
+    public GameObject fastSpike;
+
+    [Header("for FluteSpikeSong")]
+    public GameObject spikeSong;
+
+    private void Awake()
+    {
+        //create all states
+        states = new IState[5];
+        states[0] = new IdleState(this);
+        states[1] = new SpikeState(this);
+        states[2] = new FastSpikeState(this);
+    }
+
     private void Start()
     {
         this.StateMachine.ChangeState(new IntroState());
@@ -39,14 +57,19 @@ public class BossWorld2 : MonoBehaviour {
 
     private void SwitchToState(int num)
     {
+        this.StateMachine.ChangeState(states[2]);
+        return;
         switch (num)
         {
             case 1:
-                this.StateMachine.ChangeState(new IdleState(this));
+                this.StateMachine.ChangeState(states[0]);
                 return;
 
             case 2:
-                this.StateMachine.ChangeState(new SpikeState(this));
+                this.StateMachine.ChangeState(states[1]);
+                return;
+            case 3:
+                this.StateMachine.ChangeState(states[2]);
                 return;
         }
     }
