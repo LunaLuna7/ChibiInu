@@ -26,7 +26,7 @@ public class BossWorld2 : MonoBehaviour {
     public GameObject fastSpike;
 
     [Header("for FluteSpikeSong")]
-    public GameObject spikeSong;
+    public GameObject fluteSpike;
 
     private void Awake()
     {
@@ -35,6 +35,7 @@ public class BossWorld2 : MonoBehaviour {
         states[0] = new IdleState(this);
         states[1] = new SpikeState(this);
         states[2] = new FastSpikeState(this);
+        states[3] = new FluteSpikeSongState(this);
     }
 
     private void Start()
@@ -57,21 +58,17 @@ public class BossWorld2 : MonoBehaviour {
 
     private void SwitchToState(int num)
     {
-        this.StateMachine.ChangeState(states[2]);
-        return;
+        this.StateMachine.ChangeState(states[3]);//num - 1]);
+        /* 
         switch (num)
         {
             case 1:
                 this.StateMachine.ChangeState(states[0]);
                 return;
-
             case 2:
                 this.StateMachine.ChangeState(states[1]);
                 return;
-            case 3:
-                this.StateMachine.ChangeState(states[2]);
-                return;
-        }
+        }*/
     }
 
     public bool CheckIfCountDownElapsed(float duration)
