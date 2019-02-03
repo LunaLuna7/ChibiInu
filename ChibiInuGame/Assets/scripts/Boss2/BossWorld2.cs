@@ -16,8 +16,27 @@ public class BossWorld2 : MonoBehaviour {
     public GameObject spikesRight;
 
     //Attacks Prefabs
-    public GameObject platformSpike;
-    
+    public GameObject sideSpike;
+    public GameObject frontalSpike;
+
+    private IState[] states;
+
+    [Header("for FastSpikeState")]
+    public GameObject warningBlock;
+    public GameObject fastSpike;
+
+    [Header("for FluteSpikeSong")]
+    public GameObject fluteSpike;
+
+    private void Awake()
+    {
+        //create all states
+        states = new IState[5];
+        states[0] = new IdleState(this);
+        states[1] = new SpikeState(this);
+        states[2] = new FastSpikeState(this);
+        states[3] = new FluteSpikeSongState(this);
+    }
 
     private void Start()
     {
@@ -30,25 +49,26 @@ public class BossWorld2 : MonoBehaviour {
     {
         if (!inState)
         {
-            var action = Random.Range(1, 3);
-            RandomState(action);
+            var action = Random.Range(0, 4);
+            SwitchToState(action);
         }
         else
             this.StateMachine.ExecuteStateUpdate();
     }
 
-    private void RandomState(int num)
+    private void SwitchToState(int num)
     {
+        this.StateMachine.ChangeState(states[num]);
+        /* 
         switch (num)
         {
             case 1:
-                this.StateMachine.ChangeState(new IdleState(this));
+                this.StateMachine.ChangeState(states[0]);
                 return;
-
             case 2:
-                this.StateMachine.ChangeState(new SpikeState(this));
+                this.StateMachine.ChangeState(states[1]);
                 return;
-        }
+        }*/
     }
 
     public bool CheckIfCountDownElapsed(float duration)
