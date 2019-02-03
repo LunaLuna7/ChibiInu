@@ -49,7 +49,7 @@ public class BossWorld2 : MonoBehaviour {
     {
         if (!inState)
         {
-            var action = Random.Range(1, 3);
+            var action = Random.Range(0, 4);
             SwitchToState(action);
         }
         else
@@ -58,7 +58,7 @@ public class BossWorld2 : MonoBehaviour {
 
     private void SwitchToState(int num)
     {
-        this.StateMachine.ChangeState(states[3]);//num - 1]);
+        this.StateMachine.ChangeState(states[num]);
         /* 
         switch (num)
         {
