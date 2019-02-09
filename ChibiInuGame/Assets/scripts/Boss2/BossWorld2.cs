@@ -27,6 +27,8 @@ public class BossWorld2 : MonoBehaviour {
 
     [Header("for FluteSpikeSong")]
     public GameObject fluteSpike;
+    [Header("for WindFurry")]
+    public GameObject wind;
 
     private void Awake()
     {
@@ -36,6 +38,7 @@ public class BossWorld2 : MonoBehaviour {
         states[1] = new SpikeState(this);
         states[2] = new FastSpikeState(this);
         states[3] = new FluteSpikeSongState(this);
+        states[4] = new WindFurryState(this);
     }
 
     private void Start()
@@ -49,7 +52,7 @@ public class BossWorld2 : MonoBehaviour {
     {
         if (!inState)
         {
-            var action = Random.Range(0, 4);
+            var action = Random.Range(0, 5);
             SwitchToState(action);
         }
         else
@@ -58,6 +61,7 @@ public class BossWorld2 : MonoBehaviour {
 
     private void SwitchToState(int num)
     {
+        //this.StateMachine.ChangeState(states[4]);
         this.StateMachine.ChangeState(states[num]);
         /* 
         switch (num)

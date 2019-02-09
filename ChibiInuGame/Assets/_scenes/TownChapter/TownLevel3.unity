@@ -250,7 +250,7 @@ GameObject:
   m_Layer: 10
   m_Name: A
   m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1277,7 +1277,7 @@ Prefab:
     - target: {fileID: 224995498661658816, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 224949416451493350, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
@@ -1297,7 +1297,7 @@ Prefab:
     - target: {fileID: 224083763712137354, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 224856033425318722, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
@@ -1307,7 +1307,7 @@ Prefab:
     - target: {fileID: 224215224849271358, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224061660774797932, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
@@ -1317,7 +1317,7 @@ Prefab:
     - target: {fileID: 224241648355968452, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f380a7ca4200865469262eed46aa0676, type: 2}
@@ -2294,6 +2294,7 @@ MonoBehaviour:
     type: 2}
   fastSpike: {fileID: 1685086006470902, guid: 3b0cc4202e7995c4ebea7c6389eb043d, type: 2}
   fluteSpike: {fileID: 1685086006470902, guid: 3b0cc4202e7995c4ebea7c6389eb043d, type: 2}
+  wind: {fileID: 1907770219949494, guid: 282567cd2cc18b84b9ade57a6c275a93, type: 2}
 --- !u!1 &677992791
 GameObject:
   m_ObjectHideFlags: 0
@@ -4492,7 +4493,7 @@ GameObject:
   m_Layer: 10
   m_Name: B
   m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
