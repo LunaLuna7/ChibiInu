@@ -2288,6 +2288,12 @@ MonoBehaviour:
   inState: 0
   spikesLeft: {fileID: 782207045}
   spikesRight: {fileID: 767964335}
+  sideSpike: {fileID: 0}
+  frontalSpike: {fileID: 0}
+  warningBlock: {fileID: 1185473603581748, guid: fd41b9d980afcd449b248cefb0541dcf,
+    type: 2}
+  fastSpike: {fileID: 1685086006470902, guid: 3b0cc4202e7995c4ebea7c6389eb043d, type: 2}
+  fluteSpike: {fileID: 1685086006470902, guid: 3b0cc4202e7995c4ebea7c6389eb043d, type: 2}
 --- !u!1 &677992791
 GameObject:
   m_ObjectHideFlags: 0
@@ -2516,7 +2522,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4149178210024050, guid: c69286d559b9b8b43b32275e34fc73d5, type: 2}
       propertyPath: m_RootOrder
-      value: 20
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 1428254792524558, guid: c69286d559b9b8b43b32275e34fc73d5, type: 2}
       propertyPath: m_Name
@@ -4543,7 +4549,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1732138574
 GameObject:
