@@ -8,6 +8,7 @@ public class BardBossMovementController : MonoBehaviour {
 	public float speed;
 	private SpriteRenderer spriteRenderer;
 	private Rigidbody2D rigid;
+	private bool isMoving = false;
 	[Header("Boundary Detection")]
 	public Transform leftLowerPoint;
 	public Transform rightUpperPoint;
@@ -27,7 +28,8 @@ public class BardBossMovementController : MonoBehaviour {
 
 	void Update()
 	{
-		CheckBoundary();
+		if(isMoving)
+			CheckBoundary();
 	}
 
 	//move towards a random direction
@@ -37,16 +39,19 @@ public class BardBossMovementController : MonoBehaviour {
 			this.speed = speed;
 		float radian = Random.Range(0, 6.28f);
 		SetVelocityRadian(radian);
+		isMoving = true;
 	}
 
 	public void ContinueMoving()
 	{
-		rigid.velocity = this.speed * direction;
+		rigid.velocity = speed * direction;
+		isMoving = true;
 	}
 
 	public void StopMoving()
 	{
-		ChangeSpeed(0);
+		rigid.velocity = Vector2.zero;
+		isMoving = false;
 	}
 
 	//change speed in the middle of movement
