@@ -20,6 +20,8 @@ public class BossWorld2 : MonoBehaviour {
     public GameObject frontalSpike;
 
     private IState[] states;
+    public BardBossMovementController movementController;
+    public BardBossCloud cloudController;
 
     [Header("for FastSpikeState")]
     public GameObject warningBlock;
@@ -46,6 +48,7 @@ public class BossWorld2 : MonoBehaviour {
         this.StateMachine.ChangeState(new IntroState());
         //time for the animation
         this.StateMachine.ChangeState(new IdleState(this));
+        movementController.StartMoving();
     }
 
     private void Update()
