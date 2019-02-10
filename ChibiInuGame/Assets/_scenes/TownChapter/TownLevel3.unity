@@ -1114,7 +1114,7 @@ GameObject:
   m_Component:
   - component: {fileID: 377003752}
   m_Layer: 0
-  m_Name: RightLower
+  m_Name: RightUpper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1127,7 +1127,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 377003751}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 27.1, y: -9.7, z: 0}
+  m_LocalPosition: {x: 27.1, y: 16.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1867494130}
@@ -2215,7 +2215,7 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 675663127}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -2240,6 +2240,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  leftLowerPoint: {fileID: 2026771773}
+  rightUpperPoint: {fileID: 377003752}
+  halfWidth: 4.7
+  halfHeight: 4.7
 --- !u!114 &675663133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2289,7 +2293,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4871,7 +4875,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2026771773}
   m_Layer: 0
-  m_Name: LeftUpper
+  m_Name: LeftLower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4884,7 +4888,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2026771772}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.9, y: 10.7, z: 0}
+  m_LocalPosition: {x: -30.9, y: -9.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1867494130}
