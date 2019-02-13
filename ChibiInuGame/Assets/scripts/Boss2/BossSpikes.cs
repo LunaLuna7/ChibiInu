@@ -20,7 +20,7 @@ public class BossSpikes : MonoBehaviour {
 
     private void OnEnable()
     {
-        StartCoroutine(TurnOff());
+        //StartCoroutine(TurnOff());
         
     }
     IEnumerator TurnOff()

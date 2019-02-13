@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpikeState : IState{
-
+    
     BossWorld2 controller;
     private Color color = Color.blue;
     
@@ -14,8 +14,8 @@ public class SpikeState : IState{
 
     public void EnterState(){
         controller.inState = true;
-        controller.spikesLeft.SetActive(true);
-        controller.spikesRight.SetActive(true);
+        //controller.spikesLeft.SetActive(true);
+        //controller.spikesButton.SetActive(true);
         Debug.Log("Entering Spikes");
 	}
 	

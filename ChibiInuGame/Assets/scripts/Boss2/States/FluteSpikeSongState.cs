@@ -9,7 +9,7 @@ public class FluteSpikeSongState : IState {
     private float maxY = 23;
     private float minX = -173.4f;
     private float maxX = -116.9f;
-    private float speed = 20;
+    private float speed = 40;
 
     private Color color = Color.blue;
 
