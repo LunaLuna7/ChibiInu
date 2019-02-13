@@ -9,9 +9,8 @@ public class BossHealth : MonoBehaviour {
     public float maxHealth;
     public float intervalSpikesTime;
     public Image healthBar;
-    public Transform cameraTransform;
-    public float shakeDuration;
-    public float shakeAmount;
+
+    public ControlCameraShake cameraShake;
 
     [Header("for Phase 2 Stage")]
     //Left, Up, right, and down
@@ -43,24 +42,13 @@ public class BossHealth : MonoBehaviour {
 
     IEnumerator TriggerSecondPhase()
     {
-        ShakeCamera(shakeDuration);
         foreach(GameObject spike in spikes)
         {
+            cameraShake.shakeElapsedTime = cameraShake.shakeDuration;
+            cameraShake.spikeTrigger = true;
             spike.SetActive(true);
             yield return new WaitForSeconds(intervalSpikesTime);
         }
     }
 
-    public void ShakeCamera(float duration)
-    {
-        Vector3 originalPos = cameraTransform.position;
-        while(duration > 0)
-        {
-            Debug.Log("SHake");
-            cameraTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
-            duration -= Time.deltaTime;
-        }
-        
-        cameraTransform.position = originalPos;
-    }
 }
