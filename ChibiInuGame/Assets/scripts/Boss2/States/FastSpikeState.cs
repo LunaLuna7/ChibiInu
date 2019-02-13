@@ -10,6 +10,8 @@ public class FastSpikeState : IState{
     private float maxX = -116.9f;
     private float projectileSpeed = 40f;
 
+    private Color color = Color.red;
+
     public FastSpikeState(BossWorld2 c)
     {
         controller = c;
@@ -18,7 +20,7 @@ public class FastSpikeState : IState{
     public void EnterState()
     {
         controller.inState = true;
-        FastSpikeSkill();
+        controller.StartCoroutine(FastSpikeSkill());
     }
 
     public void ExecuteState()
@@ -29,7 +31,6 @@ public class FastSpikeState : IState{
             controller.stateTimeElapsed = 0;
             this.ExitState();
         }
-        Debug.Log("Executing Fast Spikes State");
     }
 
     public void ExitState()
@@ -37,8 +38,9 @@ public class FastSpikeState : IState{
         controller.inState = false;
     }
 
-    public void FastSpikeSkill()
+    public IEnumerator FastSpikeSkill()
     {
+        yield return controller.cloudController.ChangeColorTo(color, 1f);
         for(int x = 0; x<= 4; ++x)
         {
             controller.StartCoroutine(ThrowOneFastSpike());

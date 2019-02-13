@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpikeState : IState{
 
     BossWorld2 controller;
+    private Color color = Color.blue;
     
     public SpikeState(BossWorld2 c)
     {
