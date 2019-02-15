@@ -10,7 +10,7 @@ public class BossHurtBox : MonoBehaviour {
     [HideInInspector] public SpriteRenderer m_SpriteRender;
     [HideInInspector] public BossHealth bossHealth;
 
-    private float timeBeforeDamageAgain = .1f; //delay to prevent multi hits in trigger enter frames
+    private float timeBeforeDamageAgain = .3f; //delay to prevent multi hits in trigger enter frames
     private float timetrack;
 
     public void Awake()
@@ -24,7 +24,7 @@ public class BossHurtBox : MonoBehaviour {
     public void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.gameObject.CompareTag("FireBall"))
+        if (collision.gameObject.CompareTag("FireBall") || collision.gameObject.CompareTag("Player"))
         {
             if (timetrack <= Time.time)
             {

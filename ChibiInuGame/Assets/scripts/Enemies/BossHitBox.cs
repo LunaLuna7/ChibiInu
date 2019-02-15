@@ -6,6 +6,7 @@ public class BossHitBox : MonoBehaviour {
 
     public GameObject DeadStateEnemy;
     [HideInInspector] public SpriteRenderer m_SpriteRender;
+    public BossHealth bossHealth;
 
     private float timeBeforeDamageAgain = .1f; //delay to prevent multi hits in trigger enter frames
     private float timetrack;
@@ -14,20 +15,21 @@ public class BossHitBox : MonoBehaviour {
     {
         m_SpriteRender = GetComponentInParent<SpriteRenderer>();
         timetrack = timeBeforeDamageAgain + Time.time;
+        bossHealth = GetComponentInParent<BossHealth>();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        /*
+        
         if (collision.gameObject.CompareTag("FireBall"))//Player above
         {
             if (timetrack <= Time.time)
             {
                 timetrack = timeBeforeDamageAgain + Time.time;
-                Bosshealth.health--;
+                bossHealth.TakeDamage(1);
                 StartCoroutine(BlinkSprite());
             }
-        }*/
+        }
     }
     IEnumerator BlinkSprite()
     {

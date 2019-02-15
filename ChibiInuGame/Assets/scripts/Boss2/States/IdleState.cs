@@ -5,6 +5,7 @@ using UnityEngine;
 public class IdleState : IState {
 
     BossWorld2 controller;
+    private Color color = Color.white;
 
     public IdleState(BossWorld2 c)
     {
@@ -14,12 +15,12 @@ public class IdleState : IState {
     public void EnterState()
     {
         controller.inState = true;
-        Debug.Log("Entering Idle");
+        controller.movementController.StopMoving();
+        controller.StartCoroutine(controller.cloudController.ChangeColorTo(color, 1f));
     }
 
     public void ExecuteState()
     {
-        Debug.Log("Executin Idle");
         var timer = Random.Range(controller.minTime, controller.maxTime);
         if (controller.CheckIfCountDownElapsed(timer))
         {
@@ -31,7 +32,7 @@ public class IdleState : IState {
     public void ExitState()
     {
         controller.inState = false;
-        Debug.Log("Leaving Idle");
+        controller.movementController.ContinueMoving();
     }
   
 }

@@ -9,7 +9,9 @@ public class FluteSpikeSongState : IState {
     private float maxY = 23;
     private float minX = -173.4f;
     private float maxX = -116.9f;
-    private float speed = 20;
+    private float speed = 40;
+
+    private Color color = Color.blue;
 
     public FluteSpikeSongState(BossWorld2 c)
     {
@@ -19,7 +21,7 @@ public class FluteSpikeSongState : IState {
     public void EnterState()
     {
         controller.inState = true;
-        FluteSongSkill();
+        controller.StartCoroutine(FluteSongSkill());
     }
 
     public void ExecuteState()
@@ -30,7 +32,6 @@ public class FluteSpikeSongState : IState {
             controller.stateTimeElapsed = 0;
             this.ExitState();
         }
-        Debug.Log("Executing Flute Spikes Song State");
     }
 
     public void ExitState()
@@ -38,8 +39,9 @@ public class FluteSpikeSongState : IState {
         controller.inState = false;
     }
 
-    public void FluteSongSkill()
+    public IEnumerator FluteSongSkill()
     {
+        yield return controller.cloudController.ChangeColorTo(color, 1f);
         controller.StartCoroutine(ThrowOneFluteUp(true, speed));
         controller.StartCoroutine(ThrowOneFluteDown(false, speed));
     }

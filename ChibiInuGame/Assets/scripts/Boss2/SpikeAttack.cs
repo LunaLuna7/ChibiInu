@@ -6,46 +6,20 @@ public class SpikeAttack : MonoBehaviour {
 
     public float speed;
     public float yOffset;
-    public List<GameObject> spikes;
-
-	// Use this for initialization
-	void Start () {
-        
-    }
+    public float xOffset;
+    Vector3 startPosition;
 
     private void OnEnable()
     {
-        
-        StartCoroutine(ActivateSpikes());
+        startPosition = transform.position;
     }
+
 
     // Update is called once per frame
     void Update () {
-        StartCoroutine(TurnOff());
-        StartCoroutine(TriggerSpikes());
-	}
-
-    IEnumerator TriggerSpikes()
-    {
-        for(int i = 0; i < spikes.Capacity; ++i)
-        {
-            
-            spikes[i].transform.position = Vector3.MoveTowards(spikes[i].transform.position, new Vector3(spikes[i].transform.position.x, yOffset, spikes[i].transform.position.z), speed * Time.deltaTime);
-            yield return new WaitForSeconds(.05f);
-        }
-    }
-    IEnumerator ActivateSpikes()
-    {
-        for (int i = 0; i < spikes.Capacity; ++i)
-        {
-            spikes[i].SetActive(true);
-            yield return new WaitForSeconds(.05f);
-        }
+        transform.position = Vector3.MoveTowards(transform.position,
+                 new Vector3(startPosition.x + xOffset, startPosition.y + yOffset, transform.position.z),
+                 speed * Time.deltaTime);
     }
 
-    IEnumerator TurnOff()
-    {
-        yield return new WaitForSeconds(5f);
-        gameObject.SetActive(false);
-    }
 }

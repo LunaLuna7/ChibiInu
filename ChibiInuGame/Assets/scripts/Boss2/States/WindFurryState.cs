@@ -8,6 +8,7 @@ public class WindFurryState : IState {
     private float speed = 5f;
     private float windLifeTime = 20f;
     private int windMagnitude = 120;
+    private Color color = Color.green;
 
     public WindFurryState(BossWorld2 c)
     {
@@ -17,27 +18,30 @@ public class WindFurryState : IState {
     public void EnterState()
     {
         controller.inState = true;
-        WindSkill();
+        controller.movementController.StopMoving();
+        controller.StartCoroutine(WindSkill());
     }
 
     public void ExecuteState()
     {
-        //leave the state after 5 seconds
-        if (controller.CheckIfCountDownElapsed(5f))
+        //leave the state after 4 seconds
+        if (controller.CheckIfCountDownElapsed(4f))
         {
             controller.stateTimeElapsed = 0;
             this.ExitState();
         }
-        Debug.Log("Executing wind furry State");
     }
 
     public void ExitState()
     {
         controller.inState = false;
+        controller.movementController.ContinueMoving();
     }
 
-    public void WindSkill()
+    public IEnumerator WindSkill()
     {
+        yield return controller.cloudController.ChangeColorTo(color, 1f);
+        yield return new WaitForSeconds(1);
         //instantiate wind and move to four direction
         GameObject upWind = GameObject.Instantiate(controller.wind, controller.transform.position, Quaternion.identity);
         upWind.GetComponent<Rigidbody2D>().velocity = new Vector2(0, speed);

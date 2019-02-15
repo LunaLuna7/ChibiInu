@@ -12,14 +12,15 @@ public class BossWorld2 : MonoBehaviour {
 	private StateMachine StateMachine = new StateMachine();
 
 
-    public GameObject spikesLeft;
-    public GameObject spikesRight;
+    //public GameObject spikesButton;
 
-    //Attacks Prefabs
-    public GameObject sideSpike;
-    public GameObject frontalSpike;
+
+    
+  
 
     private IState[] states;
+    public BardBossMovementController movementController;
+    public BardBossCloud cloudController;
 
     [Header("for FastSpikeState")]
     public GameObject warningBlock;
@@ -30,15 +31,17 @@ public class BossWorld2 : MonoBehaviour {
     [Header("for WindFurry")]
     public GameObject wind;
 
+   
+
     private void Awake()
     {
         //create all states
-        states = new IState[5];
+        states = new IState[4];
         states[0] = new IdleState(this);
-        states[1] = new SpikeState(this);
-        states[2] = new FastSpikeState(this);
-        states[3] = new FluteSpikeSongState(this);
-        states[4] = new WindFurryState(this);
+        //states[1] = new SpikeState(this);
+        states[1] = new FastSpikeState(this);
+        states[2] = new FluteSpikeSongState(this);
+        states[3] = new WindFurryState(this);
     }
 
     private void Start()
@@ -46,13 +49,14 @@ public class BossWorld2 : MonoBehaviour {
         this.StateMachine.ChangeState(new IntroState());
         //time for the animation
         this.StateMachine.ChangeState(new IdleState(this));
+        movementController.StartMoving();
     }
 
     private void Update()
     {
         if (!inState)
         {
-            var action = Random.Range(0, 5);
+            var action = Random.Range(0, 4);
             SwitchToState(action);
         }
         else

@@ -4,16 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class BossHealth : MonoBehaviour {
-
-    [HideInInspector] public StateController stateController;
+    
     public float health;
-    private float maxHealth;
+    public float maxHealth;
+    public float intervalSpikesTime;
     public Image healthBar;
+
+    public ControlCameraShake cameraShake;
+
+    [Header("for Phase 2 Stage")]
+    //Left, Up, right, and down
+    public List<GameObject> spikes;
 
     private void Start()
     {
-        stateController = GetComponent<StateController>();
-        health = maxHealth = stateController.enemyStats.HP;
+        
+        health = maxHealth;
     }
 
     public void TakeDamage(float damage)
@@ -21,11 +27,28 @@ public class BossHealth : MonoBehaviour {
         health -= damage;
         float currentHp = health / maxHealth;
         healthBar.fillAmount = currentHp;
+        if(health <= 50 && !spikes[0].activeSelf)
+        {
+            StartCoroutine(TriggerSecondPhase());
+        }
+
         if (health <= 0)
         {
 
             gameObject.SetActive(false);
-            health = stateController.enemyStats.HP;
+            //health = maxHealth;
         }
     }
+
+    IEnumerator TriggerSecondPhase()
+    {
+        foreach(GameObject spike in spikes)
+        {
+            cameraShake.shakeElapsedTime = cameraShake.shakeDuration;
+            cameraShake.spikeTrigger = true;
+            spike.SetActive(true);
+            yield return new WaitForSeconds(intervalSpikesTime);
+        }
+    }
+
 }
