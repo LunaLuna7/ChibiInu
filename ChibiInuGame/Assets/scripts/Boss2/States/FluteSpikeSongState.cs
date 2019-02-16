@@ -9,7 +9,8 @@ public class FluteSpikeSongState : IState {
     private float maxY = 23;
     private float minX = -173.4f;
     private float maxX = -116.9f;
-    private float speed = 40;
+    private float initialSpeed = 40;
+    private float speedIncreasement = 2; // each 10% health the Boss loss, the speed should increase by....
 
     private Color color = Color.blue;
 
@@ -42,6 +43,8 @@ public class FluteSpikeSongState : IState {
     public IEnumerator FluteSongSkill()
     {
         yield return controller.cloudController.ChangeColorTo(color, 1f);
+        //the speed of flute will increase as Boss's health go down
+        float speed = initialSpeed + (1 - controller.bossHealth.health / controller.bossHealth.maxHealth) * 10 * speedIncreasement;
         controller.StartCoroutine(ThrowOneFluteUp(true, speed));
         controller.StartCoroutine(ThrowOneFluteDown(false, speed));
     }
@@ -55,7 +58,7 @@ public class FluteSpikeSongState : IState {
             position.x = minX;
         //generate the flute and....move it
         GameObject fluteSpike = GameObject.Instantiate(controller.fluteSpike, position, Quaternion.identity);
-        yield return MoveFlute(fluteSpike, right, false);
+        yield return MoveFlute(fluteSpike, speed, right, false);
         //remove the flute spike after finishing
         GameObject.Destroy(fluteSpike);
     }
@@ -69,12 +72,12 @@ public class FluteSpikeSongState : IState {
             position.x = minX;
         //generate the flute and....move it
         GameObject fluteSpike = GameObject.Instantiate(controller.fluteSpike, position, Quaternion.identity);
-        yield return MoveFlute(fluteSpike, right, true);
+        yield return MoveFlute(fluteSpike, speed, right, true);
         //remove the flute spike after finishing
         GameObject.Destroy(fluteSpike);
     }
 
-    private IEnumerator MoveFlute(GameObject fluteSpike, bool right, bool up)
+    private IEnumerator MoveFlute(GameObject fluteSpike, float speed, bool right, bool up)
     {
         float xRange = maxX - minX;
         float yScale = (maxY - minY)/2;
