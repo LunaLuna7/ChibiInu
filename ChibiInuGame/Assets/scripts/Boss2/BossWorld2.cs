@@ -19,6 +19,7 @@ public class BossWorld2 : MonoBehaviour {
   
 
     private IState[] states;
+    public BossHealth bossHealth;
     public BardBossMovementController movementController;
     public BardBossCloud cloudController;
 
@@ -65,7 +66,7 @@ public class BossWorld2 : MonoBehaviour {
 
     private void SwitchToState(int num)
     {
-        //this.StateMachine.ChangeState(states[4]);
+        //this.StateMachine.ChangeState(states[1]);
         this.StateMachine.ChangeState(states[num]);
         /* 
         switch (num)

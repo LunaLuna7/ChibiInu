@@ -41,10 +41,21 @@ public class FastSpikeState : IState{
     public IEnumerator FastSpikeSkill()
     {
         yield return controller.cloudController.ChangeColorTo(color, 1f);
-        for(int x = 0; x<= 4; ++x)
+        int num = GetSpikeNumber(2, 2, 6, 15);
+        for(int x = 0; x< num; ++x)
         {
             controller.StartCoroutine(ThrowOneFastSpike());
         }
+    }
+
+    /*based on Boss's health, deacide how many spikes should be generated
+    start from initial, each interval (in percent) of health dropped, increase num by one
+    at last clamp it in (min, max)*/
+    public int GetSpikeNumber(int initial, int min, int max, float increaseInterval)
+    {
+        float percentHealthLose = (1 - controller.bossHealth.health/controller.bossHealth.maxHealth) * 100;
+        int increaseNum = (int)(percentHealthLose/increaseInterval);
+        return Mathf.Clamp(initial + increaseNum, min, max);
     }
 
 
