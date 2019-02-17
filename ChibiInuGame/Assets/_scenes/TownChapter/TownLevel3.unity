@@ -3610,12 +3610,12 @@ Prefab:
     - target: {fileID: 224892309119516454, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 3.8940659
+      value: 3.8940735
       objectReference: {fileID: 0}
     - target: {fileID: 224995498661658816, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224949416451493350, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
@@ -3625,7 +3625,7 @@ Prefab:
     - target: {fileID: 224278788814600126, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -1.9750061
+      value: -1.9749756
       objectReference: {fileID: 0}
     - target: {fileID: 224491648569813288, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
@@ -3635,17 +3635,17 @@ Prefab:
     - target: {fileID: 224083763712137354, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224856033425318722, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 224215224849271358, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 224061660774797932, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
@@ -3655,7 +3655,7 @@ Prefab:
     - target: {fileID: 224241648355968452, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114518207060945192, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
@@ -4572,7 +4572,7 @@ Camera:
   far clip plane: 5000
   field of view: 110
   orthographic: 1
-  orthographic size: 14.8
+  orthographic size: 17
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4660,7 +4660,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 504460396}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -145.1431, y: 8.912689, z: -10.5635805}
+  m_LocalPosition: {x: -145.1431, y: 10.23269, z: -10.5635805}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 678651683}
@@ -6396,6 +6396,7 @@ MonoBehaviour:
   maxTime: 4
   stateTimeElapsed: 0
   inState: 0
+  bossHealth: {fileID: 675663133}
   movementController: {fileID: 675663132}
   cloudController: {fileID: 1832705190}
   warningBlock: {fileID: 1185473603581748, guid: fd41b9d980afcd449b248cefb0541dcf,
@@ -11588,7 +11589,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1226496717}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -145.1431, y: 8.912689, z: -10.5635805}
+  m_LocalPosition: {x: -145.1431, y: 10.23269, z: -10.5635805}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 561655263}
@@ -11632,7 +11633,7 @@ MonoBehaviour:
   m_Follow: {fileID: 251362543}
   m_Lens:
     FieldOfView: 110
-    OrthographicSize: 14.8
+    OrthographicSize: 17
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
