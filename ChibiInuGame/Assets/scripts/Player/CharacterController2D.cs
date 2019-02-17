@@ -47,7 +47,7 @@ public class CharacterController2D : MonoBehaviour {
     public Transform fireSpawn;
     private Vector3 m_Velocity = Vector3.zero;
     private SoundEffectManager soundEffectManager;
-
+    SpriteRenderer playerSprite;
 
 
     //CoolDowns
@@ -67,6 +67,7 @@ public class CharacterController2D : MonoBehaviour {
         PlayingWallSlide = false;
         m_GroundDash = true;
         m_DashLeft = 1;
+        playerSprite = GetComponent<SpriteRenderer>();
         m_RigidBody2D = GetComponent<Rigidbody2D>();
         soundEffectManager = FindObjectOfType<SoundEffectManager>();
         anim = GetComponent<Animator>();
@@ -315,6 +316,7 @@ public class CharacterController2D : MonoBehaviour {
         
     }
 
+    //Methods to handle the shield skill
     public void TriggerShield()
     {
         
@@ -325,6 +327,7 @@ public class CharacterController2D : MonoBehaviour {
     }
     private void ShieldOn()
     {
+        playerSprite.color = Color.gray;
         m_RigidBody2D.gravityScale = 10;
         m_Immune = true;
         m_OnShield = true;
@@ -332,6 +335,7 @@ public class CharacterController2D : MonoBehaviour {
 
     private void ShieldOff()
     {
+        playerSprite.color = Color.white;
         m_RigidBody2D.gravityScale = 5;
         m_Immune = false;
         m_OnShield = false;

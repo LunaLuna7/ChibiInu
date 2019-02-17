@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(SpriteRenderer))]
+//[RequireComponent(typeof(SpriteRenderer))]
 public class PlayerHealth : MonoBehaviour {
 
     public float HP = 2;
     public float HPLeft;
     public CharacterController2D controller;
-    [HideInInspector]public SpriteRenderer m_SpriteRender;
+    public SpriteRenderer m_SpriteRender;
     public GameManager gameManager;
     public GameObject HealthUI;
     public Sprite fullHearth;
