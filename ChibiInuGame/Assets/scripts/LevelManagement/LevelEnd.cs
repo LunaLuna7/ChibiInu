@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelEnd : MonoBehaviour {
 	private bool[] collectable;
@@ -8,12 +9,18 @@ public class LevelEnd : MonoBehaviour {
 	public PartnerManager partnerManager;
 	[SerializeField]private int levelIndex;
 	[SerializeField]private int nextLevelIndex;
+
+	[Header("Level End UI")]
+	public GameObject levelEndUI;
+	public Image[] coinArray;
+	public Color notCollectedColor;
 	// Use this for initialization
 	void Start () {
 		collectable = SaveManager.dataInUse.levels[levelIndex].collectable;
 		//if forget to drag PM here, let's get it through code
 		if(partnerManager == null)
 			partnerManager = GameObject.FindObjectOfType<PartnerManager>();
+		levelEndUI.SetActive(false);
 	}
 	
 	public void OnTriggerEnter2D(Collider2D other)
@@ -31,9 +38,27 @@ public class LevelEnd : MonoBehaviour {
 				SaveManager.dataInUse.GetPartnerInfo(partnerManager);
 			}
 			SaveManager.Save(SaveManager.filename);
-			//transfer to LevelSeletion Scene
-			levelChanger.FadeToLevel(1);
+			//show UI
+			levelEndUI.SetActive(true);
+			//adjust coin color depends on if collect or not
+			for(int x = 0; x < collectable.Length; ++x)
+			{
+				if(collectable[x])
+				{
+					coinArray[x].color = Color.white;
+				}else{
+					coinArray[x].color = notCollectedColor;
+				}
+			}
+			//don't allow player to move
+			GameObject.FindObjectOfType<CharacterController2D>().m_Paralyzed = true;
 		}
+	}
+
+	public void BackToMap()
+	{
+		//transfer to LevelSeletion Scene
+		levelChanger.FadeToLevel(1);
 	}
 
 	public void Collect(int index)
