@@ -14,6 +14,7 @@ public class CreateNewFilePage : MonoBehaviour {
 	private string newName;
 	private int newSlotIndex;
 	public VirtualKeyboard virtualKeyboard;
+	public Text[] nameCharacterUIs;
 
 	// Use this for initialization
 	void Start () {
@@ -157,9 +158,17 @@ public class CreateNewFilePage : MonoBehaviour {
 			confirmText.text = "Your name is " + newName +" ?";
 		}
 	}
+	//update UI to show current name, need to add space between characters to make sure texts are on the underline
 	private void UpdateInputText(string value)
 	{
-		inputFieldText.text = value;
+		inputFieldText.text = "";
+		int len = value.Length;
+		//display the name
+		for(int x = 0; x< len; ++x)
+			nameCharacterUIs[x].text = value[x] + "";
+		//clean empty texts
+		for(int x = len; x< maxCharacterAllowed; ++x)
+			nameCharacterUIs[x].text = "";
 	}
 
 }
