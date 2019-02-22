@@ -274,7 +274,7 @@ public class PartnerManager : MonoBehaviour {
     //Partners shield(yet to implement)
     public void Shield()
     {
-        Debug.Log("Shield");
+        characterController.TriggerShield();
     }
 
     //CoolDown time for the fireball
