@@ -12,7 +12,7 @@ public class ChaseAction : Action {
 
     void Chase(StateController controller)
     {
-        //Flip(controller);
+        Flip(controller);
         controller.rb.MovePosition(Vector3.Lerp(controller.transform.position, controller.player.transform.position, controller.enemyStats.moveSpeed));
         controller.transform.position = Vector2.MoveTowards(controller.transform.position, controller.player.transform.position, controller.enemyStats.moveSpeed * Time.deltaTime);
     }
@@ -22,9 +22,9 @@ public class ChaseAction : Action {
     {
         Vector2 localScale = controller.gameObject.transform.localScale;
         if (controller.transform.position.x - controller.player.transform.position.x < 0)
-            localScale.x = -1;
-        else
             localScale.x = 1;
+        else
+            localScale.x = -1;
         controller.transform.localScale = localScale;
     }
 }

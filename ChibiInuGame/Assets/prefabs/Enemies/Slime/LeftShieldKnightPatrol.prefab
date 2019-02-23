@@ -163,8 +163,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1699732577653144}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.71, y: -1.04, z: -0.31813243}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalPosition: {x: -161.40941, y: 3.4334888, z: -0.31813243}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4751744478632594}
   - {fileID: 4909241706606918}
@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1699732577653144}
-  health: 0
+  health: 1
   stateController: {fileID: 0}
   m_SpriteRender: {fileID: 0}
 --- !u!114 &114268575182646804

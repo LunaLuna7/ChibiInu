@@ -101,9 +101,15 @@ public class PlayerHealth : MonoBehaviour {
 
                 StartCoroutine(DelayHearth());
             }
-        }
-        
+        }   
     }
+
+    public void HealDamage()
+    {
+        HPLeft = HP;
+        playerHealth.sprite = fullHearth;
+    }
+
 
     public void ResetPlayer()
     {
@@ -117,7 +123,5 @@ public class PlayerHealth : MonoBehaviour {
         playerHealth.sprite = fullHearth;
     }
 
-    
-
-    
+   
 }
