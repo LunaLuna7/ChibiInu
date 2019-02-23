@@ -28044,7 +28044,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 722031992}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -140.0471, y: 5.387773, z: -10.09375}
+  m_LocalPosition: {x: -140.90222, y: 5.387773, z: -10.09375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 965215492}
@@ -28801,6 +28801,7 @@ GameObject:
   - component: {fileID: 769188695}
   - component: {fileID: 769188694}
   - component: {fileID: 769188693}
+  - component: {fileID: 769188698}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -28815,7 +28816,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 769188691}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -140.0471, y: 5.387773, z: -10.09375}
+  m_LocalPosition: {x: -140.90222, y: 5.387773, z: -10.09375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1739390345}
@@ -28925,6 +28926,25 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &769188698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 769188691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AssetsPPU: 27
+  m_RefResolutionX: 1800
+  m_RefResolutionY: 900
+  m_UpscaleRT: 1
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1001 &771660271
 Prefab:
   m_ObjectHideFlags: 0
@@ -34363,6 +34383,16 @@ Prefab:
       propertyPath: m_AnchoredPosition.x
       value: -0.7000122
       objectReference: {fileID: 0}
+    - target: {fileID: 114518207060945192, guid: f380a7ca4200865469262eed46aa0676,
+        type: 2}
+      propertyPath: partnerManager
+      value: 
+      objectReference: {fileID: 1522367915}
+    - target: {fileID: 114518207060945192, guid: f380a7ca4200865469262eed46aa0676,
+        type: 2}
+      propertyPath: characterController
+      value: 
+      objectReference: {fileID: 1304210100}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f380a7ca4200865469262eed46aa0676, type: 2}
   m_IsPrefabAsset: 0
@@ -37405,6 +37435,11 @@ Prefab:
       propertyPath: HealthUI
       value: 
       objectReference: {fileID: 155854873}
+    - target: {fileID: 114339156566937732, guid: c6b571c349e83944faa1834deb832e5c,
+        type: 2}
+      propertyPath: characterController2D
+      value: 
+      objectReference: {fileID: 1304210100}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6b571c349e83944faa1834deb832e5c, type: 2}
   m_IsPrefabAsset: 0
