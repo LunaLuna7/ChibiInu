@@ -18,7 +18,7 @@ public class PowerManager : MonoBehaviour {
 		
 	}
 
-    void SpawnEnemies()
+    public void SpawnEnemies()
     {
         foreach(GameObject enemies in objectsToAppear)
         {
@@ -26,5 +26,11 @@ public class PowerManager : MonoBehaviour {
         }
         foreach (GameObject each in objectsToDisappear)
             each.SetActive(false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+            SpawnEnemies();
     }
 }
