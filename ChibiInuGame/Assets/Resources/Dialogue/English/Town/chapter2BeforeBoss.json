@@ -1,13 +1,1 @@
-{"dialogueSequence":[
-    {"speakerName":"Bard","imageName":"Bard","sentence":"Master, I’ve brought an able soul and his mutt for training."},
-    {"speakerName":"player","imageName":"Shib","sentence":"Grrr (Mutt?)"},
-    {"speakerName":"Bard Master","imageName":"Bard Master","sentence":"Wazzat?  New ‘prentices?  I don’t need no new ‘prentices."},
-    {"speakerName":"Wizard","imageName":"Wizard","sentence":"You’ll be glad, we won’t even make you mad!"},
-    {"speakerName":"Bard Master","imageName":"Bard Master","sentence":"With a rhyme scheme like that you will. That’s why I usually don’t take ‘prentices."},
-    {"speakerName":"Bard Master","imageName":"Bard Master","sentence":"They get in the way of hearty drink and good song."},
-    {"speakerName":"player","imageName":"Shib","sentence":"Bark Bark (I didn’t expect to find the second stone on a lousy drunk.)"},
-    {"speakerName":"Bard Master","imageName":"Bard Master","sentence":"Don’t tell me you took the stone from ol’ Harry in the forest?"},
-    {"speakerName":"Wizard","imageName":"Wizard","sentence":"He turned red, we made him dead."},
-    {"speakerName":"Bard Master","imageName":"Bard Master","sentence":"He was the only one who understood my woes. In that case, you’re all my foes!"},
-    {"speakerName":"player","imageName":"Shib","sentence":"Woof Grrr (Maybe once he’s dead I’ll have these infernal rhymes out of my head.)"}]
-}
+{"dialogueSequence":[{"speakerName":"Bard","imageName":"Bard","sentence":"Master, I’ve brought an able soul and his mutt for training."},{"speakerName":"player","imageName":"Shib","sentence":"Grrr (Mutt?)"},{"speakerName":"Bard Master","imageName":"Bard Master","sentence":"Wazzat?  New prentices?  I don’t need no new prentices."},{"speakerName":"Wizard","imageName":"Wizard","sentence":"You’ll be glad, we won’t even make you mad!"},{"speakerName":"Bard Master","imageName":"Bard Master","sentence":"With a rhyme scheme like that you will. That’s why I usually don’t take prentices."},{"speakerName":"Bard Master","imageName":"Bard Master","sentence":"They get in the way of hearty drink and good song."},{"speakerName":"player","imageName":"Shib","sentence":"Bark Bark (I didn’t expect to find the second stone on a lousy drunk.)"},{"speakerName":"Bard Master","imageName":"Bard Master","sentence":"Don’t tell me you took the stone from ol’ Harry in the forest?"},{"speakerName":"Wizard","imageName":"Wizard","sentence":"He turned red, we made him dead."},{"speakerName":"Bard Master","imageName":"Bard Master","sentence":"He was the only one who understood my woes. In that case, you’re all my foes!"},{"speakerName":"player","imageName":"Shib","sentence":"Woof Grrr (Maybe once he’s dead I’ll have these infernal rhymes out of my head.)"}]}
