@@ -31,6 +31,9 @@ public class BossWorld2 : MonoBehaviour {
     public GameObject fluteSpike;
     [Header("for WindFurry")]
     public GameObject wind;
+    [Header("for start/restart")]
+    private bool hasStarted = false;
+    public Transform startPosition;
 
    
 
@@ -43,18 +46,20 @@ public class BossWorld2 : MonoBehaviour {
         states[1] = new FastSpikeState(this);
         states[2] = new FluteSpikeSongState(this);
         states[3] = new WindFurryState(this);
+
     }
 
-    private void Start()
+    void Start()
     {
-        this.StateMachine.ChangeState(new IntroState());
-        //time for the animation
-        this.StateMachine.ChangeState(new IdleState(this));
-        movementController.StartMoving();
+        Initialize();
     }
+
 
     private void Update()
     {
+        //if haven't start, do nothing
+        if(!hasStarted)
+            return;
         if (!inState)
         {
             var action = Random.Range(0, 4);
@@ -86,4 +91,29 @@ public class BossWorld2 : MonoBehaviour {
         return (stateTimeElapsed >= duration);
     }
 
+    //====================================================================================================
+    //Initialize values and Restart
+    //====================================================================================================
+    public void StartBattle()
+    {
+        this.StateMachine.ChangeState(new IntroState());
+        //time for the animation
+        this.StateMachine.ChangeState(new IdleState(this));
+        movementController.StartMoving();
+        hasStarted = true;
+    }
+
+    public void Initialize()
+    {
+        StopAllCoroutines();
+        transform.position = startPosition.position;
+        //face left
+        GetComponent<SpriteRenderer>().flipX = true;
+        bossHealth.health = bossHealth.maxHealth;
+        hasStarted = false;
+        //movement
+        movementController.StopMoving();
+        //cloud Color
+        cloudController.SetColor(Color.white);
+    }
 }
