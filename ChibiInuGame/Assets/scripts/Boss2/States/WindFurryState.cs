@@ -44,6 +44,7 @@ public class WindFurryState : IState {
         yield return new WaitForSeconds(1);
         //instantiate wind and move to four direction
         GameObject upWind = GameObject.Instantiate(controller.wind, controller.transform.position, Quaternion.identity);
+        upWind.transform.SetParent(controller.skillObjectsGroup);
         upWind.GetComponent<Rigidbody2D>().velocity = new Vector2(0, speed);
         //rotate the up&&down wind
         upWind.transform.Rotate(0, 0, 90);
@@ -54,6 +55,7 @@ public class WindFurryState : IState {
         MonoBehaviour.Destroy(upWind, windLifeTime);
 
         GameObject downWind = GameObject.Instantiate(controller.wind, controller.transform.position, Quaternion.identity);
+        downWind.transform.SetParent(controller.skillObjectsGroup);
         downWind.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -speed);
         downWind.transform.Rotate(0, 0, 90);
         downWind.GetComponent<AreaEffector2D>().forceAngle = 270 - 90;
@@ -61,12 +63,14 @@ public class WindFurryState : IState {
         MonoBehaviour.Destroy(downWind, windLifeTime);
 
         GameObject leftWind = GameObject.Instantiate(controller.wind, controller.transform.position, Quaternion.identity);
+        leftWind.transform.SetParent(controller.skillObjectsGroup);
         leftWind.GetComponent<Rigidbody2D>().velocity = new Vector2(-speed, 0);
         leftWind.GetComponent<AreaEffector2D>().forceAngle = 180;
         leftWind.GetComponent<AreaEffector2D>().forceMagnitude = windMagnitude;
         MonoBehaviour.Destroy(leftWind, windLifeTime);
 
         GameObject rightWind = GameObject.Instantiate(controller.wind, controller.transform.position, Quaternion.identity);
+        rightWind.transform.SetParent(controller.skillObjectsGroup);
         rightWind.GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
         rightWind.GetComponent<AreaEffector2D>().forceAngle = 0;
         rightWind.GetComponent<AreaEffector2D>().forceMagnitude = windMagnitude;

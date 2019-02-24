@@ -16,13 +16,13 @@ public class BossHealth : MonoBehaviour {
     //Left, Up, right, and down
     public List<GameObject> spikes;
 
-    private void Start()
+    protected void Start()
     {
         
         health = maxHealth;
     }
 
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
         health -= damage;
         float currentHp = health / maxHealth;
@@ -40,7 +40,7 @@ public class BossHealth : MonoBehaviour {
         }
     }
 
-    IEnumerator TriggerSecondPhase()
+    protected IEnumerator TriggerSecondPhase()
     {
         foreach(GameObject spike in spikes)
         {
