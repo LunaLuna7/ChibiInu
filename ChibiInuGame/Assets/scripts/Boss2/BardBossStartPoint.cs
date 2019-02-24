@@ -13,7 +13,6 @@ public class BardBossStartPoint : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		Debug.Log(1);
 		//when touching player, showing the Boss
 		if(other.tag == "Player" && !hasStarted)
 		{

@@ -10,6 +10,7 @@ public class TimeLineManager : MonoBehaviour {
     public PlayableDirector playableDirector;
     public CharacterController2D characterController2D;
     public bool conversationFinish = false;
+    public bool resumeMovementAfterCutscene = true;
  
     // Use this for initialization
     void Start () {
@@ -20,10 +21,7 @@ public class TimeLineManager : MonoBehaviour {
     {
         if (!conversationFinish && collision.gameObject.tag == "Player")
         {
-            playableDirector.Play();
-            characterController2D.m_Paralyzed = true;
-
-            conversationFinish = true;
+            Play();
         }
     }
     
@@ -35,7 +33,15 @@ public class TimeLineManager : MonoBehaviour {
 
     public void OnTimelineStopped(PlayableDirector aDirector)
     {
-        if(playableDirector == aDirector)
+        if(playableDirector == aDirector && resumeMovementAfterCutscene)
             characterController2D.m_Paralyzed = false;
+    }
+
+    public void Play()
+    {
+            playableDirector.Play();
+            characterController2D.m_Paralyzed = true;
+
+            conversationFinish = true;
     }
 }

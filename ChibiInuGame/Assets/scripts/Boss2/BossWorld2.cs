@@ -35,8 +35,8 @@ public class BossWorld2 : MonoBehaviour {
     [Header("for start/restart")]
     private bool hasStarted = false;
     public Transform startPosition;
-
-   
+    public Transform playerCutscenePos;
+    public TimeLineManager afterBattleTimeline;
 
     private void Awake()
     {
@@ -104,17 +104,36 @@ public class BossWorld2 : MonoBehaviour {
         hasStarted = true;
     }
 
+    //player defeated Bard Boss, play end cutscene
+    public void EndBattle()
+    {
+        //stop using the current skills
+        StopAllCoroutines();
+        //destroy all skill objects
+        for(int x = 0; x< skillObjectsGroup.childCount; ++x)
+        {
+            Destroy(skillObjectsGroup.GetChild(x).gameObject);
+        }
+        afterBattleTimeline.Play();
+    }
+
+    //functions for end level
+    public void HidePlayer()
+    {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>().enabled = false;
+    }
+
     public void Initialize()
     {
         //stop using the current skills
         StopAllCoroutines();
-        transform.position = startPosition.position;
         //destroy all skill objects
         for(int x = 0; x< skillObjectsGroup.childCount; ++x)
         {
             Destroy(skillObjectsGroup.GetChild(x).gameObject);
         }
         //face left
+        transform.position = startPosition.position;
         GetComponent<SpriteRenderer>().flipX = true;
         bossHealth.health = bossHealth.maxHealth;
         hasStarted = false;
