@@ -22,6 +22,7 @@ public class BossWorld2 : MonoBehaviour {
     public BossHealth bossHealth;
     public BardBossMovementController movementController;
     public BardBossCloud cloudController;
+    public Transform skillObjectsGroup;
 
     [Header("for FastSpikeState")]
     public GameObject warningBlock;
@@ -105,8 +106,14 @@ public class BossWorld2 : MonoBehaviour {
 
     public void Initialize()
     {
+        //stop using the current skills
         StopAllCoroutines();
         transform.position = startPosition.position;
+        //destroy all skill objects
+        for(int x = 0; x< skillObjectsGroup.childCount; ++x)
+        {
+            Destroy(skillObjectsGroup.GetChild(x).gameObject);
+        }
         //face left
         GetComponent<SpriteRenderer>().flipX = true;
         bossHealth.health = bossHealth.maxHealth;
