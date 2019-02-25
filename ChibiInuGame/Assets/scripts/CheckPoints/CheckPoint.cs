@@ -11,6 +11,7 @@ public class CheckPoint : MonoBehaviour {
     public List<GameObject> enemies;
     public SoundEffectManager soundEffectManager;
     public GameObject CheckPointParticleAura;
+    public int previousCheckPoint;
 
 
     private bool onCheckPoint;
@@ -45,21 +46,22 @@ public class CheckPoint : MonoBehaviour {
 
             else if (Input.GetKeyDown(KeyCode.P) && book.activeSelf)
                 book.SetActive(false);
-
-        
         }
     }
 
     public void SetCheckPointTo()
     {
+        previousCheckPoint = UpdateCheckPoint.currentCheckPoint;
         UpdateCheckPoint.currentCheckPoint = newCheckPoint;
+        if (previousCheckPoint > UpdateCheckPoint.currentCheckPoint)
+            UpdateCheckPoint.currentCheckPoint = previousCheckPoint;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
         if (collision.CompareTag("Player"))
         {
+
             collision.gameObject.GetComponent<PlayerHealth>().HealDamage();
             SetCheckPointTo();
             onCheckPoint = true;
