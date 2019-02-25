@@ -88,6 +88,7 @@ public class FastSpikeState : IState{
 
         //show warning
         GameObject warningOb = GameObject.Instantiate(controller.warningBlock, position, Quaternion.identity);
+        warningOb.transform.SetParent(controller.skillObjectsGroup);
         //if direction is vertical, change rotate 
         if(direction == Vector2.up || direction == Vector2.down)
             warningOb.transform.Rotate(0,0,90);
@@ -95,6 +96,7 @@ public class FastSpikeState : IState{
         
         //throw ob
         GameObject projectileOb = GameObject.Instantiate(controller.fastSpike, position, Quaternion.identity);
+        projectileOb.transform.SetParent(controller.skillObjectsGroup);
         //change the rotation to make it seems right
         if(direction == Vector2.up)
             projectileOb.transform.Rotate(0,0,270);

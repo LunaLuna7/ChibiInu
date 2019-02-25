@@ -22,6 +22,7 @@ public class BossWorld2 : MonoBehaviour {
     public BossHealth bossHealth;
     public BardBossMovementController movementController;
     public BardBossCloud cloudController;
+    public Transform skillObjectsGroup;
 
     [Header("for FastSpikeState")]
     public GameObject warningBlock;
@@ -31,8 +32,11 @@ public class BossWorld2 : MonoBehaviour {
     public GameObject fluteSpike;
     [Header("for WindFurry")]
     public GameObject wind;
-
-   
+    [Header("for start/restart")]
+    private bool hasStarted = false;
+    public Transform startPosition;
+    public Transform playerCutscenePos;
+    public TimeLineManager afterBattleTimeline;
 
     private void Awake()
     {
@@ -43,18 +47,20 @@ public class BossWorld2 : MonoBehaviour {
         states[1] = new FastSpikeState(this);
         states[2] = new FluteSpikeSongState(this);
         states[3] = new WindFurryState(this);
+
     }
 
-    private void Start()
+    void Start()
     {
-        this.StateMachine.ChangeState(new IntroState());
-        //time for the animation
-        this.StateMachine.ChangeState(new IdleState(this));
-        movementController.StartMoving();
+        Initialize();
     }
+
 
     private void Update()
     {
+        //if haven't start, do nothing
+        if(!hasStarted)
+            return;
         if (!inState)
         {
             var action = Random.Range(0, 4);
@@ -86,4 +92,54 @@ public class BossWorld2 : MonoBehaviour {
         return (stateTimeElapsed >= duration);
     }
 
+    //====================================================================================================
+    //Initialize values and Restart
+    //====================================================================================================
+    public void StartBattle()
+    {
+        this.StateMachine.ChangeState(new IntroState());
+        //time for the animation
+        this.StateMachine.ChangeState(new IdleState(this));
+        movementController.StartMoving();
+        hasStarted = true;
+    }
+
+    //player defeated Bard Boss, play end cutscene
+    public void EndBattle()
+    {
+        //stop using the current skills
+        StopAllCoroutines();
+        //destroy all skill objects
+        for(int x = 0; x< skillObjectsGroup.childCount; ++x)
+        {
+            Destroy(skillObjectsGroup.GetChild(x).gameObject);
+        }
+        afterBattleTimeline.Play();
+    }
+
+    //functions for end level
+    public void HidePlayer()
+    {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    public void Initialize()
+    {
+        //stop using the current skills
+        StopAllCoroutines();
+        //destroy all skill objects
+        for(int x = 0; x< skillObjectsGroup.childCount; ++x)
+        {
+            Destroy(skillObjectsGroup.GetChild(x).gameObject);
+        }
+        //face left
+        transform.position = startPosition.position;
+        GetComponent<SpriteRenderer>().flipX = true;
+        bossHealth.health = bossHealth.maxHealth;
+        hasStarted = false;
+        //movement
+        movementController.StopMoving();
+        //cloud Color
+        cloudController.SetColor(Color.white);
+    }
 }

@@ -58,6 +58,7 @@ public class FluteSpikeSongState : IState {
             position.x = minX;
         //generate the flute and....move it
         GameObject fluteSpike = GameObject.Instantiate(controller.fluteSpike, position, Quaternion.identity);
+        fluteSpike.transform.SetParent(controller.skillObjectsGroup);
         yield return MoveFlute(fluteSpike, speed, right, false);
         //remove the flute spike after finishing
         GameObject.Destroy(fluteSpike);
@@ -72,6 +73,7 @@ public class FluteSpikeSongState : IState {
             position.x = minX;
         //generate the flute and....move it
         GameObject fluteSpike = GameObject.Instantiate(controller.fluteSpike, position, Quaternion.identity);
+        fluteSpike.transform.SetParent(controller.skillObjectsGroup);
         yield return MoveFlute(fluteSpike, speed, right, true);
         //remove the flute spike after finishing
         GameObject.Destroy(fluteSpike);

@@ -28,31 +28,36 @@ public class LevelEnd : MonoBehaviour {
 		//touch the end, save and transfer back to level selection
 		if(other.CompareTag("Player"))
 		{
-			//unlock next level, update the stuff collected, save
-			SaveManager.dataInUse.levels[nextLevelIndex].unlocked = true;
-			SaveManager.dataInUse.levels[levelIndex].collectable = collectable;
-			SaveManager.dataInUse.lastLevelEntered = levelIndex;
-			//save the partner info to the save Data
-			if(partnerManager != null)
-			{
-				SaveManager.dataInUse.GetPartnerInfo(partnerManager);
-			}
-			SaveManager.Save(SaveManager.filename);
-			//show UI
-			levelEndUI.SetActive(true);
-			//adjust coin color depends on if collect or not
-			for(int x = 0; x < collectable.Length; ++x)
-			{
-				if(collectable[x])
-				{
-					coinArray[x].color = Color.white;
-				}else{
-					coinArray[x].color = notCollectedColor;
-				}
-			}
-			//don't allow player to move
-			GameObject.FindObjectOfType<CharacterController2D>().m_Paralyzed = true;
+			ShowEndUI();
 		}
+	}
+
+	public void ShowEndUI()
+	{
+		//unlock next level, update the stuff collected, save
+		SaveManager.dataInUse.levels[nextLevelIndex].unlocked = true;
+		SaveManager.dataInUse.levels[levelIndex].collectable = collectable;
+		SaveManager.dataInUse.lastLevelEntered = levelIndex;
+		//save the partner info to the save Data
+		if(partnerManager != null)
+		{
+			SaveManager.dataInUse.GetPartnerInfo(partnerManager);
+		}
+		SaveManager.Save(SaveManager.filename);
+		//show UI
+		levelEndUI.SetActive(true);
+		//adjust coin color depends on if collect or not
+		for(int x = 0; x < collectable.Length; ++x)
+		{
+			if(collectable[x])
+			{
+				coinArray[x].color = Color.white;
+			}else{
+				coinArray[x].color = notCollectedColor;
+			}
+		}
+		//don't allow player to move
+		GameObject.FindObjectOfType<CharacterController2D>().m_Paralyzed = true;
 	}
 
 	public void BackToMap()

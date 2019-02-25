@@ -31,4 +31,9 @@ public class BardBossCloud : MonoBehaviour {
 		spriteRenderer.color = targetColor;
 	}
 
+	public void SetColor(Color targetColor)
+	{
+		spriteRenderer.color = targetColor;
+	}
+
 }
