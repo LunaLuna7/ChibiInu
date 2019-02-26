@@ -457,7 +457,6 @@ public class CharacterController2D : MonoBehaviour {
     IEnumerator SoundStep()
     {
         int step = Random.Range(1, 5);
-        Debug.Log(step);
         SoundEffectManager.instance.Play("FootStep" + step);
         yield return new WaitForSeconds(.5f);
         walkingSound = false;
