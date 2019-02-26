@@ -3967,7 +3967,7 @@ ParticleSystem:
   LightsModule:
     enabled: 0
     ratio: 1
-    light: {fileID: 108604582303045106, guid: 36b7d36ebc89b724abf1ce94df060365, type: 2}
+    light: {fileID: 0}
     randomDistribution: 1
     color: 1
     range: 1
@@ -4984,7 +4984,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 863988b0f616e024689f0fd4e2218f5a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7075472, g: 0.7042097, b: 0.7042097, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

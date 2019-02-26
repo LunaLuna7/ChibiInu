@@ -57,6 +57,7 @@ public class CharacterController2D : MonoBehaviour {
 
     //SoundStates
     private bool PlayingWallSlide;
+    private bool walkingSound;
 
 
     private IEnumerator activeJumpCoroutine;
@@ -95,8 +96,8 @@ public class CharacterController2D : MonoBehaviour {
             if (playerHealth.HPLeft >= 1 && move != 0)
             {
                 anim.Play("ShibaRunning");
-                
-                //SoundEffectManager.instance.Play("FootStep1");
+                PlayerFootStepSound();
+
             }
 
             else if (move == 0)
@@ -446,6 +447,19 @@ public class CharacterController2D : MonoBehaviour {
   
     private void PlayerFootStepSound()
     {
+        if (!walkingSound)
+        {
+            walkingSound = true;
+            StartCoroutine(SoundStep());
+        }
+    }
 
+    IEnumerator SoundStep()
+    {
+        int step = Random.Range(1, 5);
+        Debug.Log(step);
+        SoundEffectManager.instance.Play("FootStep" + step);
+        yield return new WaitForSeconds(.5f);
+        walkingSound = false;
     }
 }
