@@ -23,6 +23,9 @@ public class LaserSoundArea : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
+        {
             SoundEffectManager.instance.Stop("LaserDrone");
+            SoundEffectManager.instance.Play("LaserOff");
+        }
     }
 }
