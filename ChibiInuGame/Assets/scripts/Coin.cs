@@ -12,6 +12,7 @@ public class Coin : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
+            SoundEffectManager.instance.Play("GrabCoin");
             coinUI.color = new Color(coinUI.color.r, coinUI.color.g, coinUI.color.b, 1);
             levelEnd.Collect(collectableIndex);
             Destroy(this.gameObject);

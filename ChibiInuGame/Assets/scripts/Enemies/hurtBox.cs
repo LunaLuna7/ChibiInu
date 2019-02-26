@@ -10,7 +10,6 @@ public class hurtBox : MonoBehaviour {
 
     public GameObject EnemyToKill;
     public float health;
-    private SoundEffectManager soundEffectManager;
     private float timeBeforeDamageAgain = .1f; //delay to prevent multi hits in trigger enter frames
     private float timetrack;
     [HideInInspector]public StateController stateController;
@@ -19,7 +18,7 @@ public class hurtBox : MonoBehaviour {
 
     public void Awake()
     {
-        soundEffectManager = GameObject.FindGameObjectWithTag("SoundEffect").GetComponent<SoundEffectManager>();
+        
         m_SpriteRender = GetComponentInParent<SpriteRenderer>();
         stateController = GetComponentInParent<StateController>();
         health = stateController.enemyStats.HP;
@@ -46,7 +45,7 @@ public class hurtBox : MonoBehaviour {
 
             if (health == 0)
             {
-                soundEffectManager.Play("EnemyDeath");
+                SoundEffectManager.instance.Play("SlimeDeath");
                 EnemyToKill.SetActive(false);
                 health = stateController.enemyStats.HP;
             }
