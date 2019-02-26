@@ -14,7 +14,6 @@ public enum SkillSlot{
 public class PartnerManager : MonoBehaviour {
 
     public CharacterController2D characterController;
-    private SoundEffectManager soundEffectManager;
 
     public List<PartnerInfo> partnersInfo;
     public List<Partner> partners;
@@ -47,7 +46,6 @@ public class PartnerManager : MonoBehaviour {
 
     void Start()
     {
-        soundEffectManager = FindObjectOfType<SoundEffectManager>();
         scenePartnerHolder = GetComponent<ScenePartnerHolder>();
         //initialize partners
         //reset for level
@@ -225,8 +223,6 @@ public class PartnerManager : MonoBehaviour {
             {
                 if (p.inUse)
                 {
-
-                    Debug.Log("Triple");
                     return false;
                 }
             }
@@ -244,7 +240,7 @@ public class PartnerManager : MonoBehaviour {
     {
         if (!fireBallOnCoolDown)
         {
-            soundEffectManager.Play("FireBall");
+            SoundEffectManager.instance.Play("FireBall");
             if (characterController.m_FacingRight)
                 Instantiate(FireBall, characterController.fireSpawn.position, Quaternion.identity);
             else

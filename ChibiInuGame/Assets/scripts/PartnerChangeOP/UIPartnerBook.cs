@@ -37,8 +37,9 @@ public class UIPartnerBook : MonoBehaviour {
     }
 
         //Updates the individual UI objects on teh scene canvas in respect to the SCriptable Object of the current partner
-        private void UpdatePartnerPage(int nextPartner)
+    private void UpdatePartnerPage(int nextPartner)
     {
+        SoundEffectManager.instance.Play("PageFlip");
         currentPartner = partnerManager.partners[nextPartner];
         partnerName.text = currentPartner.partnerInfo.name.ToString();
         partnerPicture.sprite = currentPartner.partnerInfo.image;
@@ -67,6 +68,7 @@ public class UIPartnerBook : MonoBehaviour {
         characterController.m_Paralyzed = true;
         if (partnerManager.partners[0].unlocked)
         {
+            SoundEffectManager.instance.Play("OpenBook");
             currentPartner = partnerManager.partners[0];
             UpdatePartnerPage(currentPartner.partnerInfo.partnerId);
             if (partnerManager.secondPartnerSlotUnlock)
@@ -75,7 +77,6 @@ public class UIPartnerBook : MonoBehaviour {
         }
         else
             gameObject.SetActive(false);
-
     }
 
     //Unfreeze player
@@ -115,13 +116,13 @@ public class UIPartnerBook : MonoBehaviour {
     //Button press on UI book that will call summonPartner from partnerManager with the currentpartner and skillslot base on 0 or 1 info as param
     public void SummonPartnerButton(int keySlot)
     {
+        SoundEffectManager.instance.Play("PartnerSelect");
         if (keySlot == 0)
             partnerManager.SummonPartner(SkillSlot.FirstSlot, currentPartner);
         else
             partnerManager.SummonPartner(SkillSlot.SecondSlot, currentPartner);
 
         partnerManager.PartnerInUse(currentPartner);
-
         firstPartnerButtonSummon.SetActive(false);
         secondPartnerButtonSummon.SetActive(false);
         callBackPartnerButton.SetActive(true);
@@ -131,6 +132,7 @@ public class UIPartnerBook : MonoBehaviour {
     //called when callback UI is press(ToDO: make it so either summonA button appears or summonB and summonA appears)
     public void UnSummonPartnerButton()
     {
+        SoundEffectManager.instance.Play("PartnerDeselect");
         partnerManager.UnSummonPartner(currentPartner);
         callBackPartnerButton.SetActive(false);
         firstPartnerButtonSummon.SetActive(true);
@@ -139,7 +141,4 @@ public class UIPartnerBook : MonoBehaviour {
 
         partnerManager.LimitPlayerJump(partnerManager.TripleJumpPartnerCapacity());
     }
-
-  
-
 }

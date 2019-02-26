@@ -9,7 +9,6 @@ public class CheckPoint : MonoBehaviour {
     public int newCheckPoint;
     public GameObject book;
     public List<GameObject> enemies;
-    public SoundEffectManager soundEffectManager;
     public GameObject CheckPointParticleAura;
     public int previousCheckPoint;
 
@@ -32,7 +31,6 @@ public class CheckPoint : MonoBehaviour {
     public void Start()
     {
         checkPointImage = GetComponent<SpriteRenderer>();
-        soundEffectManager = GameObject.FindGameObjectWithTag("SoundEffect").GetComponent<SoundEffectManager>();
         activated = false;
         
     }
@@ -66,12 +64,12 @@ public class CheckPoint : MonoBehaviour {
             SetCheckPointTo();
             onCheckPoint = true;
             checkPointImage.sprite = activeCheckPoint;
-            soundEffectManager.Play("CheckPointAura");
+            SoundEffectManager.instance.Play("CheckPointAura");
             
             if (!activated)
             {
                 CheckPointParticleAura.SetActive(true);
-                soundEffectManager.Play("CheckPoint");
+                SoundEffectManager.instance.Play("CheckPoint");
                 activated = true;
             }
         }
@@ -84,7 +82,7 @@ public class CheckPoint : MonoBehaviour {
 
         if (collision.gameObject.tag == "Player")
         {
-            soundEffectManager.Stop("CheckPointAura");
+            SoundEffectManager.instance.Stop("CheckPointAura");
             onCheckPoint = false;
             book.SetActive(false);
         }
