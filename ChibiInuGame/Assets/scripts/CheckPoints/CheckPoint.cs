@@ -9,6 +9,7 @@ public class CheckPoint : MonoBehaviour {
     public int newCheckPoint;
     public GameObject book;
     public List<GameObject> enemies;
+    public List<GameObject> walls;
     public GameObject CheckPointParticleAura;
     public int previousCheckPoint;
 
@@ -72,6 +73,8 @@ public class CheckPoint : MonoBehaviour {
                 SoundEffectManager.instance.Play("CheckPoint");
                 activated = true;
             }
+
+            RespawnWalls();
         }
     }
 
@@ -89,4 +92,9 @@ public class CheckPoint : MonoBehaviour {
        
     }
 
+    void RespawnWalls()
+    {
+        foreach(GameObject each in walls)
+            each.SetActive(true);
+    }
 }
