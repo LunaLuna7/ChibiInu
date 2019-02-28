@@ -24,16 +24,46 @@ public class UIPartnerBook : MonoBehaviour {
     public GameObject firstPartnerButtonSummon;
     public GameObject secondPartnerButtonSummon;
     public GameObject callBackPartnerButton;
-    
 
+    private bool joyStickToNeutral;
+
+    private void Start()
+    {
+        joyStickToNeutral = false;
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        if (Input.GetAxis("Horizontal") == 0f)
+            joyStickToNeutral = true;
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) ||(Input.GetAxis("Horizontal") < 0 && joyStickToNeutral))
+        {
+            joyStickToNeutral = false;
             LeftArrow();
+        }
 
-        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || (Input.GetAxis("Horizontal") > 0 && joyStickToNeutral))
+        {
+            joyStickToNeutral = false;
             RightArrow();
+        }
+
+        if (Input.GetButtonDown("PartnerA"))
+        {
+            if (firstPartnerButtonSummon.activeSelf)
+                SummonPartnerButton(0);
+            else
+                UnSummonPartnerButton();
+        }
+        else if (Input.GetButtonDown("PartnerB"))
+        {
+            if (secondPartnerButtonSummon.activeSelf)
+                SummonPartnerButton(1);
+            else
+                UnSummonPartnerButton();
+
+        }
+            
     }
 
         //Updates the individual UI objects on teh scene canvas in respect to the SCriptable Object of the current partner
@@ -71,7 +101,7 @@ public class UIPartnerBook : MonoBehaviour {
             SoundEffectManager.instance.Play("OpenBook");
             currentPartner = partnerManager.partners[0];
             UpdatePartnerPage(currentPartner.partnerInfo.partnerId);
-            if (partnerManager.secondPartnerSlotUnlock)
+            if (partnerManager.secondPartnerSlotUnlock && !callBackPartnerButton.activeSelf)
                 secondPartnerButtonSummon.SetActive(true);
             gameObject.SetActive(true);
         }

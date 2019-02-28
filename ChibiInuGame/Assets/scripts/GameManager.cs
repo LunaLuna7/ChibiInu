@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour {
     public GameObject player;
     private PlayerHealth playerHealth;
 
+    private void Awake()
+    {
+        UpdateCheckPoint.currentCheckPoint = 1;
+    }
 
     void Start()
     {
