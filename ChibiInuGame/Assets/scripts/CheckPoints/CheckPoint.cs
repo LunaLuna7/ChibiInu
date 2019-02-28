@@ -39,10 +39,10 @@ public class CheckPoint : MonoBehaviour {
     {
         if (onCheckPoint)
         {
-            if (Input.GetKeyDown(KeyCode.P) && !book.activeSelf)
+            if ((Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("CallBook"))&& !book.activeSelf)
                 book.SetActive(true);
 
-            else if (Input.GetKeyDown(KeyCode.P) && book.activeSelf)
+            else if ((Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("CallBook")) && book.activeSelf)
                 book.SetActive(false);
         }
     }
