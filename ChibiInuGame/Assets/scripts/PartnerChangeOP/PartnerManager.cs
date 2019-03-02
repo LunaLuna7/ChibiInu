@@ -48,6 +48,11 @@ public class PartnerManager : MonoBehaviour {
     {
         scenePartnerHolder = GetComponent<ScenePartnerHolder>();
         //initialize partners
+        //unlock
+        for(int x = 0; x < partners.Count; ++x)
+        {
+            partners[x].unlocked = SaveManager.dataInUse.unlockPartners[x];
+        }
         //reset for level
         foreach(Partner p in partners) 
         {
