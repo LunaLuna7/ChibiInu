@@ -12,6 +12,7 @@ public class ChaseAction : Action {
 
     void Chase(StateController controller)
     {
+        
         Flip(controller);
         controller.rb.MovePosition(Vector3.Lerp(controller.transform.position, controller.player.transform.position, controller.enemyStats.moveSpeed));
         controller.transform.position = Vector2.MoveTowards(controller.transform.position, controller.player.transform.position, controller.enemyStats.moveSpeed * Time.deltaTime);
