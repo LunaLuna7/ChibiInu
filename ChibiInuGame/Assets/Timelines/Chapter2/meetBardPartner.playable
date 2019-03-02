@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Name: ScriptClip
   m_EditorClassIdentifier: 
   template:
-    eventIndexs: 01000000
+    eventIndexs: 0100000002000000
 --- !u!114 &114264386974125816
 MonoBehaviour:
   m_ObjectHideFlags: 1
