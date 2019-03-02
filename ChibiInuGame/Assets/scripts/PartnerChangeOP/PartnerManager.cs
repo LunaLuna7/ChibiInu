@@ -48,6 +48,11 @@ public class PartnerManager : MonoBehaviour {
     {
         scenePartnerHolder = GetComponent<ScenePartnerHolder>();
         //initialize partners
+        //unlock
+        for(int x = 0; x < partners.Count; ++x)
+        {
+            partners[x].unlocked = SaveManager.dataInUse.unlockPartners[x];
+        }
         //reset for level
         foreach(Partner p in partners) 
         {
@@ -55,10 +60,7 @@ public class PartnerManager : MonoBehaviour {
         }
         activePartner.Clear();
 
-        //TODO: update this code with new system
-        //TODO: load the activePartner depending on load file depending on the Partner.cs bools
-        //It should also load on scene load I believe, since it should keep track from scene to scene
-        //load the partner in use, partner's index in the arrary need to be the same as their partner id
+       //Load active partners
         foreach (ActivePartnerInfo pi in SaveManager.dataInUse.activePartners)
         {
             if(pi.skillSlot != SkillSlot.FirstSlot && pi.skillSlot != SkillSlot.SecondSlot)
@@ -67,12 +69,14 @@ public class PartnerManager : MonoBehaviour {
                 continue;
             }
             else{
-                //load active partner
+                //summon active partner
                 SummonPartner(pi.skillSlot, partners[pi.index]);
             }
             partners[pi.index].inUse = true;
             //spawn the character
             scenePartnerHolder.ChangePartnerImage(pi.skillSlot, partners[pi.index].partnerInfo.image);
+            LimitPlayerJump(TripleJumpPartnerCapacity());
+
         }
     }
 
