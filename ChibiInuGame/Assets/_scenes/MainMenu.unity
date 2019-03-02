@@ -329,11 +329,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114012548370561622, guid: eacbf2d95e4143f4992d39de01a2b7b3,
-        type: 2}
-      propertyPath: faceSpriteList.Array.size
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 4179179813025458, guid: eacbf2d95e4143f4992d39de01a2b7b3, type: 2}
       propertyPath: m_LocalPosition.x
       value: -95.11283
@@ -368,24 +363,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114012548370561622, guid: eacbf2d95e4143f4992d39de01a2b7b3,
         type: 2}
-      propertyPath: faceSpriteList.Array.data[6].name
-      value: Knight
-      objectReference: {fileID: 0}
-    - target: {fileID: 114012548370561622, guid: eacbf2d95e4143f4992d39de01a2b7b3,
-        type: 2}
-      propertyPath: faceSpriteList.Array.data[6].faceSprite
+      propertyPath: faceSpriteList.Array.data[1].faceSprite
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114012548370561622, guid: eacbf2d95e4143f4992d39de01a2b7b3,
-        type: 2}
-      propertyPath: faceSpriteList.Array.data[7].name
-      value: Knight Master
-      objectReference: {fileID: 0}
-    - target: {fileID: 114012548370561622, guid: eacbf2d95e4143f4992d39de01a2b7b3,
-        type: 2}
-      propertyPath: faceSpriteList.Array.data[7].faceSprite
-      value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: a636710170df9a441b3e33378b2a53f7,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eacbf2d95e4143f4992d39de01a2b7b3, type: 2}
   m_IsPrefabAsset: 0
@@ -5633,7 +5614,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 800, y: -39.85}
+  m_AnchoredPosition: {x: 800, y: -39.850098}
   m_SizeDelta: {x: 1194.3, y: 79.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1091740171
