@@ -133,7 +133,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1224807705926986}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 227.55, y: 14.994207, z: 1.9318676}
+  m_LocalPosition: {x: 95.11, y: 15, z: 1.9318676}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4610496419206374}
@@ -161,7 +161,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1849133516230274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.5, y: 0, z: 0}
+  m_LocalPosition: {x: 18.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4763378301083290}
@@ -217,7 +217,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1193790758630788}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.5, y: 0, z: 0}
+  m_LocalPosition: {x: -9.03, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4763378301083290}
@@ -259,7 +259,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.4375, y: 1.9375}
+    oldSize: {x: 2.46875, y: 1.90625}
     newSize: {x: 2.4375, y: 1.9375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -294,7 +294,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.4375, y: 1.9375}
+    oldSize: {x: 2.46875, y: 1.90625}
     newSize: {x: 2.4375, y: 1.9375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -365,7 +365,7 @@ Animator:
   m_GameObject: {fileID: 1443199986823690}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c47c57e76e79c1d45b3e4b8d5ec85897, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1ce3d88fa11f1484daf22bbbde0e88ef, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -400,7 +400,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83f6dfe8455f3c14fa22f6f523300d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyToKill: {fileID: 1224807705926986}
+  EnemyToKill: {fileID: 0}
+  immune: 1
   health: 0
   stateController: {fileID: 0}
   m_SpriteRender: {fileID: 0}
@@ -464,7 +465,7 @@ SpriteRenderer:
   m_SortingLayerID: 1970243025
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4696949b5bb20844d8fb96eefcbbf5b2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 980929bc35c087d40b63c7396f0c01ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

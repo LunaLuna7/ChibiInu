@@ -256,10 +256,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b2a45578376e4c4ebdfaf3a9d2b7a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 1100
+  m_JumpForce: 1300
   m_WallJumpTime: 0.5
   m_AirJumps: 2
-  m_FallGravity: 4
+  m_FallGravity: 7
   m_MovementSmoothing: 0.05
   m_GroundLayer:
     serializedVersion: 2
@@ -272,6 +272,7 @@ MonoBehaviour:
   m_WallCheck: {fileID: 4738573377972002}
   m_AirControl: 1
   m_DashForce: 50
+  paralyzedWhenStart: 0
   m_limitRightMove: 0
   m_limitLeftMove: 0
   m_FacingRight: 1
@@ -280,6 +281,7 @@ MonoBehaviour:
   m_Damaged: 0
   m_OnDash: 0
   m_OnOtherCamera: 0
+  m_OnShield: 0
   m_AirJumpsLeft: 0
   m_DashLeft: 1
   cam: {fileID: 0}
