@@ -16,7 +16,8 @@ public class LevelEnd : MonoBehaviour {
 	public Color notCollectedColor;
 	// Use this for initialization
 	void Start () {
-		collectable = SaveManager.dataInUse.levels[levelIndex].collectable;
+		//collectable = SaveManager.dataInUse.levels[levelIndex].collectable;
+		collectable = new bool[3]{false, false, false};
 		//if forget to drag PM here, let's get it through code
 		if(partnerManager == null)
 			partnerManager = GameObject.FindObjectOfType<PartnerManager>();
@@ -36,7 +37,13 @@ public class LevelEnd : MonoBehaviour {
 	{
 		//unlock next level, update the stuff collected, save
 		SaveManager.dataInUse.levels[nextLevelIndex].unlocked = true;
-		SaveManager.dataInUse.levels[levelIndex].collectable = collectable;
+		//update collectable
+		//SaveManager.dataInUse.levels[levelIndex].collectable = collectable;
+		for(int x = 0; x < collectable.Length; ++x)
+		{
+			if(collectable[x] == true)
+				SaveManager.dataInUse.levels[levelIndex].collectable[x] = true;
+		}
 		SaveManager.dataInUse.lastLevelEntered = levelIndex;
 		//save the partner info to the save Data
 		if(partnerManager != null)
