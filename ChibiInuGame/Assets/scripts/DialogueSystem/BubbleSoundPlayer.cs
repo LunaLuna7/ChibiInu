@@ -11,10 +11,10 @@ public class BubbleSoundPlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
-	void PlaySound(string soundName)
+	public void PlaySound(string soundName)
 	{
 		SoundEffectManager.instance.Play(soundName);
 	}
