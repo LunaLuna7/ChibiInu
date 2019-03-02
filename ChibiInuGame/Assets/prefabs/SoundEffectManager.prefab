@@ -240,25 +240,25 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: question_expression
     clip: {fileID: 8300000, guid: c3167056d2420f24681af4da6e149c85, type: 3}
-    volume: 1
+    volume: 0.62
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: heart_expression
     clip: {fileID: 8300000, guid: 048415557e55f114fb615d5a4f8faeae, type: 3}
-    volume: 1
+    volume: 0.63
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: blush_expression
     clip: {fileID: 8300000, guid: 34fd748ae75cc994789f994896ff3ec5, type: 3}
-    volume: 1
+    volume: 0.63
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: exclamation_expression
     clip: {fileID: 8300000, guid: 537b649c894bd9149a984c47ad17847c, type: 3}
-    volume: 1
+    volume: 0.63
     pitch: 1
     loop: 0
     source: {fileID: 0}
