@@ -154,7 +154,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1395257175453580}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 91.393234, y: 9.278967, z: 0.16245678}
+  m_LocalPosition: {x: 66.01926, y: -17.48717, z: 0.6103624}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4884722309630888}
@@ -184,7 +184,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1258337546323606}
-  m_LocalRotation: {x: -0, y: -0, z: -0.33052877, w: 0.9437959}
+  m_LocalRotation: {x: 0, y: 0, z: -0.25531507, w: 0.9668579}
   m_LocalPosition: {x: 1.28, y: -0.78, z: 0.28852147}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -236,7 +236,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1804038629419146}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -315,7 +315,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 6.2336035}
+  m_Offset: {x: 0, y: 2.2607498}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -326,7 +326,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4, y: 20.087206}
+  m_Size: {x: 4, y: 12.141499}
   m_EdgeRadius: 0
 --- !u!61 &61949795094903542
 BoxCollider2D:
@@ -405,7 +405,7 @@ MonoBehaviour:
   remainState: {fileID: 11400000, guid: 2df2c52c7c6bda946ade5ffeb0e813fe, type: 2}
   patrolLocations: []
   nextPatrolLocation: 0
-  rb: {fileID: 0}
+  rb: {fileID: 50909270303423392}
   stateTimeElapsed: 0
   player: {fileID: 0}
   playerInRange: 0
@@ -425,9 +425,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1395257175453580}
   immune: 0
-  health: 0
-  stateController: {fileID: 0}
-  m_SpriteRender: {fileID: 0}
+  health: 1
+  stateController: {fileID: 114304144839616390}
+  m_SpriteRender: {fileID: 212155108036252890}
 --- !u!114 &114792679969956888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -440,9 +440,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1395257175453580}
-  health: 0
-  m_SpriteRender: {fileID: 0}
-  stateController: {fileID: 0}
+  health: 1
+  m_SpriteRender: {fileID: 212155108036252890}
+  stateController: {fileID: 114304144839616390}
 --- !u!198 &198050287671524272
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -9843,7 +9843,7 @@ AreaEffector2D:
     m_Bits: 4294967295
   m_UseGlobalAngle: 0
   m_ForceAngle: 90
-  m_ForceMagnitude: 100
+  m_ForceMagnitude: 120
   m_ForceVariation: 0
   m_ForceTarget: 0
   m_Drag: 1
