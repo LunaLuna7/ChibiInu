@@ -70,6 +70,11 @@ public class hurtBox : MonoBehaviour {
         }
     }
 
+    private void OnEnable()
+    {
+        m_SpriteRender.enabled = true;
+    }
+
 
 
 

@@ -49,7 +49,7 @@ public class CharacterController2D : MonoBehaviour {
     //private SoundEffectManager soundEffectManager;
     SpriteRenderer playerSprite;
 
-
+    private bool m_Jump;
     //CoolDowns
     public bool m_GroundDash;
     public bool m_OnSwing;
@@ -91,6 +91,12 @@ public class CharacterController2D : MonoBehaviour {
 
     public void Move(float move, bool jump)
     {
+        if (m_OnJumpPad)
+        {
+            if (m_RigidBody2D.velocity.y < 0 || m_Jump)
+                m_RigidBody2D.velocity = new Vector3(m_RigidBody2D.velocity.x, 0, 0);
+        }
+
         if (m_Grounded)
         {
             if (playerHealth.HPLeft >= 1 && move != 0)
@@ -229,7 +235,7 @@ public class CharacterController2D : MonoBehaviour {
             }
             else if(m_RigidBody2D.velocity.y < 0 && m_OnWall)
             {
-                m_RigidBody2D.velocity = Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime * 10;
+                m_RigidBody2D.velocity = Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime * 5;
                 if (!PlayingWallSlide)
                     OnWallSound();
 
@@ -237,7 +243,7 @@ public class CharacterController2D : MonoBehaviour {
 
             else if ((m_RigidBody2D.velocity.y > 0 || m_OnJumpPad) && !Input.GetButton("Jump"))//tab jump
             {
-                m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime;
+                m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity -1) * Time.deltaTime;
             }
             else if ((m_RigidBody2D.velocity.y > 0 || m_OnJumpPad )&& Input.GetButton("Jump") && m_OnJumpPad)
             {
@@ -275,9 +281,17 @@ public class CharacterController2D : MonoBehaviour {
     public void JumpadOn()
     {
         m_OnJumpPad = true;
+        m_AirJumpsLeft = m_AirJumps;
+        StartCoroutine(JumpadOffOverTime());
     }
     public void JumpadOff()
     {
+        m_OnJumpPad = false;
+    }
+
+    IEnumerator JumpadOffOverTime()
+    {
+        yield return new WaitForSeconds(.5f);
         m_OnJumpPad = false;
     }
 
