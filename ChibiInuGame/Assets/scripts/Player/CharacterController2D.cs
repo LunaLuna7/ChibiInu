@@ -316,17 +316,17 @@ public class CharacterController2D : MonoBehaviour {
         if (!m_Grounded)
         {
             
-            SoundEffectManager.instance.Play("Dash");
             
             if (m_FacingRight && m_DashLeft == 1)
             {
+                SoundEffectManager.instance.Play("Dash");
                 StartCoroutine(PerformingDash());
                 m_RigidBody2D.AddForce(Vector3.right * m_DashForce * 150 );
                 m_DashLeft--;
             }
             else if(!m_FacingRight && m_DashLeft == 1)
             {
-                
+                SoundEffectManager.instance.Play("Dash");
                 StartCoroutine(PerformingDash());
                 m_RigidBody2D.AddForce(Vector3.right * m_DashForce * -150);
                 m_DashLeft--;
