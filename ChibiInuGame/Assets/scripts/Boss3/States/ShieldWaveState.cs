@@ -35,7 +35,7 @@ public class ShieldWaveState : IState {
 		List<GameObject> objectList = new List<GameObject>();
 		for(int x = 0; x < num; ++x)
 		{
-			GameObject obj = GameObject.Instantiate(controller.sheildProjectile, controller.transform.position, Quaternion.identity);
+			GameObject obj = GameObject.Instantiate(controller.sheildProjectile, controller.transform.position + Vector3.back, Quaternion.identity);
 			obj.transform.SetParent(controller.skillObjectsGroup);
 			objectList.Add(obj);
 			//move obj out

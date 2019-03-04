@@ -29,7 +29,7 @@ public class KnightBossManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		hasStarted = true;
-		stateMachine.ChangeState(states[2]);
+		stateMachine.ChangeState(states[0]);
 	}
 	
 	// Update is called once per frame
@@ -43,6 +43,6 @@ public class KnightBossManager : MonoBehaviour {
 	public void SwitchState()
 	{
 		int next = Random.Range(0, states.Length);
-		this.stateMachine.ChangeState(states[2]);
+		this.stateMachine.ChangeState(states[next]);
 	}
 }

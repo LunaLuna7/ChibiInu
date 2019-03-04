@@ -87,18 +87,23 @@ public class BossShieldProjectile : MonoBehaviour {
 	{
 		//calculate needed data
 		float totalTime = distance/speed;
-		Vector3 currentPos = transform.position;
+		Vector3 originalPos = transform.position;
 		float radian = angle / 180 * 3.14f;
 		Vector3 diff = new Vector3(Mathf.Cos(radian), Mathf.Sin(radian), 0) * distance;
 
 		//move
 		float timeInterval = 0.02f;
+		Vector3 tempPos;
 		for(float x = 0; x < totalTime; x += timeInterval)
 		{
-			rigid.MovePosition(currentPos + diff * x / totalTime);
+			tempPos = originalPos + diff * x / totalTime;
+			tempPos.z = originalPos.z;
+			rigid.MovePosition(tempPos);
 			yield return new WaitForSeconds(timeInterval);
 		}
-		rigid.MovePosition(currentPos + diff);
+		tempPos = originalPos + diff;
+		tempPos.z = originalPos.z;
+		rigid.MovePosition(tempPos);
 	}
 
 }
