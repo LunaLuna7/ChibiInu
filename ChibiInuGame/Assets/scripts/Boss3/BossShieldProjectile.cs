@@ -36,7 +36,7 @@ public class BossShieldProjectile : MonoBehaviour {
 	}
 
 	//rotate towards the determination in preareTime, then shoot
-	public void ShootTowards(Vector3 position, float speed, float prepareTime)
+	public void ShootTowards(Vector3 position, float speed)
 	{
 		StartCoroutine(ShootTowardsRoutine(position, speed));
 	}
@@ -50,6 +50,8 @@ public class BossShieldProjectile : MonoBehaviour {
 		//calculate amount need to rotate
 		Vector3 diff = (targetPos - transform.position).normalized;
 		float targetAngle = Mathf.Atan2(diff.y, diff.x) /3.14f * 180;
+		//cancel the effect of shoot
+		targetAngle += 90;
 		float angleDiff = targetAngle - transform.eulerAngles.z;
 		angleDiff %= 360;
 		//match target angle to angular speed

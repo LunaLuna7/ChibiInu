@@ -16,7 +16,6 @@ public class ShieldWaveState : IState {
 		float healthLost = (controller.bossHealth.maxHealth - controller.bossHealth.health)/controller.bossHealth.maxHealth;
 		int num = 3 + (int)(healthLost/0.2f);
 		controller.StartCoroutine(Skill(num, 2f));
-		Debug.Log(num);
 	}
 
 	public void ExecuteState()
