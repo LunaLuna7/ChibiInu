@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class KnightBossManager : MonoBehaviour {
 	public BossHealth bossHealth;
-
+	public KnightBossMovementController movementController;
 	private bool hasStarted = false;
+	
 
 	[Header("For Skills")]
 	private StateMachine stateMachine = new StateMachine();
@@ -38,6 +39,7 @@ public class KnightBossManager : MonoBehaviour {
 
 	public void SwitchState()
 	{
-		this.stateMachine.ChangeState(states[0]);
+		int next = Random.Range(0, states.Length);
+		this.stateMachine.ChangeState(states[next]);
 	}
 }
