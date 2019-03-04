@@ -174,19 +174,17 @@ public class PartnerManager : MonoBehaviour {
             activePartner.Remove(temp);
             //update image in scene
             scenePartnerHolder.ChangePartnerImage(temp, null);
-
-            
         }
 
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J) || Input.GetButtonDown("PartnerA"))
+        if (firstSkill != null && (Input.GetKeyDown(KeyCode.J) || Input.GetButtonDown("PartnerA")))
         {
             firstSkill();
         }
-        if (Input.GetKeyDown(KeyCode.K) || Input.GetButtonDown("PartnerB"))
+        if (secondSkill != null && (Input.GetKeyDown(KeyCode.K) || Input.GetButtonDown("PartnerB")))
         {
             secondSkill();
         }
@@ -210,10 +208,8 @@ public class PartnerManager : MonoBehaviour {
         if (secondPartnerSlotUnlock) //If pass ch2 then player can 3 jump if they only have one partner in use
         {
             int counter = 0;
-            foreach (Partner p in partners)
-            {
-                if (p.inUse)
-                {
+            foreach (Partner p in partners){
+                if (p.inUse){
                     counter++;
                     if (counter >= 2)
                         return false;
@@ -221,14 +217,10 @@ public class PartnerManager : MonoBehaviour {
             }
             return true;
         }
-        else
-        {
-            foreach(Partner p in partners)
-            {
+        else{
+            foreach(Partner p in partners){
                 if (p.inUse)
-                {
                     return false;
-                }
             }
             return true;
         }
