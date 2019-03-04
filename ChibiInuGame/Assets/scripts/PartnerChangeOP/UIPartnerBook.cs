@@ -48,14 +48,14 @@ public class UIPartnerBook : MonoBehaviour {
             RightArrow();
         }
 
-        if (Input.GetButtonDown("PartnerA"))
+        if (Input.GetButtonDown("PartnerA") || Input.GetKeyDown(KeyCode.J))
         {
             if (firstPartnerButtonSummon.activeSelf)
                 SummonPartnerButton(0);
             else
                 UnSummonPartnerButton();
         }
-        else if (Input.GetButtonDown("PartnerB"))
+        else if (Input.GetButtonDown("PartnerB") || Input.GetKeyDown(KeyCode.K))
         {
             if (secondPartnerButtonSummon.activeSelf)
                 SummonPartnerButton(1);
@@ -69,7 +69,8 @@ public class UIPartnerBook : MonoBehaviour {
         //Updates the individual UI objects on teh scene canvas in respect to the SCriptable Object of the current partner
     private void UpdatePartnerPage(int nextPartner)
     {
-        SoundEffectManager.instance.Play("PageFlip");
+        if(currentPartner != partnerManager.partners[nextPartner])
+            SoundEffectManager.instance.Play("PageFlip");
         currentPartner = partnerManager.partners[nextPartner];
         partnerName.text = currentPartner.partnerInfo.name.ToString();
         partnerPicture.sprite = currentPartner.partnerInfo.image;
