@@ -75,6 +75,7 @@ public class UIPartnerBook : MonoBehaviour {
         currentPartner = partnerManager.partners[nextPartner];
         partnerName.text = currentPartner.partnerInfo.name.ToString();
         partnerPicture.sprite = currentPartner.partnerInfo.image;
+        partnerSkillPicture.sprite = currentPartner.partnerInfo.skillImage;
         partnerSkillInfo.text = currentPartner.partnerInfo.skillInfo;
 
         if (!currentPartner.inUse)
