@@ -13,4 +13,5 @@ public class PartnerInfo : ScriptableObject {
     [TextArea(3, 10)]
     public string skillInfo;
     public Sprite image;
+    public Sprite skillImage;
 }
