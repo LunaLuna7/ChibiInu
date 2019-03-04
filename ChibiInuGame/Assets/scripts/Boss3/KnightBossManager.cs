@@ -43,6 +43,6 @@ public class KnightBossManager : MonoBehaviour {
 	public void SwitchState()
 	{
 		int next = Random.Range(0, states.Length);
-		this.stateMachine.ChangeState(states[0]);
+		this.stateMachine.ChangeState(states[next]);
 	}
 }
