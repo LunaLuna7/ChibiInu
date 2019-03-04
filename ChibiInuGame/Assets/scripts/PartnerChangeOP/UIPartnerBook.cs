@@ -26,26 +26,33 @@ public class UIPartnerBook : MonoBehaviour {
     public GameObject secondPartnerButtonSummon;
     public GameObject callBackPartnerButton;
     public Animator BookWindow;
+   
 
     private bool joyStickToNeutral;
+    public bool deadInputTimeElapsed;
 
     private void Start()
     {
+        deadInputTimeElapsed = true;
         joyStickToNeutral = false;
     }
 
     private void Update()
     {
+        
+
         if (Input.GetAxis("Horizontal") == 0f)
             joyStickToNeutral = true;
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) ||(Input.GetAxis("Horizontal") < 0 && joyStickToNeutral))
+        if (deadInputTimeElapsed && (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) ||(Input.GetAxis("Horizontal") < 0 && joyStickToNeutral)))
         {
+            deadInputTimeElapsed = false;
             joyStickToNeutral = false;
             LeftArrow();
         }
 
-        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || (Input.GetAxis("Horizontal") > 0 && joyStickToNeutral))
+        else if (deadInputTimeElapsed && (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || (Input.GetAxis("Horizontal") > 0 && joyStickToNeutral)))
         {
+            deadInputTimeElapsed = false;
             joyStickToNeutral = false;
             RightArrow();
         }
@@ -91,8 +98,9 @@ public class UIPartnerBook : MonoBehaviour {
        
         yield return new WaitForSeconds(.8f);
         ActivePage(true);
+        //deadInputTimeElapsed = true;
+        StartCoroutine(DeadInputTime());
 
-        
         currentPartner = partnerManager.partners[nextPartner];
         partnerName.text = currentPartner.partnerInfo.name.ToString();
         partnerPicture.sprite = currentPartner.partnerInfo.image;
@@ -205,5 +213,12 @@ public class UIPartnerBook : MonoBehaviour {
             secondPartnerButtonSummon.SetActive(true);
 
         partnerManager.LimitPlayerJump(partnerManager.TripleJumpPartnerCapacity());
+    }
+
+    //Delay player able to flip page after the page data has loaded
+    IEnumerator DeadInputTime()
+    {
+        yield return new WaitForSeconds(.2f);
+        deadInputTimeElapsed = true;
     }
 }
