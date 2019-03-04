@@ -180,11 +180,11 @@ public class PartnerManager : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J) || Input.GetButtonDown("PartnerA"))
+        if (firstSkill != null && (Input.GetKeyDown(KeyCode.J) || Input.GetButtonDown("PartnerA")))
         {
             firstSkill();
         }
-        if (Input.GetKeyDown(KeyCode.K) || Input.GetButtonDown("PartnerB"))
+        if (secondSkill != null && (Input.GetKeyDown(KeyCode.K) || Input.GetButtonDown("PartnerB")))
         {
             secondSkill();
         }
