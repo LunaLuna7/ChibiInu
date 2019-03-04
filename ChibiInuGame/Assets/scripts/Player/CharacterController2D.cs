@@ -6,7 +6,7 @@ using Cinemachine;
 
 public class CharacterController2D : MonoBehaviour {
 
-
+    [Header("Stats")]
     [SerializeField] private float m_JumpForce = 900f;
     [SerializeField] private float m_WallJumpTime = .5f;
     [SerializeField] public int m_AirJumps = 0;
@@ -21,7 +21,7 @@ public class CharacterController2D : MonoBehaviour {
     [SerializeField] private float m_DashForce = 1000f;
     public bool paralyzedWhenStart = false;
 
-    //States
+    [Header("States")]
     public bool m_limitRightMove;
     public bool m_limitLeftMove;
     public bool m_FacingRight = true;
@@ -46,14 +46,15 @@ public class CharacterController2D : MonoBehaviour {
     public Animator anim;
     public Transform fireSpawn;
     private Vector3 m_Velocity = Vector3.zero;
-    //private SoundEffectManager soundEffectManager;
     SpriteRenderer playerSprite;
-
-    private bool m_Jump;
+    public GameObject DashParticle;
+    public GameObject DashSpawner;
+    
+   
     //CoolDowns
     public bool m_GroundDash;
     public bool m_OnSwing;
-
+   
 
     //SoundStates
     private bool PlayingWallSlide;
@@ -93,7 +94,7 @@ public class CharacterController2D : MonoBehaviour {
     {
         if (m_OnJumpPad)
         {
-            if (m_RigidBody2D.velocity.y < 0 || m_Jump)
+            if (m_RigidBody2D.velocity.y < 0 || jump)
                 m_RigidBody2D.velocity = new Vector3(m_RigidBody2D.velocity.x, 0, 0);
         }
 
@@ -315,19 +316,22 @@ public class CharacterController2D : MonoBehaviour {
         
         if (!m_Grounded)
         {
-            
-            
+          
             if (m_FacingRight && m_DashLeft == 1)
             {
                 SoundEffectManager.instance.Play("Dash");
+                
                 StartCoroutine(PerformingDash());
+                StartCoroutine(DashJuice());
                 m_RigidBody2D.AddForce(Vector3.right * m_DashForce * 150 );
                 m_DashLeft--;
             }
             else if(!m_FacingRight && m_DashLeft == 1)
             {
                 SoundEffectManager.instance.Play("Dash");
+                
                 StartCoroutine(PerformingDash());
+                StartCoroutine(DashJuice());
                 m_RigidBody2D.AddForce(Vector3.right * m_DashForce * -150);
                 m_DashLeft--;
             }
@@ -439,8 +443,24 @@ public class CharacterController2D : MonoBehaviour {
     IEnumerator PerformingDash()
     {
         m_OnDash = true;
+        m_limitRightMove = true;
+        m_limitLeftMove = true;
         yield return new WaitForSeconds(.2f);
+        m_limitRightMove = false;
+        m_limitLeftMove = false;
         m_OnDash = false;
+    }
+    IEnumerator DashJuice()
+    {
+        DashParticle.transform.transform.localScale = Vector3.one;
+        DashParticle.transform.localPosition = Vector3.zero;
+        DashParticle.transform.SetParent(null);
+        DashParticle.SetActive(true);
+        yield return new WaitForSeconds(.3f);
+        DashParticle.SetActive(false);
+        DashParticle.transform.SetParent(DashSpawner.transform);
+        DashParticle.transform.localPosition = Vector3.zero;
+        DashParticle.transform.transform.localScale = Vector3.one;
     }
 
     //=======================================================
