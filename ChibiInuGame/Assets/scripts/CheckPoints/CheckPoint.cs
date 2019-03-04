@@ -89,6 +89,7 @@ public class CheckPoint : MonoBehaviour {
             onCheckPoint = false;
             book.SetActive(false);
         }
+        RespawnWalls();
        
     }
 
