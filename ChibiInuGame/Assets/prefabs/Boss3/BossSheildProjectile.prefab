@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 61107203405055512}
   m_Layer: 10
   m_Name: BossSheildProjectile
-  m_TagString: hurtBox
+  m_TagString: hitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
