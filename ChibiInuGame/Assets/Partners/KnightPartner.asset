@@ -16,4 +16,5 @@ MonoBehaviour:
   skillInfo: 'Shield
 
 '
-  image: {fileID: 21300000, guid: 9cd6955c996ad8b4c9d4d81a540f787c, type: 3}
+  image: {fileID: 21300000, guid: 980929bc35c087d40b63c7396f0c01ee, type: 3}
+  skillImage: {fileID: 0}

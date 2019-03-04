@@ -18,6 +18,7 @@ public class UIPartnerBook : MonoBehaviour {
     [Header("Book Page UI Elements")]
     public Text partnerName;
     public Image partnerPicture;
+    public Image partnerSkillPicture;
     public Text partnerSkillInfo;
     public Button rightArrow;
     public Button leftArrow;

@@ -10,6 +10,7 @@ public class hurtBox : MonoBehaviour {
 
     public GameObject EnemyToKill;
     public bool immune;
+    public bool immuneToFire;
     public float health;
     private float timeBeforeDamageAgain = .1f; //delay to prevent multi hits in trigger enter frames
     private float timetrack;
@@ -35,7 +36,7 @@ public class hurtBox : MonoBehaviour {
     {
         
         if (!immune && (collision.gameObject.CompareTag("Player" ) && this.gameObject.transform.position.y - collision.gameObject.transform.position.y < 1)
-            || collision.gameObject.CompareTag("FireBall"))//Checks if Player is truly above the hitbox to make sure they die on contact only if player jumps on them
+            || (collision.gameObject.CompareTag("FireBall") && !immuneToFire))//Checks if Player is truly above the hitbox to make sure they die on contact only if player jumps on them
         {
             if (timetrack <= Time.time)
             {
