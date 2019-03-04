@@ -25,6 +25,7 @@ public class UIPartnerBook : MonoBehaviour {
     public GameObject firstPartnerButtonSummon;
     public GameObject secondPartnerButtonSummon;
     public GameObject callBackPartnerButton;
+    public Animator BookWindow;
 
     private bool joyStickToNeutral;
 
@@ -70,8 +71,28 @@ public class UIPartnerBook : MonoBehaviour {
         //Updates the individual UI objects on teh scene canvas in respect to the SCriptable Object of the current partner
     private void UpdatePartnerPage(int nextPartner)
     {
-        if(currentPartner != partnerManager.partners[nextPartner])
+        StartCoroutine(PageFlip(nextPartner));
+        StartCoroutine(UpdatePage(nextPartner));
+
+    }
+
+    IEnumerator PageFlip(int nextPartner)
+    {
+        if (currentPartner != partnerManager.partners[nextPartner])
             SoundEffectManager.instance.Play("PageFlip");
+        BookWindow.SetBool("TurnPage", true);
+        yield return new WaitForSeconds(.2f);
+        BookWindow.SetBool("TurnPage", false);
+    }
+
+    IEnumerator UpdatePage(int nextPartner)
+    {
+        ActivePage(false);
+       
+        yield return new WaitForSeconds(.8f);
+        ActivePage(true);
+
+        
         currentPartner = partnerManager.partners[nextPartner];
         partnerName.text = currentPartner.partnerInfo.name.ToString();
         partnerPicture.sprite = currentPartner.partnerInfo.image;
@@ -82,7 +103,7 @@ public class UIPartnerBook : MonoBehaviour {
         {
             callBackPartnerButton.SetActive(false);
             firstPartnerButtonSummon.SetActive(true);
-            if(partnerManager.secondPartnerSlotUnlock)
+            if (partnerManager.secondPartnerSlotUnlock)
                 secondPartnerButtonSummon.SetActive(true);
         }
         else
@@ -92,7 +113,18 @@ public class UIPartnerBook : MonoBehaviour {
             secondPartnerButtonSummon.SetActive(false);
         }
 
+    }
 
+    private void ActivePage(bool active)
+    {
+
+        partnerName.gameObject.SetActive(active);
+        partnerPicture.gameObject.SetActive(active);
+        partnerSkillPicture.gameObject.SetActive(active);
+        //partnerSkillInfo.gameObject.SetActive(active);
+        firstPartnerButtonSummon.gameObject.SetActive(active);
+        secondPartnerButtonSummon.gameObject.SetActive(active);
+        callBackPartnerButton.gameObject.SetActive(active);
     }
 
     //Checks if there is at least the first player unlocked. If so then activates the Book on Canvas. Also freezes player movement
