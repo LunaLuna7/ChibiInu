@@ -6,11 +6,14 @@ public class KnightBossManager : MonoBehaviour {
 	public BossHealth bossHealth;
 	public KnightBossMovementController movementController;
 	private bool hasStarted = false;
+
+	public GameObject player;
 	
 
 	[Header("For Skills")]
 	private StateMachine stateMachine = new StateMachine();
 	private IState[] states;
+	public GameObject sheildProjectile;
 	public Transform skillObjectsGroup;//transform to put all skill objects, easy for removing objects when reset
 
 	void Awake()
