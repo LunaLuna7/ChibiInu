@@ -320,7 +320,7 @@ public class CharacterController2D : MonoBehaviour {
             if (m_FacingRight && m_DashLeft == 1)
             {
                 SoundEffectManager.instance.Play("Dash");
-                
+                anim.Play("ShibDash");
                 StartCoroutine(PerformingDash());
                 StartCoroutine(DashJuice());
                 m_RigidBody2D.AddForce(Vector3.right * m_DashForce * 150 );
@@ -329,7 +329,7 @@ public class CharacterController2D : MonoBehaviour {
             else if(!m_FacingRight && m_DashLeft == 1)
             {
                 SoundEffectManager.instance.Play("Dash");
-                
+                anim.Play("ShibDash");
                 StartCoroutine(PerformingDash());
                 StartCoroutine(DashJuice());
                 m_RigidBody2D.AddForce(Vector3.right * m_DashForce * -150);
@@ -443,12 +443,14 @@ public class CharacterController2D : MonoBehaviour {
     IEnumerator PerformingDash()
     {
         m_OnDash = true;
+        
         m_limitRightMove = true;
         m_limitLeftMove = true;
         yield return new WaitForSeconds(.2f);
         m_limitRightMove = false;
         m_limitLeftMove = false;
         m_OnDash = false;
+        
     }
     IEnumerator DashJuice()
     {
