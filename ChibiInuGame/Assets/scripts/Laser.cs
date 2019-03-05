@@ -8,7 +8,7 @@ public class Laser : MonoBehaviour {
     public float moveSpeed = 0;
     public List<Transform> patrolLocations;
     private int nextPatrolLocation;
-
+    CharacterController2D characterController2D;
 	// Use this for initialization
 	void Start () {
 		
@@ -25,7 +25,17 @@ public class Laser : MonoBehaviour {
     {
         if(collision.tag == "Player")
         {
-            if(!collision.GetComponent<CharacterController2D>().m_Immune)
+            characterController2D = collision.GetComponent<CharacterController2D>();
+            if (!characterController2D.m_Immune)
+                collision.GetComponent<PlayerHealth>().gameManager.GameOver(collision.gameObject.transform);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            if (!characterController2D.m_Immune)
                 collision.GetComponent<PlayerHealth>().gameManager.GameOver(collision.gameObject.transform);
         }
     }
