@@ -111,8 +111,10 @@ public class UIPartnerBook : MonoBehaviour {
         {
             callBackPartnerButton.SetActive(false);
             firstPartnerButtonSummon.SetActive(true);
-            if (partnerManager.secondPartnerSlotUnlock)
+            if (partnerManager.secondPartnerSlotUnlock && !callBackPartnerButton.activeSelf)
                 secondPartnerButtonSummon.SetActive(true);
+            else
+                secondPartnerButtonSummon.SetActive(false);
         }
         else
         {
@@ -144,8 +146,8 @@ public class UIPartnerBook : MonoBehaviour {
             SoundEffectManager.instance.Play("OpenBook");
             currentPartner = partnerManager.partners[0];
             UpdatePartnerPage(currentPartner.partnerInfo.partnerId);
-            if (partnerManager.secondPartnerSlotUnlock && !callBackPartnerButton.activeSelf)
-                secondPartnerButtonSummon.SetActive(true);
+            //if (partnerManager.secondPartnerSlotUnlock && !callBackPartnerButton.activeSelf)
+                //secondPartnerButtonSummon.SetActive(true);
             gameObject.SetActive(true);
         }
         else
