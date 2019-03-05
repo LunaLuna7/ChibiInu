@@ -13,7 +13,7 @@ public class DeadBoundary : MonoBehaviour {
        
         if (collision.gameObject.tag == "Player")
         {
-            
+            collision.gameObject.GetComponent<PlayerHealth>().HPLeft = 0;
             gameManager.GameOver(collision.gameObject.transform);
             
         }
