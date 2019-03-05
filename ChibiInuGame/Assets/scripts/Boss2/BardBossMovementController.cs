@@ -17,12 +17,17 @@ public class BardBossMovementController : MonoBehaviour {
 	public float halfWidth;
 	public float halfHeight;
 
+	private Vector3 scale;
+
 	void Awake()
 	{
 		rigid = GetComponent<Rigidbody2D>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		centerX = (leftLowerPoint.position.x + rightUpperPoint.position.x)/2;
 		centerY = (leftLowerPoint.position.y + rightUpperPoint.position.y)/2;
+		scale = transform.localScale;
+		//facing left
+		transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
 	}
 
 
@@ -127,9 +132,9 @@ public class BardBossMovementController : MonoBehaviour {
 	private void ChangeFaceDirection()
 	{
 		if(direction.x >= 0)
-			spriteRenderer.flipX = false;
+			transform.localScale = scale;
 		else
-			spriteRenderer.flipX = true;
+			transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
 	}
 
 	private void SetVelocityRadian(float radian)
