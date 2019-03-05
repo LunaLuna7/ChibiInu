@@ -12,7 +12,8 @@ public class CheckPoint : MonoBehaviour {
     public List<GameObject> walls;
     public GameObject CheckPointParticleAura;
     public int previousCheckPoint;
-
+    public GameObject instructionBubble;
+    private UIPartnerBook uIPartnerBook;
 
     private bool onCheckPoint;
     private bool activated;
@@ -31,6 +32,8 @@ public class CheckPoint : MonoBehaviour {
 
     public void Start()
     {
+        uIPartnerBook = book.GetComponent<UIPartnerBook>();
+        instructionBubble.SetActive(false);
         checkPointImage = GetComponent<SpriteRenderer>();
         activated = false;
         
@@ -60,7 +63,8 @@ public class CheckPoint : MonoBehaviour {
     {
         if (collision.CompareTag("Player"))
         {
-
+            if(uIPartnerBook.partnerManager.partners[0].unlocked)
+                instructionBubble.SetActive(true);
             collision.gameObject.GetComponent<PlayerHealth>().HealDamage();
             SetCheckPointTo();
             onCheckPoint = true;
@@ -78,13 +82,20 @@ public class CheckPoint : MonoBehaviour {
         }
     }
 
-  
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player") && (uIPartnerBook.partnerManager.partners[0].unlocked))
+            instructionBubble.SetActive(true);
+    }
+
+
 
     private void OnTriggerExit2D(Collider2D collision)
     {
 
         if (collision.gameObject.tag == "Player")
         {
+            instructionBubble.SetActive(false);
             SoundEffectManager.instance.Stop("CheckPointAura");
             onCheckPoint = false;
             book.SetActive(false);

@@ -38,7 +38,7 @@ public class hurtBox : MonoBehaviour {
         if (!immune && (collision.gameObject.CompareTag("Player" ) && this.gameObject.transform.position.y - collision.gameObject.transform.position.y < 1)
             || (collision.gameObject.CompareTag("FireBall") && !immuneToFire))//Checks if Player is truly above the hitbox to make sure they die on contact only if player jumps on them
         {
-            if (timetrack <= Time.time)
+            if (timetrack <= Time.time && EnemyToKill.activeSelf)
             {
                 timetrack = timeBeforeDamageAgain + Time.time;
                 health--;
