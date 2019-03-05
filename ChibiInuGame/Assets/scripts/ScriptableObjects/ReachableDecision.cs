@@ -12,7 +12,7 @@ public class ReachableDecision : Decision {
 
     private bool InRange(StateController controller)
     {
-        if (Mathf.Abs(controller.player.transform.position.x - controller.transform.position.x) > 30)
+        if (controller.playerHealth.HPLeft > 0 && Mathf.Abs(controller.player.transform.position.x - controller.transform.position.x) < 20 && Mathf.Abs(controller.player.transform.position.y - controller.transform.position.y) < 10)
         {
             return true;
         }

@@ -15,7 +15,7 @@ public class StateController : MonoBehaviour {
     [HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public float stateTimeElapsed;
     [HideInInspector] public GameObject player;
-
+    [System.NonSerialized] public PlayerHealth playerHealth;
 
     public bool playerInRange;
     private Collider2D col;
@@ -30,6 +30,7 @@ public class StateController : MonoBehaviour {
         col = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
+        playerHealth = player.GetComponent<PlayerHealth>();
         if(IgnoreCollision != null)
             Physics2D.IgnoreCollision(IgnoreCollision.GetComponent<Collider2D>(), col);
 
