@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212027039537317696}
   - component: {fileID: 114248084885818556}
   - component: {fileID: 50265745410165610}
-  - component: {fileID: 61107203405055512}
+  - component: {fileID: 60221317273665946}
   m_Layer: 10
   m_Name: BossSheildProjectile
   m_TagString: hitBox
@@ -63,8 +63,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61107203405055512
-BoxCollider2D:
+--- !u!60 &60221317273665946
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -77,17 +77,21 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0.22999999, z: 0, w: 2.4099998}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.58, y: 2.74}
+    oldSize: {x: 2.5, y: 3.25}
     newSize: {x: 2.16, y: 2.22}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.58, y: 2.74}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -1.25, y: 1.625}
+      - {x: -1.2395477, y: -0.99870396}
+      - {x: 0.023071289, y: -1.625}
+      - {x: 1.2186279, y: -0.93642044}
+      - {x: 1.25, y: 1.625}
 --- !u!114 &114248084885818556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,7 +138,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a283bcc6a11c4ae4ba99428984e7b5da, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2af3034dea81add4fa4d97da75b50fc4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
