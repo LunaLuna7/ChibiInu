@@ -31,6 +31,9 @@ public class PowerManager : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
+        {
             SpawnEnemies();
+            castlePlatform.powerOn = true;
+        }
     }
 }
