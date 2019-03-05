@@ -132,9 +132,7 @@ public class BossWorld2 : MonoBehaviour {
         {
             Destroy(skillObjectsGroup.GetChild(x).gameObject);
         }
-        //face left
         transform.position = startPosition.position;
-        GetComponent<SpriteRenderer>().flipX = true;
         bossHealth.health = bossHealth.maxHealth;
         hasStarted = false;
         //movement
