@@ -6,6 +6,7 @@ public class CastlePlatform : MonoBehaviour {
 
     public float speed;
     public bool active;
+    public bool powerOn;
     public Transform destination;
     private Rigidbody2D rb;
     
@@ -20,4 +21,12 @@ public class CastlePlatform : MonoBehaviour {
         if(active)
             transform.position = Vector3.MoveTowards(transform.position, destination.position, speed * Time.deltaTime);
 	}
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (powerOn && collision.gameObject.CompareTag("Player"))
+        {
+            active = true;
+        }
+    }
 }
