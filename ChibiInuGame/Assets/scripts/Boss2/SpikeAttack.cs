@@ -9,9 +9,9 @@ public class SpikeAttack : MonoBehaviour {
     public float xOffset;
     Vector3 startPosition;
 
-    private void OnEnable()
+    private void Start()
     {
-        startPosition = transform.position;
+        
     }
 
 
@@ -20,6 +20,15 @@ public class SpikeAttack : MonoBehaviour {
         transform.position = Vector3.MoveTowards(transform.position,
                  new Vector3(startPosition.x + xOffset, startPosition.y + yOffset, transform.position.z),
                  speed * Time.deltaTime);
+    }
+
+    public void SetStartPosition()
+    {
+        startPosition = transform.position;
+    }
+    public void ResetPosition()
+    {
+        transform.position = startPosition;
     }
 
 }

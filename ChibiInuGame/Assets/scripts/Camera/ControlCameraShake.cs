@@ -29,10 +29,10 @@ public class ControlCameraShake : MonoBehaviour {
 
     public void ShakeCamera()
     {
-        Debug.Log("ShakeCamera");
+
         if(shakeElapsedTime > 0)
         {
-            Debug.Log("ShakeCamera if ");
+          
             virtualCameraNoise.m_AmplitudeGain = shakeAmplitude;
             virtualCameraNoise.m_FrequencyGain = shakeFrequency;
             shakeElapsedTime -= Time.deltaTime;
