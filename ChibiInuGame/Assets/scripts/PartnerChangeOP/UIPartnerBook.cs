@@ -39,8 +39,6 @@ public class UIPartnerBook : MonoBehaviour {
 
     private void Update()
     {
-        
-
         if (Input.GetAxis("Horizontal") == 0f)
             joyStickToNeutral = true;
         if (deadInputTimeElapsed && (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) ||(Input.GetAxis("Horizontal") < 0 && joyStickToNeutral)))
@@ -70,7 +68,6 @@ public class UIPartnerBook : MonoBehaviour {
                 SummonPartnerButton(1);
             else
                 UnSummonPartnerButton();
-
         }
             
     }
