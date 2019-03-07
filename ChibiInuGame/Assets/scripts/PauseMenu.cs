@@ -62,6 +62,9 @@ public class PauseMenu: MonoBehaviour{
     private float timer = 5;
     public void CheckMainInput()
     {
+
+        if (Input.GetButtonDown("Pause"))
+            mainArrowIndex = 0;
         //when press up button
         if (MenuInputManager.CheckUp() && mainArrowIndex > 0)
         {
@@ -79,6 +82,7 @@ public class PauseMenu: MonoBehaviour{
         //when press Space
         else if (Input.GetButtonDown("Submit"))
         {
+            Debug.Log(mainArrowIndex);
             SoundEffectManager.instance.Play("MenuSelect");
             switch (mainArrowIndex)
             {
