@@ -22,7 +22,8 @@ public class PauseMenu: MonoBehaviour{
 
     private void Update()
     {
-        CheckMainInput();
+        if(pauseWindow.activeSelf)
+            CheckMainInput();
         if ((Input.GetKeyDown(KeyCode.Escape) || (Input.GetButtonDown("Pause"))) && !loadingScene)
         {
             if (!pauseWindow.activeSelf)
