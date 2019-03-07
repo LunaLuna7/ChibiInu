@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu: MonoBehaviour{
 
+    public GameObject arrow;
+    public GameObject[] buttons;
+
     public LevelChanger levelChanger;
     public GameObject pauseWindow;
     private bool loadingScene;
@@ -19,6 +22,7 @@ public class PauseMenu: MonoBehaviour{
 
     private void Update()
     {
+        CheckMainInput();
         if ((Input.GetKeyDown(KeyCode.Escape) || (Input.GetButtonDown("Pause"))) && !loadingScene)
         {
             if (!pauseWindow.activeSelf)
@@ -54,4 +58,50 @@ public class PauseMenu: MonoBehaviour{
         DeactivatePause();
     }
 
+    private int mainArrowIndex = 0;
+    private float timer = 5;
+    public void CheckMainInput()
+    {
+        //when press up button
+        if (MenuInputManager.CheckUp() && mainArrowIndex > 0)
+        {
+            SoundEffectManager.instance.Play("MenuScroll");
+            --mainArrowIndex;
+            UpdateArrow(mainArrowIndex);
+        }
+        //when press down
+        else if (MenuInputManager.CheckDown() && mainArrowIndex < buttons.Length - 1)
+        {
+            SoundEffectManager.instance.Play("MenuScroll");
+            ++mainArrowIndex;
+            UpdateArrow(mainArrowIndex);
+        }
+        //when press Space
+        else if (Input.GetButtonDown("Submit"))
+        {
+            SoundEffectManager.instance.Play("MenuSelect");
+            switch (mainArrowIndex)
+            {
+                //start game
+                case 0:
+                    DeactivatePause();
+                    break;
+                case 1:
+                    LoadLevelSelect();
+                    break;
+                //quit game
+                case 2:
+                    LoadMainMenu();
+                    break;
+            }
+        }
+    }
+
+    private void UpdateArrow(int index)
+    {
+        arrow.GetComponent<RectTransform>().position = new Vector3(arrow.GetComponent<RectTransform>().position.x,
+                                                              buttons[index].GetComponent<RectTransform>().position.y,
+                                                              arrow.GetComponent<RectTransform>().position.z);
+
+    }
 }
