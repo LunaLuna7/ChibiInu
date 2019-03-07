@@ -10,6 +10,7 @@ TextureImporter:
     21300010: plant_tile_inner_ring_2_5
     21300012: plant_tile_inner_ring_2_6
     21300014: plant_tile_inner_ring_2_7
+    21300016: plant_tile_inner_ring_2_8
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -128,7 +129,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46eddd60c03baa94ab6eb1a4e0fdb30a
+      spriteID: 6e0460d426983a44cb99205ba79430f2
       vertices: []
       indices: 
       edges: []
@@ -148,7 +149,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 168486eb75738ac43b58764cd38c28dc
+      spriteID: f96fc5e47b042ae4693bcd20d9d94849
       vertices: []
       indices: 
       edges: []
@@ -168,7 +169,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa5ba306be6290b45bbc1681e442ff90
+      spriteID: f613e07cecabdd746b199ef88835ab9c
       vertices: []
       indices: 
       edges: []
@@ -188,13 +189,33 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d22a66a35eda98e43a1517764100198e
+      spriteID: 4f1318a79d290b04cb0f5033c3b2bd13
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
       name: plant_tile_inner_ring_2_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 837e500fa6469074b944c4832e627873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_tile_inner_ring_2_5
       rect:
         serializedVersion: 2
         x: 128
@@ -208,13 +229,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c36a00957c9bc004591b1627b3c2e201
+      spriteID: e4fbe808461ab38498dd62ceede76167
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_tile_inner_ring_2_5
+      name: plant_tile_inner_ring_2_6
       rect:
         serializedVersion: 2
         x: 0
@@ -228,13 +249,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12fd6670f7add0e42bee0f2226696f05
+      spriteID: 3fdff48e12569f849b7499e05c32eb22
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_tile_inner_ring_2_6
+      name: plant_tile_inner_ring_2_7
       rect:
         serializedVersion: 2
         x: 64
@@ -248,13 +269,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8ec064c778619d4580340144d96ae3a
+      spriteID: 02c62b20f2aad5c448dc69cebeec0b29
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_tile_inner_ring_2_7
+      name: plant_tile_inner_ring_2_8
       rect:
         serializedVersion: 2
         x: 128
@@ -268,7 +289,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b06080fef5eb714e9870d2363111b6b
+      spriteID: 187000a4f532c964a88624639f949483
       vertices: []
       indices: 
       edges: []
@@ -276,7 +297,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 4a8118236f00a144a98c8d497d9049a0
+    spriteID: 388a77d115a2fd1469dd5d169d6e9978
     vertices: []
     indices: 
     edges: []
