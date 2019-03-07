@@ -38,7 +38,7 @@ public class PlayerHealth : MonoBehaviour {
         {
             if (!controller.m_Immune)
             {
-                StartCoroutine(BlinkSprite());
+                //StartCoroutine(BlinkSprite());
                 StartCoroutine(DamageState());
             }
         }
@@ -50,7 +50,7 @@ public class PlayerHealth : MonoBehaviour {
     }
 
 
-    IEnumerator DamageState()
+    public IEnumerator DamageState()
     {
         //controller.m_Damaged = true;
         TakeDamage(1);
@@ -84,14 +84,13 @@ public class PlayerHealth : MonoBehaviour {
             
             HPLeft -= damage;
             controller.m_Immune = true;
+            StartCoroutine(BlinkSprite());
 
             if (HPLeft == 1)
                 playerHealth.sprite = halfHearth;
 
             else if (HPLeft == 2)
                 playerHealth.sprite = fullHearth;
-
-          
 
             if (HPLeft <= 0)
             {

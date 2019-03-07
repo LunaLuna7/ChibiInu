@@ -6,13 +6,30 @@ using UnityEngine;
 public class Boss2CheckPoint : MonoBehaviour {
 	public BardBossStartPoint bossDetection;
 	public BossWorld2 bardBoss;
-	
-	void OnTriggerEnter2D(Collider2D other)
+
+    public List<GameObject> spikes;
+    int countSpike;
+    void Start()
+    {
+        countSpike = 0;
+    }
+    void OnTriggerEnter2D(Collider2D other)
 	{
 		if(other.tag == "Player")
 		{
 			bardBoss.Initialize();
 			bossDetection.Reset();
-		}
+            foreach (GameObject spike in spikes)
+            {
+                spike.SetActive(false);
+                SpikeAttack temp = spike.GetComponent<SpikeAttack>();
+                if (countSpike < 4)
+                {
+                    countSpike++;
+                    temp.SetStartPosition();
+                }
+                temp.ResetPosition();
+            }
+        }
 	}
 }

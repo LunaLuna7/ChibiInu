@@ -14,10 +14,11 @@ public class BardBossHealth : BossHealth {
         {
             StartCoroutine(TriggerSecondPhase());
         }
+       
 
         if (health <= 0)
         {
-
+            
             GetComponent<BossWorld2>().EndBattle();
 			gameObject.SetActive(false);
             //health = maxHealth;
