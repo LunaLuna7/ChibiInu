@@ -144,6 +144,10 @@ public class UIPartnerBook : MonoBehaviour {
             callBackPartnerButton.SetActive(true);
             firstPartnerButtonSummon.SetActive(false);
             secondPartnerButtonSummon.SetActive(false);
+            lBButton.SetActive(false);
+            rBButton.SetActive(false);
+            jKeyButton.SetActive(false);
+            kKeyButton.SetActive(false);
         }
 
     }
@@ -244,8 +248,20 @@ public class UIPartnerBook : MonoBehaviour {
         partnerManager.UnSummonPartner(currentPartner);
         callBackPartnerButton.SetActive(false);
         firstPartnerButtonSummon.SetActive(true);
-        if(partnerManager.secondPartnerSlotUnlock)
+
+        if (openWithKeyboard)
+            jKeyButton.SetActive(true);
+        else if (openWithXbox)
+            lBButton.SetActive(true);
+
+        if (partnerManager.secondPartnerSlotUnlock)
+        {
             secondPartnerButtonSummon.SetActive(true);
+            if (openWithKeyboard)
+                kKeyButton.SetActive(true);
+            else if (openWithXbox)
+                rBButton.SetActive(true);
+        }
 
         partnerManager.LimitPlayerJump(partnerManager.TripleJumpPartnerCapacity());
     }
