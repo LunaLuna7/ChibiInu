@@ -22,6 +22,10 @@ public class UIPartnerBook : MonoBehaviour {
     public Text partnerSkillInfo;
     public Button rightArrow;
     public Button leftArrow;
+    public GameObject lBButton;
+    public GameObject rBButton;
+    public GameObject jKeyButton;
+    public GameObject kKeyButton;
     public GameObject firstPartnerButtonSummon;
     public GameObject secondPartnerButtonSummon;
     public GameObject callBackPartnerButton;
@@ -30,6 +34,8 @@ public class UIPartnerBook : MonoBehaviour {
 
     private bool joyStickToNeutral;
     public bool deadInputTimeElapsed;
+    public bool openWithXbox;
+    public bool openWithKeyboard;
 
     private void Start()
     {
@@ -39,8 +45,6 @@ public class UIPartnerBook : MonoBehaviour {
 
     private void Update()
     {
-        
-
         if (Input.GetAxis("Horizontal") == 0f)
             joyStickToNeutral = true;
         if (deadInputTimeElapsed && (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) ||(Input.GetAxis("Horizontal") < 0 && joyStickToNeutral)))
@@ -70,7 +74,6 @@ public class UIPartnerBook : MonoBehaviour {
                 SummonPartnerButton(1);
             else
                 UnSummonPartnerButton();
-
         }
             
     }
@@ -107,6 +110,22 @@ public class UIPartnerBook : MonoBehaviour {
         partnerSkillPicture.sprite = currentPartner.partnerInfo.skillImage;
         partnerSkillInfo.text = currentPartner.partnerInfo.skillInfo;
 
+        //Add control pictures
+        if (openWithXbox)
+        {
+            lBButton.SetActive(true);
+            rBButton.SetActive(true);
+            jKeyButton.SetActive(false);
+            kKeyButton.SetActive(false);
+        }
+        else if (openWithKeyboard)
+        {
+            lBButton.SetActive(false);
+            rBButton.SetActive(false);
+            jKeyButton.SetActive(true);
+            kKeyButton.SetActive(true);
+        }
+
         if (!currentPartner.inUse)
         {
             callBackPartnerButton.SetActive(false);
@@ -114,7 +133,11 @@ public class UIPartnerBook : MonoBehaviour {
             if (partnerManager.secondPartnerSlotUnlock && !callBackPartnerButton.activeSelf)
                 secondPartnerButtonSummon.SetActive(true);
             else
+            {
                 secondPartnerButtonSummon.SetActive(false);
+                rBButton.SetActive(false);
+                kKeyButton.SetActive(false);
+            }
         }
         else
         {
@@ -135,6 +158,14 @@ public class UIPartnerBook : MonoBehaviour {
         firstPartnerButtonSummon.gameObject.SetActive(active);
         secondPartnerButtonSummon.gameObject.SetActive(active);
         callBackPartnerButton.gameObject.SetActive(active);
+
+        lBButton.SetActive(active);
+        rBButton.SetActive(active);
+        jKeyButton.SetActive(active);
+        kKeyButton.SetActive(active);
+
+        
+
     }
 
     //Checks if there is at least the first player unlocked. If so then activates the Book on Canvas. Also freezes player movement

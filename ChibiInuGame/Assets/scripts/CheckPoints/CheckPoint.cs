@@ -43,8 +43,18 @@ public class CheckPoint : MonoBehaviour {
     {
         if (onCheckPoint)
         {
-            if ((Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("CallBook"))&& !book.activeSelf)
+            if (Input.GetKeyDown(KeyCode.P) && !book.activeSelf)
+            {
                 book.SetActive(true);
+                uIPartnerBook.openWithKeyboard = true;
+                uIPartnerBook.openWithXbox = false;
+            }
+
+            else if(Input.GetButtonDown("CallBook") && !book.activeSelf){
+                book.SetActive(true);
+                uIPartnerBook.openWithKeyboard = false;
+                uIPartnerBook.openWithXbox = true;
+            }
 
             else if ((Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("CallBook")) && book.activeSelf)
                 book.SetActive(false);

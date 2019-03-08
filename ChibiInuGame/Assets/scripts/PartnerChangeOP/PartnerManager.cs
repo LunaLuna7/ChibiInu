@@ -234,7 +234,7 @@ public class PartnerManager : MonoBehaviour {
     //Creates a Fireball
     public void FireBallShot()
     {
-        if (!fireBallOnCoolDown)
+        if (!fireBallOnCoolDown && Time.timeScale != 0 && !characterController.uIPartnerBook.BookWindow.gameObject.activeSelf)
         {
             SoundEffectManager.instance.Play("FireBall");
             if (characterController.m_FacingRight)
