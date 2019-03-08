@@ -49,6 +49,7 @@ public class CharacterController2D : MonoBehaviour {
     SpriteRenderer playerSprite;
     public GameObject DashParticle;
     public GameObject DashSpawner;
+    public UIPartnerBook uIPartnerBook;
     
    
     //CoolDowns
@@ -314,7 +315,7 @@ public class CharacterController2D : MonoBehaviour {
     public void Dash()
     {
         
-        if (!m_Grounded)
+        if (!m_Grounded && Time.timeScale != 0 && !uIPartnerBook.BookWindow.gameObject.activeSelf)
         {
           
             if (m_FacingRight && m_DashLeft == 1)
@@ -342,11 +343,13 @@ public class CharacterController2D : MonoBehaviour {
     //Methods to handle the shield skill
     public void TriggerShield()
     {
-        
-        if (!m_OnShield)
-            ShieldOn();
-        else if (m_OnShield)
-            ShieldOff();
+        if(Time.timeScale != 0 && !uIPartnerBook.BookWindow.gameObject.activeSelf)
+        { 
+            if (!m_OnShield)
+                ShieldOn();
+            else if (m_OnShield)
+                ShieldOff();
+        }
     }
     private void ShieldOn()
     {
