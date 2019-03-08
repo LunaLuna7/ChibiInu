@@ -315,7 +315,7 @@ public class CharacterController2D : MonoBehaviour {
     public void Dash()
     {
         
-        if (!m_Grounded && Time.timeScale != 0 && !uIPartnerBook.BookWindow.gameObject.activeSelf)
+        if (!m_Grounded && Time.timeScale != 0)
         {
           
             if (m_FacingRight && m_DashLeft == 1)
@@ -343,7 +343,7 @@ public class CharacterController2D : MonoBehaviour {
     //Methods to handle the shield skill
     public void TriggerShield()
     {
-        if(Time.timeScale != 0 && !uIPartnerBook.BookWindow.gameObject.activeSelf)
+        if(Time.timeScale != 0)
         { 
             if (!m_OnShield)
                 ShieldOn();
@@ -359,7 +359,7 @@ public class CharacterController2D : MonoBehaviour {
         m_OnShield = true;
     }
 
-    private void ShieldOff()
+    public void ShieldOff()
     {
         playerSprite.color = Color.white;
         m_RigidBody2D.gravityScale = 5;

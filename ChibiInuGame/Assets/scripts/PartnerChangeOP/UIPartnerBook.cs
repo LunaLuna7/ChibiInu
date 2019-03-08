@@ -189,6 +189,8 @@ public class UIPartnerBook : MonoBehaviour {
     private void OnDisable()
     {
         characterController.m_Paralyzed = false;
+        if (!partnerManager.IsActive(2))
+            characterController.ShieldOff();
     }
 
     //Moves right(+1 index) through the partnerManager.cs allPartners list of Scriptable Partners objects and if unlock it updats the page and currentPartner
