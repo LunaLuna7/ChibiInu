@@ -109,8 +109,8 @@ public class CheckPoint : MonoBehaviour {
             SoundEffectManager.instance.Stop("CheckPointAura");
             onCheckPoint = false;
             book.SetActive(false);
+            RespawnWalls();
         }
-        RespawnWalls();
        
     }
 
