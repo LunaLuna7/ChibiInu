@@ -12,8 +12,10 @@ public class KnightBossHealth : BossHealth {
 
         if (health <= 0)
         {
+            GetComponent<KnightBossManager>().EndBattle();
             gameObject.SetActive(false);
             //health = maxHealth;
+            
         }else if (currentHp <= 0.7f && phaseManager.GetPhase() == 1)
         {
             //phase 2
