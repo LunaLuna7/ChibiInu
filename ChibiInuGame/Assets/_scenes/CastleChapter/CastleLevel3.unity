@@ -2420,7 +2420,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.16245341, y: 0.67661744}
   m_AnchorMax: {x: 0.8443255, y: 0.79851454}
-  m_AnchoredPosition: {x: -0.000061035156, y: 1.0001831}
+  m_AnchoredPosition: {x: 0, y: 1.0001831}
   m_SizeDelta: {x: 0, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &433735750
@@ -3934,7 +3934,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2, y: 0.8128523}
   m_AnchorMax: {x: 0.78300005, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -0.000061035156}
+  m_AnchoredPosition: {x: 0.00012207031, y: -0.000061035156}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1164398167
@@ -5422,6 +5422,8 @@ PlayableDirector:
     value: {fileID: 48959180}
   - key: {fileID: 114469296853506194, guid: b71c4903bced8ca479761fc1ea051347, type: 2}
     value: {fileID: 48959183}
+  - key: {fileID: 114721387098374548, guid: b71c4903bced8ca479761fc1ea051347, type: 2}
+    value: {fileID: 659052014}
   m_ExposedReferences:
     m_References:
     - f1085d46247118545af22265418e124d: {fileID: 0}
@@ -25381,7 +25383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
-  maxHealth: 20
+  maxHealth: 2
   intervalSpikesTime: 0
   healthBar: {fileID: 0}
   cameraShake: {fileID: 0}
