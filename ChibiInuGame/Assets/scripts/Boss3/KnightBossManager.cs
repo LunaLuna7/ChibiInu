@@ -16,7 +16,7 @@ public class KnightBossManager : MonoBehaviour {
 	private IState[] states;
 	public GameObject sheildProjectile;
 	public Transform skillObjectsGroup;//transform to put all skill objects, easy for removing objects when reset
-
+	public TimeLineManager afterBattleTimeline;
 	void Awake()
 	{
 		//set states
@@ -69,4 +69,23 @@ public class KnightBossManager : MonoBehaviour {
 		boundary.SetActive(true);
 		stateMachine.ChangeState(states[0]);
 	}
+
+	public void EndBattle()
+    {
+        //stop using the current skills
+        StopAllCoroutines();
+		movementController.StopAllCoroutines();
+        //destroy all skill objects
+        for(int x = 0; x< skillObjectsGroup.childCount; ++x)
+        {
+            Destroy(skillObjectsGroup.GetChild(x).gameObject);
+        }
+        afterBattleTimeline.Play();
+    }
+
+	public void HidePlayer()
+	{
+		player.SetActive(false);
+	}
+
 }
