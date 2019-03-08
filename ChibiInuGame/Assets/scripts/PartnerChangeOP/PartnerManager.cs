@@ -80,7 +80,7 @@ public class PartnerManager : MonoBehaviour {
         }
     }
 
-    private bool IsActive(int partnerId)
+    public bool IsActive(int partnerId)
     {
         return partners[partnerId].inUse;
     }
@@ -180,11 +180,11 @@ public class PartnerManager : MonoBehaviour {
 
     private void Update()
     {
-        if (firstSkill != null && (Input.GetKeyDown(KeyCode.J) || Input.GetButtonDown("PartnerA")))
+        if (firstSkill != null && !characterController.m_Paralyzed && (Input.GetKeyDown(KeyCode.J) || Input.GetButtonDown("PartnerA")))
         {
             firstSkill();
         }
-        if (secondSkill != null && (Input.GetKeyDown(KeyCode.K) || Input.GetButtonDown("PartnerB")))
+        if (secondSkill != null && !characterController.m_Paralyzed && (Input.GetKeyDown(KeyCode.K) || Input.GetButtonDown("PartnerB")))
         {
             secondSkill();
         }
@@ -234,7 +234,7 @@ public class PartnerManager : MonoBehaviour {
     //Creates a Fireball
     public void FireBallShot()
     {
-        if (!fireBallOnCoolDown && Time.timeScale != 0 && !characterController.uIPartnerBook.BookWindow.gameObject.activeSelf)
+        if (!fireBallOnCoolDown && Time.timeScale != 0)// && !characterController.uIPartnerBook.BookWindow.gameObject.activeSelf)
         {
             SoundEffectManager.instance.Play("FireBall");
             if (characterController.m_FacingRight)
