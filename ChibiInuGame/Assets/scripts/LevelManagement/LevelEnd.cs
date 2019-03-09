@@ -23,6 +23,14 @@ public class LevelEnd : MonoBehaviour {
 			partnerManager = GameObject.FindObjectOfType<PartnerManager>();
 		levelEndUI.SetActive(false);
 	}
+
+	void Update()
+	{
+		if(levelEndUI.activeSelf && Input.GetButtonDown("Submit"))
+		{
+			BackToMap();
+		}
+	}
 	
 	public void OnTriggerEnter2D(Collider2D other)
 	{
