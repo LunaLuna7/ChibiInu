@@ -50,6 +50,7 @@ public class CharacterController2D : MonoBehaviour {
     public GameObject DashParticle;
     public GameObject DashSpawner;
     public UIPartnerBook uIPartnerBook;
+    public GameObject playerGameObject;
     
    
     //CoolDowns
@@ -73,7 +74,7 @@ public class CharacterController2D : MonoBehaviour {
         playerSprite = GetComponent<SpriteRenderer>();
         m_RigidBody2D = GetComponent<Rigidbody2D>();
         //soundEffectManager = FindObjectOfType<SoundEffectManager>();
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         playerHealth = GetComponent<PlayerHealth>();
     }
 	
@@ -234,14 +235,22 @@ public class CharacterController2D : MonoBehaviour {
             if (m_RigidBody2D.velocity.y < 0 && !m_OnWall) //we are falling
             {
                 m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime;
-            }
+                anim.Play("ShibaAirJump");
+                playerGameObject.transform.localPosition = new Vector3(0, 0, 0);
+        }
             else if(m_RigidBody2D.velocity.y < 0 && m_OnWall)
             {
                 m_RigidBody2D.velocity = Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime * 5;
-                if (!PlayingWallSlide)
-                    OnWallSound();
-
+                anim.Play("ShibWallJump");
+                playerGameObject.transform.localPosition = new Vector3(.5f, 0, 0);
+                //transform.rotation = new Quaternion(0, 0, 90, transform.rotation.w);
             }
+            if (!PlayingWallSlide)
+            {
+                OnWallSound();
+            }
+
+            
 
             else if ((m_RigidBody2D.velocity.y > 0 || m_OnJumpPad) && !Input.GetButton("Jump"))//tab jump
             {
