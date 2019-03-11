@@ -20,8 +20,8 @@ public class PlayerHealth : MonoBehaviour {
     private Image playerHealth;
 
     void Awake () {
-        m_SpriteRender = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
+        m_SpriteRender = GetComponentInChildren<SpriteRenderer>();
+        anim = GetComponentInChildren<Animator>();
         HPLeft = HP;
         playerHealth = HealthUI.GetComponent<Image>();
         playerHealth.sprite = fullHearth;
