@@ -15,4 +15,4 @@ MonoBehaviour:
   partnerId: 0
   skillInfo: Fire ball
   image: {fileID: 21300000, guid: 5f5c3f84dcb8b614da15bac2b709e6d8, type: 3}
-  skillImage: {fileID: 21300000, guid: ce1c260b8f9826844b03ec4f2378aba6, type: 3}
+  skillImage: {fileID: 21300000, guid: 16325c82a19da2440a29bb4fb6b0d641, type: 3}
