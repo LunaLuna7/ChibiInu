@@ -8,13 +8,13 @@ public class KnightBossHealth : BossHealth {
     {
         health -= damage;
         float currentHp = health / maxHealth;
-        //healthBar.fillAmount = currentHp;
+        healthBar.fillAmount = currentHp;
 
         if (health <= 0)
         {
             GetComponent<KnightBossManager>().EndBattle();
             gameObject.SetActive(false);
-            //health = maxHealth;
+            health = maxHealth;
             
         }else if (currentHp <= 0.7f && phaseManager.GetPhase() == 1)
         {

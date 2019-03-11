@@ -71,7 +71,7 @@ public class CharacterController2D : MonoBehaviour {
         PlayingWallSlide = false;
         m_GroundDash = true;
         m_DashLeft = 1;
-        playerSprite = GetComponent<SpriteRenderer>();
+        playerSprite = GetComponentInChildren<SpriteRenderer>();
         m_RigidBody2D = GetComponent<Rigidbody2D>();
         //soundEffectManager = FindObjectOfType<SoundEffectManager>();
         anim = GetComponentInChildren<Animator>();

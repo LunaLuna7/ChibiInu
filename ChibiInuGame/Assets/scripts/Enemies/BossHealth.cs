@@ -18,8 +18,8 @@ public class BossHealth : MonoBehaviour {
 
     protected void Start()
     {
-        
         health = maxHealth;
+        healthBar.fillAmount = maxHealth;
     }
 
     public virtual void TakeDamage(float damage)
