@@ -67,14 +67,14 @@ public class PauseMenu: MonoBehaviour{
         if (Input.GetButtonDown("Pause"))
             mainArrowIndex = 0;
         //when press up button
-        if (MenuInputManager.CheckUp() && mainArrowIndex > 0)
+        if ((MenuInputManager.CheckUp() && mainArrowIndex > 0) || ((Input.GetKeyDown(KeyCode.W)|| Input.GetKeyDown(KeyCode.UpArrow)) && mainArrowIndex != 0))
         {
             SoundEffectManager.instance.Play("MenuScroll");
             --mainArrowIndex;
             UpdateArrow(mainArrowIndex);
         }
         //when press down
-        else if (MenuInputManager.CheckDown() && mainArrowIndex < buttons.Length - 1)
+        else if ((MenuInputManager.CheckDown() && mainArrowIndex < buttons.Length - 1) || ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && mainArrowIndex != 2))
         {
             SoundEffectManager.instance.Play("MenuScroll");
             ++mainArrowIndex;
