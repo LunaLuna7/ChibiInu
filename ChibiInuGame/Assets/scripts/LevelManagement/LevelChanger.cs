@@ -9,14 +9,7 @@ public class LevelChanger : MonoBehaviour {
     private int levelToLoad;
 
 	void Update () {
-        if (Input.GetKey(KeyCode.Alpha2))
-        {
-            FadeToLevel(4);
-        }
-        if (Input.GetKey(KeyCode.Alpha1))
-        {
-            FadeToLevel(2);
-        }
+        
     }
 
     public void FadeToNextLevel()

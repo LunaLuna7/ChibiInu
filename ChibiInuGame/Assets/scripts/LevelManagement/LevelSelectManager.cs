@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class LevelSelectManager : MonoBehaviour {
 
     [System.SerializableAttribute]
@@ -15,8 +16,11 @@ public class LevelSelectManager : MonoBehaviour {
 
     public List<Level> levels;
     public SpriteRenderer[] macguffins;
+    public LevelChanger levelChanger;
+    
 
 	void Start () {
+
 		//read and set the levels depends on the info get from saveData
         for(int levelIndex = 0; levelIndex < levels.Count; ++levelIndex)
         {
@@ -43,6 +47,7 @@ public class LevelSelectManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Back"))
+            levelChanger.FadeToLevel(0);
 	}
 }

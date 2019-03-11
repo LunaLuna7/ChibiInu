@@ -56,7 +56,7 @@ public class CheckPoint : MonoBehaviour {
                 uIPartnerBook.openWithXbox = true;
             }
 
-            else if ((Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("CallBook")) && book.activeSelf)
+            else if ((Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("CallBook") || Input.GetButtonDown("Back")) && book.activeSelf)
                 book.SetActive(false);
         }
     }
