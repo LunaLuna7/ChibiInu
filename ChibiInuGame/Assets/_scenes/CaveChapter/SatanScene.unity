@@ -2728,6 +2728,7 @@ GameObject:
   - component: {fileID: 1042556850}
   - component: {fileID: 1042556849}
   - component: {fileID: 1042556848}
+  - component: {fileID: 1042556851}
   m_Layer: 0
   m_Name: Satan
   m_TagString: Untagged
@@ -2824,6 +2825,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1042556851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1042556846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba6009ab016d2494985d33637db9c4c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maps: []
 --- !u!1 &1049980227
 GameObject:
   m_ObjectHideFlags: 0
@@ -65066,12 +65079,12 @@ Prefab:
     - target: {fileID: 224995498661658816, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224949416451493350, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 224278788814600126, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
@@ -65086,17 +65099,17 @@ Prefab:
     - target: {fileID: 224083763712137354, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224856033425318722, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 224215224849271358, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224061660774797932, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
@@ -65106,7 +65119,7 @@ Prefab:
     - target: {fileID: 224241648355968452, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114518207060945192, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
@@ -65145,7 +65158,7 @@ Prefab:
     - target: {fileID: 224242020371192806, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f380a7ca4200865469262eed46aa0676, type: 2}
