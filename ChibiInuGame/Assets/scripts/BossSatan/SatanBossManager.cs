@@ -50,6 +50,8 @@ public class SatanBossManager : MonoBehaviour {
         {
             Destroy(skillObjectsGroup.GetChild(x).gameObject);
         }
+		//reset phase
+		GetComponent<SatanBossPhaseManager>().Reset();
         transform.position = startPosition.position;
         hasStarted = false;
 
