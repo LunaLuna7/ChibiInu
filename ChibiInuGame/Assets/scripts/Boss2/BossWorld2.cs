@@ -9,8 +9,16 @@ public class BossWorld2 : MonoBehaviour {
     [HideInInspector] public float stateTimeElapsed;
 
     public bool inState;
+    private int lastState;
 	private StateMachine StateMachine = new StateMachine();
-
+    //what states can one state transmit to
+    private Dictionary<int, int[]> stateTransitionMap = new Dictionary<int, int[]>()
+    {
+        {0, new int[]{1, 2}},
+        {1, new int[]{0, 1, 2, 3}},
+        {2, new int[]{0, 1, 2, 3}},
+        {3, new int[]{1, 2}},
+    };
 
     //public GameObject spikesButton;
 
@@ -63,7 +71,8 @@ public class BossWorld2 : MonoBehaviour {
             return;
         if (!inState)
         {
-            var action = Random.Range(0, 4);
+            //get a random state the last one can translate to
+            int action =  stateTransitionMap[lastState][Random.Range(0, stateTransitionMap[lastState].Length)];
             SwitchToState(action);
         }
         else
@@ -73,6 +82,7 @@ public class BossWorld2 : MonoBehaviour {
     private void SwitchToState(int num)
     {
         //this.StateMachine.ChangeState(states[1]);
+        lastState = num;
         this.StateMachine.ChangeState(states[num]);
         /* 
         switch (num)
@@ -135,6 +145,7 @@ public class BossWorld2 : MonoBehaviour {
         transform.position = startPosition.position;
         bossHealth.health = bossHealth.maxHealth;
         hasStarted = false;
+        lastState = 0;
         //movement
         movementController.StopMoving();
         //cloud Color
