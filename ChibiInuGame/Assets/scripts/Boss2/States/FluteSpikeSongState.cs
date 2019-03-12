@@ -23,6 +23,7 @@ public class FluteSpikeSongState : IState {
     {
         controller.inState = true;
         controller.StartCoroutine(FluteSongSkill());
+        controller.movementController.ContinueMoving();
     }
 
     public void ExecuteState()

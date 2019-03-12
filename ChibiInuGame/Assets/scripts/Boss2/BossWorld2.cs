@@ -10,6 +10,7 @@ public class BossWorld2 : MonoBehaviour {
 
     public bool inState;
     private int lastState;
+    private bool needPushPlayerAway = false;
 	private StateMachine StateMachine = new StateMachine();
     //what states can one state transmit to
     private Dictionary<int, int[]> stateTransitionMap = new Dictionary<int, int[]>()
@@ -71,9 +72,15 @@ public class BossWorld2 : MonoBehaviour {
             return;
         if (!inState)
         {
-            //get a random state the last one can translate to
-            int action =  stateTransitionMap[lastState][Random.Range(0, stateTransitionMap[lastState].Length)];
-            SwitchToState(action);
+            if(needPushPlayerAway && lastState != 3)
+            {
+                SwitchToState(3);
+                needPushPlayerAway = false;
+            }else{
+                //get a random state the last one can translate to
+                int action =  stateTransitionMap[lastState][Random.Range(0, stateTransitionMap[lastState].Length)];
+                SwitchToState(action);
+            }
         }
         else
             this.StateMachine.ExecuteStateUpdate();
@@ -100,6 +107,11 @@ public class BossWorld2 : MonoBehaviour {
     {
         stateTimeElapsed += Time.deltaTime;
         return (stateTimeElapsed >= duration);
+    }
+
+    public void IndicateToPushPlayer()
+    {
+        needPushPlayerAway = true;
     }
 
     //====================================================================================================
@@ -146,6 +158,7 @@ public class BossWorld2 : MonoBehaviour {
         bossHealth.health = bossHealth.maxHealth;
         hasStarted = false;
         lastState = 0;
+        needPushPlayerAway = false;
         //movement
         movementController.StopMoving();
         //cloud Color

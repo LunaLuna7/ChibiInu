@@ -21,6 +21,7 @@ public class FastSpikeState : IState{
     {
         controller.inState = true;
         controller.StartCoroutine(FastSpikeSkill());
+        controller.movementController.ContinueMoving();
     }
 
     public void ExecuteState()

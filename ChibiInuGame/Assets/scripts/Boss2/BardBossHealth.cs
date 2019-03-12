@@ -14,7 +14,7 @@ public class BardBossHealth : BossHealth {
         {
             StartCoroutine(TriggerSecondPhase());
         }
-       
+        GetComponent<BossWorld2>().IndicateToPushPlayer();
 
         if (health <= 0)
         {

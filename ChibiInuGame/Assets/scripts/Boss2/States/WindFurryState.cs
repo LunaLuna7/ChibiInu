@@ -35,7 +35,6 @@ public class WindFurryState : IState {
     public void ExitState()
     {
         controller.inState = false;
-        controller.movementController.ContinueMoving();
     }
 
     public IEnumerator WindSkill()
