@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SatanBossManager : MonoBehaviour {
 	public KnightBossMovementController movementController;
@@ -15,10 +16,16 @@ public class SatanBossManager : MonoBehaviour {
 	private IState[] states;
 	public Transform skillObjectsGroup;//transform to put all skill objects, easy for removing objects when reset
 	public TimeLineManager afterBattleTimeline;
+	[Header("Noise")]
+	public Image noiseImage;
+	
+
 	void Awake()
 	{
 		//set states
-		states =  new IState[4];
+		states =  new IState[2];
+		states[0] = new SatanBossMovingState(this);
+		states[1] = new SatanBossNoiseState(this);
 	}
 
 	// Use this for initialization
