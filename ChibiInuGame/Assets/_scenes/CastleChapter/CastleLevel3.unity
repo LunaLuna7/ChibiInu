@@ -2723,7 +2723,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You Get the Cyan Macguffin!!!
+  m_Text: You Got the Cyan Macguffin!!!
 --- !u!222 &433735751
 CanvasRenderer:
   m_ObjectHideFlags: 0
