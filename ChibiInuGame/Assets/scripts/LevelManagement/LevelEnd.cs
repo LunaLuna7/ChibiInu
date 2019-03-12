@@ -37,6 +37,7 @@ public class LevelEnd : MonoBehaviour {
 		//touch the end, save and transfer back to level selection
 		if(other.CompareTag("Player"))
 		{
+            SoundEffectManager.instance.Play("LevelCompleted");
 			ShowEndUI();
 		}
 	}
