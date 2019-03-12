@@ -21,11 +21,14 @@ public class SatanBossPhaseManager : MonoBehaviour {
 	{
 		//hide last map
 		if(currentMap)
+		{
 			currentMap.SetActive(false);
+			player.transform.position = playerStartPositions[index].position;
+		}
 		//set current map
 		currentMap = maps[index];
 		currentMap.SetActive(true);
-		player.transform.position = playerStartPositions[index].position;
+		
 	}
 
 	public void Reset()

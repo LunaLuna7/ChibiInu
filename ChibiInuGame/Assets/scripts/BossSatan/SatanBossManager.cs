@@ -18,7 +18,9 @@ public class SatanBossManager : MonoBehaviour {
 	void Awake()
 	{
 		//set states
-		states =  new IState[4];
+		states =  new IState[2];
+		states[0] = new SatanBossMovingState(this);
+		states[1] = new SatanBossNoiseState(this);
 	}
 
 	// Use this for initialization
