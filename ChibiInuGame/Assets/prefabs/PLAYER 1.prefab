@@ -359,7 +359,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1957829206356312}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -135.6, y: -0.7, z: 0}
+  m_LocalPosition: {x: -150.2, y: -0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4072268233256858}
@@ -549,6 +549,7 @@ MonoBehaviour:
   m_limitRightMove: 0
   m_limitLeftMove: 0
   m_FacingRight: 1
+  m_Grounded: 0
   m_Paralyzed: 0
   m_Immune: 0
   m_Damaged: 0
@@ -566,8 +567,6 @@ MonoBehaviour:
   DashSpawner: {fileID: 1486330794092390}
   uIPartnerBook: {fileID: 0}
   playerGameObject: {fileID: 1222979882675076}
-  m_GroundDash: 1
-  m_OnSwing: 0
 --- !u!114 &114339156566937732
 MonoBehaviour:
   m_ObjectHideFlags: 1
