@@ -188,7 +188,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 81366649e546269468a85f67dd3d4606, type: 3}
     volume: 0.287
     pitch: 1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   - name: KnightAlerted
     clip: {fileID: 8300000, guid: b32ca85a18f801b41bbba2f165d345b0, type: 3}
@@ -258,6 +258,18 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: exclamation_expression
     clip: {fileID: 8300000, guid: 537b649c894bd9149a984c47ad17847c, type: 3}
+    volume: 0.63
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: LevelCompleted
+    clip: {fileID: 8300000, guid: eb10bb08fe1fd104ba14228cecfce550, type: 3}
+    volume: 0.63
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PartnerGet
+    clip: {fileID: 8300000, guid: ff0738a5f1b5c944b97bcbde4d9ed4ae, type: 3}
     volume: 0.63
     pitch: 1
     loop: 0
