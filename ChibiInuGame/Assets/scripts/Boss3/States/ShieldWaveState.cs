@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShieldWaveState : IState {
 	private KnightBossManager controller;
-	
+	private float projectileSpeed = 30;
 
 	public ShieldWaveState(KnightBossManager controller)
 	{
@@ -41,9 +41,9 @@ public class ShieldWaveState : IState {
 			//move obj out
 			float rotateSpeed = 0;
 			if(Random.Range(0, 2) == 0)
-				rotateSpeed = Random.Range(-10f, -5f);
+				rotateSpeed = Random.Range(-15f, -10f);
 			else
-				rotateSpeed = Random.Range(5, 10f);
+				rotateSpeed = Random.Range(10, 15f);
 			obj.GetComponent<BossShieldProjectile>().SetRotateSpeed(rotateSpeed);
 			obj.GetComponent<BossShieldProjectile>().MoveTowards(angleInterval * (x + 1), 5, 15);
 		}
@@ -54,7 +54,7 @@ public class ShieldWaveState : IState {
 		foreach(GameObject obj in objectList)
 		{
 			obj.GetComponent<BossShieldProjectile>().SetRotateSpeed(0);
-			obj.GetComponent<BossShieldProjectile>().Shoot(10);
+			obj.GetComponent<BossShieldProjectile>().Shoot(projectileSpeed);
 			GameObject.Destroy(obj, 10f);
 		}
 
