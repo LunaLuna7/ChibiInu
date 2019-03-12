@@ -25,7 +25,7 @@ public class CharacterController2D : MonoBehaviour {
     public bool m_limitRightMove;
     public bool m_limitLeftMove;
     public bool m_FacingRight = true;
-    private bool m_Grounded;
+    public bool m_Grounded;
     public bool m_Paralyzed;
     private bool doingWallJump = false;
     public bool m_Immune = false;
@@ -51,12 +51,8 @@ public class CharacterController2D : MonoBehaviour {
     public GameObject DashSpawner;
     public UIPartnerBook uIPartnerBook;
     public GameObject playerGameObject;
-    
-   
-    //CoolDowns
-    public bool m_GroundDash;
-    public bool m_OnSwing;
-   
+
+    float horizontalMove;
 
     //SoundStates
     private bool PlayingWallSlide;
@@ -69,7 +65,6 @@ public class CharacterController2D : MonoBehaviour {
     void Awake () {
         m_Paralyzed = paralyzedWhenStart;
         PlayingWallSlide = false;
-        m_GroundDash = true;
         m_DashLeft = 1;
         playerSprite = GetComponentInChildren<SpriteRenderer>();
         m_RigidBody2D = GetComponent<Rigidbody2D>();
@@ -77,8 +72,16 @@ public class CharacterController2D : MonoBehaviour {
         anim = GetComponentInChildren<Animator>();
         playerHealth = GetComponent<PlayerHealth>();
     }
-	
-	void FixedUpdate () {
+
+    private void Update()
+    {
+        anim.SetBool("Grounded", m_Grounded);
+        anim.SetInteger("MovingDir", (int)horizontalMove);
+        anim.SetFloat("MovementSpeed", Mathf.Abs(m_RigidBody2D.velocity.x)/12f);
+
+    }
+
+    void FixedUpdate () {
 
         m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, m_GroundLayer) || Physics2D.Linecast(transform.position, m_GroundCheck2.position, m_GroundLayer);
         m_OnWall = Physics2D.OverlapCircle(m_WallCheck.position, .2f, m_WallLayer);
@@ -94,29 +97,23 @@ public class CharacterController2D : MonoBehaviour {
 
     public void Move(float move, bool jump)
     {
-        if (m_OnJumpPad)
-        {
-            if (m_RigidBody2D.velocity.y < 0 || jump)
+        horizontalMove = move;
+        if (m_OnJumpPad && (m_RigidBody2D.velocity.y < 0 || jump))
                 m_RigidBody2D.velocity = new Vector3(m_RigidBody2D.velocity.x, 0, 0);
-        }
+
+        
 
         if (m_Grounded)
         {
+            m_limitLeftMove = false;
+            m_limitRightMove = false;
+
             if (playerHealth.HPLeft >= 1 && move != 0)
-            {
-                anim.Play("ShibaRunning");
                 PlayerFootStepSound();
-
-            }
-
-            else if (move == 0)
-                anim.Play("ShibIdle");
+           
         }
         
-        if (m_limitRightMove && move > 0)
-            move = 0;
-
-        if (m_limitLeftMove && move < 0)
+        if (m_limitRightMove || m_limitLeftMove)
             move = 0;
 
         if(m_OnDash)
@@ -127,16 +124,7 @@ public class CharacterController2D : MonoBehaviour {
                 m_RigidBody2D.velocity = new Vector2(-50, 0);
         }
 
-        if (m_Grounded)
-        {
-            
-            m_limitLeftMove = false;
-            m_limitRightMove = false;
-            if(move != 0)
-            {
-                //FootStep Sound
-            }
-        }
+        #region WallLogic
 
         if (m_OnWall)
         {
@@ -145,20 +133,19 @@ public class CharacterController2D : MonoBehaviour {
                 move = 0;
                 StartCoroutine(WallDeadTime());
             }
-           
         }
         else if (!m_OnWall)
-        {
             wallDeadTime = true;
-        }
-    
+
+
+        #endregion WallLogic
 
         if (m_Grounded || m_AirControl)
         {
             Vector3 targetVelocity = new Vector2(move * 10f, m_RigidBody2D.velocity.y);
 
             m_RigidBody2D.velocity = Vector3.SmoothDamp(m_RigidBody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
-            
+
             if (move > 0 && !m_FacingRight)
             {
                 Flip();
@@ -166,63 +153,60 @@ public class CharacterController2D : MonoBehaviour {
             else if (move < 0 && m_FacingRight)
             {
                 Flip();
-            }  
+            }
 
         }
 
         JumpGravity(jump);
 
-        //jump
-        if (m_Grounded && jump && (!m_OnWall || m_OnWall) && !m_OnSwing && !m_OnDash)
+        #region Jump
+        if (jump)
         {
-            SoundEffectManager.instance.Play("Jump");
-            anim.Play("ShibaJump");
-            m_Grounded = false;
-            m_RigidBody2D.AddForce(new Vector2(m_RigidBody2D.velocity.x, m_JumpForce));
-            m_DashLeft = 1;
-        }
 
-        //air Jump
-        else if (jump && m_AirJumpsLeft > 0 && !m_OnWall && !m_OnSwing && !doingWallJump && !m_OnDash)
-        {
-            SoundEffectManager.instance.Play("AirJump");
-            if (m_AirJumpsLeft == 2)
+            //Ground Jump
+            if (m_Grounded && !m_OnDash)
             {
                 anim.Play("ShibaAirJump");
+                SoundEffectManager.instance.Play("Jump");
+                m_RigidBody2D.AddForce(new Vector2(m_RigidBody2D.velocity.x, m_JumpForce));
+                m_DashLeft = 1;
             }
-            else if (m_AirJumpsLeft == 1)
+        
+
+            //Air Jump
+            else if (!m_Grounded && m_AirJumpsLeft > 0 && !m_OnWall && !doingWallJump && !m_OnDash)
             {
-                anim.Play("ShibaAirJump2");
+                SoundEffectManager.instance.Play("AirJump");
+                if (m_AirJumpsLeft >= 2)
+                    anim.Play("ShibaAirJump2");
+                
+                else if (m_AirJumpsLeft == 1)
+                    anim.Play("ShibaAirJump");
+
+                m_RigidBody2D.AddForce(new Vector2(0f,  m_JumpForce));
+                m_AirJumpsLeft--;
+                m_DashLeft = 1;
             }
-            m_Grounded = false;
-            m_RigidBody2D.AddForce(new Vector2(0f,  m_JumpForce));
-            m_AirJumpsLeft--;
-            m_DashLeft = 1;
-        }
-
-
-        //wall jump
-        else if(jump && !m_Grounded && m_OnWall &&!m_OnSwing && !m_OnDash)
-        {
-            m_DashLeft = 1;
-            OffWallSound();
-            SoundEffectManager.instance.Play("WallJump");
-            
-            anim.Play("ShibaAirJump");
-            Flip();
-            if (m_FacingRight)
-            {
-                ParabolaJump(transform.position + new Vector3(5, 5, 0), 3, m_WallJumpTime);
-            }
-
-            else if (!m_FacingRight)
-            {
-                ParabolaJump(transform.position + new Vector3(-5, 5, 0), 3, m_WallJumpTime);
-            }
-        }
-
-    }
    
+
+            //Wall Jump
+            else if (!m_Grounded && m_OnWall && !m_OnDash)
+            {
+                m_DashLeft = 1;
+                OffWallSound();
+                SoundEffectManager.instance.Play("WallJump");
+                Flip();
+
+                if (m_FacingRight)
+                    ParabolaJump(transform.position + new Vector3(5, 5, 0), 3, m_WallJumpTime);
+
+                else if (!m_FacingRight)
+                    ParabolaJump(transform.position + new Vector3(-5, 5, 0), 3, m_WallJumpTime);
+            }
+        }
+        #endregion Jump
+    }
+
 
     void JumpGravity(bool jump)
     {
@@ -235,7 +219,6 @@ public class CharacterController2D : MonoBehaviour {
             if (m_RigidBody2D.velocity.y < 0 && !m_OnWall) //we are falling
             {
                 m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime;
-                anim.Play("ShibaAirJump");
                 playerGameObject.transform.localPosition = new Vector3(0, 0, 0);
         }
             else if(m_RigidBody2D.velocity.y < 0 && m_OnWall)
@@ -250,7 +233,6 @@ public class CharacterController2D : MonoBehaviour {
                 OnWallSound();
             }
 
-            
 
             else if ((m_RigidBody2D.velocity.y > 0 || m_OnJumpPad) && !Input.GetButton("Jump"))//tab jump
             {
