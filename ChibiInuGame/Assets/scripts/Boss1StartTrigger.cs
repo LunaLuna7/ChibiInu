@@ -7,12 +7,12 @@ public class Boss1StartTrigger : MonoBehaviour {
     public bool wallDown;
     public float moveSpeed;
     public List<GameObject> slimesType; 
-    public SoundEffectManager soundEffect;
+    //public SoundEffectManager soundEffect;
     private bool musicPlaying;
 
     void Start()
     {
-        soundEffect = GameObject.FindGameObjectWithTag("SoundEffect").GetComponent<SoundEffectManager>();
+        //soundEffect = GameObject.FindGameObjectWithTag("SoundEffect").GetComponent<SoundEffectManager>();
 
         musicPlaying = false;
         for (int i = 0; i != slimesType.Count; ++i)
@@ -46,7 +46,7 @@ public class Boss1StartTrigger : MonoBehaviour {
         {
             if (!musicPlaying)
             {
-                soundEffect.Play("Boss");
+                SoundEffectManager.instance.Play("Boss");
                 musicPlaying = true;
             }
             wallDown = true;

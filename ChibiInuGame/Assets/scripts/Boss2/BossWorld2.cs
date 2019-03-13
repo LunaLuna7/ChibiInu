@@ -156,6 +156,7 @@ public class BossWorld2 : MonoBehaviour {
         }
         transform.position = startPosition.position;
         bossHealth.health = bossHealth.maxHealth;
+        bossHealth.healthBar.fillAmount = bossHealth.health;
         hasStarted = false;
         lastState = 0;
         needPushPlayerAway = false;
