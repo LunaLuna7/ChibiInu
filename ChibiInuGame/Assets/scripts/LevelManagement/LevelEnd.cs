@@ -13,6 +13,7 @@ public class LevelEnd : MonoBehaviour {
 	[Header("Level End UI")]
 	public GameObject levelEndUI;
 	public Image[] coinArray;
+	public Image[] macmaffinArray;
 	public Color notCollectedColor;
 	// Use this for initialization
 	void Start () {
@@ -72,6 +73,15 @@ public class LevelEnd : MonoBehaviour {
 				coinArray[x].color = notCollectedColor;
 			}
 		}
+		//adjust coin color depends on the level unlocked
+		for(int x = 0; x < macmaffinArray.Length; ++x)
+			macmaffinArray[0].color = notCollectedColor;
+		if(SaveManager.dataInUse.levels[3].unlocked)
+			macmaffinArray[0].color = Color.white;
+		if(SaveManager.dataInUse.levels[6].unlocked)
+			macmaffinArray[1].color = Color.white;
+		if(SaveManager.dataInUse.levels[9].unlocked)
+			macmaffinArray[2].color = Color.white;
 		//don't allow player to move
 		GameObject.FindObjectOfType<CharacterController2D>().m_Paralyzed = true;
 	}
