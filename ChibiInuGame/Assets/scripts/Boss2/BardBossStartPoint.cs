@@ -19,6 +19,7 @@ public class BardBossStartPoint : MonoBehaviour {
 			hasStarted = true;
 			playerController.m_Paralyzed = true;
 			StartCoroutine(BattleStart());
+            SoundEffectManager.instance.Play("Boss");
 		}
 	}
 
