@@ -9,6 +9,7 @@ public class TimeLineManager : MonoBehaviour {
 
     public PlayableDirector playableDirector;
     public CharacterController2D characterController2D;
+    public Animator playerAnimator;
     public bool conversationFinish = false;
     public bool resumeMovementAfterCutscene = true;
  
@@ -43,5 +44,15 @@ public class TimeLineManager : MonoBehaviour {
             characterController2D.m_Paralyzed = true;
 
             conversationFinish = true;
+    }
+
+    public void PlayerEnterTimeline()
+    {
+        playerAnimator.Play("StandingIdle");
+    }
+
+    public void PlayerExitTimeline()
+    {
+        playerAnimator.Play("ShibIdle");
     }
 }

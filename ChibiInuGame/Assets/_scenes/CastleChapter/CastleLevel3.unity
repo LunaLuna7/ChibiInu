@@ -1144,6 +1144,7 @@ MonoBehaviour:
   - {fileID: 1078166624}
   - {fileID: 1028537259}
   - {fileID: 377570642}
+  macmaffinArray: []
   notCollectedColor: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
 --- !u!1001 &229824641
 Prefab:
@@ -1441,6 +1442,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 319170584}
+        m_MethodName: PlayerEnterTimeline
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   - m_PersistentCalls:
@@ -1448,6 +1460,17 @@ MonoBehaviour:
       - m_Target: {fileID: 114134826995440366, guid: d5b0cf16604459e4dad62549903c9b9f,
           type: 2}
         m_MethodName: ShowPartners
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 319170584}
+        m_MethodName: PlayerExitTimeline
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1491,6 +1514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playableDirector: {fileID: 1895697236}
   characterController2D: {fileID: 1563365304}
+  playerAnimator: {fileID: 1563365306}
   conversationFinish: 0
   resumeMovementAfterCutscene: 1
 --- !u!61 &319170585
@@ -4069,6 +4093,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 897307288}
+        m_MethodName: PlayerEnterTimeline
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   - m_PersistentCalls:
@@ -4076,6 +4111,17 @@ MonoBehaviour:
       - m_Target: {fileID: 114134826995440366, guid: d5b0cf16604459e4dad62549903c9b9f,
           type: 2}
         m_MethodName: ShowPartners
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 897307288}
+        m_MethodName: PlayerExitTimeline
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4149,6 +4195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playableDirector: {fileID: 1531702913}
   characterController2D: {fileID: 1563365304}
+  playerAnimator: {fileID: 1563365306}
   conversationFinish: 0
   resumeMovementAfterCutscene: 0
 --- !u!61 &897307289
@@ -6810,6 +6857,11 @@ MonoBehaviour:
 --- !u!4 &1563365305 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4594603421541188, guid: c6b571c349e83944faa1834deb832e5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1563365302}
+--- !u!95 &1563365306 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95802842557085350, guid: c6b571c349e83944faa1834deb832e5c,
     type: 2}
   m_PrefabInternal: {fileID: 1563365302}
 --- !u!1 &1589234786
