@@ -8,12 +8,13 @@ public class MainMenuManager : MonoBehaviour {
     public GameObject chooseFilePage;
 	public GameObject arrow;
 	public GameObject[] buttons;
-    public SoundEffectManager soundEffectManager;
+    //public SoundEffectManager soundEffectManager;
 
 	// Use this for initialization
 	void Start () {
+        SoundEffectManager.instance.Play("MainMenu");
 		chooseFilePage.SetActive(false);
-        soundEffectManager = GameObject.FindGameObjectWithTag("SoundEffect").GetComponent<SoundEffectManager>();
+        //soundEffectManager = GameObject.FindGameObjectWithTag("SoundEffect").GetComponent<SoundEffectManager>();
 		//UpdateArrow(0);
 	}
 	
@@ -33,21 +34,21 @@ public class MainMenuManager : MonoBehaviour {
 		//when press up button
 		if(MenuInputManager.CheckUp() && mainArrowIndex >0)
 		{
-            soundEffectManager.Play("MenuScroll");
+            SoundEffectManager.instance.Play("MenuScroll");
 			--mainArrowIndex;
 			UpdateArrow(mainArrowIndex);
 		}
 		//when press down
 		else if(MenuInputManager.CheckDown() && mainArrowIndex < buttons.Length - 1)
 		{
-            soundEffectManager.Play("MenuScroll");
+            SoundEffectManager.instance.Play("MenuScroll");
             ++mainArrowIndex;
 			UpdateArrow(mainArrowIndex);
 		}
 		//when press Space
 		else if(Input.GetButtonDown("Submit"))
 		{
-            soundEffectManager.Play("MenuSelect");
+            SoundEffectManager.instance.Play("MenuSelect");
             switch (mainArrowIndex)
 			{
 				//start game

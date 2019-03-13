@@ -36,11 +36,14 @@ public class LvlSelectMovement : MonoBehaviour {
             levelName.text = levelSelectManager.levels[position].name;
             if (Input.GetButtonDown("Submit"))
             {
+                SoundEffectManager.instance.Stop("MainMenu");
+                SoundEffectManager.instance.Play("MenuSelect");
                 levelChanger.FadeToLevel(levelSelectManager.levels[position].sceneIndex);
                 canMove = false;
             }
             else if (moveX > 0)
             {
+                SoundEffectManager.instance.Play("MenuScroll");
                 if(position + 1 < levelSelectManager.levels.Capacity)
                 {
                     //only able to go to that level when it is unlocked
@@ -50,6 +53,7 @@ public class LvlSelectMovement : MonoBehaviour {
             }
             else if (moveX < 0)
             {
+                SoundEffectManager.instance.Play("MenuScroll");
                 if (position - 1 >= 0)
                     position -= 1;
             }
