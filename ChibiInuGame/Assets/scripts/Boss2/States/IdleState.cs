@@ -32,7 +32,6 @@ public class IdleState : IState {
     public void ExitState()
     {
         controller.inState = false;
-        controller.movementController.ContinueMoving();
     }
   
 }

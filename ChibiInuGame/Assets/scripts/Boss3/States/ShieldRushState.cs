@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShieldRushState : IState {
 	private KnightBossManager controller;
-	
+	private float projectileSpeed = 40;
 
 	public ShieldRushState(KnightBossManager controller)
 	{
@@ -41,9 +41,9 @@ public class ShieldRushState : IState {
 			//move obj out
 			float rotateSpeed = 0;
 			if(Random.Range(0, 2) == 0)
-				rotateSpeed = Random.Range(-15f, -10f);
+				rotateSpeed = Random.Range(-20f, -15f);
 			else
-				rotateSpeed = Random.Range(10, 15f);
+				rotateSpeed = Random.Range(15, 20f);
 			obj.GetComponent<BossShieldProjectile>().SetRotateSpeed(rotateSpeed);
 			obj.GetComponent<BossShieldProjectile>().MoveTowards(angleInterval * (x + 1), 5, 15);
 		}
@@ -53,7 +53,7 @@ public class ShieldRushState : IState {
 		//shoot all shields towards player
 		foreach(GameObject obj in objectList)
 		{
-			obj.GetComponent<BossShieldProjectile>().ShootTowards(controller.player.transform.position, 25);
+			obj.GetComponent<BossShieldProjectile>().ShootTowards(controller.player.transform.position, projectileSpeed);
 			GameObject.Destroy(obj, 10f);
 			yield return new WaitForSeconds(shootInterval);
 		}
