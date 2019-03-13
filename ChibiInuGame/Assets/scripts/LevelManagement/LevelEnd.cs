@@ -75,7 +75,7 @@ public class LevelEnd : MonoBehaviour {
 		}
 		//adjust coin color depends on the level unlocked
 		for(int x = 0; x < macmaffinArray.Length; ++x)
-			macmaffinArray[0].color = notCollectedColor;
+			macmaffinArray[x].color = notCollectedColor;
 		if(SaveManager.dataInUse.levels[3].unlocked)
 			macmaffinArray[0].color = Color.white;
 		if(SaveManager.dataInUse.levels[6].unlocked)
