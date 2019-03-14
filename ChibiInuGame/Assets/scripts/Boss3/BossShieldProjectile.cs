@@ -106,4 +106,12 @@ public class BossShieldProjectile : MonoBehaviour {
 		rigid.MovePosition(tempPos);
 	}
 
+	//be destroyed by fireball
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if(other.tag == "FireBall")
+		{
+			Destroy(gameObject);
+		}
+	}
 }
