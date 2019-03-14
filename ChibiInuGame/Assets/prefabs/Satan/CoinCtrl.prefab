@@ -82,7 +82,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1588768431617146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -154.41, y: 16.85, z: -2.7722595}
+  m_LocalPosition: {x: -161.82199, y: 1.1404852, z: -2.7722595}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4612919339696040}
@@ -150,9 +150,20 @@ MonoBehaviour:
   polymorphTime: 6
   satanCoin: {fileID: 1516670451568628}
   particleEffect: {fileID: 1763109254150808}
-  enemieSummonPool:
-  - {fileID: 1741995346591478, guid: 20f74603ee5953b4385e158f7fb3ebf4, type: 2}
+  enemieSummonPool0:
+  - {fileID: 1256577700775296, guid: 1be156556dcbb124590977e15f181aad, type: 2}
+  - {fileID: 1306293244890892, guid: f859667bd2c25da419d60f31ae2e353f, type: 2}
+  enemieSummonPool1:
   - {fileID: 1372847627421148, guid: dc6efaecb3bc116498fb8f1514ef1aec, type: 2}
+  - {fileID: 1741995346591478, guid: 20f74603ee5953b4385e158f7fb3ebf4, type: 2}
+  enemieSummonPool2:
+  - {fileID: 1453850640486514, guid: cc9a6bdc837a0f2429653e1c246f959b, type: 2}
+  - {fileID: 1813107084569834, guid: 30ccca604f28f424488f8d0de1d45154, type: 2}
+  enemieSummonPool3:
+  - {fileID: 1999543532043402, guid: 44f218847535812489dc4fc83ce215fe, type: 2}
+  - {fileID: 1759705182187062, guid: 9745373f6e163d849ab2e3cce20c68dd, type: 2}
+  - {fileID: 1224807705926986, guid: c68a8defaa1359a43b1546d10010b797, type: 2}
+  satanBossPhaseManager: {fileID: 0}
 --- !u!198 &198380456033548920
 ParticleSystem:
   m_ObjectHideFlags: 1
