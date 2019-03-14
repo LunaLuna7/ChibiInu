@@ -17,6 +17,7 @@ public class SatanCoin : MonoBehaviour {
 
     private void Awake()
     {
+        satanBossPhaseManager = FindObjectOfType<SatanBossPhaseManager>();
         allEnemiesSummonPool = new List<List<GameObject>>();
         currentPhase = satanBossPhaseManager.GetPhaseMap();
         InitAllEnemeyPools();
