@@ -17,19 +17,26 @@ public class Boss2CheckPoint : MonoBehaviour {
 	{
 		if(other.tag == "Player")
 		{
+            StopAllCoroutines();
 			bardBoss.Initialize();
 			bossDetection.Reset();
-            foreach (GameObject spike in spikes)
-            {
-                spike.SetActive(false);
-                SpikeAttack temp = spike.GetComponent<SpikeAttack>();
-                if (countSpike < 4)
-                {
-                    countSpike++;
-                    temp.SetStartPosition();
-                }
-                temp.ResetPosition();
-            }
+            StartCoroutine(Delay());
+            
         }
 	}
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(1f);
+        foreach (GameObject spike in spikes)
+        {
+            spike.SetActive(false);
+            SpikeAttack temp = spike.GetComponent<SpikeAttack>();
+            if (countSpike < 4)
+            {
+                countSpike++;
+                temp.SetStartPosition();
+            }
+            temp.ResetPosition();
+        }
+    }
 }
