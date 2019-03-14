@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class KnightBossMovementController : MonoBehaviour {
-	public Transform[] possibleLocations;
+
+    public Transform[] possibleLocations;
 	private Rigidbody2D rigid;
 	private SpriteRenderer sprite;
-	// Use this for initialization
-	void Awake()
+    // Use this for initialization
+
+    void Awake()
 	{
 		rigid = GetComponent<Rigidbody2D>();
 		sprite = GetComponent<SpriteRenderer>();
 	}
+
+
 	void Start () {
 		transform.position = new Vector3(possibleLocations[0].position.x, possibleLocations[0].position.y, transform.position.z);
 	}

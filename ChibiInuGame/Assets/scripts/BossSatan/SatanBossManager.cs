@@ -16,19 +16,31 @@ public class SatanBossManager : MonoBehaviour {
 	private IState[] states;
 	public Transform skillObjectsGroup;//transform to put all skill objects, easy for removing objects when reset
 	public TimeLineManager afterBattleTimeline;
-	[Header("Noise")]
+
+    [Header("Noise")]
 	public Image noiseImage;
+
     [Header("HellBall")]
     public GameObject hellBall;
-	
 
-	void Awake()
+    [Header("Coin")]
+    public List<Transform> coinSpawnLocLvlp0;
+    public List<Transform> coinSpawnLocLvlp1;
+    public List<Transform> coinSpawnLocLvlp2;
+    public List<Transform> coinSpawnLocLvlp3;
+    public List<List<Transform>> allCoinSpawns;
+
+    public GameObject coinAttack;
+
+    void Awake()
 	{
+        allCoinSpawns = new List<List<Transform>>();
 		//set states
-		states =  new IState[3];
+		states =  new IState[4];
 		states[0] = new SatanBossMovingState(this);
 		states[1] = new SatanBossNoiseState(this);
         states[2] = new SatanBossHellBallState(this);
+        states[3] = new SatanBossCoinState(this);
 	}
 
 	// Use this for initialization
@@ -64,7 +76,16 @@ public class SatanBossManager : MonoBehaviour {
 		GetComponent<SatanBossPhaseManager>().Reset();
         transform.position = startPosition.position;
         hasStarted = false;
+        InitAllCoinLocations();
+    }
 
+    //Creates 2Dlist with all coin phases locations, we separate each set of locations base on index
+    void InitAllCoinLocations()
+    {
+        allCoinSpawns.Add(coinSpawnLocLvlp0);
+        allCoinSpawns.Add(coinSpawnLocLvlp1);
+        allCoinSpawns.Add(coinSpawnLocLvlp2);
+        allCoinSpawns.Add(coinSpawnLocLvlp3);
     }
 
 	public void StartBattle()
