@@ -7,6 +7,12 @@ public class DeadBoundary : MonoBehaviour {
     public Transform player;
     public GameManager gameManager;
 
+    public void Awake()
+    {
+        if(gameManager == null)
+            gameManager = FindObjectOfType<GameManager>().GetComponent<GameManager>();
+       
+    }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
