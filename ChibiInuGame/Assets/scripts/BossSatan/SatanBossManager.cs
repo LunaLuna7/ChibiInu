@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class SatanBossManager : MonoBehaviour {
-	public KnightBossMovementController movementController;
+	public SatanBossMovementController movementController;
+    public SatanBossPhaseManager phaseManager;
 	private bool hasStarted = false;
 
 	public GameObject player;
@@ -36,11 +37,11 @@ public class SatanBossManager : MonoBehaviour {
 	{
         allCoinSpawns = new List<List<Transform>>();
 		//set states
-		states =  new IState[4];
+		states =  new IState[3];
 		states[0] = new SatanBossMovingState(this);
-		states[1] = new SatanBossNoiseState(this);
-        states[2] = new SatanBossHellBallState(this);
-        states[3] = new SatanBossCoinState(this);
+		//states[1] = new SatanBossNoiseState(this);
+        states[1] = new SatanBossHellBallState(this);
+        states[2] = new SatanBossCoinState(this);
 	}
 
 	// Use this for initialization

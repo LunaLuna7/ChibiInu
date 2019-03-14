@@ -87,4 +87,9 @@ public class SatanBossPhaseManager : MonoBehaviour {
         return counter;
     }
 
+	public int GetPhase()
+	{
+		return phase;
+	}
+
 }
