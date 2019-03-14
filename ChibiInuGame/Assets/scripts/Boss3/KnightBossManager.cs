@@ -59,7 +59,8 @@ public class KnightBossManager : MonoBehaviour {
         }
         transform.position = startPosition.position;
         bossHealth.health = bossHealth.maxHealth;
-		GetComponent<KnightBossPhaseManager>().Reset();
+        bossHealth.healthBar.fillAmount = bossHealth.health;
+        GetComponent<KnightBossPhaseManager>().Reset();
         hasStarted = false;
 		GetComponent<SpriteRenderer>().flipX = true;
 		boundary.SetActive(false);
