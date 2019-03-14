@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour {
     IEnumerator DelayStart()
     {
         yield return new WaitForSeconds(1.1f);
+        player.GetComponent<CharacterController2D>().m_Paralyzed = false;
         for (int i = 0; i != checkPoints.Count; ++i)
         {
             checkPoints[i].ResetingLevel();

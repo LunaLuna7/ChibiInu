@@ -7,14 +7,12 @@ public class KnightExpressionBubble : MonoBehaviour {
     StateController stateController;
     public GameObject spotted;
     public GameObject lost;
-    bool playerLost;
-    bool playerFound;
+    public bool playerLost;
 
 	// Use this for initialization
 	void Awake () {
         stateController = GetComponentInParent<StateController>();
         playerLost = true;
-        playerFound = false;
 	}
 	
 	// Update is called once per frame
@@ -24,14 +22,14 @@ public class KnightExpressionBubble : MonoBehaviour {
             //StopAllCoroutines();
             StartCoroutine(ActivateBubble());
             playerLost = false;
-            playerFound = true;
+            //playerFound = true;
         }
-        else if(!Chasing() && playerFound)
+        else if(!Chasing() && !playerLost)
         {
             // StopAllCoroutines();
             StartCoroutine(ActivateLost());
             playerLost = true;
-            playerFound = false;
+            //playerFound = false;
         }
 	}
 

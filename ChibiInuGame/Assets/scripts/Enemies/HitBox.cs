@@ -37,7 +37,7 @@ public class HitBox : MonoBehaviour {
             {
                 timetrack = timeBeforeDamageAgain + Time.time;
                 health--;
-                if(this.enabled)
+                if (this.enabled)
                     StartCoroutine(BlinkSprite());
             }
 
@@ -47,8 +47,16 @@ public class HitBox : MonoBehaviour {
                 EnemyToKill.SetActive(false);
                 health = stateController.enemyStats.HP;
             }
-           
+
         }
+        /*
+        else if (collision.gameObject.CompareTag("Spike"))
+        {
+            Rigidbody2D temp = gameObject.GetComponentInParent<Rigidbody2D>();
+            if(temp!=null)
+                temp.transform.parent.gameObject.SetActive(false);
+
+        }*/
     }
 
     //=========================================

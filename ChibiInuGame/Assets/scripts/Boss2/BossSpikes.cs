@@ -17,11 +17,13 @@ public class BossSpikes : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            StartCoroutine(collision.GetComponent<PlayerHealth>().DamageState());
+            //StartCoroutine(collision.GetComponent<PlayerHealth>().DamageState());
+            StartCoroutine(collision.GetComponent<PlayerHealth>().DamageSpikeState());
             Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
             rb.velocity = new Vector2((collision.transform.position.x - this.transform.position.x) * 50,
                 (collision.transform.position.y - this.transform.position.y)* 20);
         }
+        
     }
 
     private void OnEnable()

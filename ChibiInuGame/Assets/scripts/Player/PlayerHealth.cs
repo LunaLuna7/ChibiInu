@@ -16,10 +16,12 @@ public class PlayerHealth : MonoBehaviour {
     public Sprite halfHearth;
     public Sprite emptyHearth;
     public Animator anim;
+    private bool spikeCanHit;
 
     private Image playerHealth;
 
     void Awake () {
+        spikeCanHit = true;
         m_SpriteRender = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
         HPLeft = HP;
@@ -53,15 +55,51 @@ public class PlayerHealth : MonoBehaviour {
     public IEnumerator DamageState()
     {
         //controller.m_Damaged = true;
-        TakeDamage(1);
+            TakeDamage(1);
+        
         yield return new WaitForSeconds(1f);
         //controller.m_Damaged = false;
-        controller.m_Immune = false;
+        if(!controller.m_OnShield)
+            controller.m_Immune = false;
         
     }
 
-    
-    IEnumerator BlinkSprite()
+    public IEnumerator DamageSpikeState()
+    {
+        if (spikeCanHit)
+        {
+
+            spikeCanHit = false;
+            //controller.m_Damaged = true;
+            HPLeft -= 1;
+            controller.m_Immune = true;
+            StartCoroutine(BlinkSprite());
+
+            if (HPLeft == 1)
+                playerHealth.sprite = halfHearth;
+
+            else if (HPLeft == 2)
+                playerHealth.sprite = fullHearth;
+
+            if (HPLeft <= 0)
+            {
+                anim.Play("ShibaDead");
+                controller.m_Paralyzed = true;
+                playerHealth.sprite = emptyHearth;
+                gameManager.GameOver(this.transform);
+
+                StartCoroutine(DelayHearth());
+            }
+        }
+
+        yield return new WaitForSeconds(1f);
+        //controller.m_Damaged = false;
+        spikeCanHit = true;
+
+    }
+
+
+    public IEnumerator BlinkSprite()
     {
         for(int i = 0; i < 8; ++i)
         {
@@ -75,6 +113,7 @@ public class PlayerHealth : MonoBehaviour {
                 m_SpriteRender.enabled = true;
             }
         }
+        m_SpriteRender.enabled = true;
     }
 
     public void TakeDamage(float damage)
@@ -95,6 +134,7 @@ public class PlayerHealth : MonoBehaviour {
             if (HPLeft <= 0)
             {
                 anim.Play("ShibaDead");
+                controller.m_Paralyzed = true;
                 playerHealth.sprite = emptyHearth;
                 gameManager.GameOver(this.transform);
 
