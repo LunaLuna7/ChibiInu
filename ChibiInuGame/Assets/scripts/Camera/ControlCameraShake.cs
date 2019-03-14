@@ -45,4 +45,19 @@ public class ControlCameraShake : MonoBehaviour {
             shakeElapsedTime = shakeDuration;
         }
     }
+
+    public void ShakeForTime(float time)
+    {
+        StartCoroutine(ShakeRoutine(time));
+    }
+
+    public IEnumerator ShakeRoutine(float time)
+    {
+        virtualCameraNoise.m_AmplitudeGain = shakeAmplitude;
+        virtualCameraNoise.m_FrequencyGain = shakeFrequency;
+        yield return new WaitForSeconds(time);
+        virtualCameraNoise.m_AmplitudeGain = 0f;
+        shakeElapsedTime = 0f;
+    }
+
 }
