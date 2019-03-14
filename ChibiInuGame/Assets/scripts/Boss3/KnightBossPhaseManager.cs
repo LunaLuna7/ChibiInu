@@ -75,7 +75,7 @@ public class KnightBossPhaseManager : MonoBehaviour {
 		//reset shield
 		horizontalSheildGroup.SetActive(true);
 		horizontalSheildList[0].SetActive(false);
-		horizontalSheildList[0].SetActive(false);
+		horizontalSheildList[1].SetActive(false);
 		verticalSheildGroup.SetActive(true);
 		verticalSheildList[0].SetActive(false);
 		verticalSheildList[1].SetActive(false);
