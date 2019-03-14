@@ -3678,6 +3678,7 @@ MonoBehaviour:
   - {fileID: 571050954}
   - {fileID: 595664165}
   - {fileID: 757063201}
+  partnerManager: {fileID: 1074493362}
   player: {fileID: 1061029009}
   curtain: {fileID: 1071827651}
 --- !u!50 &1042556852

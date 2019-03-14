@@ -280,7 +280,7 @@ public class PartnerManager : MonoBehaviour {
         fireBallOnCoolDown = false;
     }
 
-    void UnsummonAllPartners()
+    public void UnsummonAllPartners()
     {
         foreach(Partner each in partners)
         {

@@ -8,6 +8,7 @@ public class SatanBossPhaseManager : MonoBehaviour {
 	//maps
 	public GameObject[] maps;
 	public Transform[] playerStartPositions;
+	public PartnerManager partnerManager;
 	public GameObject player;
 	private GameObject currentMap;
 	public Image curtain;
@@ -52,6 +53,11 @@ public class SatanBossPhaseManager : MonoBehaviour {
 		//set new map
 		currentMap = maps[index];
 		currentMap.SetActive(true);
+		//add partner depends on map
+		if(phase == 1)//wizard
+			partnerManager.SummonPartner(SkillSlot.FirstSlot, partnerManager.partners[0]);
+		if(phase == 2)//bard
+			partnerManager.SummonPartner(SkillSlot.SecondSlot, partnerManager.partners[1]);
 	}
 
 	public void Reset()
@@ -62,6 +68,7 @@ public class SatanBossPhaseManager : MonoBehaviour {
 		for(int x = 1; x < maps.Length; ++x)
 			maps[x].SetActive(false);
 		SetPhase(phase);
+		partnerManager.UnsummonAllPartners();
 	}
 
 }
