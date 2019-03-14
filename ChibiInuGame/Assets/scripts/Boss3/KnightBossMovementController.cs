@@ -9,7 +9,7 @@ public class KnightBossMovementController : MonoBehaviour {
 	private SpriteRenderer sprite;
     // Use this for initialization
 
-    void Awake()
+    public virtual void Awake()
 	{
 		rigid = GetComponent<Rigidbody2D>();
 		sprite = GetComponent<SpriteRenderer>();

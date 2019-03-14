@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class SatanBossManager : MonoBehaviour {
-	public KnightBossMovementController movementController;
+	public SatanBossMovementController movementController;
+    public SatanBossPhaseManager phaseManager;
 	private bool hasStarted = false;
 
 	public GameObject player;

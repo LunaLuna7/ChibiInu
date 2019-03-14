@@ -29,7 +29,8 @@ public class SatanBossMovingState : IState {
 	private IEnumerator Move(float speed)
 	{
 		//get a position to go to
-		Transform[] possibleLocations = controller.movementController.possibleLocations;
+		int phase = controller.phaseManager.GetPhase();
+		Transform[] possibleLocations = controller.movementController.possibleLocationList[phase];
 		Vector3 pos = possibleLocations[Random.Range(0, possibleLocations.Length)].position;
 		//loop until get a position that is not the current position
 		while(pos == controller.transform.position)
