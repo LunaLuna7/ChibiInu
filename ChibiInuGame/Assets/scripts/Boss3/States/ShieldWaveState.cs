@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class ShieldWaveState : IState {
 	private KnightBossManager controller;
+	//shield coming out from center of Boss
+	private float shieldComingOutDistance = 5f;
+	private float shieldComingOutSpeed = 7.5f;
+	//wait before shoot
+	private float waitTime = 2f;
+	//shoot
 	private float projectileSpeed = 30;
 
 	public ShieldWaveState(KnightBossManager controller)
@@ -14,8 +20,8 @@ public class ShieldWaveState : IState {
 	public void EnterState()
 	{
 		float healthLost = (controller.bossHealth.maxHealth - controller.bossHealth.health)/controller.bossHealth.maxHealth;
-		int num = 3 + (int)(healthLost/0.2f);
-		controller.StartCoroutine(Skill(num, 2f));
+		int num = 5 + (int)(healthLost/0.2f);
+		controller.StartCoroutine(Skill(num, waitTime));
 	}
 
 	public void ExecuteState()
@@ -35,7 +41,7 @@ public class ShieldWaveState : IState {
 		List<GameObject> objectList = new List<GameObject>();
 		for(int x = 0; x < num; ++x)
 		{
-			GameObject obj = GameObject.Instantiate(controller.sheildProjectile, controller.transform.position + Vector3.back, Quaternion.identity);
+			GameObject obj = GameObject.Instantiate(controller.shieldProjectile, controller.transform.position + Vector3.back, Quaternion.identity);
 			obj.transform.SetParent(controller.skillObjectsGroup);
 			objectList.Add(obj);
 			//move obj out
@@ -45,7 +51,7 @@ public class ShieldWaveState : IState {
 			else
 				rotateSpeed = Random.Range(10, 15f);
 			obj.GetComponent<BossShieldProjectile>().SetRotateSpeed(rotateSpeed);
-			obj.GetComponent<BossShieldProjectile>().MoveTowards(angleInterval * (x + 1), 5, 15);
+			obj.GetComponent<BossShieldProjectile>().MoveTowards(angleInterval * (x + 1), shieldComingOutDistance, shieldComingOutSpeed);
 		}
 
 		yield return new WaitForSeconds(waitTime);
