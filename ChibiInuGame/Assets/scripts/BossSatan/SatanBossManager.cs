@@ -18,14 +18,17 @@ public class SatanBossManager : MonoBehaviour {
 	public TimeLineManager afterBattleTimeline;
 	[Header("Noise")]
 	public Image noiseImage;
+    [Header("HellBall")]
+    public GameObject hellBall;
 	
 
 	void Awake()
 	{
 		//set states
-		states =  new IState[2];
+		states =  new IState[3];
 		states[0] = new SatanBossMovingState(this);
 		states[1] = new SatanBossNoiseState(this);
+        states[2] = new SatanBossHellBallState(this);
 	}
 
 	// Use this for initialization
