@@ -50,27 +50,33 @@ public class ShieldStrikeState : IState {
 
 	private IEnumerator ThrowShield(float waitTime, float speed)
 	{
+		int type = Random.Range(0,2);
+		GameObject obj;
 		//throw shields out
-		GameObject obj = GameObject.Instantiate(controller.sheildProjectile, controller.transform.position + Vector3.back, Quaternion.identity);
+		if(type == 0)
+			obj = GameObject.Instantiate(controller.spikeShieldProjectile, controller.transform.position + Vector3.back, Quaternion.identity);
+		else
+			obj = GameObject.Instantiate(controller.shieldProjectile, controller.transform.position + Vector3.back, Quaternion.identity);
 		obj.transform.SetParent(controller.skillObjectsGroup);
 
 		//move obj out
 		float rotateSpeed = 0;
 		if(Random.Range(0, 2) == 0)
-			rotateSpeed = Random.Range(-15f, -10f);
+			rotateSpeed = Random.Range(-20f, -15f);
 		else
-			rotateSpeed = Random.Range(10, 15f);
+			rotateSpeed = Random.Range(15, 20f);
 		obj.GetComponent<BossShieldProjectile>().SetRotateSpeed(rotateSpeed);
 		obj.GetComponent<BossShieldProjectile>().MoveTowards(90, 5, 15);
 
 		yield return new WaitForSeconds(waitTime);
 
-		if(Random.Range(0, 2) == 0)
+		if(type == 0)
 		{
-			//shoot shield towards random direction
+			//shoot shield towards player
 			obj.GetComponent<BossShieldProjectile>().ShootTowards(controller.player.transform.position, speed);
 			GameObject.Destroy(obj, 10f);
 		}else{
+			//shoot towards random direction
 			obj.GetComponent<BossShieldProjectile>().SetRotateSpeed(0);
 			obj.GetComponent<BossShieldProjectile>().Shoot(speed);
 			GameObject.Destroy(obj, 10f);

@@ -14,7 +14,8 @@ public class KnightBossManager : MonoBehaviour {
 	[Header("For Skills")]
 	private StateMachine stateMachine = new StateMachine();
 	private IState[] states;
-	public GameObject sheildProjectile;
+	public GameObject shieldProjectile;
+	public GameObject spikeShieldProjectile;
 	public Transform skillObjectsGroup;//transform to put all skill objects, easy for removing objects when reset
 	public TimeLineManager afterBattleTimeline;
 	void Awake()
