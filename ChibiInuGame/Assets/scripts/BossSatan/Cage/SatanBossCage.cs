@@ -25,16 +25,19 @@ public class SatanBossCage : MonoBehaviour {
 	private float totalLength;
 	public void Update()
 	{
-		int next = (currentPositionIndex + 1)% positionList.Length;
-		transform.position = Vector3.Lerp(positionList[currentPositionIndex].position, positionList[next].position, ratio);
-		//change ratio
-		ratio += (moveSpeed * Time.deltaTime)/totalLength;
-		if(ratio > 1)
+		if(moving && positionList.Length > 1)
 		{
-			ratio = 0;
-			currentPositionIndex = next;
-			next = (currentPositionIndex + 1)% positionList.Length;
-			totalLength = Vector2.Distance(positionList[currentPositionIndex].position, positionList[next].position);
+			int next = (currentPositionIndex + 1)% positionList.Length;
+			transform.position = Vector3.Lerp(positionList[currentPositionIndex].position, positionList[next].position, ratio);
+			//change ratio
+			ratio += (moveSpeed * Time.deltaTime)/totalLength;
+			if(ratio > 1)
+			{
+				ratio = 0;
+				currentPositionIndex = next;
+				next = (currentPositionIndex + 1)% positionList.Length;
+				totalLength = Vector2.Distance(positionList[currentPositionIndex].position, positionList[next].position);
+			}
 		}
 	}
 	
