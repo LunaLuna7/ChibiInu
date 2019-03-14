@@ -53,6 +53,9 @@ public class PartnerManager : MonoBehaviour {
         {
             partners[x].unlocked = SaveManager.dataInUse.unlockPartners[x];
         }
+        //able to use 2 partner if have beated boss2
+        if(SaveManager.dataInUse.levels[6].unlocked)
+            secondPartnerSlotUnlock = true;
         //reset for level
         foreach(Partner p in partners) 
         {
