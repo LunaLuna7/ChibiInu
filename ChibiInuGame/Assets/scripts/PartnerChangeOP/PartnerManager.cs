@@ -83,6 +83,7 @@ public class PartnerManager : MonoBehaviour {
         }
     }
 
+
     public bool IsActive(int partnerId)
     {
         return partners[partnerId].inUse;
@@ -277,6 +278,14 @@ public class PartnerManager : MonoBehaviour {
     {       
         yield return new WaitForSeconds(coolDown);
         fireBallOnCoolDown = false;
+    }
+
+    void UnsummonAllPartners()
+    {
+        foreach(Partner each in partners)
+        {
+            UnSummonPartner(each);
+        }
     }
    
 }
