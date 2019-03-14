@@ -51,6 +51,7 @@ public class CharacterController2D : MonoBehaviour {
     public GameObject DashSpawner;
     public UIPartnerBook uIPartnerBook;
     public GameObject playerGameObject;
+    public GameObject shields;
 
     float horizontalMove;
 
@@ -344,7 +345,8 @@ public class CharacterController2D : MonoBehaviour {
     }
     private void ShieldOn()
     {
-        playerSprite.color = Color.gray;
+        //playerSprite.color = Color.gray;
+        shields.SetActive(true);
         m_RigidBody2D.gravityScale = 10;
         m_Immune = true;
         m_OnShield = true;
@@ -352,7 +354,8 @@ public class CharacterController2D : MonoBehaviour {
 
     public void ShieldOff()
     {
-        playerSprite.color = Color.white;
+        shields.SetActive(false);
+        //playerSprite.color = Color.white;
         m_RigidBody2D.gravityScale = 5;
         m_Immune = false;
         m_OnShield = false;

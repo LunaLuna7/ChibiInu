@@ -26,14 +26,6 @@ public class PlayerMovement : MonoBehaviour {
         {
             jump = true;
         }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            controller.TriggerShield();
-        }
-
-        
-        
 	}
 
     private void FixedUpdate()

@@ -8,6 +8,7 @@ public class StateController : MonoBehaviour {
     public State currentState;
     public EnemyStats enemyStats;
     public State remainState;
+    public Transform originLocation;
     
 
     public List<Transform> patrolLocations;
@@ -26,6 +27,7 @@ public class StateController : MonoBehaviour {
 
  
     void Start () {
+        originLocation = transform;
         playerInRange = false;
         col = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
@@ -69,10 +71,17 @@ public class StateController : MonoBehaviour {
             playerInRange = true;
     }
 
+
+
     public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-            playerInRange = false;
+        {
+            if(Mathf.Abs(player.transform.position.x - gameObject.transform.position.x) > 2 ||
+                Mathf.Abs(player.transform.position.y - gameObject.transform.position.y) > 5)
+                playerInRange = false;
+
+        }
     }
 
     public void Die()

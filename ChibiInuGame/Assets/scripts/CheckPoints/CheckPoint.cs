@@ -24,6 +24,7 @@ public class CheckPoint : MonoBehaviour {
         {
             for (int i = 0; i < enemies.Count; ++i)
             {
+                enemies[i].transform.position = enemies[i].GetComponent<StateController>().originLocation.position;
                 enemies[i].SetActive(true);
             }
         }
