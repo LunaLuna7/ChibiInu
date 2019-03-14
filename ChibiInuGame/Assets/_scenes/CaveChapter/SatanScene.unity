@@ -2512,6 +2512,34 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ca2ba6ec9497294ca861b17ce4ff58f, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &505936593
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 505936594}
+  m_Layer: 0
+  m_Name: phase3Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &505936594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 505936593}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1042556847}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &506946586
 Prefab:
   m_ObjectHideFlags: 0
@@ -3972,6 +4000,7 @@ GameObject:
   - component: {fileID: 1042556852}
   - component: {fileID: 1042556853}
   - component: {fileID: 1042556848}
+  - component: {fileID: 1042556854}
   m_Layer: 0
   m_Name: Satan
   m_TagString: Untagged
@@ -3991,6 +4020,8 @@ Transform:
   m_Children:
   - {fileID: 2131885386}
   - {fileID: 2109469549}
+  - {fileID: 1553006494}
+  - {fileID: 505936594}
   m_Father: {fileID: 1473580863}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4125,6 +4156,8 @@ MonoBehaviour:
   partnerManager: {fileID: 1074493362}
   player: {fileID: 1061029009}
   curtain: {fileID: 1071827651}
+  invulnerableCollider: {fileID: 1553006493}
+  phase3Collider: {fileID: 505936593}
 --- !u!50 &1042556852
 Rigidbody2D:
   serializedVersion: 4
@@ -4163,6 +4196,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1042556854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1042556846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cddbaca538fe8cb4f84f31cfafc86fce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 40
+  maxHealth: 40
+  intervalSpikesTime: 0
+  healthBar: {fileID: 216722175}
+  cameraShake: {fileID: 1147858952}
+  spikes: []
 --- !u!1 &1049980227
 GameObject:
   m_ObjectHideFlags: 0
@@ -43573,6 +43623,34 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 509e5bb1c3e95374781798723dbca45a, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1553006493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1553006494}
+  m_Layer: 0
+  m_Name: invulnerableCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1553006494
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1553006493}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1042556847}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1579967633
 GameObject:
   m_ObjectHideFlags: 3

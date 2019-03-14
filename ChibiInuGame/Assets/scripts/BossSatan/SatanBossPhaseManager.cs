@@ -12,7 +12,14 @@ public class SatanBossPhaseManager : MonoBehaviour {
 	public GameObject player;
 	private GameObject currentMap;
 	public Image curtain;
+	//able to hurt at last phase
+	public GameObject invulnerableCollider;
+	public GameObject phase3Collider;
 
+	void Start()
+	{
+		Reset();
+	}
 
 	public void GoToNextPhase()
 	{
@@ -55,9 +62,22 @@ public class SatanBossPhaseManager : MonoBehaviour {
 		currentMap.SetActive(true);
 		//add partner depends on map
 		if(phase == 1)//wizard
+		{
 			partnerManager.SummonPartner(SkillSlot.FirstSlot, partnerManager.partners[0]);
+			//set boss initial position
+			transform.position = GetComponent<SatanBossMovementController>().possibleLocations1[0].position;
+		}
 		if(phase == 2)//bard
+		{
 			partnerManager.SummonPartner(SkillSlot.SecondSlot, partnerManager.partners[1]);
+			transform.position = GetComponent<SatanBossMovementController>().possibleLocations2[0].position;
+		}
+		if(phase == 3)//add knight && change collider
+		{
+			transform.position = GetComponent<SatanBossMovementController>().possibleLocations3[0].position;
+			phase3Collider.SetActive(true);
+			invulnerableCollider.SetActive(false);
+		}
 	}
 
 	public void Reset()
@@ -69,6 +89,8 @@ public class SatanBossPhaseManager : MonoBehaviour {
 			maps[x].SetActive(false);
 		SetPhase(phase);
 		partnerManager.UnsummonAllPartners();
+		phase3Collider.SetActive(false);
+		invulnerableCollider.SetActive(true);
 	}
 
     //Returns current map we are on. Phase 0 =>returns 0, Phase 1 =? returns 1 and so on...
