@@ -29,7 +29,6 @@ public class SatanBossCage : MonoBehaviour {
 		{
 			satanBossPhaseManager.GoToNextPhase();
 			broken = true;
-			gameObject.SetActive(false);
 		}
 	}
 
