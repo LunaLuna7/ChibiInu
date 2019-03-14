@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
     public List<CheckPoint> checkPoints;
     public GameObject player;
     private PlayerHealth playerHealth;
+    public string song;
 
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour {
 
     void Start()
     {
+        //StartMusic();
         playerHealth = player.GetComponent<PlayerHealth>();
         player.transform.position = checkPointsPosition[UpdateCheckPoint.currentCheckPoint - 1].position;
     }
@@ -46,5 +48,12 @@ public class GameManager : MonoBehaviour {
         {
             checkPoints[i].ResetingLevel();
         }
+    }
+
+    void StartMusic()
+    {
+        if(song != "")
+        SoundEffectManager.instance.Play(song);
+           
     }
 }

@@ -43,19 +43,21 @@ public class LvlSelectMovement : MonoBehaviour {
             }
             else if (moveX > 0)
             {
-                SoundEffectManager.instance.Play("MenuScroll");
                 if(position + 1 < levelSelectManager.levels.Capacity)
                 {
                     //only able to go to that level when it is unlocked
                     if(levelSelectManager.levels[position + 1].unlocked)
+                    SoundEffectManager.instance.Play("MenuScroll");
                         position += 1;
                 }
             }
             else if (moveX < 0)
             {
-                SoundEffectManager.instance.Play("MenuScroll");
                 if (position - 1 >= 0)
+                {
+                    SoundEffectManager.instance.Play("MenuScroll");
                     position -= 1;
+                }
             }
         }
         
