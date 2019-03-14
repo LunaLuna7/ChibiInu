@@ -466,6 +466,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4449588165802282}
   - component: {fileID: 2569400266015575100}
+  - component: {fileID: 114214386324627148}
   m_Layer: 0
   m_Name: Phase1lvl
   m_TagString: Untagged
@@ -1760,6 +1761,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6a4eeb0029eb74eba90dadfba9024a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114214386324627148
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1796313535160786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fefe909061ba7d42b914487e873800e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinLocations: []
 --- !u!114 &114216456496553722
 MonoBehaviour:
   m_ObjectHideFlags: 1
