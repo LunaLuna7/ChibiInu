@@ -71,4 +71,20 @@ public class SatanBossPhaseManager : MonoBehaviour {
 		partnerManager.UnsummonAllPartners();
 	}
 
+    //Returns current map we are on. Phase 0 =>returns 0, Phase 1 =? returns 1 and so on...
+    public int GetPhaseMap()
+    {
+        int counter = -1;
+        foreach(GameObject each in maps)
+        {
+            counter++;
+            if (each == currentMap)
+                return counter;
+                
+        }
+        if (counter == -1)
+            Debug.LogError("Not currently on a existing map level piece for satan");
+        return counter;
+    }
+
 }

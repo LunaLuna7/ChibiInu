@@ -7,9 +7,31 @@ public class SatanCoin : MonoBehaviour {
     public float polymorphTime;
     public GameObject satanCoin;
     public GameObject particleEffect;
-    public List<GameObject> enemieSummonPool;
-	// Use this for initialization
-	void Start () {
+    public List<GameObject> enemieSummonPool0;
+    public List<GameObject> enemieSummonPool1;
+    public List<GameObject> enemieSummonPool2;
+    public List<GameObject> enemieSummonPool3;
+    public List<List<GameObject>> allEnemiesSummonPool;
+    public SatanBossPhaseManager satanBossPhaseManager;
+    private int currentPhase;
+
+    private void Awake()
+    {
+        allEnemiesSummonPool = new List<List<GameObject>>();
+        currentPhase = satanBossPhaseManager.GetPhaseMap();
+        InitAllEnemeyPools();
+    }
+
+    void InitAllEnemeyPools()
+    {
+        allEnemiesSummonPool.Add(enemieSummonPool0);
+        allEnemiesSummonPool.Add(enemieSummonPool1);
+        allEnemiesSummonPool.Add(enemieSummonPool2);
+        allEnemiesSummonPool.Add(enemieSummonPool3);
+    }
+
+    // Use this for initialization
+    void Start () {
         StartCoroutine(TransformCoin());
 	}
 	
@@ -29,9 +51,16 @@ public class SatanCoin : MonoBehaviour {
         yield return new WaitForSeconds(polymorphTime - .4f);
         particleEffect.SetActive(true);
         yield return new WaitForSeconds(.4f);
-        int enemyToSummon = Random.Range(0, enemieSummonPool.Count);
-        Instantiate(enemieSummonPool[enemyToSummon], transform.position, Quaternion.identity);
+
+        List<GameObject> currentEnemyPool = GetEnemySummonPool();
+        int enemyToSummon = Random.Range(0, currentEnemyPool.Count);
+        Instantiate(currentEnemyPool[enemyToSummon], transform.position, Quaternion.identity);
         Destroy(satanCoin);
 
+    }
+
+    List<GameObject> GetEnemySummonPool()
+    {
+        return allEnemiesSummonPool[currentPhase];
     }
 }
