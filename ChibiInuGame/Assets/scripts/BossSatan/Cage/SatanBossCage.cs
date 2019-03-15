@@ -12,6 +12,7 @@ public class SatanBossCage : MonoBehaviour {
 	//movement 
 	public bool moving;
 	public float moveSpeed;
+    private float originalSpeed;
 	public Transform[] positionList;
 	private int currentPositionIndex;
 	
@@ -43,6 +44,7 @@ public class SatanBossCage : MonoBehaviour {
 	
 	public void Reset()
 	{
+        originalSpeed = moveSpeed;
 		health = maxHealth;
 		broken = false;
 		currentPositionIndex = 0;
@@ -58,13 +60,22 @@ public class SatanBossCage : MonoBehaviour {
 	public void TakeDamage(int amount)
 	{
 		health -= amount;
-		if(health <= 0 && !broken)
+        if (health > 0)
+            StartCoroutine(RunAway());
+
+        if (health <= 0 && !broken)
 		{
 			satanBossPhaseManager.GoToNextPhase();
 			broken = true;
 		}
 	}
 
+    IEnumerator RunAway()
+    {
+        moveSpeed = originalSpeed*3;
+        yield return new WaitForSeconds(.5f);
+        moveSpeed = originalSpeed;
+    }
 
 
 }

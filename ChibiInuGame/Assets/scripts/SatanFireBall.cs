@@ -6,9 +6,12 @@ public class SatanFireBall : MonoBehaviour {
     private float rotateSpeed = 0;
     public GameObject fireBallStorm;
     private Rigidbody2D rb;
+    SatanBossManager satanBossManager;
+
     // Use this for initialization
     void Awake()
     {
+        satanBossManager = FindObjectOfType<SatanBossManager>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -29,7 +32,8 @@ public class SatanFireBall : MonoBehaviour {
 
     private void OnDestroy()
     {
-        Instantiate(fireBallStorm, transform.position, Quaternion.identity);
+        GameObject createdEnemy = Instantiate(fireBallStorm, transform.position, Quaternion.identity);
+        createdEnemy.transform.SetParent(satanBossManager.skillObjectsGroup);
     }
 
     public void RotateTowards(GameObject target)
