@@ -52,7 +52,9 @@ public class SatanBossPhaseManager : MonoBehaviour {
 		//say sentence depends on the phase
 		string dialoguePath = beforePhaseDialogueFilePath[index];
 		if(dialoguePath.Length > 0)
+		{
 			yield return dialogueManager.PlayDialogues(0, 999, dialoguePath);
+		}
 		SetPhase(index);
 		yield return new WaitForEndOfFrame();
 		//show curtain
@@ -62,6 +64,7 @@ public class SatanBossPhaseManager : MonoBehaviour {
 			curtain.color = currentColor;
 			yield return new WaitForEndOfFrame();
 		}
+		player.GetComponent<CharacterController2D>().m_Immune = false;
 	}
 
 	private void SetPhase(int index)
