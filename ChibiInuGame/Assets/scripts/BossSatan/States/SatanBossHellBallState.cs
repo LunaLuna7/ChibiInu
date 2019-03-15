@@ -9,7 +9,8 @@ public class SatanBossHellBallState : IState {
 
     //Stats
     private float projectileSpeed = 40;
-    private float waitTime = .5f;
+    private float waitTimeShoot = 1f;
+    private float waitTimeAfterShoot = 4f;
 
     
     public SatanBossHellBallState(SatanBossManager controller)
@@ -19,7 +20,7 @@ public class SatanBossHellBallState : IState {
 
     public void EnterState()
     {
-        controller.StartCoroutine(Skill(waitTime));
+        controller.StartCoroutine(Skill(waitTimeShoot));
     }
 
     public void ExecuteState()
@@ -47,7 +48,7 @@ public class SatanBossHellBallState : IState {
         if(obj != null)
             obj.GetComponent<SatanFireBall>().Shoot(projectileSpeed);
         
-        yield return new WaitForSeconds(waitTime);
+        yield return new WaitForSeconds(waitTimeAfterShoot);
         controller.SwitchState();
     }
 }
