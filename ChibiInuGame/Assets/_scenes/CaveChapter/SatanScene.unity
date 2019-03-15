@@ -4534,6 +4534,7 @@ GameObject:
   - component: {fileID: 1042556853}
   - component: {fileID: 1042556848}
   - component: {fileID: 1042556854}
+  - component: {fileID: 1042556855}
   m_Layer: 0
   m_Name: Satan
   m_TagString: Untagged
@@ -4703,6 +4704,12 @@ MonoBehaviour:
   partnerManager: {fileID: 1074493362}
   player: {fileID: 1061029009}
   curtain: {fileID: 1071827651}
+  dialogueManager: {fileID: 1042556855}
+  beforePhaseDialogueFilePath:
+  - 
+  - Cave/SatanBeforePhase1
+  - Cave/SatanBeforePhase2
+  - Cave/SatanBeforePhase3
   invulnerableCollider: {fileID: 1553006493}
   phase3Collider: {fileID: 505936593}
 --- !u!50 &1042556852
@@ -4760,6 +4767,21 @@ MonoBehaviour:
   healthBar: {fileID: 216722175}
   cameraShake: {fileID: 1147858952}
   spikes: []
+--- !u!114 &1042556855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1042556846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59eeb541fc6041845a9c80510f5b90d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 1869877842}
+  dialogueText: {fileID: 1869877841}
+  speakerImage: {fileID: 1869877840}
+  animator: {fileID: 1869877839}
 --- !u!1 &1049980227
 GameObject:
   m_ObjectHideFlags: 0
@@ -67866,17 +67888,17 @@ Prefab:
     - target: {fileID: 224083763712137354, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224856033425318722, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 224215224849271358, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224061660774797932, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
@@ -67886,7 +67908,7 @@ Prefab:
     - target: {fileID: 224241648355968452, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114518207060945192, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
@@ -67945,6 +67967,12 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 95020109382982290, guid: f380a7ca4200865469262eed46aa0676,
     type: 2}
   m_PrefabInternal: {fileID: 1869877838}
+--- !u!114 &1869877840 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114594037535238130, guid: f380a7ca4200865469262eed46aa0676,
+    type: 2}
+  m_PrefabInternal: {fileID: 1869877838}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &1869877841 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114812956336794084, guid: f380a7ca4200865469262eed46aa0676,

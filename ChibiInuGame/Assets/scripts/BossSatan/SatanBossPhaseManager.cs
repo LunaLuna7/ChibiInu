@@ -66,10 +66,13 @@ public class SatanBossPhaseManager : MonoBehaviour {
 
 	private void SetPhase(int index)
 	{
+		if(currentMap)
+		{
+			player.transform.position = playerStartPositions[index].position;
+		}
 		//set new map
 		currentMap = maps[index];
 		currentMap.SetActive(true);
-		player.transform.position = playerStartPositions[index].position;
 		//add partner depends on map
 		if(phase == 1)//wizard
 		{

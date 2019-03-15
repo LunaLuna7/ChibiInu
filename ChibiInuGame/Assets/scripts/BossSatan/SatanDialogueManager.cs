@@ -37,8 +37,16 @@ public class SatanDialogueManager : MonoBehaviour {
     {
 		//add postfix for language
         dialogueFilePath = "English/" + dialogueFilePath;
-        //at the start of level, ask dialogue Library to load dialogue data, then get it
-        dialogueSequence = DialogueLibrary.instance.LoadDialogueJson(dialogueFilePath.Trim());
+		if(dialogueFilePath.Trim().Length <= 0)
+		{
+			yield break;
+		}
+		try{
+			//at the start of level, ask dialogue Library to load dialogue data, then get it
+			dialogueSequence = DialogueLibrary.instance.LoadDialogueJson(dialogueFilePath.Trim());
+		}catch{
+			yield break;
+		}
 		//UI dialogue window appear
         animator.SetBool("IsOpen", true);
 		//make sure sentence is in bounf
