@@ -13,7 +13,7 @@ public class PlantSeedShot : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        InvokeRepeating("Shoot", startDelay, shootRate);
+        //InvokeRepeating("Shoot", startDelay, shootRate);
     }
 
     // Update is called once per frame
