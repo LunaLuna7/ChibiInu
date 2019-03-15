@@ -209,7 +209,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: OpenBook
-    clip: {fileID: 8300000, guid: fd5ef6064a360ae42bd38aeb1ff2c82d, type: 3}
+    clip: {fileID: 8300000, guid: 4241811d6540b1145bf0a8d43589081a, type: 3}
     volume: 0.287
     pitch: 1
     loop: 0
