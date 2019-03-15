@@ -1544,13 +1544,14 @@ GameObject:
   m_Component:
   - component: {fileID: 328100880}
   - component: {fileID: 328100881}
+  - component: {fileID: 328100882}
   m_Layer: 10
   m_Name: SatanBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &328100880
 Transform:
   m_ObjectHideFlags: 0
@@ -1612,6 +1613,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &328100882
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 328100879}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &332971004
 Prefab:
   m_ObjectHideFlags: 0
@@ -5942,7 +5961,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &626980863
 Transform:
   m_ObjectHideFlags: 0
@@ -6260,6 +6279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 671702440}
   - component: {fileID: 671702441}
+  - component: {fileID: 671702442}
   m_Layer: 0
   m_Name: SatanHands_1
   m_TagString: Untagged
@@ -6326,6 +6346,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &671702442
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 671702439}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &682949442
 GameObject:
   m_ObjectHideFlags: 0
@@ -7596,6 +7634,12 @@ PlayableDirector:
     value: {fileID: 1290855153}
   - key: {fileID: 114404266951300012, guid: 78fce732768fd0b49838fc9addb6858d, type: 2}
     value: {fileID: 626980862}
+  - key: {fileID: 114926128029085684, guid: 78fce732768fd0b49838fc9addb6858d, type: 2}
+    value: {fileID: 328100882}
+  - key: {fileID: 114426676792553542, guid: 78fce732768fd0b49838fc9addb6858d, type: 2}
+    value: {fileID: 1521193819}
+  - key: {fileID: 114195745078451328, guid: 78fce732768fd0b49838fc9addb6858d, type: 2}
+    value: {fileID: 671702442}
   m_ExposedReferences:
     m_References:
     - f1085d46247118545af22265418e124d: {fileID: 0}
@@ -29031,7 +29075,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1094554322
 Transform:
   m_ObjectHideFlags: 0
@@ -29244,7 +29288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1126535640
 Transform:
   m_ObjectHideFlags: 0
@@ -29832,7 +29876,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1290855154
 Transform:
   m_ObjectHideFlags: 0
@@ -64048,6 +64092,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1521193817}
   - component: {fileID: 1521193818}
+  - component: {fileID: 1521193819}
   m_Layer: 0
   m_Name: SatanHands_0
   m_TagString: Untagged
@@ -64114,6 +64159,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1521193819
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1521193816}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1544747087
 GameObject:
   m_ObjectHideFlags: 0
