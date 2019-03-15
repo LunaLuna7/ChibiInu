@@ -23,6 +23,7 @@ public class SatanCoin : MonoBehaviour {
         allEnemiesSummonPool = new List<List<GameObject>>();
         currentPhase = satanBossPhaseManager.GetPhaseMap();
         InitAllEnemeyPools();
+        gameObject.transform.SetParent(satanBossManager.skillObjectsGroup);
     }
 
     void InitAllEnemeyPools()
