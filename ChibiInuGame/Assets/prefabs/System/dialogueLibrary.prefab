@@ -55,7 +55,7 @@ MonoBehaviour:
   - name: empty
     faceSprite: {fileID: 21300000, guid: 579ac91700c6c214e9a36b38ae991360, type: 3}
   - name: Shib
-    faceSprite: {fileID: 21300000, guid: 4b27623cb1940104e9783c8a865e8713, type: 3}
+    faceSprite: {fileID: 21300000, guid: a636710170df9a441b3e33378b2a53f7, type: 3}
   - name: Wizard
     faceSprite: {fileID: 21300000, guid: 5f5c3f84dcb8b614da15bac2b709e6d8, type: 3}
   - name: Wizard Master
@@ -68,3 +68,7 @@ MonoBehaviour:
     faceSprite: {fileID: 21300000, guid: 980929bc35c087d40b63c7396f0c01ee, type: 3}
   - name: Knight Master
     faceSprite: {fileID: 21300010, guid: 980929bc35c087d40b63c7396f0c01ee, type: 3}
+  - name: Satan
+    faceSprite: {fileID: 21300002, guid: d728078d5ac656e42941e2b2445b1620, type: 3}
+  - name: SatanDark
+    faceSprite: {fileID: 21300002, guid: d728078d5ac656e42941e2b2445b1620, type: 3}
