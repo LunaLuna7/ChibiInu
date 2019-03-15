@@ -57,6 +57,8 @@ public class SatanBossPhaseManager : MonoBehaviour {
 			currentMap.SetActive(false);
 			player.transform.position = playerStartPositions[index].position;
 		}
+		//clean objects
+		GetComponent<SatanBossManager>().CleanSkillObjects();
 		//set new map
 		currentMap = maps[index];
 		currentMap.SetActive(true);

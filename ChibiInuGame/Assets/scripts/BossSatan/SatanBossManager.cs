@@ -68,11 +68,7 @@ public class SatanBossManager : MonoBehaviour {
         //stop using the current skills
         StopAllCoroutines();
 		movementController.StopAllCoroutines();
-        //destroy all skill objects
-        for(int x = 0; x< skillObjectsGroup.childCount; ++x)
-        {
-            Destroy(skillObjectsGroup.GetChild(x).gameObject);
-        }
+        CleanSkillObjects();
 		//reset phase
 		GetComponent<SatanBossPhaseManager>().Reset();
         transform.position = startPosition.position;
@@ -100,12 +96,17 @@ public class SatanBossManager : MonoBehaviour {
         //stop using the current skills
         StopAllCoroutines();
 		movementController.StopAllCoroutines();
+        CleanSkillObjects();
+        afterBattleTimeline.Play();
+    }
+
+    public void CleanSkillObjects()
+    {
         //destroy all skill objects
         for(int x = 0; x< skillObjectsGroup.childCount; ++x)
         {
             Destroy(skillObjectsGroup.GetChild(x).gameObject);
         }
-        afterBattleTimeline.Play();
     }
 
 	public void HidePlayer()
