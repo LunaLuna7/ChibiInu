@@ -13,10 +13,12 @@ public class SatanCoin : MonoBehaviour {
     public List<GameObject> enemieSummonPool3;
     public List<List<GameObject>> allEnemiesSummonPool;
     public SatanBossPhaseManager satanBossPhaseManager;
+    private SatanBossManager satanBossManager;
     private int currentPhase;
 
     private void Awake()
     {
+        satanBossManager = FindObjectOfType<SatanBossManager>();
         satanBossPhaseManager = FindObjectOfType<SatanBossPhaseManager>();
         allEnemiesSummonPool = new List<List<GameObject>>();
         currentPhase = satanBossPhaseManager.GetPhaseMap();
@@ -55,7 +57,8 @@ public class SatanCoin : MonoBehaviour {
 
         List<GameObject> currentEnemyPool = GetEnemySummonPool();
         int enemyToSummon = Random.Range(0, currentEnemyPool.Count);
-        Instantiate(currentEnemyPool[enemyToSummon], transform.position, Quaternion.identity);
+        GameObject createdEnemy = Instantiate(currentEnemyPool[enemyToSummon], transform.position, Quaternion.identity);
+        createdEnemy.transform.SetParent(satanBossManager.skillObjectsGroup);
         Destroy(satanCoin);
 
     }
