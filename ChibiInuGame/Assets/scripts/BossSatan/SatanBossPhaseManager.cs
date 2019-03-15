@@ -12,6 +12,9 @@ public class SatanBossPhaseManager : MonoBehaviour {
 	public GameObject player;
 	private GameObject currentMap;
 	public Image curtain;
+	//dialogue between scenes
+	public SatanDialogueManager dialogueManager;
+	public string[] beforePhaseDialogueFilePath;
 	//able to hurt at last phase
 	public GameObject invulnerableCollider;
 	public GameObject phase3Collider;
@@ -30,6 +33,7 @@ public class SatanBossPhaseManager : MonoBehaviour {
 	private IEnumerator GoToPhase(int index, float time)
 	{
 		//turn screen to black
+		player.GetComponent<CharacterController2D>().m_Immune = true;
 		Color currentColor = curtain.color;
 		float interval = 1f/(30 * time);
 		for(float x = 0; x < 1; x += interval)
@@ -38,6 +42,17 @@ public class SatanBossPhaseManager : MonoBehaviour {
 			curtain.color = currentColor;
 			yield return new WaitForEndOfFrame();
 		}
+		//hide current map, set new location
+		if(currentMap)
+		{
+			currentMap.SetActive(false);
+		}
+		//clean objects
+		GetComponent<SatanBossManager>().CleanSkillObjects();
+		//say sentence depends on the phase
+		string dialoguePath = beforePhaseDialogueFilePath[index];
+		if(dialoguePath.Length > 0)
+			yield return dialogueManager.PlayDialogues(0, 999, dialoguePath);
 		SetPhase(index);
 		yield return new WaitForEndOfFrame();
 		//show curtain
@@ -51,14 +66,10 @@ public class SatanBossPhaseManager : MonoBehaviour {
 
 	private void SetPhase(int index)
 	{
-		//hide current map
 		if(currentMap)
 		{
-			currentMap.SetActive(false);
 			player.transform.position = playerStartPositions[index].position;
 		}
-		//clean objects
-		GetComponent<SatanBossManager>().CleanSkillObjects();
 		//set new map
 		currentMap = maps[index];
 		currentMap.SetActive(true);
@@ -89,6 +100,8 @@ public class SatanBossPhaseManager : MonoBehaviour {
 		//hide maps for phase 1-3
 		for(int x = 1; x < maps.Length; ++x)
 			maps[x].SetActive(false);
+		//clean objects
+		GetComponent<SatanBossManager>().CleanSkillObjects();
 		SetPhase(phase);
 		partnerManager.UnsummonAllPartners();
 		phase3Collider.SetActive(false);
