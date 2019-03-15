@@ -200,8 +200,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 2
-  timeBeforeDamageAgain: 0
   satanBossPhaseManager: {fileID: 0}
+  timeBeforeDamageAgain: 0
+  moving: 0
+  moveSpeed: 0
+  positionList: []
 --- !u!114 &114869015306676406
 MonoBehaviour:
   m_ObjectHideFlags: 1

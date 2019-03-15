@@ -151,8 +151,7 @@ MonoBehaviour:
   satanCoin: {fileID: 1516670451568628}
   particleEffect: {fileID: 1763109254150808}
   enemieSummonPool0:
-  - {fileID: 1256577700775296, guid: 1be156556dcbb124590977e15f181aad, type: 2}
-  - {fileID: 1306293244890892, guid: f859667bd2c25da419d60f31ae2e353f, type: 2}
+  - {fileID: 1151064472516288, guid: 7e2b259d70c96ab48b34dd442892e466, type: 2}
   enemieSummonPool1:
   - {fileID: 1372847627421148, guid: dc6efaecb3bc116498fb8f1514ef1aec, type: 2}
   - {fileID: 1741995346591478, guid: 20f74603ee5953b4385e158f7fb3ebf4, type: 2}
