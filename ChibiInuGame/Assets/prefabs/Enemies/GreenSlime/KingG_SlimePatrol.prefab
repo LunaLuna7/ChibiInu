@@ -147,7 +147,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1151064472516288}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 312.09888, y: 1.9426479, z: -2.1948838}
+  m_LocalPosition: {x: -159.50897, y: -0.44001794, z: -2.1948838}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4109177515469096}
@@ -281,7 +281,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.58226013, y: 1.1586647}
+  m_Offset: {x: 0.58226013, y: 1.2555054}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -292,7 +292,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.4004822, y: 0.63158417}
+  m_Size: {x: 3.4004822, y: 0.4379027}
   m_EdgeRadius: 0
 --- !u!61 &61918868766826324
 BoxCollider2D:
@@ -351,17 +351,16 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: 10a152b5cf567e1419739e5a0db7a708, type: 2}
   enemyStats: {fileID: 11400000, guid: 4e93ade658c01ce459f938b74c64f405, type: 2}
   remainState: {fileID: 11400000, guid: 2df2c52c7c6bda946ade5ffeb0e813fe, type: 2}
+  originLocation: {fileID: 0}
   patrolLocations:
   - {fileID: 4922790901830742}
   - {fileID: 4436442162137872}
-  nextPatrolLocation: 0
-  rb: {fileID: 0}
-  stateTimeElapsed: 0
-  player: {fileID: 0}
   playerInRange: 0
   IgnoreCollision: {fileID: 0}
   killed: 0
   permaDead: 0
+  health: 0
+  tempImmune: 0
 --- !u!114 &114651780056329132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -374,8 +373,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1151064472516288}
+  immune: 0
+  immuneToFire: 0
   stateController: {fileID: 114142600458513216}
-  health: 0
   m_SpriteRender: {fileID: 0}
 --- !u!114 &114852075080345046
 MonoBehaviour:
@@ -389,9 +389,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1151064472516288}
-  stateController: {fileID: 0}
-  health: 0
   m_SpriteRender: {fileID: 0}
+  stateController: {fileID: 0}
 --- !u!212 &212034652151061884
 SpriteRenderer:
   m_ObjectHideFlags: 1
