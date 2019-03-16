@@ -221,7 +221,7 @@ public class CharacterController2D : MonoBehaviour {
             {
                 m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime;
                 playerGameObject.transform.localPosition = new Vector3(0, 0, 0);
-        }
+            }
             else if(m_RigidBody2D.velocity.y < 0 && m_OnWall)
             {
                 m_RigidBody2D.velocity = Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime * 5;
@@ -229,7 +229,7 @@ public class CharacterController2D : MonoBehaviour {
                 playerGameObject.transform.localPosition = new Vector3(.5f, 0, 0);
                 //transform.rotation = new Quaternion(0, 0, 90, transform.rotation.w);
             }
-            if (!PlayingWallSlide)
+            if (!PlayingWallSlide && m_OnWall)
             {
                 OnWallSound();
             }

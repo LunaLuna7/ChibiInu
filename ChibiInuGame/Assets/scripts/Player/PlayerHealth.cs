@@ -95,6 +95,7 @@ public class PlayerHealth : MonoBehaviour {
         yield return new WaitForSeconds(1f);
         //controller.m_Damaged = false;
         spikeCanHit = true;
+        controller.m_Immune = false;
 
     }
 

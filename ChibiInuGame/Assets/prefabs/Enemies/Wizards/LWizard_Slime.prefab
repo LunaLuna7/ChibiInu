@@ -100,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1923858831498762}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 64.26, y: 11.42, z: 0}
+  m_LocalPosition: {x: 61.69, y: 5.2344427, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 4111652435707454}
@@ -235,9 +235,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1923858831498762}
-  stateController: {fileID: 0}
-  health: 0
-  m_SpriteRender: {fileID: 0}
+  immune: 0
+  immuneToFire: 0
+  health: 1
+  stateController: {fileID: 114907113240144088}
+  m_SpriteRender: {fileID: 212322711355615146}
 --- !u!114 &114814724183270424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -251,7 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1175872315216460, guid: e440bad8e884b3844bf81353a72e36f4, type: 2}
   projectileSpawn: {fileID: 4111652435707454}
-  sc: {fileID: 0}
+  sc: {fileID: 114907113240144088}
   shootRate: 4
   startDelay: 0
   facingRight: 1
@@ -269,9 +271,10 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: 06ed9bb2f9c549641bd4595d85941591, type: 2}
   enemyStats: {fileID: 11400000, guid: 392b313d4e2e1f34aa1e6fa34f7e76e1, type: 2}
   remainState: {fileID: 11400000, guid: 2df2c52c7c6bda946ade5ffeb0e813fe, type: 2}
+  originLocation: {fileID: 4247427749269650}
   patrolLocations: []
   nextPatrolLocation: 0
-  rb: {fileID: 0}
+  rb: {fileID: 50038389714511226}
   stateTimeElapsed: 0
   player: {fileID: 0}
   playerInRange: 0
@@ -290,9 +293,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1923858831498762}
-  stateController: {fileID: 0}
-  health: 0
-  m_SpriteRender: {fileID: 0}
+  health: 1
+  m_SpriteRender: {fileID: 212322711355615146}
+  stateController: {fileID: 114907113240144088}
 --- !u!212 &212322711355615146
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -328,7 +331,7 @@ SpriteRenderer:
   m_SortingLayerID: 1970243025
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: f71aad39814db914f9aa0849fbab5dab, type: 3}
+  m_Sprite: {fileID: 21300008, guid: f71aad39814db914f9aa0849fbab5dab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
