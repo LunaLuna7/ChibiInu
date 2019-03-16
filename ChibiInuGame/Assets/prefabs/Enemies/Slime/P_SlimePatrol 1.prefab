@@ -187,7 +187,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1457555509856842}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 105.332565, y: -7.6117325, z: 0.15939239}
+  m_LocalPosition: {x: -151.7621, y: 4.673706, z: 0.15939239}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4578677187226388}
@@ -311,7 +311,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.25, y: 0}
+  m_Offset: {x: 0.25, y: 0.05}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -379,7 +379,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1457555509856842}
-  health: 0
+  immune: 0
+  immuneToFire: 0
   stateController: {fileID: 0}
   m_SpriteRender: {fileID: 0}
 --- !u!114 &114927931736925318
@@ -394,7 +395,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1457555509856842}
-  health: 0
   m_SpriteRender: {fileID: 0}
   stateController: {fileID: 0}
 --- !u!114 &114962338664326726
@@ -411,6 +411,7 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: 10a152b5cf567e1419739e5a0db7a708, type: 2}
   enemyStats: {fileID: 11400000, guid: d684e027527a1f64bbf30424f2bb5f93, type: 2}
   remainState: {fileID: 11400000, guid: 2df2c52c7c6bda946ade5ffeb0e813fe, type: 2}
+  originLocation: {fileID: 0}
   patrolLocations:
   - {fileID: 4502910277588448}
   - {fileID: 4151441134350306}
@@ -418,14 +419,12 @@ MonoBehaviour:
   - {fileID: 4049742272549088}
   - {fileID: 4987289499955926}
   - {fileID: 4151441134350306}
-  nextPatrolLocation: 0
-  rb: {fileID: 0}
-  stateTimeElapsed: 0
-  player: {fileID: 0}
   playerInRange: 0
   IgnoreCollision: {fileID: 0}
   killed: 0
   permaDead: 0
+  health: 0
+  tempImmune: 0
 --- !u!212 &212751702788625152
 SpriteRenderer:
   m_ObjectHideFlags: 1

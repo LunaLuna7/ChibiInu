@@ -384,7 +384,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4415428493080338
 Transform:
-  m_ObjectHideFlags: 61
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1896959494459604}
@@ -469,7 +469,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1655398664070528}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.41, y: -5.960001, z: 0}
+  m_LocalPosition: {x: -151.12828, y: 4.683229, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4930200845700914}
@@ -535,7 +535,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.25, y: 0}
+  m_Offset: {x: 0.25, y: 0.1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -546,7 +546,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.2713106, y: 0.26631284}
+  m_Size: {x: 3.4008539, y: 0.26631284}
   m_EdgeRadius: 0
 --- !u!61 &61350774135537188
 BoxCollider2D:
@@ -603,8 +603,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1655398664070528}
+  immune: 0
+  immuneToFire: 0
   stateController: {fileID: 0}
-  health: 0
   m_SpriteRender: {fileID: 0}
 --- !u!114 &114836106025494336
 MonoBehaviour:
@@ -618,9 +619,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1655398664070528}
-  stateController: {fileID: 0}
-  health: 0
   m_SpriteRender: {fileID: 0}
+  stateController: {fileID: 0}
 --- !u!114 &114882155125773054
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -635,6 +635,7 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: 10a152b5cf567e1419739e5a0db7a708, type: 2}
   enemyStats: {fileID: 11400000, guid: d684e027527a1f64bbf30424f2bb5f93, type: 2}
   remainState: {fileID: 11400000, guid: 2df2c52c7c6bda946ade5ffeb0e813fe, type: 2}
+  originLocation: {fileID: 0}
   patrolLocations:
   - {fileID: 4510213839811252}
   - {fileID: 4979652642842950}
@@ -642,14 +643,12 @@ MonoBehaviour:
   - {fileID: 4415428493080338}
   - {fileID: 4051273509679054}
   - {fileID: 4979652642842950}
-  nextPatrolLocation: 0
-  rb: {fileID: 0}
-  stateTimeElapsed: 0
-  player: {fileID: 0}
   playerInRange: 0
   IgnoreCollision: {fileID: 0}
   killed: 0
   permaDead: 0
+  health: 0
+  tempImmune: 0
 --- !u!212 &212258861820075016
 SpriteRenderer:
   m_ObjectHideFlags: 1
