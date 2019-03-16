@@ -32,6 +32,7 @@ public class BossWorld2 : MonoBehaviour {
     public BardBossMovementController movementController;
     public BardBossCloud cloudController;
     public Transform skillObjectsGroup;
+    public GameObject player;
 
     [Header("for FastSpikeState")]
     public GameObject warningBlock;
@@ -142,7 +143,9 @@ public class BossWorld2 : MonoBehaviour {
     //functions for end level
     public void HidePlayer()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>().enabled = false;
+        //move player to the battle field, just in case player died and return to save point. Use Boss's position can be fine
+        player.transform.position = transform.position;
+        player.SetActive(false);
     }
 
     public void Initialize()
