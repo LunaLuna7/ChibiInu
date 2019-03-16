@@ -9,8 +9,8 @@ public class DeadBoundary : MonoBehaviour {
 
     public void Awake()
     {
-        if(gameManager == null)
-            gameManager = FindObjectOfType<GameManager>().GetComponent<GameManager>();
+        //if(gameManager == null)
+            //gameManager = FindObjectOfType<GameManager>().GetComponent<GameManager>();
        
     }
 
