@@ -88,6 +88,7 @@ public class KnightBossManager : MonoBehaviour {
 
 	public void HidePlayer()
 	{
+		player.transform.position = transform.position;
 		player.SetActive(false);
 	}
 
