@@ -39,20 +39,18 @@ public class FollowPlayer : MonoBehaviour {
     {
          if (playerController.m_FacingRight)
          {
-            if (Mathf.Abs(transform.position.x - player.transform.position.x) >= distanceToTeleport || Mathf.Abs(transform.position.y - player.transform.position.y) < distanceToTeleport)
+            if (Mathf.Abs(transform.position.x - player.transform.position.x) <= distanceToTeleport || Mathf.Abs(transform.position.y - player.transform.position.y) < distanceToTeleport)
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, closeSpeed * Time.deltaTime);
 
-            else
-            {
-                Debug.Log("teleport");
+            else if(Mathf.Abs(transform.position.x - player.transform.position.x) > distanceToTeleport)
                 transform.position = player.transform.position;   
-            }
+            
          }
-         else
+         else if(!playerController.m_FacingRight)
          {
-             if (Mathf.Abs(transform.position.x - player.transform.position.x) >= distanceToTeleport || Mathf.Abs(transform.position.y - player.transform.position.y) < distanceToTeleport)
+             if (Mathf.Abs(transform.position.x - player.transform.position.x) <= distanceToTeleport || Mathf.Abs(transform.position.y - player.transform.position.y) < distanceToTeleport)
                  transform.position = Vector3.MoveTowards(transform.position, player.transform.position + new Vector3(7f, 0, 0), closeSpeed * Time.deltaTime);
-            else
+            else if (Mathf.Abs(transform.position.x - player.transform.position.x) > distanceToTeleport)
                 transform.position = player.transform.position;
          }
     }
