@@ -100,8 +100,8 @@ public class SatanBossPhaseManager : MonoBehaviour {
 	{
 		phase = 0;
 		currentMap = null;
-		//hide maps for phase 1-3
-		for(int x = 1; x < maps.Length; ++x)
+		//hide all maps
+		for(int x = 0; x < maps.Length; ++x)
 			maps[x].SetActive(false);
 		//clean objects
 		GetComponent<SatanBossManager>().CleanSkillObjects();
