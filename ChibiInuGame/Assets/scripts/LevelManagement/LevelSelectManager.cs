@@ -26,20 +26,20 @@ public class LevelSelectManager : MonoBehaviour {
         {
             Level level = levels[levelIndex];
             level.unlocked = SaveManager.dataInUse.levels[levelIndex].unlocked;
-            //update coin UI unless it is boss2/boss3
+            //update UI
             if(level.unlocked)
             {
                 levels[levelIndex].transform.GetComponent<LevelImage>().UpdateCollectableSprites(SaveManager.dataInUse.levels[levelIndex].collectable);
-            }
-            //update macguffins sprites if player pass certain levels (unlock the level behind)
-            if(levelIndex == 3)
-            {
-                macguffins[0].color = Color.white;
-            }else if(levelIndex == 6)
-            {
-                macguffins[1].color = Color.white;
-            }else if(levelIndex == 9){
-                macguffins[2].color = Color.white;
+                //update macguffins sprites if player pass certain levels (unlock the level behind)
+                if(levelIndex == 3)
+                {
+                    macguffins[0].color = Color.white;
+                }else if(levelIndex == 6)
+                {
+                    macguffins[1].color = Color.white;
+                }else if(levelIndex == 9){
+                    macguffins[2].color = Color.white;
+                }
             }
         }
         levels[0].unlocked = true;
