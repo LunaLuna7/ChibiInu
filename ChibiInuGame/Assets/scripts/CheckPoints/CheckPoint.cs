@@ -14,6 +14,7 @@ public class CheckPoint : MonoBehaviour {
     public int previousCheckPoint;
     public GameObject instructionBubble;
     private UIPartnerBook uIPartnerBook;
+    public bool SatanCheckPoint;
 
     private bool onCheckPoint;
     private bool activated;
@@ -42,7 +43,7 @@ public class CheckPoint : MonoBehaviour {
 
     public void Update()
     {
-        if (onCheckPoint)
+        if (onCheckPoint && !SatanCheckPoint)
         {
             if (Input.GetKeyDown(KeyCode.P) && !book.activeSelf)
             {

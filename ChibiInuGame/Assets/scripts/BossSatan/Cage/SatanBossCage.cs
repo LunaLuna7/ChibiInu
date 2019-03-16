@@ -1,23 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SatanBossCage : MonoBehaviour {
-	[SerializeField]private int health;
-	public int maxHealth;
+
+    [SerializeField]private float health;
+	public float maxHealth;
 	[System.NonSerialized]public float timeTrack;
+	public float timeBeforeDamageAgain;
 	private bool broken = false;
 	public SatanBossPhaseManager satanBossPhaseManager;
-	public float timeBeforeDamageAgain;
-	//movement 
+    private SpriteRenderer spriteRender;
+
+    //movement 
 	public bool moving;
 	public float moveSpeed;
     private float originalSpeed;
 	public Transform[] positionList;
 	private int currentPositionIndex;
-	
 
-	void OnEnable()
+    [Header("UI")]
+    public Image healthBar;
+    public GameObject healthUI;
+
+    private void Awake()
+    {
+        spriteRender = GetComponent<SpriteRenderer>();
+        if (spriteRender == null)
+            Debug.LogError("Need sprite component");
+        health = maxHealth;
+        healthBar.fillAmount = health / maxHealth;
+    }
+
+    void OnEnable()
 	{
 		Reset();
 	}
@@ -60,12 +76,19 @@ public class SatanBossCage : MonoBehaviour {
 	public void TakeDamage(int amount)
 	{
 		health -= amount;
+        SoundEffectManager.instance.Play("CageDamage");
+        healthBar.fillAmount = health / maxHealth;
         if (health > 0)
+        {
+            StartCoroutine(BlinkSprite());
             StartCoroutine(RunAway());
+        }
 
         if (health <= 0 && !broken)
 		{
 			satanBossPhaseManager.GoToNextPhase();
+            if (satanBossPhaseManager.GetPhaseMap() == 3)
+                healthUI.SetActive(false);
 			broken = true;
 		}
 	}
@@ -77,5 +100,21 @@ public class SatanBossCage : MonoBehaviour {
         moveSpeed = originalSpeed;
     }
 
+    IEnumerator BlinkSprite()
+    {
+        for (int i = 0; i < 8; ++i)
+        {
+            yield return new WaitForSeconds(.05f);
+            if (spriteRender.enabled == true)
+            {
+                spriteRender.enabled = false;
+            }
+            else
+            {
+                spriteRender.enabled = true;
+            }
+        }
+        spriteRender.enabled = true;
+    }
 
 }

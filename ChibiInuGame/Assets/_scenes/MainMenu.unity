@@ -2798,7 +2798,7 @@ Prefab:
     - target: {fileID: 114857102991829966, guid: 6ca2ba6ec9497294ca861b17ce4ff58f,
         type: 2}
       propertyPath: sounds.Array.size
-      value: 39
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4847291552744438, guid: 6ca2ba6ec9497294ca861b17ce4ff58f, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2870,6 +2870,21 @@ Prefab:
     - target: {fileID: 114857102991829966, guid: 6ca2ba6ec9497294ca861b17ce4ff58f,
         type: 2}
       propertyPath: sounds.Array.data[38].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114857102991829966, guid: 6ca2ba6ec9497294ca861b17ce4ff58f,
+        type: 2}
+      propertyPath: sounds.Array.data[39].name
+      value: CageDamage
+      objectReference: {fileID: 0}
+    - target: {fileID: 114857102991829966, guid: 6ca2ba6ec9497294ca861b17ce4ff58f,
+        type: 2}
+      propertyPath: sounds.Array.data[39].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: be2b6286a7e06384591fd77f7313e400, type: 3}
+    - target: {fileID: 114857102991829966, guid: 6ca2ba6ec9497294ca861b17ce4ff58f,
+        type: 2}
+      propertyPath: sounds.Array.data[39].pitch
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
