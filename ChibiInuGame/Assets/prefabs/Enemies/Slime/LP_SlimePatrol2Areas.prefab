@@ -185,7 +185,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1618568306019154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -132.75, y: 0.44, z: 1.375}
+  m_LocalPosition: {x: -155.15865, y: 4.015785, z: 1.375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4875830171996050}
@@ -215,7 +215,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1382987657684374}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.14, y: 1.12, z: 0.11197859}
+  m_LocalPosition: {x: -0.14, y: 1.196, z: 0.11197859}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4875830171996050}
@@ -264,7 +264,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.3330522, y: 0.26631284}
+  m_Size: {x: 3.5676856, y: 0.26631284}
   m_EdgeRadius: 0
 --- !u!61 &61596971893240240
 BoxCollider2D:
@@ -321,7 +321,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1618568306019154}
-  health: 0
+  immune: 0
+  immuneToFire: 0
   stateController: {fileID: 0}
   m_SpriteRender: {fileID: 0}
 --- !u!114 &114683060452099116
@@ -338,17 +339,16 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: 10a152b5cf567e1419739e5a0db7a708, type: 2}
   enemyStats: {fileID: 11400000, guid: d684e027527a1f64bbf30424f2bb5f93, type: 2}
   remainState: {fileID: 11400000, guid: 2df2c52c7c6bda946ade5ffeb0e813fe, type: 2}
+  originLocation: {fileID: 0}
   patrolLocations:
   - {fileID: 4744126694868806}
   - {fileID: 4434708865822390}
-  nextPatrolLocation: 0
-  rb: {fileID: 0}
-  stateTimeElapsed: 0
-  player: {fileID: 0}
   playerInRange: 0
   IgnoreCollision: {fileID: 0}
   killed: 0
   permaDead: 0
+  health: 0
+  tempImmune: 0
 --- !u!114 &114768973857509948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -361,7 +361,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1618568306019154}
-  health: 0
   m_SpriteRender: {fileID: 0}
   stateController: {fileID: 0}
 --- !u!212 &212928110441553072

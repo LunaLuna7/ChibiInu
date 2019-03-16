@@ -35,7 +35,7 @@ public class hurtBox : MonoBehaviour {
     public void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (!stateController.tempImmune && !immune && (collision.gameObject.CompareTag("Player" ) && this.gameObject.transform.position.y - collision.gameObject.transform.position.y < 1)
+        if (!immune && (collision.gameObject.CompareTag("Player" ) && this.gameObject.transform.position.y - collision.gameObject.transform.position.y < 1)
             || (collision.gameObject.CompareTag("FireBall") && !immuneToFire))//Checks if Player is truly above the hitbox to make sure they die on contact only if player jumps on them
         {
             if (timetrack <= Time.time && EnemyToKill.activeSelf)
@@ -60,7 +60,7 @@ public class hurtBox : MonoBehaviour {
 
     IEnumerator BlinkSprite()
     {
-        stateController.tempImmune = true;
+        //stateController.tempImmune = true;
         for (int i = 0; i < 6; ++i)
         {
             yield return new WaitForSeconds(.05f);
@@ -70,7 +70,7 @@ public class hurtBox : MonoBehaviour {
             else
                 m_SpriteRender.enabled = true;
         }
-        stateController.tempImmune = false;
+        //stateController.tempImmune = false;
     }
 
     private void OnEnable()

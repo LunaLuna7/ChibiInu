@@ -41,9 +41,12 @@ public class FollowPlayer : MonoBehaviour {
          {
             if (Mathf.Abs(transform.position.x - player.transform.position.x) >= distanceToTeleport || Mathf.Abs(transform.position.y - player.transform.position.y) < distanceToTeleport)
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, closeSpeed * Time.deltaTime);
-                
+
             else
+            {
+                Debug.Log("teleport");
                 transform.position = player.transform.position;   
+            }
          }
          else
          {
