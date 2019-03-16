@@ -12,28 +12,32 @@ public class StateController : MonoBehaviour {
     
 
     public List<Transform> patrolLocations;
-    [HideInInspector] public int nextPatrolLocation;
-    [HideInInspector] public Rigidbody2D rb;
-    [HideInInspector] public float stateTimeElapsed;
-    [HideInInspector] public GameObject player;
+    [System.NonSerialized] public int nextPatrolLocation;
+    [System.NonSerialized] public Rigidbody2D rb;
+    [System.NonSerialized] public float stateTimeElapsed;
+    [System.NonSerialized] public GameObject player;
     [System.NonSerialized] public PlayerHealth playerHealth;
 
     public bool playerInRange;
     private Collider2D col;
     public Collider2D IgnoreCollision = null;
 
+    [Header("Health Stats")]
     public bool killed = false; //If the player killed the enemy
     public bool permaDead = false; //if the player past the checkPoint
-
+    public float health;
+    public bool tempImmune;
  
     void Start () {
         originLocation = transform;
         playerInRange = false;
+        tempImmune = false;
         col = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = player.GetComponent<PlayerHealth>();
-        if(IgnoreCollision != null)
+        health = enemyStats.HP;
+        if (IgnoreCollision != null)
             Physics2D.IgnoreCollision(IgnoreCollision.GetComponent<Collider2D>(), col);
 
     }

@@ -11,7 +11,7 @@ public class hurtBox : MonoBehaviour {
     public GameObject EnemyToKill;
     public bool immune;
     public bool immuneToFire;
-    public float health;
+    //public float health;
     private float timeBeforeDamageAgain = .1f; //delay to prevent multi hits in trigger enter frames
     private float timetrack;
     [HideInInspector]public StateController stateController;
@@ -23,7 +23,7 @@ public class hurtBox : MonoBehaviour {
         
         m_SpriteRender = GetComponentInParent<SpriteRenderer>();
         stateController = GetComponentInParent<StateController>();
-        health = stateController.enemyStats.HP;
+        //health = stateController.enemyStats.HP;
         timetrack = timeBeforeDamageAgain + Time.time;
 
     }
@@ -35,21 +35,21 @@ public class hurtBox : MonoBehaviour {
     public void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (!immune && (collision.gameObject.CompareTag("Player" ) && this.gameObject.transform.position.y - collision.gameObject.transform.position.y < 1)
+        if (!stateController.tempImmune && !immune && (collision.gameObject.CompareTag("Player" ) && this.gameObject.transform.position.y - collision.gameObject.transform.position.y < 1)
             || (collision.gameObject.CompareTag("FireBall") && !immuneToFire))//Checks if Player is truly above the hitbox to make sure they die on contact only if player jumps on them
         {
             if (timetrack <= Time.time && EnemyToKill.activeSelf)
             {
                 timetrack = timeBeforeDamageAgain + Time.time;
-                health--;
+                stateController.health--;
                 StartCoroutine(BlinkSprite());
             }
 
-            if (health == 0)
+            if (stateController.health == 0)
             {
                 SoundEffectManager.instance.Play("SlimeDeath");
                 EnemyToKill.SetActive(false);
-                health = stateController.enemyStats.HP;
+                stateController.health = stateController.enemyStats.HP;
             }
         }
     }
@@ -60,6 +60,7 @@ public class hurtBox : MonoBehaviour {
 
     IEnumerator BlinkSprite()
     {
+        stateController.tempImmune = true;
         for (int i = 0; i < 6; ++i)
         {
             yield return new WaitForSeconds(.05f);
@@ -69,6 +70,7 @@ public class hurtBox : MonoBehaviour {
             else
                 m_SpriteRender.enabled = true;
         }
+        stateController.tempImmune = false;
     }
 
     private void OnEnable()

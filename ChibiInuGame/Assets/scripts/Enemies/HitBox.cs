@@ -9,7 +9,7 @@ public class HitBox : MonoBehaviour {
     //==========================================================
 
     public GameObject EnemyToKill;
-    public float health;
+    //public float health;
     private float timeBeforeDamageAgain = .1f;   //delay to prevent multi hits in trigger enter frames
     private float timetrack;
     [HideInInspector] public SpriteRenderer m_SpriteRender;
@@ -21,7 +21,7 @@ public class HitBox : MonoBehaviour {
     {
         m_SpriteRender = GetComponentInParent<SpriteRenderer>();
         stateController = GetComponentInParent<StateController>();
-        health = stateController.enemyStats.HP;
+        //health = stateController.enemyStats.HP;
         timetrack = timeBeforeDamageAgain + Time.time;
     }
 
@@ -36,16 +36,16 @@ public class HitBox : MonoBehaviour {
             if (timetrack <= Time.time)
             {
                 timetrack = timeBeforeDamageAgain + Time.time;
-                health--;
+                stateController.health--;
                 if (this.enabled)
                     StartCoroutine(BlinkSprite());
             }
 
-            if (health == 0)
+            if (stateController.health == 0)
             {
                 SoundEffectManager.instance.Play("SlimeDeath");
                 EnemyToKill.SetActive(false);
-                health = stateController.enemyStats.HP;
+                stateController.health = stateController.enemyStats.HP;
             }
 
         }

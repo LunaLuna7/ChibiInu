@@ -98,7 +98,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1256577700775296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 501.84976, y: 113.581314, z: 0}
+  m_LocalPosition: {x: -163.75592, y: 7.357979, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4106654603972064}
@@ -165,7 +165,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.58226013, y: 1.1586647}
+  m_Offset: {x: 0.58226013, y: 1.25388}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -176,7 +176,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.4004822, y: 0.63158417}
+  m_Size: {x: 3.4004822, y: 0.44115353}
   m_EdgeRadius: 0
 --- !u!61 &61547793992673856
 BoxCollider2D:
@@ -235,15 +235,14 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: 06ed9bb2f9c549641bd4595d85941591, type: 2}
   enemyStats: {fileID: 11400000, guid: 4e93ade658c01ce459f938b74c64f405, type: 2}
   remainState: {fileID: 11400000, guid: 2df2c52c7c6bda946ade5ffeb0e813fe, type: 2}
+  originLocation: {fileID: 0}
   patrolLocations: []
-  nextPatrolLocation: 0
-  rb: {fileID: 0}
-  stateTimeElapsed: 0
-  player: {fileID: 0}
   playerInRange: 0
   IgnoreCollision: {fileID: 0}
   killed: 0
   permaDead: 0
+  health: 0
+  tempImmune: 0
 --- !u!114 &114414632208650268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -256,9 +255,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1256577700775296}
-  stateController: {fileID: 0}
-  health: 0
   m_SpriteRender: {fileID: 0}
+  stateController: {fileID: 0}
 --- !u!114 &114542800972783070
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -271,8 +269,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1256577700775296}
+  immune: 0
+  immuneToFire: 0
   stateController: {fileID: 0}
-  health: 0
   m_SpriteRender: {fileID: 0}
 --- !u!212 &212965931401462384
 SpriteRenderer:
