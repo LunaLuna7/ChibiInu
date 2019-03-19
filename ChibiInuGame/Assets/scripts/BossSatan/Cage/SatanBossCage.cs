@@ -62,6 +62,7 @@ public class SatanBossCage : MonoBehaviour {
 	{
         originalSpeed = moveSpeed;
 		health = maxHealth;
+        healthBar.fillAmount = health / maxHealth;
 		broken = false;
 		currentPositionIndex = 0;
 		ratio = 0;
