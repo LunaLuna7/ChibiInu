@@ -7,11 +7,11 @@ public class FireBall : MonoBehaviour {
     public float power;
     private Rigidbody2D rb;
     public CharacterController2D characterController2d;
-    
-    
+    public GameObject destroyParticle;
+
 
     // Use this for initialization
-	void Start () {
+    void Start () {
         characterController2d = FindObjectOfType<CharacterController2D>();
         rb = GetComponent<Rigidbody2D>();
         if (characterController2d.m_FacingRight)
@@ -42,5 +42,11 @@ public class FireBall : MonoBehaviour {
             
         }
 
+    }
+
+    private void OnDestroy()
+    {
+        GameObject temp = Instantiate(destroyParticle, transform.position, Quaternion.identity);
+        Destroy(temp, 1f);
     }
 }

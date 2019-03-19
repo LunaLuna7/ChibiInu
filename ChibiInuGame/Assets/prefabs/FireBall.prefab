@@ -110,6 +110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 3
   characterController2d: {fileID: 0}
+  destroyParticle: {fileID: 1228489594280294, guid: 8355730a48c03e441963d3c9c360f6b8,
+    type: 2}
 --- !u!212 &212234874792522056
 SpriteRenderer:
   m_ObjectHideFlags: 1
