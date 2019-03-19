@@ -14,6 +14,7 @@ public class CharacterController2D : MonoBehaviour {
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;
     [SerializeField] private LayerMask m_GroundLayer;
     [SerializeField] private LayerMask m_WallLayer;
+    [SerializeField] private LayerMask m_WaterLayer;
     [SerializeField] private Transform m_GroundCheck;
     [SerializeField] private Transform m_GroundCheck2;
     [SerializeField] private Transform m_WallCheck;
@@ -26,6 +27,7 @@ public class CharacterController2D : MonoBehaviour {
     public bool m_limitLeftMove;
     public bool m_FacingRight = true;
     public bool m_Grounded;
+    public bool m_Swimming;
     public bool m_Paralyzed;
     private bool doingWallJump = false;
     public bool m_Immune = false;
@@ -58,14 +60,18 @@ public class CharacterController2D : MonoBehaviour {
     //SoundStates
     private bool PlayingWallSlide;
     private bool walkingSound;
+    private bool swimmingAnimOn;
 
 
     private IEnumerator activeJumpCoroutine;
     public float JumpProgress { get; private set; }
+    bool goBackToZero;
 
     void Awake () {
         m_Paralyzed = paralyzedWhenStart;
+        goBackToZero = false;
         PlayingWallSlide = false;
+        swimmingAnimOn = false;
         m_DashLeft = 1;
         playerSprite = GetComponentInChildren<SpriteRenderer>();
         m_RigidBody2D = GetComponent<Rigidbody2D>();
@@ -77,24 +83,60 @@ public class CharacterController2D : MonoBehaviour {
     private void Update()
     {
         anim.SetBool("Grounded", m_Grounded);
+        anim.SetBool("Swimming", m_Swimming);
         anim.SetInteger("MovingDir", (int)horizontalMove);
         anim.SetFloat("MovementSpeed", Mathf.Abs(m_RigidBody2D.velocity.x)/12f);
 
     }
 
     void FixedUpdate () {
-
+        
         m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, m_GroundLayer) || Physics2D.Linecast(transform.position, m_GroundCheck2.position, m_GroundLayer);
+        m_Swimming = Physics2D.Linecast(transform.position, m_GroundCheck.position, m_WaterLayer);
         m_OnWall = Physics2D.OverlapCircle(m_WallCheck.position, .2f, m_WallLayer);
 
-        if (m_Grounded)
+
+        if (m_Grounded || m_Swimming)
         {
             JumpadOff();
             m_AirJumpsLeft = m_AirJumps;
             OffWallSound();    
         }
 
+        if (m_Swimming)
+        {
+            if (!swimmingAnimOn)
+            {
+                anim.Play("ShibSwimming");
+                swimmingAnimOn = true;
+            }
+
+            m_JumpForce = 800;
+            m_RigidBody2D.gravityScale = 2.5f;
+
+            if (m_RigidBody2D.velocity.y < -5)
+                    goBackToZero = true;
+
+            if (goBackToZero)
+               m_RigidBody2D.velocity = Vector3.Lerp(m_RigidBody2D.velocity, new Vector3(m_RigidBody2D.velocity.x, 0), 5f * Time.deltaTime);
+            
+
+            if (m_RigidBody2D.velocity.y == 0)
+                goBackToZero = false;
+
+        }
+        
+
+        else if (!m_Swimming)
+        {
+            swimmingAnimOn = false;
+            m_JumpForce = 1300;
+            m_FallGravity = 7;
+            m_RigidBody2D.gravityScale = 5;
+        }
+
     }
+    
 
     public void Move(float move, bool jump)
     {
@@ -158,7 +200,8 @@ public class CharacterController2D : MonoBehaviour {
 
         }
 
-        JumpGravity(jump);
+        if(!m_Swimming)
+            JumpGravity(jump);
 
         #region Jump
         if (jump)
@@ -167,6 +210,7 @@ public class CharacterController2D : MonoBehaviour {
             //Ground Jump
             if (m_Grounded && !m_OnDash)
             {
+                swimmingAnimOn = false;
                 anim.Play("ShibaAirJump");
                 SoundEffectManager.instance.Play("Jump");
                 m_RigidBody2D.AddForce(new Vector2(m_RigidBody2D.velocity.x, m_JumpForce));
@@ -177,12 +221,16 @@ public class CharacterController2D : MonoBehaviour {
             //Air Jump
             else if (!m_Grounded && m_AirJumpsLeft > 0 && !m_OnWall && !doingWallJump && !m_OnDash)
             {
+                swimmingAnimOn = false;
                 SoundEffectManager.instance.Play("AirJump");
                 if (m_AirJumpsLeft >= 2)
                     anim.Play("ShibaAirJump2");
                 
                 else if (m_AirJumpsLeft == 1)
                     anim.Play("ShibaAirJump");
+
+                if (m_Swimming)
+                    m_RigidBody2D.velocity = new Vector3(m_RigidBody2D.velocity.x, 0);
 
                 m_RigidBody2D.AddForce(new Vector2(0f,  m_JumpForce));
                 m_AirJumpsLeft--;

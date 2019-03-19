@@ -440,8 +440,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1957829206356312}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -147.9, y: -0.86, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -144.25, y: -0.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4072268233256858}
@@ -761,6 +761,9 @@ MonoBehaviour:
   m_WallLayer:
     serializedVersion: 2
     m_Bits: 512
+  m_WaterLayer:
+    serializedVersion: 2
+    m_Bits: 4096
   m_GroundCheck: {fileID: 4981810698456138}
   m_GroundCheck2: {fileID: 4277934490660100}
   m_WallCheck: {fileID: 4738573377972002}
@@ -771,6 +774,7 @@ MonoBehaviour:
   m_limitLeftMove: 0
   m_FacingRight: 1
   m_Grounded: 0
+  m_Swimming: 0
   m_Paralyzed: 0
   m_Immune: 0
   m_Damaged: 0
