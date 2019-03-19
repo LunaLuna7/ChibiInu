@@ -60,6 +60,7 @@ public class SatanBossCage : MonoBehaviour {
 	
 	public void Reset()
 	{
+        spriteRender.enabled = true;
         originalSpeed = moveSpeed;
 		health = maxHealth;
         healthBar.fillAmount = health / maxHealth;

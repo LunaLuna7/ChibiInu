@@ -24,7 +24,7 @@ public class BSlimeShot : MonoBehaviour {
     void Start()
     {
         sc = gameObject.GetComponentInParent<StateController>();
-        InvokeRepeating("Shoot", startDelay, shootRate);
+        //InvokeRepeating("Shoot", startDelay, shootRate);
     }
 
     // Update is called once per frame

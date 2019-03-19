@@ -7,7 +7,10 @@ public class Projectile : MonoBehaviour {
 
     public float speed;
     public float lifeSpam = 3f;
+    public GameObject destroyParticle;
     private Rigidbody2D rb;
+
+
 	// Use this for initialization
 	void Start () {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -20,6 +23,12 @@ public class Projectile : MonoBehaviour {
         
 	}
 
+   
+    private void OnDestroy()
+    {
+        GameObject temp = Instantiate(destroyParticle, transform.position, Quaternion.identity);
+        Destroy(temp, 1f);
+    }
     /*
     private void OnTriggerEnter2D(Collider2D collision)
     {
