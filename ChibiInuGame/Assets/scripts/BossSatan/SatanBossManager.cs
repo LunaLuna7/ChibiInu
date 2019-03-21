@@ -10,7 +10,7 @@ public class SatanBossManager : MonoBehaviour {
 
 	public GameObject player;
 	public Transform startPosition;
-
+    private Vector3 scale;
 
 	[Header("For Skills")]
 	private StateMachine stateMachine = new StateMachine();
@@ -42,6 +42,7 @@ public class SatanBossManager : MonoBehaviour {
 		//states[1] = new SatanBossNoiseState(this);
         states[1] = new SatanBossHellBallState(this);
         states[2] = new SatanBossCoinState(this);
+        scale = transform.localScale;
 	}
 
 	// Use this for initialization
@@ -73,6 +74,8 @@ public class SatanBossManager : MonoBehaviour {
 		GetComponent<SatanBossPhaseManager>().Reset();
         transform.position = startPosition.position;
         hasStarted = false;
+        //face player
+        transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
         InitAllCoinLocations();
     }
 
