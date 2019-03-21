@@ -47,9 +47,9 @@ public class ShieldWaveState : IState {
 			//move obj out
 			float rotateSpeed = 0;
 			if(Random.Range(0, 2) == 0)
-				rotateSpeed = Random.Range(-15f, -10f);
+				rotateSpeed = Random.Range(-20f, -15f);
 			else
-				rotateSpeed = Random.Range(10, 15f);
+				rotateSpeed = Random.Range(15, 20f);
 			obj.GetComponent<BossShieldProjectile>().SetRotateSpeed(rotateSpeed);
 			obj.GetComponent<BossShieldProjectile>().MoveTowards(angleInterval * (x + 1), shieldComingOutDistance, shieldComingOutSpeed);
 		}
@@ -57,11 +57,13 @@ public class ShieldWaveState : IState {
 		yield return new WaitForSeconds(waitTime);
 
 		//shoot all shields towards random direction
-		foreach(GameObject obj in objectList)
+		for(int x = 0; x < objectList.Count; ++x)
 		{
-			obj.GetComponent<BossShieldProjectile>().SetRotateSpeed(0);
-			obj.GetComponent<BossShieldProjectile>().Shoot(projectileSpeed);
-			GameObject.Destroy(obj, 10f);
+			Vector3 direction = objectList[x].transform.position - controller.transform.position;
+			direction.z = 0;
+			objectList[x].GetComponent<BossShieldProjectile>().ShootTowards(objectList[x].transform.position + direction, projectileSpeed);
+			//obj.GetComponent<BossShieldProjectile>().Shoot(projectileSpeed);
+			GameObject.Destroy(objectList[x], 10f);
 		}
 
 		yield return new WaitForSeconds(waitTime);
