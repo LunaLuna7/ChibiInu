@@ -10,6 +10,7 @@ public class KnightBossManager : MonoBehaviour {
 	public GameObject player;
 	public Transform startPosition;
 	public GameObject boundary;
+	private Vector3 scale;
 
 	[Header("For Skills")]
 	private StateMachine stateMachine = new StateMachine();
@@ -26,6 +27,7 @@ public class KnightBossManager : MonoBehaviour {
 		states[1] = new ShieldWaveState(this);
 		states[2] = new ShieldRushState(this);
 		states[3] = new ShieldStrikeState(this);
+		scale = transform.localScale;
 	}
 
 	// Use this for initialization
@@ -62,7 +64,7 @@ public class KnightBossManager : MonoBehaviour {
         bossHealth.healthBar.fillAmount = bossHealth.health;
         GetComponent<KnightBossPhaseManager>().Reset();
         hasStarted = false;
-		GetComponent<SpriteRenderer>().flipX = true;
+		transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
 		boundary.SetActive(false);
     }
 
