@@ -41,6 +41,10 @@ public class SatanFireBall : MonoBehaviour {
         Vector3 diff = (target.transform.position - transform.position).normalized;
         float targetAngle = Mathf.Atan2(diff.y, diff.x) / 3.14f * 180;
         transform.eulerAngles = new Vector3(0,0,targetAngle);
+        //flip y if facing left to make the art looks better
+        targetAngle = (targetAngle + 360) % 360;
+        if(targetAngle > 90 && targetAngle <= 270)
+            GetComponent<SpriteRenderer>().flipY = true;
     }
 
     //shoot towards current direction
