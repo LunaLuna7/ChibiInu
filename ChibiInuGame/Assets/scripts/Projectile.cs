@@ -29,12 +29,12 @@ public class Projectile : MonoBehaviour {
         GameObject temp = Instantiate(destroyParticle, transform.position, Quaternion.identity);
         Destroy(temp, 1f);
     }
-    /*
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag != "Platform")
+        if(collision.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            Destroy(gameObject, .05f);
         }
-    }*/
+    }
 }
