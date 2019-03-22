@@ -130,9 +130,12 @@ public class CharacterController2D : MonoBehaviour {
         else if (!m_Swimming)
         {
             swimmingAnimOn = false;
-            m_JumpForce = 1300;
-            m_FallGravity = 7;
-            m_RigidBody2D.gravityScale = 5;
+            if (!m_OnShield)
+            {
+                m_JumpForce = 1300;
+                m_FallGravity = 7;
+                m_RigidBody2D.gravityScale = 5;
+            }
         }
 
     }
@@ -400,7 +403,7 @@ public class CharacterController2D : MonoBehaviour {
     }
     private void ShieldOn()
     {
-        //playerSprite.color = Color.gray;
+        SoundEffectManager.instance.Play("ShieldOn");
         shields.SetActive(true);
         m_RigidBody2D.gravityScale = 10;
         m_Immune = true;
