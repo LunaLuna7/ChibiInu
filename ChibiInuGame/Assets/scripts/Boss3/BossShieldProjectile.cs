@@ -24,6 +24,13 @@ public class BossShieldProjectile : MonoBehaviour {
 		rotateSpeed = speed;
 	}
 
+	public void SetAngle(float angle)
+	{
+		Vector3 rotation = transform.eulerAngles;
+		rotation.z = angle + 90;
+		transform.eulerAngles = rotation;
+	}
+
 	//shoot towards current direction
 	public void Shoot(float speed)
 	{

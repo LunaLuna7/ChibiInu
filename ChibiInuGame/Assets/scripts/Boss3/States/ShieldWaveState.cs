@@ -6,9 +6,10 @@ public class ShieldWaveState : IState {
 	private KnightBossManager controller;
 	//shield coming out from center of Boss
 	private float shieldComingOutDistance = 5f;
-	private float shieldComingOutSpeed = 7.5f;
+	private float shieldComingOutSpeed = 20f;
 	//wait before shoot
 	private float waitTime = 2f;
+	private float throwInterval = 0.2f;
 	//shoot
 	private float projectileSpeed = 30;
 
@@ -50,19 +51,25 @@ public class ShieldWaveState : IState {
 				rotateSpeed = Random.Range(-20f, -15f);
 			else
 				rotateSpeed = Random.Range(15, 20f);
-			obj.GetComponent<BossShieldProjectile>().SetRotateSpeed(rotateSpeed);
-			obj.GetComponent<BossShieldProjectile>().MoveTowards(angleInterval * (x + 1), shieldComingOutDistance, shieldComingOutSpeed);
+			//obj.GetComponent<BossShieldProjectile>().SetRotateSpeed(rotateSpeed);
+			//set angle
+			obj.GetComponent<BossShieldProjectile>().SetAngle(angleInterval * (num - x - 1));
+			obj.GetComponent<BossShieldProjectile>().MoveTowards(angleInterval * (num - x - 1), shieldComingOutDistance, shieldComingOutSpeed);
+			yield return new WaitForSeconds(throwInterval);
 		}
 
-		yield return new WaitForSeconds(waitTime);
+		yield return new WaitForSeconds(waitTime/2);
 
 		//shoot all shields towards random direction
 		for(int x = 0; x < objectList.Count; ++x)
 		{
+			/* 
 			Vector3 direction = objectList[x].transform.position - controller.transform.position;
 			direction.z = 0;
-			objectList[x].GetComponent<BossShieldProjectile>().ShootTowards(objectList[x].transform.position + direction, projectileSpeed);
+			objectList[x].GetComponent<BossShieldProjectile>().ShootTowards(objectList[x].transform.position + direction, projectileSpeed);*/
+			objectList[x].GetComponent<BossShieldProjectile>().Shoot(projectileSpeed);
 			//obj.GetComponent<BossShieldProjectile>().Shoot(projectileSpeed);
+			yield return new WaitForSeconds(throwInterval);
 			GameObject.Destroy(objectList[x], 10f);
 		}
 
