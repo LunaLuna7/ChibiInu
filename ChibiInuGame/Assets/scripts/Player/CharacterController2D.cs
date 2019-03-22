@@ -34,7 +34,7 @@ public class CharacterController2D : MonoBehaviour {
     public bool m_Damaged;
     private bool m_OnWall;
     public bool m_OnDash;
-    private bool m_OnJumpPad = false;
+    public bool m_OnJumpPad = false;
     public bool m_OnOtherCamera = false;
     public bool m_OnShield;
 
@@ -141,8 +141,8 @@ public class CharacterController2D : MonoBehaviour {
     public void Move(float move, bool jump)
     {
         horizontalMove = move;
-        if (m_OnJumpPad && (m_RigidBody2D.velocity.y < 0 || jump))
-                m_RigidBody2D.velocity = new Vector3(m_RigidBody2D.velocity.x, 0, 0);
+        //if (m_OnJumpPad && (m_RigidBody2D.velocity.y < 0 || jump))
+                //m_RigidBody2D.velocity = new Vector3(m_RigidBody2D.velocity.x, 0, 0);
 
         
 
@@ -213,7 +213,8 @@ public class CharacterController2D : MonoBehaviour {
                 swimmingAnimOn = false;
                 anim.Play("ShibaAirJump");
                 SoundEffectManager.instance.Play("Jump");
-                m_RigidBody2D.AddForce(new Vector2(m_RigidBody2D.velocity.x, m_JumpForce));
+                if(!m_OnJumpPad)
+                    m_RigidBody2D.AddForce(new Vector2(m_RigidBody2D.velocity.x, m_JumpForce));
                 m_DashLeft = 1;
             }
         
@@ -232,7 +233,8 @@ public class CharacterController2D : MonoBehaviour {
                 if (m_Swimming)
                     m_RigidBody2D.velocity = new Vector3(m_RigidBody2D.velocity.x, 0);
 
-                m_RigidBody2D.AddForce(new Vector2(0f,  m_JumpForce));
+                if (!m_OnJumpPad)
+                    m_RigidBody2D.AddForce(new Vector2(0f,  m_JumpForce));
                 m_AirJumpsLeft--;
                 m_DashLeft = 1;
             }
@@ -259,10 +261,9 @@ public class CharacterController2D : MonoBehaviour {
 
     void JumpGravity(bool jump)
     {
-            if (jump && m_AirJumpsLeft >= 1)
+            if (jump && m_AirJumpsLeft >= 1 && !m_OnJumpPad)
             {
-
-               m_RigidBody2D.velocity = new Vector2(m_RigidBody2D.velocity.x, 0);
+                m_RigidBody2D.velocity = new Vector2(m_RigidBody2D.velocity.x, 0);
             }
 
             if (m_RigidBody2D.velocity.y < 0 && !m_OnWall) //we are falling
@@ -282,15 +283,12 @@ public class CharacterController2D : MonoBehaviour {
                 OnWallSound();
             }
 
-
-            else if ((m_RigidBody2D.velocity.y > 0 || m_OnJumpPad) && !Input.GetButton("Jump"))//tab jump
+            
+            else if ((m_RigidBody2D.velocity.y > 0) && !Input.GetButton("Jump"))
             {
                 m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity -1) * Time.deltaTime;
             }
-            else if ((m_RigidBody2D.velocity.y > 0 || m_OnJumpPad )&& Input.GetButton("Jump") && m_OnJumpPad)
-            {
-                m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime;
-            }
+           
         
     }
     
@@ -333,7 +331,7 @@ public class CharacterController2D : MonoBehaviour {
 
     IEnumerator JumpadOffOverTime()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.3f);
         m_OnJumpPad = false;
     }
 
