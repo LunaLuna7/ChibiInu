@@ -14,6 +14,8 @@ public class VirtualKeyboard : MonoBehaviour {
 
 	public void Reset()
 	{
+		if(chosenKey != null)
+			chosenKey.GetComponent<Image>().color = unSelectedColor;
 		chosenKey = keys[0];
 		SelectKey(0);
 		currentIndex = 0;
