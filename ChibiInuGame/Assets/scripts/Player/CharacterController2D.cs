@@ -98,7 +98,7 @@ public class CharacterController2D : MonoBehaviour {
 
         if (m_Grounded || m_Swimming)
         {
-            JumpadOff();
+            //JumpadOff();
             m_AirJumpsLeft = m_AirJumps;
             OffWallSound();    
         }
@@ -223,20 +223,28 @@ public class CharacterController2D : MonoBehaviour {
             else if (!m_Grounded && m_AirJumpsLeft > 0 && !m_OnWall && !doingWallJump && !m_OnDash)
             {
                 swimmingAnimOn = false;
-                SoundEffectManager.instance.Play("AirJump");
-                if (m_AirJumpsLeft >= 2)
+                if (m_AirJumpsLeft >= 2 && !m_OnJumpPad)
+                {
                     anim.Play("ShibaAirJump2");
+                    SoundEffectManager.instance.Play("AirJump");
+
+                }
                 
-                else if (m_AirJumpsLeft == 1)
+                else if (m_AirJumpsLeft == 1 && !m_OnJumpPad)
+                {
                     anim.Play("ShibaAirJump");
+                    SoundEffectManager.instance.Play("AirJump");
+                }
 
                 if (m_Swimming)
                     m_RigidBody2D.velocity = new Vector3(m_RigidBody2D.velocity.x, 0);
 
                 if (!m_OnJumpPad)
+                {
                     m_RigidBody2D.AddForce(new Vector2(0f,  m_JumpForce));
-                m_AirJumpsLeft--;
-                m_DashLeft = 1;
+                    m_AirJumpsLeft--;
+                }
+                    m_DashLeft = 1;
             }
    
 
@@ -329,10 +337,11 @@ public class CharacterController2D : MonoBehaviour {
         m_OnJumpPad = false;
     }
 
-    IEnumerator JumpadOffOverTime()
+    public IEnumerator JumpadOffOverTime()
     {
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.25f);
         m_OnJumpPad = false;
+       
     }
 
     IEnumerator LimitWallJumpMoveLeft()

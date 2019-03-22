@@ -27,8 +27,6 @@ public class JumpPad : MonoBehaviour {
             SoundEffectManager.instance.Play("Trampoline");
             StartCoroutine(JumpAnimation());
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
-            CharacterController2D cc = collision.gameObject.GetComponent<CharacterController2D>();
-            cc.JumpadOn();
 
             if (rightJumpad)
                 rb.velocity = new Vector2(jumpPower, 0);
@@ -39,6 +37,17 @@ public class JumpPad : MonoBehaviour {
             else
                 rb.velocity = new Vector2(0, jumpPower);
 
+        }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            CharacterController2D cc = collision.gameObject.GetComponent<CharacterController2D>();
+            StopCoroutine(cc.JumpadOffOverTime());
+            cc.JumpadOn();
         }
     }
 
