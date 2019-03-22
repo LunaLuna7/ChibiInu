@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 4541441098640004}
   - component: {fileID: 114027227054728498}
   - component: {fileID: 60471190040042820}
+  - component: {fileID: 60422088402573450}
   m_Layer: 8
   m_Name: JumpPad
   m_TagString: JumpPad
@@ -94,7 +95,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1811736333028510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.29, y: 34.25, z: 0}
+  m_LocalPosition: {x: -159.7439, y: -1.6947454, z: 0}
   m_LocalScale: {x: 0.11981, y: 0.11981, z: 0.11981}
   m_Children:
   - {fileID: 4341061434814702}
@@ -102,6 +103,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &60422088402573450
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1811736333028510}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 8.870628, y: 12.943473}
+      - {x: 5.9944973, y: 16.47918}
+      - {x: 2.7317066, y: 18.10757}
+      - {x: -0.19562224, y: 19.27263}
+      - {x: -3.601818, y: 20.3139}
+      - {x: -7.5664797, y: 20.707954}
+      - {x: -9.778183, y: 20.605621}
+      - {x: -11.882523, y: 19.9305}
+      - {x: -13.978457, y: 18.995111}
+      - {x: -16.202642, y: 17.381645}
+      - {x: -19.091635, y: 14.794063}
+      - {x: -20.695457, y: 12.242055}
+      - {x: -20.860897, y: 9.289551}
+      - {x: 8.706718, y: 10.041586}
 --- !u!60 &60471190040042820
 PolygonCollider2D:
   m_ObjectHideFlags: 1
