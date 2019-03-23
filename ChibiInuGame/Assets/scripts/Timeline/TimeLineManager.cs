@@ -49,10 +49,12 @@ public class TimeLineManager : MonoBehaviour {
     public void PlayerEnterTimeline()
     {
         playerAnimator.Play("StandingIdle");
+        CheckPoint.onDialogue = true;
     }
 
     public void PlayerExitTimeline()
     {
         playerAnimator.Play("ShibIdle");
+        CheckPoint.onDialogue = false;
     }
 }
