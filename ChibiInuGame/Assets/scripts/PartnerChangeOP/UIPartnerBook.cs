@@ -47,14 +47,14 @@ public class UIPartnerBook : MonoBehaviour {
     {
         if (Input.GetAxis("Horizontal") == 0f)
             joyStickToNeutral = true;
-        if (deadInputTimeElapsed && (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) ||(Input.GetAxis("Horizontal") < 0 && joyStickToNeutral)))
+        if (deadInputTimeElapsed && (Input.GetKeyDown(KeyCode.A) ||(Input.GetAxis("Horizontal") < 0 && joyStickToNeutral)))
         {
             deadInputTimeElapsed = false;
             joyStickToNeutral = false;
             LeftArrow();
         }
 
-        else if (deadInputTimeElapsed && (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || (Input.GetAxis("Horizontal") > 0 && joyStickToNeutral)))
+        else if (deadInputTimeElapsed && ( Input.GetKeyDown(KeyCode.D) || (Input.GetAxis("Horizontal") > 0 && joyStickToNeutral)))
         {
             deadInputTimeElapsed = false;
             joyStickToNeutral = false;
