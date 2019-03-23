@@ -10,6 +10,7 @@ public class SatanBossStartPoint : MonoBehaviour {
 	
 
 	private bool hasStarted = false;
+	private bool hasPlayedMusic = false;
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
@@ -19,6 +20,11 @@ public class SatanBossStartPoint : MonoBehaviour {
 			hasStarted = true;
 			playerController.m_Paralyzed = true;
 			StartCoroutine(BattleStart());
+			if(!hasPlayedMusic)
+			{
+            	SoundEffectManager.instance.Play("SatanBattle");
+				hasPlayedMusic = true;
+			}
 		}
 	}
 

@@ -13,6 +13,7 @@ public class MainMenuManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		SoundEffectManager.instance.Stop("OverWorld");
         SoundEffectManager.instance.Play("MainMenu");
 		chooseFilePage.SetActive(false);
         //soundEffectManager = GameObject.FindGameObjectWithTag("SoundEffect").GetComponent<SoundEffectManager>();

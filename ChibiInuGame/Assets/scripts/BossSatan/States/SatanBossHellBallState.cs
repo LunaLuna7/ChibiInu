@@ -46,7 +46,10 @@ public class SatanBossHellBallState : IState {
         //shoot towards player
         //obj.transform.eulerAngles = Vector3.RotateTowards(obj.transform.position, controller.player.transform.position, 20f * Time.deltaTime, 20f * Time.deltaTime);
         if(obj != null)
+        {
             obj.GetComponent<SatanFireBall>().Shoot(projectileSpeed);
+            SoundEffectManager.instance.Play("FireBall");
+        }
         
         yield return new WaitForSeconds(waitTimeAfterShoot);
         controller.SwitchState();

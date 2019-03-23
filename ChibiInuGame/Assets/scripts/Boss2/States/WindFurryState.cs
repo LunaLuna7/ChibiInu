@@ -41,6 +41,7 @@ public class WindFurryState : IState {
     {
         yield return controller.cloudController.ChangeColorTo(color, 1f);
         yield return new WaitForSeconds(1);
+        SoundEffectManager.instance.Play("Bard3");
         //instantiate wind and move to four direction
         GameObject upWind = GameObject.Instantiate(controller.wind, controller.transform.position, Quaternion.identity);
         upWind.transform.SetParent(controller.skillObjectsGroup);

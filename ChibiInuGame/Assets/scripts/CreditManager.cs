@@ -19,6 +19,10 @@ public class CreditManager : MonoBehaviour {
 		finished = false;
 		started = false;
 		StartCoroutine(StartCredit(1));
+		//switch music
+		SoundEffectManager.instance.Stop("MainMenu");
+		SoundEffectManager.instance.Stop("SatanBattle");
+		SoundEffectManager.instance.Play("OverWorld");
 	}
 	
 	// Update is called once per frame
