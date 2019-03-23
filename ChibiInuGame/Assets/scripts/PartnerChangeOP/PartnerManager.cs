@@ -280,6 +280,11 @@ public class PartnerManager : MonoBehaviour {
         fireBallOnCoolDown = false;
     }
 
+    public void FakeShieldPartner()
+    {
+        characterController.FakeShieldOn();
+    }
+
     public void UnsummonAllPartners()
     {
         foreach(Partner each in partners)

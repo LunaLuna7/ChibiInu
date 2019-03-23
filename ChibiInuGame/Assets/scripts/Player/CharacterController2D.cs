@@ -410,6 +410,18 @@ public class CharacterController2D : MonoBehaviour {
         m_OnShield = true;
     }
 
+    public void FakeShieldOn()
+    {
+        m_Immune = true;
+        shields.SetActive(true);
+    }
+
+    public void FakeShieldOff()
+    {
+        m_Immune = false;
+        shields.SetActive(false);
+    }
+
     public void ShieldOff()
     {
         shields.SetActive(false);
