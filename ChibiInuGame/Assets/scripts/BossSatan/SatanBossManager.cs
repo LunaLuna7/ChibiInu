@@ -100,7 +100,7 @@ public class SatanBossManager : MonoBehaviour {
         StopAllCoroutines();
 		movementController.StopAllCoroutines();
         CleanSkillObjects();
-        phaseManager.SetEndingPhase();
+        //phaseManager.SetEndingPhase();
         afterBattleTimeline.Play();
     }
 
