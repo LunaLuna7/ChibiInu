@@ -15,6 +15,7 @@ public class CheckPoint : MonoBehaviour {
     public GameObject instructionBubble;
     private UIPartnerBook uIPartnerBook;
     public bool SatanCheckPoint;
+    public static bool onDialogue;
 
     private bool onCheckPoint;
     private bool activated;
@@ -43,7 +44,7 @@ public class CheckPoint : MonoBehaviour {
 
     public void Update()
     {
-        if (onCheckPoint && !SatanCheckPoint)
+        if (onCheckPoint && !SatanCheckPoint && !onDialogue)
         {
             if (Input.GetKeyDown(KeyCode.P) && !book.activeSelf)
             {
@@ -96,7 +97,7 @@ public class CheckPoint : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Player") && (uIPartnerBook.partnerManager.partners[0].unlocked))
+        if(collision.gameObject.CompareTag("Player") && (uIPartnerBook.partnerManager.partners[0].unlocked) && !onDialogue)
             instructionBubble.SetActive(true);
     }
 
