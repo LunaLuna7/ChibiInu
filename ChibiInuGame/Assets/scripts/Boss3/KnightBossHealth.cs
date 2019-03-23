@@ -7,6 +7,7 @@ public class KnightBossHealth : BossHealth {
     public override void TakeDamage(float damage)
     {
         health -= damage;
+        SoundEffectManager.instance.Play("SlimeDeath");
         float currentHp = health / maxHealth;
         healthBar.fillAmount = currentHp;
 

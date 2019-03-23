@@ -8,6 +8,7 @@ public class BardBossHealth : BossHealth {
     int countSpike = 0;
     public override void TakeDamage(float damage)
     {
+        SoundEffectManager.instance.Play("SlimeDeath");
         health -= damage;
         float currentHp = health / maxHealth;
         healthBar.fillAmount = currentHp;

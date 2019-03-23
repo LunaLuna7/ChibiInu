@@ -46,6 +46,7 @@ public class FluteSpikeSongState : IState {
         yield return controller.cloudController.ChangeColorTo(color, 1f);
         //the speed of flute will increase as Boss's health go down
         float speed = initialSpeed + (1 - controller.bossHealth.health / controller.bossHealth.maxHealth) * 10 * speedIncreasement;
+        SoundEffectManager.instance.Play("Bard2");
         controller.StartCoroutine(ThrowOneFluteUp(true, speed));
         controller.StartCoroutine(ThrowOneFluteDown(false, speed));
     }

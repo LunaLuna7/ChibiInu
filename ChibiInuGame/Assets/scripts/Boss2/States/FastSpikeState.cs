@@ -43,6 +43,7 @@ public class FastSpikeState : IState{
     {
         yield return controller.cloudController.ChangeColorTo(color, 1f);
         int num = GetSpikeNumber(2, 2, 6, 15);
+        SoundEffectManager.instance.Play("Bard1");
         for(int x = 0; x< num; ++x)
         {
             controller.StartCoroutine(ThrowOneFastSpike());
