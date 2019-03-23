@@ -8,8 +8,8 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour {
 
     [Header("Stats")]
-    public float closeSpeed = 20f;
-    public float distanceToTeleport = 35f;
+    public float closeSpeed = 25f;
+    public float distanceToTeleport = 15f;
     [Space][Space]
 
     [Header("Components")]
