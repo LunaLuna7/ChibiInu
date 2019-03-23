@@ -4067,6 +4067,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd4db82f2a9386441a39f21bdecad3dd, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &354287187 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1812394857444118, guid: bd4db82f2a9386441a39f21bdecad3dd,
+    type: 2}
+  m_PrefabInternal: {fileID: 354287186}
 --- !u!1 &356844554
 GameObject:
   m_ObjectHideFlags: 0
@@ -9486,6 +9491,7 @@ MonoBehaviour:
   - Cave/SatanBeforePhase3
   invulnerableCollider: {fileID: 1553006493}
   phase3Collider: {fileID: 505936593}
+  phase0Cage: {fileID: 354287187}
 --- !u!50 &1042556852
 Rigidbody2D:
   serializedVersion: 4

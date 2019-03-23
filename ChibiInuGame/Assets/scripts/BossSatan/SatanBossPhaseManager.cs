@@ -18,6 +18,8 @@ public class SatanBossPhaseManager : MonoBehaviour {
 	//able to hurt at last phase
 	public GameObject invulnerableCollider;
 	public GameObject phase3Collider;
+	//for ending phase
+	public GameObject phase0Cage;
 
 	void Start()
 	{
@@ -109,6 +111,15 @@ public class SatanBossPhaseManager : MonoBehaviour {
 		partnerManager.UnsummonAllPartners();
 		phase3Collider.SetActive(false);
 		invulnerableCollider.SetActive(true);
+	}
+
+	public void SetEndingPhase()
+	{
+		//hide all maps
+		for(int x = 0; x < maps.Length; ++x)
+			maps[x].SetActive(false);
+		SetPhase(0);
+		phase0Cage.SetActive(false);
 	}
 
     //Returns current map we are on. Phase 0 =>returns 0, Phase 1 =? returns 1 and so on...
