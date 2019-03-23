@@ -94,6 +94,7 @@ public class SatanBossPhaseManager : MonoBehaviour {
 		if(phase == 3)//add knight && change collider
 		{
 			transform.position = GetComponent<SatanBossMovementController>().possibleLocations3[0].position;
+			partnerManager.FakeShieldPartner();
 			phase3Collider.SetActive(true);
 			invulnerableCollider.SetActive(false);
 		}
