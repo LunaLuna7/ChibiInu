@@ -9376,7 +9376,7 @@ MonoBehaviour:
   player: {fileID: 1061029009}
   startPosition: {fileID: 1741294924}
   skillObjectsGroup: {fileID: 409661446}
-  afterBattleTimeline: {fileID: 0}
+  afterBattleTimeline: {fileID: 79336625}
   noiseImage: {fileID: 87535599}
   hellBall: {fileID: 1293286264251212, guid: 3f4cf14c5e6c1914998408659d9514b3, type: 2}
   coinSpawnLocLvlp0:
@@ -9528,7 +9528,7 @@ MonoBehaviour:
   health: 40
   maxHealth: 40
   intervalSpikesTime: 0
-  healthBar: {fileID: 216722175}
+  healthBar: {fileID: 1625032771}
   cameraShake: {fileID: 1147858952}
   spikes: []
 --- !u!114 &1042556855
