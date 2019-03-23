@@ -75,6 +75,11 @@ public class UIPartnerBook : MonoBehaviour {
             else
                 UnSummonPartnerButton();
         }
+
+        if (CheckPoint.onDialogue)
+        {
+            this.gameObject.SetActive(false);
+        }
             
     }
 
