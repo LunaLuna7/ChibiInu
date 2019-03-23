@@ -204,6 +204,7 @@ public class PartnerManager : MonoBehaviour {
                 p.unlocked = true;
             }
         }
+        SoundEffectManager.instance.Play("PartnerGet");
     }
 
     //returns wether the player is allowed to have 3 jumps depending on in used partners

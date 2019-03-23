@@ -35,6 +35,7 @@ public class SatanBossCoinState : IState {
         Transform coinToSummonLocation = ChooseRandomLocation(controller.allCoinSpawns[currentPhase]);
         //create coin
         GameObject coin = GameObject.Instantiate(controller.coinAttack, coinToSummonLocation.position, Quaternion.identity);
+        SoundEffectManager.instance.Play("KnightAlerted");
 
         yield return new WaitForSeconds(timeWait);
         controller.SwitchState();

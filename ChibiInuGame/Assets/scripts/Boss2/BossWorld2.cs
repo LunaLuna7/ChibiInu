@@ -130,6 +130,7 @@ public class BossWorld2 : MonoBehaviour {
     //player defeated Bard Boss, play end cutscene
     public void EndBattle()
     {
+        SoundEffectManager.instance.Stop("Boss");
         //stop using the current skills
         StopAllCoroutines();
         //destroy all skill objects

@@ -77,6 +77,7 @@ public class KnightBossManager : MonoBehaviour {
 
 	public void EndBattle()
     {
+		SoundEffectManager.instance.Stop("Boss");
         //stop using the current skills
         StopAllCoroutines();
 		movementController.StopAllCoroutines();
