@@ -11,9 +11,16 @@ public class Bird : MonoBehaviour {
     public float xDistanceMax;
     public float xDistanceMin;
     public float yDistance;
-    
+    Animator anim;
+    SpriteRenderer sprite;
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
+    }
     // Use this for initialization
-	void Start () {
+    void Start () {
         triggerFly = false;
 	}
 	
@@ -25,6 +32,8 @@ public class Bird : MonoBehaviour {
 
     private void FlyAway()
     {
+        anim.Play("BirdFly");
+        sprite.flipX = true;
         float xDistance = Random.Range(xDistanceMin, xDistanceMax);
         if (playerTransform.position.x - transform.position.x < 0)//coming from Right
         {
@@ -33,6 +42,7 @@ public class Bird : MonoBehaviour {
         }
         else
         {
+            sprite.flipX = false;
             transform.position = Vector3.MoveTowards(transform.position,
                 new Vector3(transform.position.x - xDistance, transform.position.y + yDistance, 0), speed * Time.deltaTime);
         }
