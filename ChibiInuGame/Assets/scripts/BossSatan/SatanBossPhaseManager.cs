@@ -71,6 +71,7 @@ public class SatanBossPhaseManager : MonoBehaviour {
 
 	private void SetPhase(int index)
 	{
+		//before phse0, don't set player initial position
 		if(currentMap)
 		{
 			player.transform.position = playerStartPositions[index].position;
@@ -118,7 +119,8 @@ public class SatanBossPhaseManager : MonoBehaviour {
 		//hide all maps
 		for(int x = 0; x < maps.Length; ++x)
 			maps[x].SetActive(false);
-		SetPhase(0);
+		//show phase0 map
+		maps[0].SetActive(true);
 		phase0Cage.SetActive(false);
 	}
 
