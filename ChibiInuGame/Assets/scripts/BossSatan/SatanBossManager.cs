@@ -33,6 +33,10 @@ public class SatanBossManager : MonoBehaviour {
 
     public GameObject coinAttack;
 
+    [Header("End Cutscene")]
+    public GameObject cameraFocus;
+    public Vector3 endingCameraFocusPosition;
+
     void Awake()
 	{
         allCoinSpawns = new List<List<Transform>>();
@@ -100,6 +104,7 @@ public class SatanBossManager : MonoBehaviour {
         StopAllCoroutines();
 		movementController.StopAllCoroutines();
         CleanSkillObjects();
+        //phaseManager.SetEndingPhase();
         afterBattleTimeline.Play();
     }
 
@@ -114,7 +119,13 @@ public class SatanBossManager : MonoBehaviour {
 
 	public void HidePlayer()
 	{
+		player.transform.position = transform.position;
 		player.SetActive(false);
 	}
+
+    public void SetFinalCameraFocus()
+    {
+        cameraFocus.transform.position = endingCameraFocusPosition;
+    }
 
 }

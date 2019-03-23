@@ -18,6 +18,8 @@ public class SatanBossPhaseManager : MonoBehaviour {
 	//able to hurt at last phase
 	public GameObject invulnerableCollider;
 	public GameObject phase3Collider;
+	//for ending phase
+	public GameObject phase0Cage;
 
 	void Start()
 	{
@@ -69,6 +71,7 @@ public class SatanBossPhaseManager : MonoBehaviour {
 
 	private void SetPhase(int index)
 	{
+		//before phse0, don't set player initial position
 		if(currentMap)
 		{
 			player.transform.position = playerStartPositions[index].position;
@@ -110,6 +113,17 @@ public class SatanBossPhaseManager : MonoBehaviour {
 		phase3Collider.SetActive(false);
 		invulnerableCollider.SetActive(true);
 	}
+
+    /* 
+	public void SetEndingPhase()
+	{
+		//hide all maps
+		for(int x = 0; x < maps.Length; ++x)
+			maps[x].SetActive(false);
+		//show phase0 map
+		maps[0].SetActive(true);
+		phase0Cage.SetActive(false);
+	}*/
 
     //Returns current map we are on. Phase 0 =>returns 0, Phase 1 =? returns 1 and so on...
     public int GetPhaseMap()
