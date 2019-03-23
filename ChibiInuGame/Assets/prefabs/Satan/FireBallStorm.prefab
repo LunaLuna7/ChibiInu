@@ -2428,6 +2428,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   lifeSpam: 50
+  destroyParticle: {fileID: 1228489594280294, guid: 21298b97908446e498ed3fd0b740ccbb,
+    type: 2}
 --- !u!114 &114166556256075432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2441,6 +2443,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   lifeSpam: 50
+  destroyParticle: {fileID: 1228489594280294, guid: 21298b97908446e498ed3fd0b740ccbb,
+    type: 2}
 --- !u!114 &114291794474762538
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2454,6 +2458,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   lifeSpam: 50
+  destroyParticle: {fileID: 1228489594280294, guid: 21298b97908446e498ed3fd0b740ccbb,
+    type: 2}
 --- !u!114 &114329960519367094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2467,6 +2473,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   lifeSpam: 50
+  destroyParticle: {fileID: 1228489594280294, guid: 21298b97908446e498ed3fd0b740ccbb,
+    type: 2}
 --- !u!114 &114390275795422216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2480,6 +2488,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   lifeSpam: 50
+  destroyParticle: {fileID: 1228489594280294, guid: 21298b97908446e498ed3fd0b740ccbb,
+    type: 2}
 --- !u!114 &114470017647628634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2493,6 +2503,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   lifeSpam: 50
+  destroyParticle: {fileID: 1228489594280294, guid: 21298b97908446e498ed3fd0b740ccbb,
+    type: 2}
 --- !u!114 &114473979075447198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2506,6 +2518,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   lifeSpam: 50
+  destroyParticle: {fileID: 1228489594280294, guid: 21298b97908446e498ed3fd0b740ccbb,
+    type: 2}
 --- !u!114 &114488385957066496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2519,6 +2533,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   lifeSpam: 50
+  destroyParticle: {fileID: 1228489594280294, guid: 21298b97908446e498ed3fd0b740ccbb,
+    type: 2}
 --- !u!114 &114489314450663052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2532,6 +2548,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   lifeSpam: 50
+  destroyParticle: {fileID: 1228489594280294, guid: 21298b97908446e498ed3fd0b740ccbb,
+    type: 2}
 --- !u!114 &114496907332605366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2545,6 +2563,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   lifeSpam: 50
+  destroyParticle: {fileID: 1228489594280294, guid: 21298b97908446e498ed3fd0b740ccbb,
+    type: 2}
 --- !u!114 &114520859198916720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2558,6 +2578,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   lifeSpam: 50
+  destroyParticle: {fileID: 1228489594280294, guid: 21298b97908446e498ed3fd0b740ccbb,
+    type: 2}
 --- !u!114 &114573127069565364
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2571,6 +2593,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   lifeSpam: 50
+  destroyParticle: {fileID: 1228489594280294, guid: 21298b97908446e498ed3fd0b740ccbb,
+    type: 2}
 --- !u!114 &114592109167936076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2584,6 +2608,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   lifeSpam: 50
+  destroyParticle: {fileID: 1228489594280294, guid: 21298b97908446e498ed3fd0b740ccbb,
+    type: 2}
 --- !u!114 &114655106521358898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2597,6 +2623,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   lifeSpam: 50
+  destroyParticle: {fileID: 1228489594280294, guid: 21298b97908446e498ed3fd0b740ccbb,
+    type: 2}
 --- !u!114 &114731771557891880
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2610,6 +2638,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   lifeSpam: 50
+  destroyParticle: {fileID: 1228489594280294, guid: 21298b97908446e498ed3fd0b740ccbb,
+    type: 2}
 --- !u!114 &114778825354759344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2623,6 +2653,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   lifeSpam: 50
+  destroyParticle: {fileID: 1228489594280294, guid: 21298b97908446e498ed3fd0b740ccbb,
+    type: 2}
 --- !u!114 &114924165815504978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2636,6 +2668,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   lifeSpam: 50
+  destroyParticle: {fileID: 1228489594280294, guid: 21298b97908446e498ed3fd0b740ccbb,
+    type: 2}
 --- !u!114 &114980128075908192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2649,6 +2683,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   lifeSpam: 50
+  destroyParticle: {fileID: 1228489594280294, guid: 21298b97908446e498ed3fd0b740ccbb,
+    type: 2}
 --- !u!212 &212018037565504858
 SpriteRenderer:
   m_ObjectHideFlags: 1
