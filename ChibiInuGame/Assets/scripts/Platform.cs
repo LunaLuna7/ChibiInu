@@ -8,10 +8,21 @@ public class Platform : MonoBehaviour {
     private GameObject player;
     public bool touchedPlayer;
 
+    [Header("Float Stats")]
+    public bool floaty;
+    public float offset;
+    public float speed;
+    bool acending;
+    float originalHeight;
+
     private void Start()
     {
+        originalHeight = transform.position.y;
         player = GameObject.FindGameObjectWithTag("Player");
         touchedPlayer = false;
+        acending = true;
+        //if(floaty)
+           // StartCoroutine(Float());
     }
 
     private void Update()
@@ -19,6 +30,8 @@ public class Platform : MonoBehaviour {
 
         if (!player.GetComponent<CharacterController2D>().IsGrounded())
             player.transform.SetParent(null);
+
+        Float();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -56,4 +69,21 @@ public class Platform : MonoBehaviour {
             }
         }
     }*/
+
+    void Float()
+    {
+        if (acending)
+        {
+            transform.position = Vector3.Lerp(transform.position, transform.position + new Vector3(0, offset, 0), speed * Time.deltaTime);
+            if (transform.position.y >= originalHeight + offset)
+                acending = false;
+        }
+        else
+        {
+            transform.position = Vector3.Lerp(transform.position, transform.position - new Vector3(0, offset, 0), speed * Time.deltaTime);
+            if (transform.position.y < originalHeight)
+                acending = true;
+        }
+        
+    }
 }
