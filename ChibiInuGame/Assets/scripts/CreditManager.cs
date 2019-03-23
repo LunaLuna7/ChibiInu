@@ -17,9 +17,8 @@ public class CreditManager : MonoBehaviour {
 	void Start () {
 		scaledSpeed =  speed * Screen.height /1080;
 		finished = false;
-		//started = false;
-		//StartCoroutine(HideCurtain(1));
-		started = true;
+		started = false;
+		StartCoroutine(StartCredit(1));
 	}
 	
 	// Update is called once per frame
@@ -43,8 +42,9 @@ public class CreditManager : MonoBehaviour {
 		}
 	}
 
-	private IEnumerator HideCurtain(float time)
+	private IEnumerator StartCredit(float time)
 	{
+		/* 
 		Color color = curtain.color;
 		for(float x = 1; x >=0; x -= Time.deltaTime/time)
 		{
@@ -53,12 +53,14 @@ public class CreditManager : MonoBehaviour {
 			yield return new WaitForEndOfFrame();
 		}
 		color.a = 0;
-		curtain.color = color;
+		curtain.color = color;*/
+		yield return new WaitForSeconds(time);
 		started = true;
 	}
 
 	private IEnumerator EndCredit(float time)
 	{
+		yield return new WaitForSeconds(time);
 		Color color = curtain.color;
 		for(float x = 0; x <=1; x += Time.deltaTime/time)
 		{

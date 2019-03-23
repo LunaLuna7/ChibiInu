@@ -9,6 +9,7 @@ public class MainMenuManager : MonoBehaviour {
 	public GameObject arrow;
 	public GameObject[] buttons;
     //public SoundEffectManager soundEffectManager;
+	public LevelChanger levelChanger;
 
 	// Use this for initialization
 	void Start () {
@@ -56,6 +57,7 @@ public class MainMenuManager : MonoBehaviour {
 					StartGameButton();
 					break;
 				case 1:
+					CreditButton();
 					break;
 				//quit game
 				case 2:
@@ -83,7 +85,10 @@ public class MainMenuManager : MonoBehaviour {
 	}
 
 	//load the level info and go to the level switch page
-
+	public void CreditButton()
+	{
+		levelChanger.FadeToLevel(12);
+	}
 	public void QuitButton()
 	{
 		Application.Quit();
