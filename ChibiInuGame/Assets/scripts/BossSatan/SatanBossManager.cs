@@ -114,6 +114,7 @@ public class SatanBossManager : MonoBehaviour {
 
 	public void HidePlayer()
 	{
+		player.transform.position = transform.position;
 		player.SetActive(false);
 	}
 

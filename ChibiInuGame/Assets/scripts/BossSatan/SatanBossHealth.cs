@@ -11,7 +11,7 @@ public class SatanBossHealth : BossHealth {
         if (health <= 0)
         {
 			GetComponent<SatanBossManager>().EndBattle();
-            //gameObject.SetActive(false);
+            gameObject.SetActive(false);
             //health = maxHealth;
         }
     }

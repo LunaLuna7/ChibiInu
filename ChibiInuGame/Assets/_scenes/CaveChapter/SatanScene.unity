@@ -925,8 +925,7 @@ MonoBehaviour:
   myEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114134826995440366, guid: d5b0cf16604459e4dad62549903c9b9f,
-          type: 2}
+      - m_Target: {fileID: 1074493363}
         m_MethodName: HidePartners
         m_Mode: 1
         m_Arguments:
@@ -939,6 +938,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 79336625}
         m_MethodName: PlayerEnterTimeline
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1042556849}
+        m_MethodName: HidePlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9969,6 +9979,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1074493361}
   m_Script: {fileID: 11500000, guid: 66195fe2669a9274784b18203fe0bb0d, type: 3}
+--- !u!114 &1074493363 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114134826995440366, guid: d5b0cf16604459e4dad62549903c9b9f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1074493361}
+  m_Script: {fileID: 11500000, guid: 47ecc1a3eb11ea24aad727e0df5138c2, type: 3}
 --- !u!1 &1082931573
 GameObject:
   m_ObjectHideFlags: 0
