@@ -10,6 +10,7 @@ public class BardBossStartPoint : MonoBehaviour {
 	public GameObject bardBoss;
 
 	private bool hasStarted = false;
+	private bool hasPlayedMusic = false;
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
@@ -19,7 +20,11 @@ public class BardBossStartPoint : MonoBehaviour {
 			hasStarted = true;
 			playerController.m_Paralyzed = true;
 			StartCoroutine(BattleStart());
-            SoundEffectManager.instance.Play("Boss");
+			if(!hasPlayedMusic)
+			{
+            	SoundEffectManager.instance.Play("Boss");
+				hasPlayedMusic = true;
+			}
 		}
 	}
 
