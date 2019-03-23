@@ -87,11 +87,11 @@ public class VirtualKeyboard : MonoBehaviour {
 	//==========================================================================================================================
 	public string GetKeyValue()
 	{
-		return GetTextCompoent(chosenKey).text;
+		return GetTextComponent(chosenKey).text;
 	}
 
 	//return Text Component of a key object
-	private Text GetTextCompoent(GameObject key)
+	private Text GetTextComponent(GameObject key)
 	{
 		return key.transform.Find("Text").GetComponent<Text>();
 	}
@@ -108,12 +108,12 @@ public class VirtualKeyboard : MonoBehaviour {
 					continue;
 				//:/;
 				else if(x == 29)
-					GetTextCompoent(keys[x]).text = ":";
+					GetTextComponent(keys[x]).text = ":";
 				//!/?
 				else if(x == 30)
-					GetTextCompoent(keys[x]).text = "!";
+					GetTextComponent(keys[x]).text = "!";
 				else
-					GetTextCompoent(keys[x]).text = GetTextCompoent(keys[x]).text.ToLower();
+					GetTextComponent(keys[x]).text = GetTextComponent(keys[x]).text.ToLower();
 			}
 		}else//chaneg to upper case
 		{
@@ -125,12 +125,12 @@ public class VirtualKeyboard : MonoBehaviour {
 					continue;
 				//:/;
 				else if(x == 29)
-					GetTextCompoent(keys[x]).text = ";";
+					GetTextComponent(keys[x]).text = ";";
 				//!/?
 				else if(x == 30)
-					GetTextCompoent(keys[x]).text = "?";
+					GetTextComponent(keys[x]).text = "?";
 				else
-					GetTextCompoent(keys[x]).text = GetTextCompoent(keys[x]).text.ToUpper();
+					GetTextComponent(keys[x]).text = GetTextComponent(keys[x]).text.ToUpper();
 			}
 		}
 	}

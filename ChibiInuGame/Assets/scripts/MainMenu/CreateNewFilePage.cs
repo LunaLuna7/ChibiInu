@@ -96,6 +96,9 @@ public class CreateNewFilePage : MonoBehaviour {
 			}else{
 				AddCharacter(key);
 			}
+		}else if(Input.GetKeyDown(KeyCode.Backspace))
+		{
+			DeleteCharacter();
 		}
 	}
 	//==========================================================================================================================
