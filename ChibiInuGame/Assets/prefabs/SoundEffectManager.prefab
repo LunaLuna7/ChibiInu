@@ -274,3 +274,33 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: MainMenu
+    clip: {fileID: 8300000, guid: 54a751f925800c44886e0022e8a67182, type: 3}
+    volume: 0.63
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: OverWorld
+    clip: {fileID: 8300000, guid: f8ba932103b90dc4eaa0c0a8c909e40b, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: CageDamage
+    clip: {fileID: 8300000, guid: be2b6286a7e06384591fd77f7313e400, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ShieldOn
+    clip: {fileID: 8300000, guid: d9a36420a1702c04f9303dc095b50b66, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SatanBattle
+    clip: {fileID: 8300000, guid: bc810413c1eecd9499fbd2f8b07927c7, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
