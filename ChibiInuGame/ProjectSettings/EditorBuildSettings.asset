@@ -38,7 +38,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_scenes/CastleChapter/CastleLevel3.unity
     guid: 22175f4e5940cda429dabba81869f3d4
-  - enabled: 0
+  - enabled: 1
     path: Assets/_scenes/CaveChapter/SatanScene.unity
     guid: cc6af1ab8d0bcb049825986a17b25822
+  - enabled: 1
+    path: Assets/_scenes/Credit.unity
+    guid: 316340faf2d5021479bc70f95e077f7c
   m_configObjects: {}
