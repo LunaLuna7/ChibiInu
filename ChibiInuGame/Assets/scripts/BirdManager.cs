@@ -5,8 +5,11 @@ using UnityEngine;
 public class BirdManager : MonoBehaviour {
 
     public List<Bird> birds;
+    public List<Transform> birdAreas;
+
 	// Use this for initialization
 	void Start () {
+        LocateBirds();
 		for(int i = 0; i < this.transform.childCount; i++)
         {
             birds.Add(transform.GetChild(i).GetComponent<Bird>());
@@ -23,5 +26,12 @@ public class BirdManager : MonoBehaviour {
                 birds[i].triggerFly = true;
             }
         }
+    }
+
+    void LocateBirds()
+    {
+        int area = Random.Range(0, birdAreas.Count);
+        transform.position = birdAreas[area].transform.position;
+
     }
 }
