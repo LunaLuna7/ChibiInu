@@ -102,7 +102,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1098083422095386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -206.91, y: -1.43, z: -0.13453303}
+  m_LocalPosition: {x: -113.79, y: 24.45, z: -0.13453303}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4411635004220860}
@@ -218,10 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   birds: []
-  birdAreas:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  birdAreas: []
 --- !u!114 &114371886527052106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -236,7 +233,8 @@ MonoBehaviour:
   triggerFly: 0
   speed: 30
   timeBeforeFlyAway: 1
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 4594603421541188, guid: c6b571c349e83944faa1834deb832e5c,
+    type: 2}
   xDistanceMax: 220
   xDistanceMin: 180
   yDistance: 200
@@ -254,7 +252,8 @@ MonoBehaviour:
   triggerFly: 0
   speed: 25
   timeBeforeFlyAway: 1
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 4594603421541188, guid: c6b571c349e83944faa1834deb832e5c,
+    type: 2}
   xDistanceMax: 220
   xDistanceMin: 180
   yDistance: 200
@@ -272,7 +271,8 @@ MonoBehaviour:
   triggerFly: 0
   speed: 32
   timeBeforeFlyAway: 1
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 4594603421541188, guid: c6b571c349e83944faa1834deb832e5c,
+    type: 2}
   xDistanceMax: 220
   xDistanceMin: 180
   yDistance: 200
