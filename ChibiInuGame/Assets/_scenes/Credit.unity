@@ -241,7 +241,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &432180171
@@ -436,7 +436,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 1cbab15dc91ed3e45b04cd365434a4b7, type: 3}
     m_FontSize: 90
     m_FontStyle: 0
     m_BestFit: 0
@@ -447,38 +447,48 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
-    m_LineSpacing: 1
-  m_Text: 'a
-
-    a
-
-    a
-
-    a
-
-    a
+    m_LineSpacing: 1.5
+  m_Text: 'Programmer
 
 
-    a
+    Luis Luna
 
-    a
-
-    a
-
-    a
-
-    a
-
-    a
-
-    a
+    Wayne Zhu
 
 
-    a
 
-    a
+    Design
 
-    a'
+
+    Luis Luna
+
+
+
+    Art
+
+
+    Carolee Nguyen
+
+
+
+    Audio Design
+
+
+    Kristen Campbell
+
+
+
+    Writing
+
+
+    Brandon Wilcox
+
+
+
+
+
+
+    THANK YOU FOR PLAYING'
 --- !u!222 &1094141972
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -515,8 +525,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contentUI: {fileID: 931488695}
   curtain: {fileID: 432180171}
-  length: 2000
-  speed: 5
+  length: 4500
+  speed: 4
 --- !u!4 &1472745732
 Transform:
   m_ObjectHideFlags: 0
