@@ -70,16 +70,19 @@ public class ShieldStrikeState : IState {
 
 		yield return new WaitForSeconds(waitTime);
 
-		if(type == 0)
+		if(obj != null)
 		{
-			//shoot shield towards player
-			obj.GetComponent<BossShieldProjectile>().ShootTowards(controller.player.transform.position, speed);
-			GameObject.Destroy(obj, 10f);
-		}else{
-			//shoot towards random direction
-			obj.GetComponent<BossShieldProjectile>().SetRotateSpeed(0);
-			obj.GetComponent<BossShieldProjectile>().Shoot(speed);
-			GameObject.Destroy(obj, 10f);
+			if(type == 0)
+			{
+				//shoot shield towards player
+				obj.GetComponent<BossShieldProjectile>().ShootTowards(controller.player.transform.position, speed);
+				GameObject.Destroy(obj, 10f);
+			}else{
+				//shoot towards random direction
+				obj.GetComponent<BossShieldProjectile>().SetRotateSpeed(0);
+				obj.GetComponent<BossShieldProjectile>().Shoot(speed);
+				GameObject.Destroy(obj, 10f);
+			}
 		}
 	}
 }

@@ -63,14 +63,17 @@ public class ShieldWaveState : IState {
 		//shoot all shields towards random direction
 		for(int x = 0; x < objectList.Count; ++x)
 		{
-			/* 
-			Vector3 direction = objectList[x].transform.position - controller.transform.position;
-			direction.z = 0;
-			objectList[x].GetComponent<BossShieldProjectile>().ShootTowards(objectList[x].transform.position + direction, projectileSpeed);*/
-			objectList[x].GetComponent<BossShieldProjectile>().Shoot(projectileSpeed);
-			//obj.GetComponent<BossShieldProjectile>().Shoot(projectileSpeed);
-			yield return new WaitForSeconds(throwInterval);
-			GameObject.Destroy(objectList[x], 10f);
+			if(objectList[x] != null)
+			{
+				/* 
+				Vector3 direction = objectList[x].transform.position - controller.transform.position;
+				direction.z = 0;
+				objectList[x].GetComponent<BossShieldProjectile>().ShootTowards(objectList[x].transform.position + direction, projectileSpeed);*/
+				objectList[x].GetComponent<BossShieldProjectile>().Shoot(projectileSpeed);
+				//obj.GetComponent<BossShieldProjectile>().Shoot(projectileSpeed);
+				yield return new WaitForSeconds(throwInterval);
+				GameObject.Destroy(objectList[x], 10f);
+			}
 		}
 
 		yield return new WaitForSeconds(waitTime);

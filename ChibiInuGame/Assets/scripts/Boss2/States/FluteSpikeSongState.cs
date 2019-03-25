@@ -63,7 +63,8 @@ public class FluteSpikeSongState : IState {
         fluteSpike.transform.SetParent(controller.skillObjectsGroup);
         yield return MoveFlute(fluteSpike, speed, right, false);
         //remove the flute spike after finishing
-        GameObject.Destroy(fluteSpike);
+        if(fluteSpike != null)
+            GameObject.Destroy(fluteSpike);
     }
 
     public IEnumerator ThrowOneFluteUp(bool right, float speed)
@@ -78,7 +79,8 @@ public class FluteSpikeSongState : IState {
         fluteSpike.transform.SetParent(controller.skillObjectsGroup);
         yield return MoveFlute(fluteSpike, speed, right, true);
         //remove the flute spike after finishing
-        GameObject.Destroy(fluteSpike);
+        if(fluteSpike != null)
+            GameObject.Destroy(fluteSpike);
     }
 
     private IEnumerator MoveFlute(GameObject fluteSpike, float speed, bool right, bool up)
@@ -90,6 +92,9 @@ public class FluteSpikeSongState : IState {
         {
             for(float x = fluteSpike.transform.position.x; x <= maxX; x += 0.2f)
             {
+                //stop if spike is destroyed
+                if(fluteSpike == null)
+                    yield break;
                 //scale x to 0 - 2 pi
                 float xOffSet = (fluteSpike.transform.position.x - minX)* 6.28f/xRange;
                 //(Mathf.Cos(xOffSet) - 1)/2 gives a float from 0-1
@@ -103,6 +108,9 @@ public class FluteSpikeSongState : IState {
         }else{
             for(float x = fluteSpike.transform.position.x; x >= minX; x -= 0.2f)
             {
+                //stop if spike is destroyed
+                if(fluteSpike == null)
+                    yield break;
                 //scale x to 0 - 2 pi
                 float xOffSet = (fluteSpike.transform.position.x - minX)* 6.28f/xRange;
                 //(Mathf.Cos(xOffSet) - 1)/2 gives a float from 0-1
