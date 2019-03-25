@@ -1157,12 +1157,12 @@ GameObject:
   - component: {fileID: 222997574708692152}
   - component: {fileID: 114485935761109448}
   m_Layer: 5
-  m_Name: SkipText
+  m_Name: unitySucks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1848283829212584
 GameObject:
   m_ObjectHideFlags: 0
