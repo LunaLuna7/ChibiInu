@@ -26,6 +26,7 @@ public class BirdManager : MonoBehaviour {
             for(int i = 0; i < birds.Count; i++)
             {
                 birds[i].triggerFly = true;
+                StartCoroutine(DelayActive(birds[i].gameObject));
             }
         }
     }
@@ -35,5 +36,11 @@ public class BirdManager : MonoBehaviour {
         int area = Random.Range(0, birdAreas.Count);
         transform.position = birdAreas[area].transform.position;
 
+    }
+
+    IEnumerator DelayActive(GameObject obj)
+    {
+        yield return new WaitForSeconds(5f);
+        obj.gameObject.SetActive(false);
     }
 }
