@@ -138,6 +138,7 @@ public class PartnerManager : MonoBehaviour {
                 else secondSkill = LightPartner;
                 break;
         }
+        LimitPlayerJump(TripleJumpPartnerCapacity());
 
     }
 
