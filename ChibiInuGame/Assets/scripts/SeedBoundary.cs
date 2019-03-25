@@ -18,6 +18,7 @@ public class SeedBoundary : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("projectile"))
         {
+            //Instantiate(collision.gameObject.GetComponent<Projectile>().destroyParticle, collision.transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
         }
     }

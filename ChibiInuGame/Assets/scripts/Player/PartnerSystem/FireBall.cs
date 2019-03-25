@@ -31,6 +31,7 @@ public class FireBall : MonoBehaviour {
     {   
         if(collision.gameObject.tag == "projectile")
         {
+            //Instantiate(collision.gameObject.GetComponent<Projectile>().destroyParticle, collision.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
             Destroy(collision.gameObject);
         }
