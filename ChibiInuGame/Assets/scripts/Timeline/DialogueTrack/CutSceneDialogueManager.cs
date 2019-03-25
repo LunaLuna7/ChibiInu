@@ -15,7 +15,9 @@ public class CutSceneDialogueManager : MonoBehaviour {
 	public string dialogueFilePath;
     [SerializeField] private Dialogue[] dialogueSequence;
 
+    //[Header("Skip")]
     private bool playingDialogue = false;
+    public Text skipText;
 	void Start()
 	{
 		//get the dialogue sequences at the beginning
@@ -23,6 +25,10 @@ public class CutSceneDialogueManager : MonoBehaviour {
         dialogueFilePath = "English/" + dialogueFilePath;
         //at the start of level, ask dialogue Library to load dialogue data, then get it
         dialogueSequence = DialogueLibrary.instance.LoadDialogueJson(dialogueFilePath.Trim());
+        //hide skip text
+        //Color currentColor = skipText.color;
+        //currentColor.a = 0;
+        //skipText.color = currentColor;
 
 	}
 
@@ -91,7 +97,27 @@ public class CutSceneDialogueManager : MonoBehaviour {
     public void SkipDialogue()
     {
         StopAllCoroutines();
+        StartCoroutine(AnimateSkipText());
         EndDialogue();
+    }
+
+    private IEnumerator AnimateSkipText()
+    {
+        //show skip text
+        Color currentColor = skipText.color;
+        currentColor.a = 1;
+        skipText.color = currentColor;
+        yield return new WaitForSeconds(0.5f);
+        //hide the text
+        float unit = 1/0.5f; //   1/time
+        for(float x = 1; x >= 0;x -= unit * Time.deltaTime)
+        {
+            currentColor.a = x;
+            skipText.color = currentColor;
+            yield return new WaitForEndOfFrame();
+        }
+        currentColor.a = 0;
+        skipText.color = currentColor;
     }
 
 }
