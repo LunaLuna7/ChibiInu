@@ -7,6 +7,7 @@ public class VirtualKeyboard : MonoBehaviour {
 	public GameObject chosenKey;
 	[SerializeField]private GameObject[] keys;
 	public Color selectedColor;
+	public GameObject capsOutline;
 	public Color unSelectedColor;
 	private bool caps = false;
 	private int currentIndex = 0;
@@ -19,8 +20,8 @@ public class VirtualKeyboard : MonoBehaviour {
 		chosenKey = keys[0];
 		SelectKey(0);
 		currentIndex = 0;
-		//default caps is false
-		caps = true;
+		//default caps is true
+		caps = false;
 		ChangeCapitalization();
 	}
 
@@ -101,6 +102,7 @@ public class VirtualKeyboard : MonoBehaviour {
 		if(caps)
 		{
 			caps = false;
+			capsOutline.SetActive(false);
 			for(int x = 0; x<=30; ++x)
 			{
 				//do nothing for delete and enter key
@@ -118,6 +120,7 @@ public class VirtualKeyboard : MonoBehaviour {
 		}else//chaneg to upper case
 		{
 			caps = true;
+			capsOutline.SetActive(true);
 			for(int x = 0; x<=30; ++x)
 			{
 				//do nothing for delete and enter key
