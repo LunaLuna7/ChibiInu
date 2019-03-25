@@ -49,6 +49,9 @@ public class BossWorld2 : MonoBehaviour {
     public Transform startPosition;
     public Transform playerCutscenePos;
     public TimeLineManager afterBattleTimeline;
+    [Header("End Cutscene")]
+    public GameObject cameraFocus;
+    public Vector3 endingCameraFocusPosition;
 
     private void Awake()
     {
@@ -153,6 +156,7 @@ public class BossWorld2 : MonoBehaviour {
         player.transform.position = transform.position;
         player.SetActive(false);
         cameraSwitcher.ChangeCamera(3);
+        SetFinalCameraFocus();
     }
 
     public void Initialize()
@@ -176,5 +180,10 @@ public class BossWorld2 : MonoBehaviour {
         movementController.StopMoving();
         //cloud Color
         cloudController.SetColor(Color.white);
+    }
+
+    public void SetFinalCameraFocus()
+    {
+        cameraFocus.transform.position = endingCameraFocusPosition;
     }
 }

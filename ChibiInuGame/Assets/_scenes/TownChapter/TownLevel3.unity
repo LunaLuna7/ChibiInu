@@ -9795,6 +9795,8 @@ MonoBehaviour:
   startPosition: {fileID: 1028528444}
   playerCutscenePos: {fileID: 1768294463}
   afterBattleTimeline: {fileID: 1465650598}
+  cameraFocus: {fileID: 251362542}
+  endingCameraFocusPosition: {x: -144.9, y: -4.33, z: -0.4698303}
 --- !u!58 &675663135
 CircleCollider2D:
   m_ObjectHideFlags: 0

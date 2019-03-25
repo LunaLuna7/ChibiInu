@@ -129,6 +129,7 @@ public class SatanBossManager : MonoBehaviour {
 		player.transform.position = transform.position;
 		player.SetActive(false);
         cameraSwitcher.ChangeCamera(3);
+        //SetFinalCameraFocus(); called in timeline instead
     }
 
     public void SetFinalCameraFocus()
