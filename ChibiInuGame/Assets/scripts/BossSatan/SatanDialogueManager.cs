@@ -9,6 +9,7 @@ public class SatanDialogueManager : MonoBehaviour {
     public Image speakerImage;
     public Animator animator;
 	private Dialogue[] dialogueSequence;
+    public GameObject skipPrompt;
 
 	public void StartPlayDialogues(int startIndex, int endIndex)
 	{
@@ -17,6 +18,7 @@ public class SatanDialogueManager : MonoBehaviour {
 
     private IEnumerator PlayDialogues(int startIndex, int endIndex)
     {
+        
 		//UI dialogue window appear
         animator.SetBool("IsOpen", true);
 		//make sure sentence is in bounf
@@ -35,6 +37,7 @@ public class SatanDialogueManager : MonoBehaviour {
 
 	public IEnumerator PlayDialogues(int startIndex, int endIndex, string dialogueFilePath)
     {
+        skipPrompt.SetActive(false);
 		//add postfix for language
         dialogueFilePath = "English/" + dialogueFilePath;
 		if(dialogueFilePath.Trim().Length <= 0)
@@ -61,6 +64,7 @@ public class SatanDialogueManager : MonoBehaviour {
         }
 		//UI go away
 		EndDialogue();
+        skipPrompt.SetActive(true);
     }
 
 
@@ -87,5 +91,4 @@ public class SatanDialogueManager : MonoBehaviour {
     {
         animator.SetBool("IsOpen", false);
     }
-	
 }

@@ -70,6 +70,12 @@ public class SatanBossManager : MonoBehaviour {
 		this.stateMachine.ChangeState(states[next]);
 	}
 
+    public void StopSkills()
+    {
+        StopAllCoroutines();
+        this.stateMachine.Stop();
+    }
+
 	public void Initialize()
     {
         if(hasEnded)
