@@ -14,4 +14,5 @@ public class PartnerInfo : ScriptableObject {
     public string skillInfo;
     public Sprite image;
     public Sprite skillImage;
+    public RuntimeAnimatorController partnerAnim;
 }
