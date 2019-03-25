@@ -371,12 +371,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 114012548370561622, guid: eacbf2d95e4143f4992d39de01a2b7b3,
-        type: 2}
-      propertyPath: faceSpriteList.Array.data[1].faceSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: a636710170df9a441b3e33378b2a53f7,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eacbf2d95e4143f4992d39de01a2b7b3, type: 2}
   m_IsPrefabAsset: 0
