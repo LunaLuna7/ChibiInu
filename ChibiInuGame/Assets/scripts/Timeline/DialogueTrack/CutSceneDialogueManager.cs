@@ -15,7 +15,7 @@ public class CutSceneDialogueManager : MonoBehaviour {
 	public string dialogueFilePath;
     [SerializeField] private Dialogue[] dialogueSequence;
 
-	
+    private bool playingDialogue = false;
 	void Start()
 	{
 		//get the dialogue sequences at the beginning
@@ -26,6 +26,14 @@ public class CutSceneDialogueManager : MonoBehaviour {
 
 	}
 
+    void Update()
+    {
+        if(Input.GetButtonDown("Skip") && playingDialogue)
+        {
+            SkipDialogue();
+        }
+    }
+
 	public void StartPlayDialogues(int startIndex, int endIndex)
 	{
 		StartCoroutine(PlayDialogues(startIndex, endIndex));
@@ -33,6 +41,7 @@ public class CutSceneDialogueManager : MonoBehaviour {
 
     private IEnumerator PlayDialogues(int startIndex, int endIndex)
     {
+        playingDialogue = true;
 		//UI dialogue window appear
         animator.SetBool("IsOpen", true);
 		//pause timeline
@@ -49,8 +58,6 @@ public class CutSceneDialogueManager : MonoBehaviour {
         }
 		//UI go away
 		EndDialogue();
-		//continue the timeline
-		playableDirector.Resume();
     }
 
 
@@ -75,7 +82,16 @@ public class CutSceneDialogueManager : MonoBehaviour {
 
     public void EndDialogue()
     {
+        playingDialogue = false;
         animator.SetBool("IsOpen", false);
+        //continue the timeline
+		playableDirector.Resume();
+    }
+
+    public void SkipDialogue()
+    {
+        StopAllCoroutines();
+        EndDialogue();
     }
 
 }
