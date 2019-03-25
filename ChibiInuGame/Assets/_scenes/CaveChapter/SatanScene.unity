@@ -9806,6 +9806,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1869877841}
   speakerImage: {fileID: 1869877840}
   animator: {fileID: 1869877839}
+  skipPrompt: {fileID: 228588318}
 --- !u!1 &1049980227
 GameObject:
   m_ObjectHideFlags: 0

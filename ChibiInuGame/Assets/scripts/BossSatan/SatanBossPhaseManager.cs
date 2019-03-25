@@ -80,7 +80,6 @@ public class SatanBossPhaseManager : MonoBehaviour {
 		currentMap = maps[index];
 		currentMap.SetActive(true);
 		//add partner depends on map
-
 		if(phase == 1)//wizard
 		{
 			partnerManager.SummonPartner(SkillSlot.FirstSlot, partnerManager.partners[0]);
@@ -99,6 +98,8 @@ public class SatanBossPhaseManager : MonoBehaviour {
 			phase3Collider.SetActive(true);
 			invulnerableCollider.SetActive(false);
 		}
+		//clean objects
+		GetComponent<SatanBossManager>().CleanSkillObjects();
 	}
 
 	public void Reset()
