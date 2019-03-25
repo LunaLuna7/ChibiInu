@@ -44,6 +44,7 @@ public class BossWorld2 : MonoBehaviour {
     public GameObject wind;
     [Header("for start/restart")]
     private bool hasStarted = false;
+    private bool hasEnded = false;
     public Transform startPosition;
     public Transform playerCutscenePos;
     public TimeLineManager afterBattleTimeline;
@@ -120,6 +121,8 @@ public class BossWorld2 : MonoBehaviour {
     //====================================================================================================
     public void StartBattle()
     {
+        if(hasEnded)
+			return;
         this.StateMachine.ChangeState(new IntroState());
         //time for the animation
         this.StateMachine.ChangeState(new IdleState(this));
@@ -130,6 +133,7 @@ public class BossWorld2 : MonoBehaviour {
     //player defeated Bard Boss, play end cutscene
     public void EndBattle()
     {
+        hasEnded = true;
         SoundEffectManager.instance.Stop("Boss");
         //stop using the current skills
         StopAllCoroutines();
@@ -151,6 +155,8 @@ public class BossWorld2 : MonoBehaviour {
 
     public void Initialize()
     {
+        if(hasEnded)
+			return;
         //stop using the current skills
         StopAllCoroutines();
         //destroy all skill objects
