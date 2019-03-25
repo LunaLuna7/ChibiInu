@@ -50,9 +50,8 @@ public class SatanFireBall : MonoBehaviour {
     //shoot towards current direction
     public void Shoot(float speed)
     {
+        SoundEffectManager.instance.Play("FireBall");
         float angle = transform.eulerAngles.z;
-        //angle -= 90;
-        //calculate velocity
         float radian = angle / 180f * 3.14f;
         rb.velocity = new Vector2(Mathf.Cos(radian), Mathf.Sin(radian)) * speed;
     }

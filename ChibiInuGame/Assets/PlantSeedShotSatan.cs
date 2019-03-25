@@ -19,7 +19,7 @@ public class PlantSeedShotSatan : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        InvokeRepeating("Shoot", startDelay, shootRate);
+        //InvokeRepeating("Shoot", startDelay, shootRate);
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class PlantSeedShotSatan : MonoBehaviour {
 
     private void OnEnable()
     {
-        //InvokeRepeating("Shoot", startDelay, shootRate);
+        InvokeRepeating("Shoot", startDelay, shootRate);
     }
 
     private void OnDisable()

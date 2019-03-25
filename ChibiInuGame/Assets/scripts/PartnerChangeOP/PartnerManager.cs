@@ -287,6 +287,13 @@ public class PartnerManager : MonoBehaviour {
         characterController.FakeShieldOn();
     }
 
+
+    public void FakeShieldPartnerOff()
+    {
+        characterController.FakeShieldOff();
+    }
+
+
     public void UnsummonAllPartners()
     {
         foreach(Partner each in partners)

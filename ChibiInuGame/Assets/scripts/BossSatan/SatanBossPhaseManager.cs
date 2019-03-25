@@ -80,6 +80,7 @@ public class SatanBossPhaseManager : MonoBehaviour {
 		currentMap = maps[index];
 		currentMap.SetActive(true);
 		//add partner depends on map
+
 		if(phase == 1)//wizard
 		{
 			partnerManager.SummonPartner(SkillSlot.FirstSlot, partnerManager.partners[0]);
@@ -113,7 +114,8 @@ public class SatanBossPhaseManager : MonoBehaviour {
 		partnerManager.UnsummonAllPartners();
 		phase3Collider.SetActive(false);
 		invulnerableCollider.SetActive(true);
-	}
+        partnerManager.FakeShieldPartnerOff();
+    }
 
     /* 
 	public void SetEndingPhase()

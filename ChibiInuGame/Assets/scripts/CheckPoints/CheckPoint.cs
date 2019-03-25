@@ -76,7 +76,7 @@ public class CheckPoint : MonoBehaviour {
     {
         if (collision.CompareTag("Player"))
         {
-            if(uIPartnerBook.partnerManager.partners[0].unlocked)
+            if(uIPartnerBook.partnerManager.partners[0].unlocked && !SatanCheckPoint)
                 instructionBubble.SetActive(true);
             PlayerHealth health = collision.gameObject.GetComponent<PlayerHealth>();
             if(health != null)
@@ -99,7 +99,7 @@ public class CheckPoint : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Player") && (uIPartnerBook.partnerManager.partners[0].unlocked) && !onDialogue)
+        if(collision.gameObject.CompareTag("Player") && (uIPartnerBook.partnerManager.partners[0].unlocked) && !onDialogue && !SatanCheckPoint)
             instructionBubble.SetActive(true);
     }
 
