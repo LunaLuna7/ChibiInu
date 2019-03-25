@@ -7,6 +7,8 @@ public class SatanBossManager : MonoBehaviour {
 	public SatanBossMovementController movementController;
     public SatanBossPhaseManager phaseManager;
 	private bool hasStarted = false;
+    private bool hasEnded = false;
+    public SwitchCamera cameraSwitcher;
 
 	public GameObject player;
 	public Transform startPosition;
@@ -70,6 +72,8 @@ public class SatanBossManager : MonoBehaviour {
 
 	public void Initialize()
     {
+        if(hasEnded)
+			return;
         //stop using the current skills
         StopAllCoroutines();
 		movementController.StopAllCoroutines();
@@ -94,12 +98,15 @@ public class SatanBossManager : MonoBehaviour {
 
 	public void StartBattle()
 	{
+        if(hasEnded)
+			return;
 		hasStarted = true;
 		stateMachine.ChangeState(states[0]);
 	}
 
 	public void EndBattle()
     {
+        hasEnded = true;
         //stop using the current skills
         StopAllCoroutines();
 		movementController.StopAllCoroutines();
@@ -121,7 +128,9 @@ public class SatanBossManager : MonoBehaviour {
 	{
 		player.transform.position = transform.position;
 		player.SetActive(false);
-	}
+        cameraSwitcher.ChangeCamera(3);
+        //SetFinalCameraFocus(); called in timeline instead
+    }
 
     public void SetFinalCameraFocus()
     {

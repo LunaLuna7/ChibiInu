@@ -9399,6 +9399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementController: {fileID: 1042556848}
   phaseManager: {fileID: 1042556851}
+  cameraSwitcher: {fileID: 1350903245}
   player: {fileID: 1061029009}
   startPosition: {fileID: 1741294924}
   skillObjectsGroup: {fileID: 409661446}
@@ -45072,6 +45073,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4681832379016118, guid: d6870f68caf9e804590dfd7d3f6d8f1e,
     type: 2}
   m_PrefabInternal: {fileID: 1350903243}
+--- !u!114 &1350903245 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114432708476130394, guid: d6870f68caf9e804590dfd7d3f6d8f1e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1350903243}
+  m_Script: {fileID: 11500000, guid: 5cc1ac33caac21449b1017cfc1a073b7, type: 3}
 --- !u!1 &1368774286
 GameObject:
   m_ObjectHideFlags: 0

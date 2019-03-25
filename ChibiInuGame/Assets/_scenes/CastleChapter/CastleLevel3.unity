@@ -15426,6 +15426,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4681832379016118, guid: d6870f68caf9e804590dfd7d3f6d8f1e,
     type: 2}
   m_PrefabInternal: {fileID: 1520576751}
+--- !u!114 &1520576753 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114432708476130394, guid: d6870f68caf9e804590dfd7d3f6d8f1e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1520576751}
+  m_Script: {fileID: 11500000, guid: 5cc1ac33caac21449b1017cfc1a073b7, type: 3}
 --- !u!1 &1531702911
 GameObject:
   m_ObjectHideFlags: 0
@@ -16029,7 +16035,7 @@ Prefab:
     - target: {fileID: 224856033425318722, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 224215224849271358, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
@@ -16044,7 +16050,7 @@ Prefab:
     - target: {fileID: 224241648355968452, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114518207060945192, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
@@ -94201,6 +94207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossHealth: {fileID: 1894615062}
   movementController: {fileID: 1894615063}
+  cameraSwitcher: {fileID: 1520576753}
   player: {fileID: 1563365303}
   startPosition: {fileID: 1073496143}
   boundary: {fileID: 11464442}

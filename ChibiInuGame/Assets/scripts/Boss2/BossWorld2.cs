@@ -44,9 +44,14 @@ public class BossWorld2 : MonoBehaviour {
     public GameObject wind;
     [Header("for start/restart")]
     private bool hasStarted = false;
+    private bool hasEnded = false;
+    public SwitchCamera cameraSwitcher;
     public Transform startPosition;
     public Transform playerCutscenePos;
     public TimeLineManager afterBattleTimeline;
+    [Header("End Cutscene")]
+    public GameObject cameraFocus;
+    public Vector3 endingCameraFocusPosition;
 
     private void Awake()
     {
@@ -120,6 +125,8 @@ public class BossWorld2 : MonoBehaviour {
     //====================================================================================================
     public void StartBattle()
     {
+        if(hasEnded)
+			return;
         this.StateMachine.ChangeState(new IntroState());
         //time for the animation
         this.StateMachine.ChangeState(new IdleState(this));
@@ -130,6 +137,7 @@ public class BossWorld2 : MonoBehaviour {
     //player defeated Bard Boss, play end cutscene
     public void EndBattle()
     {
+        hasEnded = true;
         SoundEffectManager.instance.Stop("Boss");
         //stop using the current skills
         StopAllCoroutines();
@@ -147,10 +155,14 @@ public class BossWorld2 : MonoBehaviour {
         //move player to the battle field, just in case player died and return to save point. Use Boss's position can be fine
         player.transform.position = transform.position;
         player.SetActive(false);
+        cameraSwitcher.ChangeCamera(3);
+        SetFinalCameraFocus();
     }
 
     public void Initialize()
     {
+        if(hasEnded)
+			return;
         //stop using the current skills
         StopAllCoroutines();
         //destroy all skill objects
@@ -168,5 +180,10 @@ public class BossWorld2 : MonoBehaviour {
         movementController.StopMoving();
         //cloud Color
         cloudController.SetColor(Color.white);
+    }
+
+    public void SetFinalCameraFocus()
+    {
+        cameraFocus.transform.position = endingCameraFocusPosition;
     }
 }

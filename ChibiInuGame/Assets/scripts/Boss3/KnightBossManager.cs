@@ -6,6 +6,8 @@ public class KnightBossManager : MonoBehaviour {
 	public BossHealth bossHealth;
 	public KnightBossMovementController movementController;
 	private bool hasStarted = false;
+	private bool hasEnded = false;
+	public SwitchCamera cameraSwitcher;
 
 	public GameObject player;
 	public Transform startPosition;
@@ -51,6 +53,8 @@ public class KnightBossManager : MonoBehaviour {
 
 	public void Initialize()
     {
+		if(hasEnded)
+			return;
         //stop using the current skills
         StopAllCoroutines();
 		movementController.StopAllCoroutines();
@@ -70,6 +74,8 @@ public class KnightBossManager : MonoBehaviour {
 
 	public void StartBattle()
 	{
+		if(hasEnded)
+			return;
 		hasStarted = true;
 		boundary.SetActive(true);
 		stateMachine.ChangeState(states[0]);
@@ -77,6 +83,7 @@ public class KnightBossManager : MonoBehaviour {
 
 	public void EndBattle()
     {
+		hasEnded = true;
 		SoundEffectManager.instance.Stop("Boss");
         //stop using the current skills
         StopAllCoroutines();
@@ -93,6 +100,7 @@ public class KnightBossManager : MonoBehaviour {
 	{
 		player.transform.position = transform.position;
 		player.SetActive(false);
+		cameraSwitcher.ChangeCamera(3);
 	}
 
 }
