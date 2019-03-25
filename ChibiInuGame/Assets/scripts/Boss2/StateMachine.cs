@@ -32,4 +32,12 @@ public class StateMachine {
         this.currentState = this.previousState;
         this.currentState.EnterState();
     }
+
+    public void Stop()
+    {
+        if(this.currentState != null)
+            this.currentState.ExitState();
+        this.previousState = this.currentState;
+        this.currentState = null;
+    }
 }

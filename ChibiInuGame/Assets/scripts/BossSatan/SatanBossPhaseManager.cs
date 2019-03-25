@@ -51,6 +51,8 @@ public class SatanBossPhaseManager : MonoBehaviour {
 		}
 		//clean objects
 		GetComponent<SatanBossManager>().CleanSkillObjects();
+		//stop using skills
+		GetComponent<SatanBossManager>().StopSkills();
 		//say sentence depends on the phase
 		string dialoguePath = beforePhaseDialogueFilePath[index];
 		if(dialoguePath.Length > 0)
@@ -67,6 +69,8 @@ public class SatanBossPhaseManager : MonoBehaviour {
 			yield return new WaitForEndOfFrame();
 		}
 		player.GetComponent<CharacterController2D>().m_Immune = false;
+		//boss use skills again
+		GetComponent<SatanBossManager>().SwitchState();
 	}
 
 	private void SetPhase(int index)
