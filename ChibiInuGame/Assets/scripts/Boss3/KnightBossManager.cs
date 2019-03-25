@@ -7,6 +7,7 @@ public class KnightBossManager : MonoBehaviour {
 	public KnightBossMovementController movementController;
 	private bool hasStarted = false;
 	private bool hasEnded = false;
+	public SwitchCamera cameraSwitcher;
 
 	public GameObject player;
 	public Transform startPosition;
@@ -99,6 +100,7 @@ public class KnightBossManager : MonoBehaviour {
 	{
 		player.transform.position = transform.position;
 		player.SetActive(false);
+		cameraSwitcher.ChangeCamera(3);
 	}
 
 }

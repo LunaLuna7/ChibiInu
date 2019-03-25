@@ -45,6 +45,7 @@ public class BossWorld2 : MonoBehaviour {
     [Header("for start/restart")]
     private bool hasStarted = false;
     private bool hasEnded = false;
+    public SwitchCamera cameraSwitcher;
     public Transform startPosition;
     public Transform playerCutscenePos;
     public TimeLineManager afterBattleTimeline;
@@ -151,6 +152,7 @@ public class BossWorld2 : MonoBehaviour {
         //move player to the battle field, just in case player died and return to save point. Use Boss's position can be fine
         player.transform.position = transform.position;
         player.SetActive(false);
+        cameraSwitcher.ChangeCamera(3);
     }
 
     public void Initialize()

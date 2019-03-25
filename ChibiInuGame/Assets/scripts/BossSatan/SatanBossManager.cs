@@ -8,6 +8,7 @@ public class SatanBossManager : MonoBehaviour {
     public SatanBossPhaseManager phaseManager;
 	private bool hasStarted = false;
     private bool hasEnded = false;
+    public SwitchCamera cameraSwitcher;
 
 	public GameObject player;
 	public Transform startPosition;
@@ -127,7 +128,8 @@ public class SatanBossManager : MonoBehaviour {
 	{
 		player.transform.position = transform.position;
 		player.SetActive(false);
-	}
+        cameraSwitcher.ChangeCamera(3);
+    }
 
     public void SetFinalCameraFocus()
     {

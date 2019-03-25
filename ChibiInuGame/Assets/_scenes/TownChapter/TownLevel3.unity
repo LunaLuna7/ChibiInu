@@ -4665,6 +4665,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6870f68caf9e804590dfd7d3f6d8f1e, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &297346453 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114432708476130394, guid: d6870f68caf9e804590dfd7d3f6d8f1e,
+    type: 2}
+  m_PrefabInternal: {fileID: 297346452}
+  m_Script: {fileID: 11500000, guid: 5cc1ac33caac21449b1017cfc1a073b7, type: 3}
 --- !u!1 &297561169
 GameObject:
   m_ObjectHideFlags: 0
@@ -9785,6 +9791,7 @@ MonoBehaviour:
   fastSpike: {fileID: 1685086006470902, guid: 3b0cc4202e7995c4ebea7c6389eb043d, type: 2}
   fluteSpike: {fileID: 1685086006470902, guid: 3b0cc4202e7995c4ebea7c6389eb043d, type: 2}
   wind: {fileID: 1015830368792740, guid: 601c73beb43831c4e84f69aab64efe59, type: 2}
+  cameraSwitcher: {fileID: 297346453}
   startPosition: {fileID: 1028528444}
   playerCutscenePos: {fileID: 1768294463}
   afterBattleTimeline: {fileID: 1465650598}
