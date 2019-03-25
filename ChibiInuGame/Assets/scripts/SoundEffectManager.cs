@@ -33,17 +33,7 @@ public class SoundEffectManager : MonoBehaviour {
 
     void Start()
     {
-        VolumeOn();
-        /*
-        if (PlayerPrefs.GetInt("AudioSound") == 1)
-        {
-            MuiscOn();
-        }
-        if (PlayerPrefs.GetInt("AudioSound") == 0)
-        {
-            MusicOff();
-        }*/
-
+        //VolumeOn();
     }
 
     public void Play(string name)
