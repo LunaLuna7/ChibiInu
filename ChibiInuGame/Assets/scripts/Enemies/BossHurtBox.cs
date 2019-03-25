@@ -30,7 +30,8 @@ public class BossHurtBox : MonoBehaviour {
             {
                 timetrack = timeBeforeDamageAgain + Time.time;
                 bossHealth.TakeDamage(1);
-                StartCoroutine(BlinkSprite());
+                if(bossHealth.health != 0)
+                    StartCoroutine(BlinkSprite());
             }
         }
     }

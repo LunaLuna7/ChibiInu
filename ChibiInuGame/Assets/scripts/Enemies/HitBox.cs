@@ -25,6 +25,11 @@ public class HitBox : MonoBehaviour {
         timetrack = timeBeforeDamageAgain + Time.time;
     }
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
     //=========================================================
     //A enemy can be damaged on hitbox if its hit by a FireBall
     //=========================================================
@@ -37,12 +42,15 @@ public class HitBox : MonoBehaviour {
             {
                 timetrack = timeBeforeDamageAgain + Time.time;
                 stateController.health--;
-                if (this.enabled)
+                if (this.enabled && stateController.health != 0)
+                {
                     StartCoroutine(BlinkSprite());
+                }
             }
 
             if (stateController.health == 0)
             {
+                StopAllCoroutines();
                 SoundEffectManager.instance.Play("SlimeDeath");
                 EnemyToKill.SetActive(false);
                 stateController.health = stateController.enemyStats.HP;
