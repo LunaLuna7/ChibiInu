@@ -471,7 +471,7 @@ MonoBehaviour:
 
 
 
-    Sound Design & Composition
+    Audio Design
 
 
     Kristen Campbell
@@ -525,7 +525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contentUI: {fileID: 931488695}
   curtain: {fileID: 432180171}
-  length: 4550
+  length: 4500
   speed: 4
 --- !u!4 &1472745732
 Transform:
