@@ -60,9 +60,13 @@ public class ShieldRushState : IState {
 		//shoot all shields towards player
 		foreach(GameObject obj in objectList)
 		{
-			obj.GetComponent<BossShieldProjectile>().ShootTowards(controller.player.transform.position, projectileSpeed);
-			GameObject.Destroy(obj, 10f);
-			yield return new WaitForSeconds(shootInterval);
+			//if object hasn't been destroyed
+			if(obj != null)
+			{
+				obj.GetComponent<BossShieldProjectile>().ShootTowards(controller.player.transform.position, projectileSpeed);
+				GameObject.Destroy(obj, 10f);
+				yield return new WaitForSeconds(shootInterval);
+			}
 		}
 
 		yield return new WaitForSeconds(waitTime);
