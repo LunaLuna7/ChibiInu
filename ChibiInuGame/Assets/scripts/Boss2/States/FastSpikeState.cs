@@ -111,6 +111,7 @@ public class FastSpikeState : IState{
         yield return new WaitForSeconds(2f);
         //destroy!!!!
         GameObject.Destroy(warningOb);
-        GameObject.Destroy(projectileOb);
+        if(projectileOb != null)
+            GameObject.Destroy(projectileOb);
     }
 }

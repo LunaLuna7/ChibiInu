@@ -53,7 +53,8 @@ public class Platform : MonoBehaviour {
 
     private void OnDisable()
     {
-        player.transform.SetParent(null);
+        if(player != null)
+            player.transform.SetParent(null);
     }
     /*
     public void OnCollisionExit2D(Collision2D collision)

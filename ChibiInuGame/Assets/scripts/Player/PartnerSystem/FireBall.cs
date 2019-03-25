@@ -31,6 +31,7 @@ public class FireBall : MonoBehaviour {
     {   
         if(collision.gameObject.tag == "projectile")
         {
+            //Instantiate(collision.gameObject.GetComponent<Projectile>().destroyParticle, collision.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
             Destroy(collision.gameObject);
         }
@@ -46,7 +47,11 @@ public class FireBall : MonoBehaviour {
 
     private void OnDestroy()
     {
-        GameObject temp = Instantiate(destroyParticle, transform.position, Quaternion.identity);
-        Destroy(temp, 1f);
+        if (!LevelEnd.levelEnding)
+        {
+            GameObject temp = Instantiate(destroyParticle, transform.position, Quaternion.identity);
+            Destroy(temp, 1f);
+
+        }
     }
 }

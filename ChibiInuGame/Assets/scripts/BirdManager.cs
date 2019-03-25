@@ -12,6 +12,8 @@ public class BirdManager : MonoBehaviour {
         LocateBirds();
 		for(int i = 0; i < this.transform.childCount; i++)
         {
+            int temp = Random.Range(0, 2);
+            transform.GetChild(i).GetComponent<SpriteRenderer>().flipX = (0 == temp);
             birds.Add(transform.GetChild(i).GetComponent<Bird>());
         }
 	}

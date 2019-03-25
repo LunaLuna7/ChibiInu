@@ -78,7 +78,9 @@ public class CheckPoint : MonoBehaviour {
         {
             if(uIPartnerBook.partnerManager.partners[0].unlocked)
                 instructionBubble.SetActive(true);
-            collision.gameObject.GetComponent<PlayerHealth>().HealDamage();
+            PlayerHealth health = collision.gameObject.GetComponent<PlayerHealth>();
+            if(health != null)
+                health.HealDamage();
             SetCheckPointTo();
             onCheckPoint = true;
             checkPointImage.sprite = activeCheckPoint;
