@@ -1537,6 +1537,7 @@ MonoBehaviour:
   playableDirector: {fileID: 1895697236}
   dialogueFilePath: Castle/chapter3BeforeBoss
   dialogueSequence: []
+  skipText: {fileID: 1559727824}
 --- !u!114 &319170584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4203,6 +4204,7 @@ MonoBehaviour:
   playableDirector: {fileID: 1531702913}
   dialogueFilePath: Castle/chapter3AfterBoss
   dialogueSequence: []
+  skipText: {fileID: 1559727824}
 --- !u!114 &897307288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16010,12 +16012,12 @@ Prefab:
     - target: {fileID: 224995498661658816, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 224949416451493350, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224278788814600126, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
@@ -16030,17 +16032,17 @@ Prefab:
     - target: {fileID: 224083763712137354, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 224856033425318722, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 224215224849271358, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 224061660774797932, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
@@ -16050,7 +16052,7 @@ Prefab:
     - target: {fileID: 224241648355968452, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 114518207060945192, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
@@ -16090,11 +16092,26 @@ Prefab:
     - target: {fileID: 224242020371192806, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1625095774762052, guid: f380a7ca4200865469262eed46aa0676, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224741481705127734, guid: f380a7ca4200865469262eed46aa0676,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224173024923153728, guid: f380a7ca4200865469262eed46aa0676,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224841755869286804, guid: f380a7ca4200865469262eed46aa0676,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f380a7ca4200865469262eed46aa0676, type: 2}
@@ -16137,6 +16154,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1559727816}
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1559727824 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114485935761109448, guid: f380a7ca4200865469262eed46aa0676,
+    type: 2}
+  m_PrefabInternal: {fileID: 1559727816}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1563365302
 Prefab:
   m_ObjectHideFlags: 0

@@ -1313,6 +1313,7 @@ MonoBehaviour:
   playableDirector: {fileID: 1106992809}
   dialogueFilePath: Town/chapter2BeforeBoss
   dialogueSequence: []
+  skipText: {fileID: 379626328}
 --- !u!114 &89074959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5691,6 +5692,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 379626321}
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &379626328 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114485935761109448, guid: f380a7ca4200865469262eed46aa0676,
+    type: 2}
+  m_PrefabInternal: {fileID: 379626321}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &397203216 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114260720010176328, guid: f380a7ca4200865469262eed46aa0676,
@@ -69245,6 +69252,7 @@ MonoBehaviour:
   playableDirector: {fileID: 1293909978}
   dialogueFilePath: Town/chapter2AfterBoss
   dialogueSequence: []
+  skipText: {fileID: 379626328}
 --- !u!114 &1465650598
 MonoBehaviour:
   m_ObjectHideFlags: 0
