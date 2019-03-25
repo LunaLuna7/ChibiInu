@@ -47,7 +47,11 @@ public class FireBall : MonoBehaviour {
 
     private void OnDestroy()
     {
-        GameObject temp = Instantiate(destroyParticle, transform.position, Quaternion.identity);
-        Destroy(temp, 1f);
+        if (!LevelEnd.levelEnding)
+        {
+            GameObject temp = Instantiate(destroyParticle, transform.position, Quaternion.identity);
+            Destroy(temp, 1f);
+
+        }
     }
 }

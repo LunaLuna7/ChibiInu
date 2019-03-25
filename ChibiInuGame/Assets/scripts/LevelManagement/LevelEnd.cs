@@ -9,14 +9,21 @@ public class LevelEnd : MonoBehaviour {
 	public PartnerManager partnerManager;
 	[SerializeField]private int levelIndex;
 	[SerializeField]private int nextLevelIndex;
+    public static bool levelEnding;
 
 	[Header("Level End UI")]
 	public GameObject levelEndUI;
 	public Image[] coinArray;
 	public Image[] macmaffinArray;
 	public Color notCollectedColor;
-	// Use this for initialization
-	void Start () {
+
+    private void Awake()
+    {
+        levelEnding = false;
+    }
+
+    // Use this for initialization
+    void Start () {
 		//collectable = SaveManager.dataInUse.levels[levelIndex].collectable;
 		collectable = new bool[3]{false, false, false};
 		//if forget to drag PM here, let's get it through code
@@ -92,6 +99,7 @@ public class LevelEnd : MonoBehaviour {
 
 	public void BackToMap()
 	{
+        levelEnding = true;
 		//transfer to LevelSeletion Scene
 		levelChanger.FadeToLevel(1);
 	}
