@@ -83,7 +83,11 @@ public class LevelEnd : MonoBehaviour {
 		if(SaveManager.dataInUse.levels[9].unlocked)
 			macmaffinArray[2].color = Color.white;
 		//don't allow player to move
-		GameObject.FindObjectOfType<CharacterController2D>().m_Paralyzed = true;
+		CharacterController2D playerController = GameObject.FindObjectOfType<CharacterController2D>();
+		if(playerController != null)
+		{
+			playerController.m_Paralyzed = true;
+		}
 	}
 
 	public void BackToMap()
