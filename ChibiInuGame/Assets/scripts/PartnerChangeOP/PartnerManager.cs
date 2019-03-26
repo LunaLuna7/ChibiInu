@@ -115,6 +115,7 @@ public class PartnerManager : MonoBehaviour {
             activePartner[skill] = partner;
         //change partner image in scene
         scenePartnerHolder.ChangePartnerImage(skill, partner.partnerInfo.image);
+        scenePartnerHolder.ChangePartnerRuntimeAnimatorController(skill, partner.partnerInfo.partnerAnim);
         switch (partner.partnerInfo.partnerId)
         {
             case 0:

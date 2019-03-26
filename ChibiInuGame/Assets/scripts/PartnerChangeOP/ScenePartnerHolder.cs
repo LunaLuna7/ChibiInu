@@ -23,6 +23,14 @@ public class ScenePartnerHolder : MonoBehaviour {
 		else
 			Debug.LogError("ScenePartnerHolder: " + slot.ToString()+" is not in the keys");
 	}
+
+    public void ChangePartnerRuntimeAnimatorController(SkillSlot slot, RuntimeAnimatorController animatorCtrl)
+    {
+        if (activePartners.ContainsKey(slot))
+            activePartners[slot].GetComponent<Animator>().runtimeAnimatorController = animatorCtrl;
+        else
+            Debug.LogError("ScenePartnerHolder: " + slot.ToString() + " is not in the keys");
+    }
 	
 	//hide partners temporarily
 	public void HidePartners()
