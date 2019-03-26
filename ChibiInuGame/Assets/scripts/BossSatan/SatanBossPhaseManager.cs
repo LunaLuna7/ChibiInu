@@ -51,6 +51,8 @@ public class SatanBossPhaseManager : MonoBehaviour {
 		}
 		//clean objects
 		GetComponent<SatanBossManager>().CleanSkillObjects();
+		//stop using skills
+		GetComponent<SatanBossManager>().StopSkills();
 		//say sentence depends on the phase
 		string dialoguePath = beforePhaseDialogueFilePath[index];
 		if(dialoguePath.Length > 0)
@@ -67,6 +69,8 @@ public class SatanBossPhaseManager : MonoBehaviour {
 			yield return new WaitForEndOfFrame();
 		}
 		player.GetComponent<CharacterController2D>().m_Immune = false;
+		//boss use skills again
+		GetComponent<SatanBossManager>().SwitchState();
 	}
 
 	private void SetPhase(int index)
@@ -80,7 +84,6 @@ public class SatanBossPhaseManager : MonoBehaviour {
 		currentMap = maps[index];
 		currentMap.SetActive(true);
 		//add partner depends on map
-
 		if(phase == 1)//wizard
 		{
 			partnerManager.SummonPartner(SkillSlot.FirstSlot, partnerManager.partners[0]);
@@ -99,6 +102,8 @@ public class SatanBossPhaseManager : MonoBehaviour {
 			phase3Collider.SetActive(true);
 			invulnerableCollider.SetActive(false);
 		}
+		//clean objects
+		GetComponent<SatanBossManager>().CleanSkillObjects();
 	}
 
 	public void Reset()
