@@ -1,14 +1,1 @@
-{"dialogueSequence":[
-    {"speakerName":"Bard","imageName":"Bard","sentence":"And alas, woe doth turn my master from me again."},
-    {"speakerName":"Wizard","imageName":"Wizard","sentence":"I don’t think that’s even a sentence Slimespeare."},
-    {"speakerName":"Bard","imageName":"Bard","sentence":"Lo, whomst hails me from yonder road?"},
-    {"speakerName":"player","imageName":"Shib","sentence":"Bark Bark (Are all of you like this?)"},
-    {"speakerName":"Bard","imageName":"Bard","sentence":"Is this insolent mongrel yours?"},
-    {"speakerName":"Wizard","imageName":"Wizard","sentence":"His fur may be ruff, but he’s very tough."},
-    {"speakerName":"Bard","imageName":"Bard","sentence":"Your rhyming scheme is impeccable!"},
-    {"speakerName":"Wizard","imageName":"Wizard","sentence":"What can I say, I’m a poet and I didn’t even know it."},
-    {"speakerName":"player","imageName":"Shib","sentence":"Woof (Don’t flatter yourself.)"},
-    {"speakerName":"Bard","imageName":"Bard","sentence":"Allow me to escort you henceforth."},
-    {"speakerName":"Bard","imageName":"Bard","sentence":"I was taught to manipulate song to soar through the air."},
-    {"speakerName":"Bard","imageName":"Bard","sentence":"Maybe a new apprentice will rouse master from his hold at the bar."}]
-}
+{"dialogueSequence":[{"speakerName":"???","imageName":"Bard","sentence":"And alas, woe doth turn my master from me again."},{"speakerName":"Wizard","imageName":"Wizard","sentence":"I don’t think that’s even a sentence Slimespeare."},{"speakerName":"???","imageName":"Bard","sentence":"Lo, whomst hails me from yonder road?"},{"speakerName":"player","imageName":"Shib","sentence":"Bark Bark (Are all of you like this?)"},{"speakerName":"???","imageName":"Bard","sentence":"Is this insolent mongrel yours?"},{"speakerName":"Wizard","imageName":"Wizard","sentence":"His fur may be ruff, but he’s very tough."},{"speakerName":"???","imageName":"Bard","sentence":"Your rhyming scheme is impeccable!"},{"speakerName":"Wizard","imageName":"Wizard","sentence":"What can I say, I’m a poet and I didn’t even know it."},{"speakerName":"player","imageName":"Shib","sentence":"Woof (Don’t flatter yourself.)"},{"speakerName":"???","imageName":"Bard","sentence":"Allow me to escort you henceforth."},{"speakerName":"???","imageName":"Bard","sentence":"I was taught to manipulate song to soar through the air: Have you ever made a melody in tune to the death of your foes?"},{"speakerName":"Bard","imageName":"Bard","sentence":"Maybe a new apprentice will rouse master from his hold at the bar. Thine shall address me by Hans."}]}
