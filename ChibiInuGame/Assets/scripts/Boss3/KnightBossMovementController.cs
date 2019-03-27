@@ -5,9 +5,9 @@ using UnityEngine;
 public class KnightBossMovementController : MonoBehaviour {
 
     public Transform[] possibleLocations;
-	private Rigidbody2D rigid;
+	protected Rigidbody2D rigid;
 	private SpriteRenderer sprite;
-	private Vector3 scale;
+	protected Vector3 scale;
     // Use this for initialization
 
     public virtual void Awake()
@@ -23,7 +23,7 @@ public class KnightBossMovementController : MonoBehaviour {
 	}
 	
 
-	public IEnumerator MoveTo(Vector3 position, float speed)
+	public virtual IEnumerator MoveTo(Vector3 position, float speed)
 	{
 		float distance = Vector3.Distance(transform.position, position);
 		float totalTime = distance/speed;
