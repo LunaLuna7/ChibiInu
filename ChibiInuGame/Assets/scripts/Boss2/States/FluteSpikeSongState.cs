@@ -12,7 +12,7 @@ public class FluteSpikeSongState : IState {
     private float initialSpeed = 40;
     private float speedIncreasement = 2; // each 10% health the Boss loss, the speed should increase by....
 
-    private Color color = Color.blue;
+    private Color color = new Color(0.68f, 1, 1);//Color.blue;
 
     public FluteSpikeSongState(BossWorld2 c)
     {

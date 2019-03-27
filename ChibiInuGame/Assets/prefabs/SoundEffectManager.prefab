@@ -54,253 +54,253 @@ MonoBehaviour:
   sounds:
   - name: FootStep1
     clip: {fileID: 8300000, guid: da906809c3ce50848a1c47349e38dfac, type: 3}
-    volume: 1
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: FootStep2
     clip: {fileID: 8300000, guid: 2d493e52581e5f449bceba3bc0ffd3e6, type: 3}
-    volume: 0
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: FootStep3
     clip: {fileID: 8300000, guid: 4a0127218d880654986de771758c9d47, type: 3}
-    volume: 0
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: FootStep4
     clip: {fileID: 8300000, guid: 10c0d527523b96c409e9177edfbbf6b0, type: 3}
-    volume: 0
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Jump
     clip: {fileID: 8300000, guid: e89730f82072e014abf9e41b5c546605, type: 3}
-    volume: 0.287
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: AirJump
     clip: {fileID: 8300000, guid: a15509839103a2d44a7332b0d934c957, type: 3}
-    volume: 0.287
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: WallJump
     clip: {fileID: 8300000, guid: 25833afbe172bda4c9cfd29346e7b40e, type: 3}
-    volume: 0.287
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Dash
     clip: {fileID: 8300000, guid: 1c5dec1e2959cf6439726e6d1c9c1f2b, type: 3}
-    volume: 0.287
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: WallSlide
     clip: {fileID: 8300000, guid: 9e46ce5c13438fc4787c20171d63e90a, type: 3}
-    volume: 0.287
+    volume: 0.4
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: FireBall
     clip: {fileID: 8300000, guid: 3268bb7afae13d5418075926f52cf0d7, type: 3}
-    volume: 0.287
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: CheckPoint
     clip: {fileID: 8300000, guid: f369b3f3ed0067f42bf08626533b1af0, type: 3}
-    volume: 0.287
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Boss
     clip: {fileID: 8300000, guid: 64e7f8d48f2783d44a1757f73f7921b2, type: 3}
-    volume: 0.287
+    volume: 0.3
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: MenuScroll
     clip: {fileID: 8300000, guid: e442f9342a472864aa50d08ad86f636a, type: 3}
-    volume: 0.287
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: MenuSelect
     clip: {fileID: 8300000, guid: af998fa1ee687e0488367f889ea83793, type: 3}
-    volume: 0.287
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: SlimeDeath
     clip: {fileID: 8300000, guid: 3e3c7d72c3fb019478f3e319a9d3096f, type: 3}
-    volume: 0.72
+    volume: 0.8
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Trampoline
     clip: {fileID: 8300000, guid: 8d62778ed3f15c441a3323637f675d54, type: 3}
-    volume: 0.287
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Death
     clip: {fileID: 8300000, guid: e22454eb4d2724647b0cbb31865098c8, type: 3}
-    volume: 0.287
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: CheckPointAura
     clip: {fileID: 8300000, guid: a93b356e3e95fdc4991a72ba2e068f86, type: 3}
-    volume: 0.287
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: GrabCoin
     clip: {fileID: 8300000, guid: 7cb0330558d92aa49b865c02d67bd4db, type: 3}
-    volume: 0.287
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Bard1
     clip: {fileID: 8300000, guid: 746718295ed041d4d8bee6dfd5aebe2a, type: 3}
-    volume: 0.287
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Bard2
     clip: {fileID: 8300000, guid: 80d00f7be82175c4f8bf489e417e297b, type: 3}
-    volume: 0.287
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Bard3
     clip: {fileID: 8300000, guid: 5e262d5c0860dc3488f41332fd7b686d, type: 3}
-    volume: 0.287
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Bard_Wind
     clip: {fileID: 8300000, guid: 81366649e546269468a85f67dd3d4606, type: 3}
-    volume: 0.287
+    volume: 0.4
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: KnightAlerted
     clip: {fileID: 8300000, guid: b32ca85a18f801b41bbba2f165d345b0, type: 3}
-    volume: 0.287
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: LaserDrone
     clip: {fileID: 8300000, guid: 73945f0cc69a2e942bd5d64b4a5d6e0e, type: 3}
-    volume: 0.287
+    volume: 0.4
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: LaserOff
     clip: {fileID: 8300000, guid: b81838ffa47e3ef42adbe229819be7d8, type: 3}
-    volume: 0.287
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: OpenBook
     clip: {fileID: 8300000, guid: 4241811d6540b1145bf0a8d43589081a, type: 3}
-    volume: 0.287
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: PageFlip
     clip: {fileID: 8300000, guid: 6a67ba69191a76740920038748853240, type: 3}
-    volume: 0.647
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: PartnerDeselect
     clip: {fileID: 8300000, guid: 40cd6000e1168b8428bfd19afca18eb4, type: 3}
-    volume: 0.287
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: PartnerSelect
     clip: {fileID: 8300000, guid: 446c4ebfbd9e959478c872774622d6c6, type: 3}
-    volume: 0.287
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: SlimeGettingHit
     clip: {fileID: 8300000, guid: fc11337637882b54a90a1d6e0cdd46c9, type: 3}
-    volume: 0.287
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: question_expression
     clip: {fileID: 8300000, guid: c3167056d2420f24681af4da6e149c85, type: 3}
-    volume: 0.62
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: heart_expression
     clip: {fileID: 8300000, guid: 048415557e55f114fb615d5a4f8faeae, type: 3}
-    volume: 0.63
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: blush_expression
     clip: {fileID: 8300000, guid: 34fd748ae75cc994789f994896ff3ec5, type: 3}
-    volume: 0.63
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: exclamation_expression
     clip: {fileID: 8300000, guid: 537b649c894bd9149a984c47ad17847c, type: 3}
-    volume: 0.63
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: LevelCompleted
     clip: {fileID: 8300000, guid: eb10bb08fe1fd104ba14228cecfce550, type: 3}
-    volume: 0.63
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: PartnerGet
     clip: {fileID: 8300000, guid: ff0738a5f1b5c944b97bcbde4d9ed4ae, type: 3}
-    volume: 0.63
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: MainMenu
     clip: {fileID: 8300000, guid: 54a751f925800c44886e0022e8a67182, type: 3}
-    volume: 0.63
+    volume: 0.2
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: OverWorld
     clip: {fileID: 8300000, guid: f8ba932103b90dc4eaa0c0a8c909e40b, type: 3}
-    volume: 0
+    volume: 0.4
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: CageDamage
     clip: {fileID: 8300000, guid: be2b6286a7e06384591fd77f7313e400, type: 3}
-    volume: 0
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: ShieldOn
     clip: {fileID: 8300000, guid: d9a36420a1702c04f9303dc095b50b66, type: 3}
-    volume: 0
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: SatanBattle
     clip: {fileID: 8300000, guid: bc810413c1eecd9499fbd2f8b07927c7, type: 3}
-    volume: 0
+    volume: 0.4
     pitch: 1
     loop: 1
     source: {fileID: 0}

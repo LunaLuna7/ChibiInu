@@ -8,7 +8,7 @@ public class WindFurryState : IState {
     private float speed = 15f;
     private float windLifeTime = 2f;
     private int windMagnitude = 300;
-    private Color color = Color.green;
+    private Color color = new Color(0.83f, 1, 0.68f);//Color.green;
 
     public WindFurryState(BossWorld2 c)
     {

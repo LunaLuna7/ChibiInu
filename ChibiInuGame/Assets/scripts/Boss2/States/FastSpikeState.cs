@@ -10,7 +10,7 @@ public class FastSpikeState : IState{
     private float maxX = -116.9f;
     private float projectileSpeed = 40f;
 
-    private Color color = Color.red;
+    private Color color = new Color(1, 0.5f, 0.5f);//Color.red;
 
     public FastSpikeState(BossWorld2 c)
     {
