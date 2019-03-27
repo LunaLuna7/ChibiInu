@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712cb10ed51e2f04290007f2074aa9b1, type: 3}
   m_Name: KnightPartner
   m_EditorClassIdentifier: 
-  name: Knight
+  name: Midas
   partnerId: 2
   skillInfo: 'Shield
 

@@ -14,7 +14,7 @@ public class HitBox : MonoBehaviour {
     private float timetrack;
     [HideInInspector] public SpriteRenderer m_SpriteRender;
     [HideInInspector] public StateController stateController;
-
+    public GameObject particleDead;
 
 
     public void Awake()

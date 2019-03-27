@@ -16,7 +16,7 @@ public class hurtBox : MonoBehaviour {
     private float timetrack;
     [HideInInspector]public StateController stateController;
     [HideInInspector]public SpriteRenderer m_SpriteRender;
-
+    public GameObject particleDead;
 
     public void Awake()
     {
@@ -49,6 +49,7 @@ public class hurtBox : MonoBehaviour {
             {
                 SoundEffectManager.instance.Play("SlimeDeath");
                 EnemyToKill.SetActive(false);
+                Instantiate(particleDead, transform.position, Quaternion.identity);
                 stateController.health = stateController.enemyStats.HP;
             }
         }
