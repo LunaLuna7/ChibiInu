@@ -233,6 +233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4569570287613456}
   - component: {fileID: 61943619351105692}
+  - component: {fileID: 114306283182481984}
   m_Layer: 10
   m_Name: hitBox
   m_TagString: hitBox
@@ -263,7 +264,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1741995346591478}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -158.22282, y: -0.640977, z: 1.1197813}
+  m_LocalPosition: {x: -160.69476, y: -1.1261828, z: 1.1197813}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4185920313686386}
@@ -570,6 +571,22 @@ MonoBehaviour:
   shootRate: 4
   startDelay: 0
   facingRight: 1
+--- !u!114 &114306283182481984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1938946785985700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f33ad35eebb00a842b0ccf0adf7c348a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyToKill: {fileID: 1741995346591478}
+  m_SpriteRender: {fileID: 0}
+  stateController: {fileID: 0}
+  particleDead: {fileID: 1651619569208824, guid: e7e5fce0a98c7934e9950bdd2488b30f,
+    type: 2}
 --- !u!114 &114336484512229048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -688,14 +705,12 @@ MonoBehaviour:
   remainState: {fileID: 11400000, guid: 2df2c52c7c6bda946ade5ffeb0e813fe, type: 2}
   originLocation: {fileID: 0}
   patrolLocations: []
-  nextPatrolLocation: 0
-  rb: {fileID: 0}
-  stateTimeElapsed: 0
-  player: {fileID: 0}
   playerInRange: 0
   IgnoreCollision: {fileID: 0}
   killed: 0
   permaDead: 0
+  health: 0
+  tempImmune: 0
 --- !u!114 &114725129535781736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -778,9 +793,10 @@ MonoBehaviour:
   EnemyToKill: {fileID: 1741995346591478}
   immune: 0
   immuneToFire: 0
-  health: 0
   stateController: {fileID: 0}
   m_SpriteRender: {fileID: 0}
+  particleDead: {fileID: 1651619569208824, guid: e7e5fce0a98c7934e9950bdd2488b30f,
+    type: 2}
 --- !u!114 &114847218616999912
 MonoBehaviour:
   m_ObjectHideFlags: 1

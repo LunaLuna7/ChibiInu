@@ -194,7 +194,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1224807705926986}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 120.74, y: 15, z: 1.9318676}
+  m_LocalPosition: {x: -153.14359, y: -1.65705, z: 1.9318676}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4610496419206374}
@@ -476,9 +476,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyToKill: {fileID: 1224807705926986}
-  health: 0
   m_SpriteRender: {fileID: 0}
   stateController: {fileID: 0}
+  particleDead: {fileID: 1651619569208824, guid: e7e5fce0a98c7934e9950bdd2488b30f,
+    type: 2}
 --- !u!114 &114238155138413214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -493,9 +494,10 @@ MonoBehaviour:
   EnemyToKill: {fileID: 0}
   immune: 1
   immuneToFire: 0
-  health: 0
   stateController: {fileID: 0}
   m_SpriteRender: {fileID: 0}
+  particleDead: {fileID: 1651619569208824, guid: e7e5fce0a98c7934e9950bdd2488b30f,
+    type: 2}
 --- !u!114 &114903358560701532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -510,17 +512,16 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: 4f3bac85d308c25498f923490fa8ea4c, type: 2}
   enemyStats: {fileID: 11400000, guid: e6a20900226a8114ba60cbb2281584c0, type: 2}
   remainState: {fileID: 11400000, guid: 2df2c52c7c6bda946ade5ffeb0e813fe, type: 2}
+  originLocation: {fileID: 0}
   patrolLocations:
   - {fileID: 4468643990982670}
   - {fileID: 4987289487769626}
-  nextPatrolLocation: 0
-  rb: {fileID: 0}
-  stateTimeElapsed: 0
-  player: {fileID: 0}
   playerInRange: 0
   IgnoreCollision: {fileID: 0}
   killed: 0
   permaDead: 0
+  health: 0
+  tempImmune: 0
 --- !u!114 &114932904454801772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -534,6 +535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spotted: {fileID: 1449706376821976}
   lost: {fileID: 1795105544082336}
+  playerLost: 0
 --- !u!212 &212413795407419396
 SpriteRenderer:
   m_ObjectHideFlags: 1

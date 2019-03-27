@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712cb10ed51e2f04290007f2074aa9b1, type: 3}
   m_Name: WizardPartner
   m_EditorClassIdentifier: 
-  name: Wiz
+  name: John
   partnerId: 0
   skillInfo: Fire ball
   image: {fileID: 21300000, guid: 5f5c3f84dcb8b614da15bac2b709e6d8, type: 3}

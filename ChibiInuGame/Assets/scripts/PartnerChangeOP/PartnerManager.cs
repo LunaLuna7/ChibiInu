@@ -179,6 +179,7 @@ public class PartnerManager : MonoBehaviour {
         {
             activePartner.Remove(temp);
             //update image in scene
+            scenePartnerHolder.ChangePartnerRuntimeAnimatorController(temp, null);
             scenePartnerHolder.ChangePartnerImage(temp, null);
         }
 
