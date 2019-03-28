@@ -16092,7 +16092,7 @@ Prefab:
     - target: {fileID: 224995498661658816, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 224949416451493350, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
@@ -16112,7 +16112,7 @@ Prefab:
     - target: {fileID: 224083763712137354, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224856033425318722, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
@@ -16122,7 +16122,7 @@ Prefab:
     - target: {fileID: 224215224849271358, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224061660774797932, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
@@ -16132,7 +16132,7 @@ Prefab:
     - target: {fileID: 224241648355968452, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 114518207060945192, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
@@ -16172,7 +16172,7 @@ Prefab:
     - target: {fileID: 224242020371192806, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1625095774762052, guid: f380a7ca4200865469262eed46aa0676, type: 2}
       propertyPath: m_IsActive
@@ -16181,7 +16181,7 @@ Prefab:
     - target: {fileID: 224741481705127734, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 224173024923153728, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
@@ -16191,7 +16191,7 @@ Prefab:
     - target: {fileID: 224841755869286804, guid: f380a7ca4200865469262eed46aa0676,
         type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f380a7ca4200865469262eed46aa0676, type: 2}
@@ -94764,14 +94764,8 @@ MonoBehaviour:
   levelChanger: {fileID: 1493753710}
   checkPointsPosition:
   - {fileID: 73873636}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   checkPoints:
   - {fileID: 73873639}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   player: {fileID: 1563365303}
   song: 
 --- !u!1 &1915332630

@@ -9616,6 +9616,7 @@ MonoBehaviour:
   - {fileID: 872438589}
   - {fileID: 521932432}
   - {fileID: 217309476}
+  player: {fileID: 1061029009}
 --- !u!114 &1042556849
 MonoBehaviour:
   m_ObjectHideFlags: 0

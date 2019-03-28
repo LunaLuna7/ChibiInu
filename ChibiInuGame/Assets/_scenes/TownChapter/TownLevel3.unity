@@ -26237,6 +26237,8 @@ PlayableDirector:
     value: {fileID: 1768294462}
   - key: {fileID: 114313684189359544, guid: 713ddf4ff3b38fb4cb1cb7fd4e3e71a4, type: 2}
     value: {fileID: 1768294464}
+  - key: {fileID: 114438924157409914, guid: 713ddf4ff3b38fb4cb1cb7fd4e3e71a4, type: 2}
+    value: {fileID: 1768294464}
   m_ExposedReferences:
     m_References:
     - f1085d46247118545af22265418e124d: {fileID: 0}
@@ -70258,7 +70260,7 @@ Prefab:
     - target: {fileID: 212370045752597418, guid: 1f09a9af33a6f674ca0ac87a2060fcbf,
         type: 2}
       propertyPath: m_WasSpriteAssigned
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1024042631257430, guid: 1f09a9af33a6f674ca0ac87a2060fcbf, type: 2}
       propertyPath: m_IsActive
@@ -76235,7 +76237,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 153d3bfc6f0d90246b104cc79c265798, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4b27623cb1940104e9783c8a865e8713, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
