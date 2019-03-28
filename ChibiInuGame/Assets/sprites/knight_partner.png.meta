@@ -117,8 +117,8 @@ TextureImporter:
       name: knight_partner_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 5
+        x: 21
+        y: 12
         width: 89
         height: 72
       alignment: 0
@@ -128,7 +128,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5fdce9be7ef95d4c9684045a3d59b6c
+      spriteID: 2281e4a9ca884894d98f645f3bbd2748
       vertices: []
       indices: 
       edges: []
@@ -137,8 +137,8 @@ TextureImporter:
       name: knight_partner_1
       rect:
         serializedVersion: 2
-        x: 100
-        y: 4
+        x: 121
+        y: 11
         width: 89
         height: 76
       alignment: 0
@@ -148,7 +148,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69c0485de22922d4eaae61c0febad3c1
+      spriteID: 4dc8fabef916fea439c720ff673144e6
       vertices: []
       indices: 
       edges: []
@@ -157,8 +157,8 @@ TextureImporter:
       name: knight_partner_2
       rect:
         serializedVersion: 2
-        x: 197
-        y: 4
+        x: 218
+        y: 11
         width: 89
         height: 83
       alignment: 0
@@ -168,7 +168,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a4f122e1e94d754bb7e5c7304318be6
+      spriteID: b527d09fbf9f1fa4498bbeb732cfacf4
       vertices: []
       indices: 
       edges: []
@@ -177,8 +177,8 @@ TextureImporter:
       name: knight_partner_3
       rect:
         serializedVersion: 2
-        x: 290
-        y: 4
+        x: 311
+        y: 11
         width: 89
         height: 82
       alignment: 0
@@ -188,7 +188,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f94929c06bd9dd04a801fdeb44a86981
+      spriteID: 6d5c1a9a7146544499c5617b7134e4cd
       vertices: []
       indices: 
       edges: []
@@ -197,10 +197,10 @@ TextureImporter:
       name: knight_partner_4
       rect:
         serializedVersion: 2
-        x: 384
-        y: 5
+        x: 404
+        y: 12
         width: 89
-        height: 79
+        height: 78
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,7 +208,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5f959893f89873499e61c19e5c5006d
+      spriteID: 615739b6735dd764c8c5379e272b5c71
       vertices: []
       indices: 
       edges: []
@@ -217,8 +217,8 @@ TextureImporter:
       name: knight_partner_5
       rect:
         serializedVersion: 2
-        x: 477
-        y: 2
+        x: 498
+        y: 9
         width: 89
         height: 72
       alignment: 0
@@ -228,7 +228,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42b155d3001b8cd44a58ede012a8ecea
+      spriteID: edeb36ea94486754c94ea36da4aae67c
       vertices: []
       indices: 
       edges: []
@@ -237,8 +237,8 @@ TextureImporter:
       name: knight_partner_6
       rect:
         serializedVersion: 2
-        x: 568
-        y: 0
+        x: 589
+        y: 7
         width: 89
         height: 72
       alignment: 0
@@ -248,7 +248,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac39336563374b84786abfdaf1046145
+      spriteID: c0dfd9a3c2c851e4eb0b99da5b093fd2
       vertices: []
       indices: 
       edges: []
@@ -257,8 +257,8 @@ TextureImporter:
       name: knight_partner_7
       rect:
         serializedVersion: 2
-        x: 671
-        y: 5
+        x: 692
+        y: 12
         width: 89
         height: 72
       alignment: 0
@@ -268,7 +268,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fe368e3421368d4ca7f57728690c718
+      spriteID: 949fa6568441df540962b293ec6b4595
       vertices: []
       indices: 
       edges: []
@@ -276,7 +276,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 83f54678bc88eef48963264294c9b16e
+    spriteID: ea7c167884d7e6a418373086adb5af44
     vertices: []
     indices: 
     edges: []
