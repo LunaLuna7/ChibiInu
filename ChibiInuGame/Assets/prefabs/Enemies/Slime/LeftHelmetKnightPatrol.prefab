@@ -194,7 +194,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1224807705926986}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -153.14359, y: -1.65705, z: 1.9318676}
+  m_LocalPosition: {x: -94.60112, y: -1.022059, z: 1.9318676}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4610496419206374}
@@ -478,7 +478,7 @@ MonoBehaviour:
   EnemyToKill: {fileID: 1224807705926986}
   m_SpriteRender: {fileID: 0}
   stateController: {fileID: 0}
-  particleDead: {fileID: 1651619569208824, guid: e7e5fce0a98c7934e9950bdd2488b30f,
+  deadParticle: {fileID: 1651619569208824, guid: e7e5fce0a98c7934e9950bdd2488b30f,
     type: 2}
 --- !u!114 &114238155138413214
 MonoBehaviour:
@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83f6dfe8455f3c14fa22f6f523300d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyToKill: {fileID: 0}
+  EnemyToKill: {fileID: 1224807705926986}
   immune: 1
   immuneToFire: 0
   stateController: {fileID: 0}

@@ -45,12 +45,16 @@ public class hurtBox : MonoBehaviour {
                 StartCoroutine(BlinkSprite());
             }
 
-            if (stateController.health == 0)
+            if (stateController.health <= 0)
             {
+                StopAllCoroutines();
                 SoundEffectManager.instance.Play("SlimeDeath");
+                
+                stateController.killed = true;
+                stateController.health = stateController.enemyStats.HP;
                 EnemyToKill.SetActive(false);
                 Instantiate(particleDead, transform.position, Quaternion.identity);
-                stateController.health = stateController.enemyStats.HP;
+                //StartCoroutine(DelayInactive());
             }
         }
     }
@@ -76,10 +80,9 @@ public class hurtBox : MonoBehaviour {
 
     private void OnEnable()
     {
+        stateController.killed = false;
         m_SpriteRender.enabled = true;
     }
-
-
 
 
 }

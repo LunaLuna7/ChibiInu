@@ -9,7 +9,6 @@ public class StateController : MonoBehaviour {
     public EnemyStats enemyStats;
     public State remainState;
     public Transform originLocation;
-    
 
     public List<Transform> patrolLocations;
     [System.NonSerialized] public int nextPatrolLocation;
@@ -17,6 +16,7 @@ public class StateController : MonoBehaviour {
     [System.NonSerialized] public float stateTimeElapsed;
     [System.NonSerialized] public GameObject player;
     [System.NonSerialized] public PlayerHealth playerHealth;
+    public SpriteRenderer m_SpriteRender;
 
     public bool playerInRange;
     private Collider2D col;
@@ -29,17 +29,18 @@ public class StateController : MonoBehaviour {
     public bool tempImmune;
  
     void Start () {
+        killed = false;
         originLocation = transform;
         playerInRange = false;
         tempImmune = false;
         col = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
+        m_SpriteRender = GetComponent<SpriteRenderer>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = player.GetComponent<PlayerHealth>();
         health = enemyStats.HP;
         if (IgnoreCollision != null)
             Physics2D.IgnoreCollision(IgnoreCollision.GetComponent<Collider2D>(), col);
-
     }
 	
 	void Update () {
@@ -48,7 +49,7 @@ public class StateController : MonoBehaviour {
 
     private void OnDrawGizmos()
     {
-        if (currentState != null)
+        if(currentState != null)
         {
             Gizmos.color = currentState.sceneGizmoColor;
             Gizmos.DrawWireSphere(gameObject.transform.position, enemyStats.lookRange);
@@ -98,6 +99,9 @@ public class StateController : MonoBehaviour {
         stateTimeElapsed += Time.deltaTime;
         return (stateTimeElapsed >= duration);
     }
-   
 
+    private void OnEnable()
+    {
+        m_SpriteRender.enabled = true;
+    }
 }
