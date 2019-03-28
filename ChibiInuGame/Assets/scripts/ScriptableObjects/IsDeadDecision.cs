@@ -14,6 +14,6 @@ public class IsDeadDecision : Decision {
 
     private bool IsDead(StateController controller)
     {
-        return controller.killed;
+        return controller.killed || controller.playerHealth.HPLeft == 0;
     }
 }

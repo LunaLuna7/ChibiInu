@@ -48,24 +48,19 @@ public class HitBox : MonoBehaviour {
                 }
             }
 
-            if (stateController.health == 0)
+            if (stateController.health >= 0)
             {
+                stateController.killed = true;
                 StopAllCoroutines();
                 SoundEffectManager.instance.Play("SlimeDeath");
                 EnemyToKill.SetActive(false);
-                Instantiate(particleDead, transform.position, Quaternion.identity);
-                stateController.health = stateController.enemyStats.HP;
+                //stateController.health = stateController.enemyStats.HP;
+                Instantiate(deadParticle, transform.position, Quaternion.identity);
+                //StartCoroutine(DelayInactive());
             }
-
+        
         }
-        /*
-        else if (collision.gameObject.CompareTag("Spike"))
-        {
-            Rigidbody2D temp = gameObject.GetComponentInParent<Rigidbody2D>();
-            if(temp!=null)
-                temp.transform.parent.gameObject.SetActive(false);
-
-        }*/
+       
     }
 
     //=========================================

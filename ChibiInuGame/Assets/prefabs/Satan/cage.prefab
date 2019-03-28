@@ -85,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1812394857444118}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -140.27, y: 0.92, z: 0}
+  m_LocalPosition: {x: -114.21, y: 0.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4995108916673956}
@@ -127,7 +127,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1780379111368530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.89, z: 0}
+  m_LocalPosition: {x: -0.07, y: -0.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4141067594222470}
@@ -157,11 +157,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.06878662, y: 4.5423136}
-      - {x: -2.3610992, y: 2.7508068}
-      - {x: -3.1671295, y: 0.73859555}
-      - {x: 2.9951782, y: 0.77298737}
-      - {x: 2.2579346, y: 2.6476316}
+    - - {x: 2.1519089, y: 1.461432}
+      - {x: 1.9310226, y: 2.1863823}
+      - {x: 1.6219254, y: 2.4536715}
+      - {x: 0.86411285, y: 2.9246538}
+      - {x: -0.32460022, y: 2.9805245}
+      - {x: -1.0230408, y: 2.7053485}
+      - {x: -1.5230865, y: 2.3180737}
+      - {x: -1.8679962, y: 1.8467872}
+      - {x: -1.9069748, y: 0.9577518}
+      - {x: 2.1757507, y: 1.0039592}
 --- !u!61 &61371838184147746
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -174,7 +179,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06877899, y: -1.8915262}
+  m_Offset: {x: 0.16407418, y: -1.2477541}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -185,7 +190,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.0898895, y: 5.3333187}
+  m_Size: {x: 4.199715, y: 4.0457745}
   m_EdgeRadius: 0
 --- !u!114 &114515513241731176
 MonoBehaviour:
@@ -199,12 +204,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 2
+  maxHealth: 15
+  timeBeforeDamageAgain: 0.3
   satanBossPhaseManager: {fileID: 0}
-  timeBeforeDamageAgain: 0
   moving: 0
-  moveSpeed: 0
-  positionList: []
+  moveSpeed: 7
+  positionList:
+  - {fileID: 0}
+  - {fileID: 0}
+  healthBar: {fileID: 0}
+  healthUI: {fileID: 0}
 --- !u!114 &114869015306676406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -264,7 +273,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 485d390896ee2be48b7c0d84db537fdf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 04a8ad8c0c44a5d43bc17d27140e4283, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

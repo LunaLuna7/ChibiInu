@@ -83,7 +83,7 @@ public class PlayerHealth : MonoBehaviour {
 
             if (HPLeft <= 0)
             {
-                anim.Play("ShibaDead");
+                anim.Play("ShibDead");
                 controller.m_Paralyzed = true;
                 playerHealth.sprite = emptyHearth;
                 gameManager.GameOver(this.transform);
@@ -95,7 +95,8 @@ public class PlayerHealth : MonoBehaviour {
         yield return new WaitForSeconds(1f);
         //controller.m_Damaged = false;
         spikeCanHit = true;
-        //controller.m_Immune = false;
+        if(!controller.m_OnShield)
+            controller.m_Immune = false;
 
     }
 

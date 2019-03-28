@@ -13,6 +13,9 @@ public class ReviveAction : Action {
 
     void Revive(StateController controller)
     {
-        controller.gameObject.SetActive(true);
+        controller.m_SpriteRender.enabled = false;
+        controller.gameObject.transform.localPosition = Vector3.zero;
+        controller.m_SpriteRender.enabled = true;
+        controller.health = controller.enemyStats.HP;
     }
 }
