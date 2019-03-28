@@ -34,6 +34,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4199185035187240}
+  - component: {fileID: 114710209623472154}
   m_Layer: 0
   m_Name: LeftHelmetKnightPatrol
   m_TagString: Untagged
@@ -498,6 +499,18 @@ MonoBehaviour:
   m_SpriteRender: {fileID: 0}
   particleDead: {fileID: 1651619569208824, guid: e7e5fce0a98c7934e9950bdd2488b30f,
     type: 2}
+--- !u!114 &114710209623472154
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1224807705926986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0fb3fb99094c24d88f7bef1d0cb16d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyObject: {fileID: 1443199986823690}
 --- !u!114 &114903358560701532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -516,6 +529,7 @@ MonoBehaviour:
   patrolLocations:
   - {fileID: 4468643990982670}
   - {fileID: 4987289487769626}
+  m_SpriteRender: {fileID: 0}
   playerInRange: 0
   IgnoreCollision: {fileID: 0}
   killed: 0
