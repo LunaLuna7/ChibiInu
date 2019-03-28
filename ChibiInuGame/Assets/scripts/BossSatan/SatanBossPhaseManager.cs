@@ -68,7 +68,9 @@ public class SatanBossPhaseManager : MonoBehaviour {
 			curtain.color = currentColor;
 			yield return new WaitForEndOfFrame();
 		}
-		player.GetComponent<CharacterController2D>().m_Immune = false;
+		//if switch to phase 3, player needs to be immune since shield is turned on
+		if(phase < 3)
+			player.GetComponent<CharacterController2D>().m_Immune = false;
 		//boss use skills again
 		GetComponent<SatanBossManager>().SwitchState();
 	}

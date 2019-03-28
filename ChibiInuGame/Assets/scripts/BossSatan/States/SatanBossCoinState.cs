@@ -29,6 +29,9 @@ public class SatanBossCoinState : IState {
     
     IEnumerator Skill()
     {
+        //make gesture
+        controller.GetComponent<Animator>().SetTrigger("CoinSkill");
+        yield return new WaitForSeconds(1);
         //get the current phase map
         int currentPhase = controller.gameObject.GetComponent<SatanBossPhaseManager>().GetPhaseMap();
         //get a random location from the specific map list of possible locations to spawn coin

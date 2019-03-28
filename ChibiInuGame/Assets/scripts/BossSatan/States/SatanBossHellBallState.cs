@@ -35,6 +35,9 @@ public class SatanBossHellBallState : IState {
 
     public IEnumerator Skill(float waitTime)
     {
+        //make gesture
+        controller.GetComponent<Animator>().SetTrigger("FireballSkill");
+        yield return new WaitForSeconds(1);
         //create prefab
         GameObject obj = GameObject.Instantiate(controller.hellBall, controller.transform.position + Vector3.back, Quaternion.identity);
         obj.transform.SetParent(controller.skillObjectsGroup);
