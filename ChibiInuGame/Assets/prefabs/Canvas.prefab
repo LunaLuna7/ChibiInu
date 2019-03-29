@@ -482,7 +482,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1420102303017362
 GameObject:
   m_ObjectHideFlags: 1
@@ -683,7 +683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1532099300246330
 GameObject:
   m_ObjectHideFlags: 1
@@ -719,7 +719,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1559087968742516
 GameObject:
   m_ObjectHideFlags: 1
@@ -754,7 +754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1583768586066664
 GameObject:
   m_ObjectHideFlags: 1
@@ -1027,7 +1027,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1789007652392308
 GameObject:
   m_ObjectHideFlags: 1
@@ -1198,7 +1198,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1858539103404598
 GameObject:
   m_ObjectHideFlags: 1
@@ -1837,7 +1837,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PartnerName
+  m_Text: John
 --- !u!114 &114229472066985268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2666,9 +2666,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partnerManager: {fileID: 0}
   currentPartner:
-    inUse: 0
-    unlocked: 0
-    partnerInfo: {fileID: 0}
+    inUse: 1
+    unlocked: 1
+    partnerInfo: {fileID: 11400000, guid: 2b7deaa30df792842bbff62519c89b62, type: 2}
   characterController: {fileID: 0}
   partnerName: {fileID: 114221282221099860}
   partnerPicture: {fileID: 114972328401143150}
@@ -2684,9 +2684,9 @@ MonoBehaviour:
   secondPartnerButtonSummon: {fileID: 1735171427661578}
   callBackPartnerButton: {fileID: 1774660399176348}
   BookWindow: {fileID: 95502647068025634}
-  deadInputTimeElapsed: 0
+  deadInputTimeElapsed: 1
   openWithXbox: 0
-  openWithKeyboard: 0
+  openWithKeyboard: 1
 --- !u!114 &114518921172928314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4134,7 +4134,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Skill info
+  m_Text: Fire ball
 --- !u!114 &114960926409412276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4944,7 +4944,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.7000122, y: -48.86209}
+  m_AnchoredPosition: {x: -0.7000122, y: -0.20904541}
   m_SizeDelta: {x: 180.51712, y: 199.4122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224070778165004518
@@ -5021,7 +5021,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.09017592, y: 0.8280608}
   m_AnchorMax: {x: 0.5070844, y: 0.9347264}
-  m_AnchoredPosition: {x: 0, y: -0.00012207031}
+  m_AnchoredPosition: {x: 0, y: -0.000061035156}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224114972787705118
@@ -5976,7 +5976,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.919238, y: 0}
   m_AnchorMax: {x: 1, y: 0.22328849}
-  m_AnchoredPosition: {x: 1.0900879, y: -0.34600067}
+  m_AnchoredPosition: {x: 1.0900269, y: -0.34600067}
   m_SizeDelta: {x: 6.4400024, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224711864344428828
@@ -6124,7 +6124,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -407.8, y: 3.8940887}
+  m_AnchoredPosition: {x: -407.8, y: 3.893814}
   m_SizeDelta: {x: 751.69995, y: 213}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224898496748545368
@@ -6322,7 +6322,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.13970372}
   m_AnchorMax: {x: 0.5, y: 0.13970372}
-  m_AnchoredPosition: {x: 5.6280518, y: -125}
+  m_AnchoredPosition: {x: -0.10004, y: -481}
   m_SizeDelta: {x: 1017.1, y: 255.9}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!328 &328594458842051174
@@ -6332,7 +6332,7 @@ VideoPlayer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1522657004460884}
   m_Enabled: 1
-  m_VideoClip: {fileID: 0}
+  m_VideoClip: {fileID: 32900000, guid: b0f81b7fadb97804b950e274c1dcea82, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -6351,7 +6351,7 @@ VideoPlayer:
   - 1
   m_Url: 
   m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
+  m_DirectAudioMutes: 01
   m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1

@@ -6,7 +6,7 @@ public class BossBattle1Killer : MonoBehaviour {
 
     private SoundEffectManager soundEffectManager;
     public GameObject Boss;
-
+    public GameObject BossDeadParticle;
 
     void Start () {
         soundEffectManager = FindObjectOfType<SoundEffectManager>();
@@ -23,6 +23,7 @@ public class BossBattle1Killer : MonoBehaviour {
         {
             soundEffectManager.Stop("Boss");
             Boss.SetActive(false);
+            Instantiate(BossDeadParticle, transform.position - new Vector3(20,20,0), Quaternion.identity);
         }
     }
 }
