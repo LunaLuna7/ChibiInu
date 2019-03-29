@@ -1608,7 +1608,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 542f9e9a5033a8945952473878e5c620, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 02c6a345e641e7841a163d6fc3c5258b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -80867,7 +80867,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 542f9e9a5033a8945952473878e5c620, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 02c6a345e641e7841a163d6fc3c5258b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -83804,7 +83804,7 @@ MonoBehaviour:
   characterController: {fileID: 1061029010}
   partnerName: {fileID: 152395213}
   partnerPicture: {fileID: 732306186}
-  partnerSkillPicture: {fileID: 138439982}
+  partnerSkillVideo: {fileID: 0}
   partnerSkillInfo: {fileID: 1602573979}
   rightArrow: {fileID: 723449919}
   leftArrow: {fileID: 1847428120}
