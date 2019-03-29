@@ -80,7 +80,7 @@ public class hurtBox : MonoBehaviour {
 
     private void OnEnable()
     {
-        stateController.killed = false;
+    
         m_SpriteRender.enabled = true;
     }
 

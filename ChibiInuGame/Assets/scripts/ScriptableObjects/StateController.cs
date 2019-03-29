@@ -102,6 +102,6 @@ public class StateController : MonoBehaviour {
 
     private void OnEnable()
     {
-        m_SpriteRender.enabled = true;
+        //m_SpriteRender.enabled = true;
     }
 }

@@ -17,3 +17,6 @@ MonoBehaviour:
 
 '
   image: {fileID: 21300000, guid: 3e40b9e7bfa898c418ebc16df491cccb, type: 3}
+  skillImage: {fileID: 0}
+  skillVideo: {fileID: 32900000, guid: b0f81b7fadb97804b950e274c1dcea82, type: 3}
+  partnerAnim: {fileID: 0}

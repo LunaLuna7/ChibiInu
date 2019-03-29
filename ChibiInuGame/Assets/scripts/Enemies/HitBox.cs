@@ -54,7 +54,7 @@ public class HitBox : MonoBehaviour {
                 StopAllCoroutines();
                 SoundEffectManager.instance.Play("SlimeDeath");
                 EnemyToKill.SetActive(false);
-                //stateController.health = stateController.enemyStats.HP;
+                stateController.health = stateController.enemyStats.HP;
                 Instantiate(deadParticle, transform.position, Quaternion.identity);
                 //StartCoroutine(DelayInactive());
             }
