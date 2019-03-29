@@ -216,7 +216,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1172765660270294
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,7 +482,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1420102303017362
 GameObject:
   m_ObjectHideFlags: 1
@@ -531,7 +531,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1465320648286340
 GameObject:
   m_ObjectHideFlags: 1
@@ -683,7 +683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1532099300246330
 GameObject:
   m_ObjectHideFlags: 1
@@ -754,7 +754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1583768586066664
 GameObject:
   m_ObjectHideFlags: 1
@@ -960,7 +960,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1736664950163890
 GameObject:
   m_ObjectHideFlags: 1
@@ -1027,7 +1027,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1789007652392308
 GameObject:
   m_ObjectHideFlags: 1
@@ -1198,7 +1198,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1858539103404598
 GameObject:
   m_ObjectHideFlags: 1
@@ -1837,7 +1837,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: John
+  m_Text: Hans
 --- !u!114 &114229472066985268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2666,9 +2666,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partnerManager: {fileID: 0}
   currentPartner:
-    inUse: 1
+    inUse: 0
     unlocked: 1
-    partnerInfo: {fileID: 11400000, guid: 2b7deaa30df792842bbff62519c89b62, type: 2}
+    partnerInfo: {fileID: 11400000, guid: 5acc7efea3da69e4498b0d0d99c61d03, type: 2}
   characterController: {fileID: 0}
   partnerName: {fileID: 114221282221099860}
   partnerPicture: {fileID: 114972328401143150}
@@ -2907,7 +2907,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 8272f2a1c7c414b45a72d0e4ce4fc0ac, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2947,7 +2947,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '[Name]'
+  m_Text: Bard Master
 --- !u!114 &114601835877725538
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3471,7 +3471,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.3
-  m_Text: '[dialouge text of the npc]'
+  m_Text: "He was the only one who understood my woes. In that case, you\u2019re all
+    my foes!"
 --- !u!114 &114821996923732860
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4134,7 +4135,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Fire ball
+  m_Text: 'Dash
+
+'
 --- !u!114 &114960926409412276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4323,7 +4326,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5f5c3f84dcb8b614da15bac2b709e6d8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2166dd67582ac6f45836e6fc451ce409, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6332,7 +6335,7 @@ VideoPlayer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1522657004460884}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: b0f81b7fadb97804b950e274c1dcea82, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 7365c2aea8e92924cb0390e82ea65985, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
