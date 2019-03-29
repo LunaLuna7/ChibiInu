@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
+
 /// <summary>
 /// Sciptable Object that contains Partner's data
 /// </summary>
@@ -14,5 +16,6 @@ public class PartnerInfo : ScriptableObject {
     public string skillInfo;
     public Sprite image;
     public Sprite skillImage;
+    public VideoClip skillVideo;
     public RuntimeAnimatorController partnerAnim;
 }

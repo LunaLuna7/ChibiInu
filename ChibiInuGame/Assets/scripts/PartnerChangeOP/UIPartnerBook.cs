@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 /// <summary>
 /// UIPartnerBook controls the Canvas UI Book and updates the book's pages depending on user input and partner's info
@@ -18,7 +19,7 @@ public class UIPartnerBook : MonoBehaviour {
     [Header("Book Page UI Elements")]
     public Text partnerName;
     public Image partnerPicture;
-    public Image partnerSkillPicture;
+    public RawImage partnerSkillVideo;
     public Text partnerSkillInfo;
     public Button rightArrow;
     public Button leftArrow;
@@ -30,8 +31,9 @@ public class UIPartnerBook : MonoBehaviour {
     public GameObject secondPartnerButtonSummon;
     public GameObject callBackPartnerButton;
     public Animator BookWindow;
-   
-
+    private VideoPlayer videoPlayer;
+    private PlayVideoManager playVideoManager;
+    
     private bool joyStickToNeutral;
     public bool deadInputTimeElapsed;
     public bool openWithXbox;
@@ -39,6 +41,8 @@ public class UIPartnerBook : MonoBehaviour {
 
     private void Start()
     {
+        playVideoManager = GetComponent<PlayVideoManager>();
+        videoPlayer = GetComponent<VideoPlayer>();
         deadInputTimeElapsed = true;
         joyStickToNeutral = false;
     }
@@ -107,12 +111,14 @@ public class UIPartnerBook : MonoBehaviour {
         yield return new WaitForSeconds(.8f);
         ActivePage(true);
         //deadInputTimeElapsed = true;
+        StopAllCoroutines();
+        playVideoManager.StopVideo();
         StartCoroutine(DeadInputTime());
-
+        StartCoroutine(playVideoManager.PlayVideo());
         currentPartner = partnerManager.partners[nextPartner];
         partnerName.text = currentPartner.partnerInfo.name.ToString();
         partnerPicture.sprite = currentPartner.partnerInfo.image;
-        partnerSkillPicture.sprite = currentPartner.partnerInfo.skillImage;
+        videoPlayer.clip = currentPartner.partnerInfo.skillVideo;
         partnerSkillInfo.text = currentPartner.partnerInfo.skillInfo;
 
         //Add control pictures
@@ -162,7 +168,7 @@ public class UIPartnerBook : MonoBehaviour {
 
         partnerName.gameObject.SetActive(active);
         partnerPicture.gameObject.SetActive(active);
-        partnerSkillPicture.gameObject.SetActive(active);
+        partnerSkillVideo.gameObject.SetActive(active);
         //partnerSkillInfo.gameObject.SetActive(active);
         firstPartnerButtonSummon.gameObject.SetActive(active);
         secondPartnerButtonSummon.gameObject.SetActive(active);
@@ -172,8 +178,6 @@ public class UIPartnerBook : MonoBehaviour {
         rBButton.SetActive(active);
         jKeyButton.SetActive(active);
         kKeyButton.SetActive(active);
-
-        
 
     }
 

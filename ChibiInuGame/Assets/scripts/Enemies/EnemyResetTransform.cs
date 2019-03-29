@@ -7,9 +7,12 @@ public class EnemyResetTransform : MonoBehaviour {
 	private Vector3 startPosition;
 	public GameObject enemyObject;
 	private StateController enemyStateController;
-	// Use this for initialization
+    //private StateController temp;
+	
+    // Use this for initialization
 	void Awake()
 	{
+        //temp = GetComponent<StateController>();
 		startPosition = transform.position;
 		enemyStateController = enemyObject.GetComponent<StateController>();
 	}
@@ -17,9 +20,12 @@ public class EnemyResetTransform : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//reset position if enemy/player dies
-		if(enemyObject.activeSelf && (enemyStateController.health <= 0 || enemyStateController.playerHealth.HPLeft <= 0))
+		if((enemyStateController.killed || enemyStateController.playerHealth.HPLeft <= 0))
 		{
-			enemyObject.transform.position = startPosition;
+            enemyStateController.killed = false;
+            enemyStateController.playerInRange = false;
+            //temp.health = temp.enemyStats.HP;
+            enemyObject.transform.position = startPosition;
 			//enemyObject.SetActive(false);
 		}
 	}

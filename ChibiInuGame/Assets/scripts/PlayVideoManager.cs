@@ -10,18 +10,25 @@ public class PlayVideoManager : MonoBehaviour {
     public VideoPlayer videoPlayer;
 
 	// Use this for initialization
-	void Start () {
+	void OnEnable () {
         StartCoroutine(PlayVideo());	
 	}
 	
-	IEnumerator PlayVideo()
+    public void StopVideo()
+    {
+        videoPlayer.Stop();
+    }
+	public IEnumerator PlayVideo()
     {
         videoPlayer.Prepare();
+        WaitForSeconds temp = new WaitForSeconds(.73f);
         while (!videoPlayer.isPrepared)
         {
-            yield return new WaitForSeconds(1f);
+            rawImage.gameObject.SetActive(false);
+            yield return temp;
             break;
         }
+        rawImage.gameObject.SetActive(true);
         rawImage.texture = videoPlayer.texture;
         videoPlayer.Play();
     }
