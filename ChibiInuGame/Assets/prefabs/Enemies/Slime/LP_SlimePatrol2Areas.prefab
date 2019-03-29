@@ -185,7 +185,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1618568306019154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -159.26569, y: 0.24760115, z: 1.375}
+  m_LocalPosition: {x: -159.44475, y: 4.0142775, z: 1.375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4875830171996050}
@@ -345,6 +345,7 @@ MonoBehaviour:
   patrolLocations:
   - {fileID: 4744126694868806}
   - {fileID: 4434708865822390}
+  m_SpriteRender: {fileID: 0}
   playerInRange: 0
   IgnoreCollision: {fileID: 0}
   killed: 0
@@ -365,7 +366,7 @@ MonoBehaviour:
   EnemyToKill: {fileID: 1618568306019154}
   m_SpriteRender: {fileID: 0}
   stateController: {fileID: 0}
-  particleDead: {fileID: 1651619569208824, guid: e7e5fce0a98c7934e9950bdd2488b30f,
+  deadParticle: {fileID: 1651619569208824, guid: e7e5fce0a98c7934e9950bdd2488b30f,
     type: 2}
 --- !u!212 &212928110441553072
 SpriteRenderer:

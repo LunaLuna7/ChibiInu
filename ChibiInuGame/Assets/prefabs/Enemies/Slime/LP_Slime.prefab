@@ -209,6 +209,7 @@ MonoBehaviour:
   remainState: {fileID: 11400000, guid: 2df2c52c7c6bda946ade5ffeb0e813fe, type: 2}
   originLocation: {fileID: 0}
   patrolLocations: []
+  m_SpriteRender: {fileID: 0}
   playerInRange: 0
   IgnoreCollision: {fileID: 0}
   killed: 0
@@ -247,7 +248,7 @@ MonoBehaviour:
   EnemyToKill: {fileID: 1838449178886814}
   m_SpriteRender: {fileID: 0}
   stateController: {fileID: 0}
-  particleDead: {fileID: 1651619569208824, guid: e7e5fce0a98c7934e9950bdd2488b30f,
+  deadParticle: {fileID: 1651619569208824, guid: e7e5fce0a98c7934e9950bdd2488b30f,
     type: 2}
 --- !u!212 &212584019609444790
 SpriteRenderer:
