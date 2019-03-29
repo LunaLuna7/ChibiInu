@@ -11,7 +11,7 @@ public class PlayVideoManager : MonoBehaviour {
 
 	// Use this for initialization
 	void OnEnable () {
-        StartCoroutine(PlayVideo());	
+        //StartCoroutine(PlayVideo());	
 	}
 	
     public void StopVideo()
@@ -21,7 +21,7 @@ public class PlayVideoManager : MonoBehaviour {
 	public IEnumerator PlayVideo()
     {
         videoPlayer.Prepare();
-        WaitForSeconds temp = new WaitForSeconds(.73f);
+        WaitForSeconds temp = new WaitForSeconds(.1f);
         while (!videoPlayer.isPrepared)
         {
             rawImage.gameObject.SetActive(false);
