@@ -54,6 +54,18 @@ public class SoundEffectManager : MonoBehaviour {
         s.source.Stop();
     }
 
+    //stop all other music except the chosen one
+    public void StopAllBut(string name)
+    {
+        foreach(Sound s in sounds)
+        {
+            if(s.name != name)
+            {
+                s.source.Stop();
+            }
+        }
+    }
+
     public void VolumeOn()
     {
         foreach (Sound s in sounds)

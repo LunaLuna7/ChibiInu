@@ -20,7 +20,8 @@ public class LevelSelectManager : MonoBehaviour {
     
 
 	void Start () {
-
+        //stop playing music
+        SoundEffectManager.instance.StopAllBut("MainMenu");
 		//read and set the levels depends on the info get from saveData
         for(int levelIndex = 0; levelIndex < levels.Count; ++levelIndex)
         {
