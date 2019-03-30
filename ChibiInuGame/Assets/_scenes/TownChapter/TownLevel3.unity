@@ -5492,7 +5492,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 377003751}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 24.7, y: 13.64, z: 0}
+  m_LocalPosition: {x: 23.24, y: 11.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1867494130}
@@ -8477,7 +8477,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.6462021, y: 1.646822}
+  m_Offset: {x: 0.6462021, y: 1.1375952}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -8488,7 +8488,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.9659667, y: 1.2098427}
+  m_Size: {x: 5.9659667, y: 2.2282963}
   m_EdgeRadius: 0
 --- !u!1 &599561842
 GameObject:
@@ -9497,8 +9497,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28937766bf06cbd42982e429324e7bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 40
-  maxHealth: 40
+  health: 30
+  maxHealth: 30
   intervalSpikesTime: 1
   healthBar: {fileID: 397203216}
   cameraShake: {fileID: 1881188338}
@@ -9507,7 +9507,7 @@ MonoBehaviour:
   - {fileID: 1658835497}
   - {fileID: 535896751}
   - {fileID: 782207045}
-  secondPhaseHealth: 25
+  secondPhaseHealth: 15
 --- !u!114 &675663134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79078,20 +79078,17 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.6310425, y: 1.5163002}
-      - {x: -1.0657806, y: 1.2268858}
-      - {x: -1.4196014, y: 0.10885143}
+    - - {x: -1.2944794, y: 0.037348747}
       - {x: -1.2723694, y: -0.6567898}
       - {x: -1.32164, y: -1.3523798}
-      - {x: -2.3489532, y: -4.1905518}
-      - {x: 2.9398193, y: -4.193654}
+      - {x: -1.7769318, y: -2.7604938}
+      - {x: -2.116562, y: -3.1537595}
+      - {x: 2.6180573, y: -3.3177433}
       - {x: 2.3017883, y: -1.8853788}
       - {x: 2.8494568, y: -1.2982407}
       - {x: 2.742447, y: -1.0575352}
       - {x: 2.357956, y: -0.7346277}
-      - {x: 2.4678345, y: 0.51719284}
-      - {x: 2.7760315, y: 1.0094614}
-      - {x: 2.614685, y: 1.5424023}
+      - {x: 2.3963318, y: 0.12392712}
 --- !u!114 &1973694754
 MonoBehaviour:
   m_ObjectHideFlags: 0
