@@ -17,5 +17,11 @@ public class SatanBossHealth : BossHealth {
             //health = maxHealth;
         }
     }
+
+    public void Reset()
+    {
+        health = maxHealth;
+        healthBar.fillAmount = 1;
+    }
 	
 }

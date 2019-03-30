@@ -103,6 +103,8 @@ public class SatanBossPhaseManager : MonoBehaviour {
 			partnerManager.FakeShieldPartner();
 			phase3Collider.SetActive(true);
 			invulnerableCollider.SetActive(false);
+			//reset health
+			GetComponent<SatanBossHealth>().Reset();
 		}
 		//clean objects
 		GetComponent<SatanBossManager>().CleanSkillObjects();
