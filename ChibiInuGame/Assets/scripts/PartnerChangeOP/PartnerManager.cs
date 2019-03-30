@@ -182,7 +182,7 @@ public class PartnerManager : MonoBehaviour {
             scenePartnerHolder.ChangePartnerRuntimeAnimatorController(temp, null);
             scenePartnerHolder.ChangePartnerImage(temp, null);
         }
-
+        LimitPlayerJump(TripleJumpPartnerCapacity());
     }
 
     private void Update()
