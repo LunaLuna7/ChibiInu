@@ -4183,6 +4183,11 @@ Prefab:
       propertyPath: healthUI
       value: 
       objectReference: {fileID: 75980637}
+    - target: {fileID: 212823739644230800, guid: bd4db82f2a9386441a39f21bdecad3dd,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd4db82f2a9386441a39f21bdecad3dd, type: 2}
   m_IsPrefabAsset: 0
@@ -8330,6 +8335,11 @@ Prefab:
       propertyPath: healthUI
       value: 
       objectReference: {fileID: 75980637}
+    - target: {fileID: 212823739644230800, guid: bd4db82f2a9386441a39f21bdecad3dd,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd4db82f2a9386441a39f21bdecad3dd, type: 2}
   m_IsPrefabAsset: 0
@@ -84111,6 +84121,11 @@ Prefab:
       propertyPath: healthUI
       value: 
       objectReference: {fileID: 75980637}
+    - target: {fileID: 212823739644230800, guid: bd4db82f2a9386441a39f21bdecad3dd,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd4db82f2a9386441a39f21bdecad3dd, type: 2}
   m_IsPrefabAsset: 0
