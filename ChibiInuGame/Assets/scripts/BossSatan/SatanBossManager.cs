@@ -73,6 +73,7 @@ public class SatanBossManager : MonoBehaviour {
     public void StopSkills()
     {
         StopAllCoroutines();
+        movementController.StopAllCoroutines();
         this.stateMachine.Stop();
     }
 
