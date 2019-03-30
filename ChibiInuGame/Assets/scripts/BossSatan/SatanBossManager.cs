@@ -92,6 +92,8 @@ public class SatanBossManager : MonoBehaviour {
         //face player
         transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
         InitAllCoinLocations();
+        //reset health
+        GetComponent<SatanBossHealth>().health = GetComponent<SatanBossHealth>().maxHealth;
     }
 
     //Creates 2Dlist with all coin phases locations, we separate each set of locations base on index
