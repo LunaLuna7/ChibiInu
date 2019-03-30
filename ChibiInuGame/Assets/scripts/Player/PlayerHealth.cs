@@ -72,6 +72,7 @@ public class PlayerHealth : MonoBehaviour {
             spikeCanHit = false;
             //controller.m_Damaged = true;
             HPLeft -= 1;
+            anim.Play("ShibDead");
             controller.m_Immune = true;
             StartCoroutine(BlinkSprite());
 
@@ -83,7 +84,7 @@ public class PlayerHealth : MonoBehaviour {
 
             if (HPLeft <= 0)
             {
-                anim.Play("ShibDead");
+                //anim.Play("ShibDead");
                 controller.m_Paralyzed = true;
                 playerHealth.sprite = emptyHearth;
                 gameManager.GameOver(this.transform);
@@ -124,6 +125,7 @@ public class PlayerHealth : MonoBehaviour {
         {
             
             HPLeft -= damage;
+            anim.Play("ShibDead");
             controller.m_Immune = true;
             StartCoroutine(BlinkSprite());
 
@@ -135,7 +137,7 @@ public class PlayerHealth : MonoBehaviour {
 
             if (HPLeft <= 0)
             {
-                anim.Play("ShibaDead");
+                //anim.Play("ShibaDead");
                 controller.m_Paralyzed = true;
                 playerHealth.sprite = emptyHearth;
                 gameManager.GameOver(this.transform);
