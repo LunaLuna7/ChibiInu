@@ -38,7 +38,19 @@ public class SaveManager : MonoBehaviour {
 			path = Path.Combine(Application.dataPath,"Save");
 			path = Path.Combine(path, fileName + ".data");
 		}
-		else
+		else if(Application.platform == RuntimePlatform.WebGLPlayer)
+		{
+			path = Application.persistentDataPath;
+			string folderName = Path.GetFileName(path);
+			while(folderName != "idbfs")
+			{
+				path = Path.GetDirectoryName(path);//this function actually gives you the dirctory path
+				folderName = Path.GetFileName(path);//this function actually can give you the dirctory's name
+			}
+			path = Path.Combine(path, "ChibiInu");
+			path = Path.Combine(path, fileName + ".data");
+			Debug.Log("Checking Save File at: " + path);
+		}else
 		{
 			path = Application.persistentDataPath;
 			path = Path.Combine(path, fileName + ".data");
