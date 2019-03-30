@@ -84206,21 +84206,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1128153537}
     m_Modifications:
-    - target: {fileID: 66723133988677636, guid: ce7ed7da9652c3d45b95a602073f8828,
-        type: 2}
-      propertyPath: m_ColliderPaths.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 66746465580648542, guid: ce7ed7da9652c3d45b95a602073f8828,
-        type: 2}
-      propertyPath: m_ColliderPaths.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 66130254289050656, guid: ce7ed7da9652c3d45b95a602073f8828,
-        type: 2}
-      propertyPath: m_ColliderPaths.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4792811652452518, guid: ce7ed7da9652c3d45b95a602073f8828, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
