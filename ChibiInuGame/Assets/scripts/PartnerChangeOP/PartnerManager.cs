@@ -242,14 +242,14 @@ public class PartnerManager : MonoBehaviour {
     //Creates a Fireball
     public void FireBallShot()
     {
-        if (!fireBallOnCoolDown && Time.timeScale != 0)// && !characterController.uIPartnerBook.BookWindow.gameObject.activeSelf)
+        if ((characterController.m_godMode || !fireBallOnCoolDown) && Time.timeScale != 0)// && !characterController.uIPartnerBook.BookWindow.gameObject.activeSelf)
         {
             SoundEffectManager.instance.Play("FireBall");
             if (characterController.m_FacingRight)
                 Instantiate(FireBall, characterController.fireSpawn.position, Quaternion.identity);
             else
             {
-                GameObject a = (GameObject)Instantiate(FireBall, characterController.fireSpawn.position, Quaternion.identity);
+                GameObject a = Instantiate(FireBall, characterController.fireSpawn.position, Quaternion.identity);
                 Transform trans = a.GetComponent<Transform>();
                 trans.localScale = trans.localScale * -1;
             }

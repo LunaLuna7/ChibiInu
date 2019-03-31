@@ -159,7 +159,6 @@ MonoBehaviour:
   - {fileID: 1453850640486514, guid: cc9a6bdc837a0f2429653e1c246f959b, type: 2}
   - {fileID: 1813107084569834, guid: 30ccca604f28f424488f8d0de1d45154, type: 2}
   enemieSummonPool3:
-  - {fileID: 1999543532043402, guid: 44f218847535812489dc4fc83ce215fe, type: 2}
   - {fileID: 1759705182187062, guid: 9745373f6e163d849ab2e3cce20c68dd, type: 2}
   - {fileID: 1224807705926986, guid: c68a8defaa1359a43b1546d10010b797, type: 2}
   satanBossPhaseManager: {fileID: 0}

@@ -20,6 +20,8 @@ public class SatanBossPhaseManager : MonoBehaviour {
 	public GameObject phase3Collider;
 	//for ending phase
 	public GameObject phase0Cage;
+    //For last phase
+    public GameObject fakePartner;
 
 	void Start()
 	{
@@ -70,7 +72,12 @@ public class SatanBossPhaseManager : MonoBehaviour {
 		}
 		//if switch to phase 3, player needs to be immune since shield is turned on
 		if(phase < 3)
-			player.GetComponent<CharacterController2D>().m_Immune = false;
+        {
+            CharacterController2D temp = player.GetComponent<CharacterController2D>();
+            temp.m_Immune = false;
+            temp.GodMode(false);
+            fakePartner.SetActive(false);
+        }
 		//boss use skills again
 		GetComponent<SatanBossManager>().SwitchState();
 	}
@@ -103,8 +110,11 @@ public class SatanBossPhaseManager : MonoBehaviour {
 			partnerManager.FakeShieldPartner();
 			phase3Collider.SetActive(true);
 			invulnerableCollider.SetActive(false);
-			//reset health
-			GetComponent<SatanBossHealth>().Reset();
+            //Make player powerful
+            player.GetComponent<CharacterController2D>().GodMode(true);
+            //reset health
+            GetComponent<SatanBossHealth>().Reset();
+            fakePartner.SetActive(true);
 		}
 		//clean objects
 		GetComponent<SatanBossManager>().CleanSkillObjects();

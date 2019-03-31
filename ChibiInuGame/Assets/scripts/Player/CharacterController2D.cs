@@ -41,6 +41,7 @@ public class CharacterController2D : MonoBehaviour {
     public int m_AirJumpsLeft;
     public int m_DashLeft;
     private bool wallDeadTime;
+    public bool m_godMode;
 
     public Camera cam;
     public PlayerHealth playerHealth;
@@ -54,6 +55,7 @@ public class CharacterController2D : MonoBehaviour {
     public UIPartnerBook uIPartnerBook;
     public GameObject playerGameObject;
     public GameObject shields;
+    public GameObject godModeParticles;
 
     float horizontalMove;
 
@@ -61,7 +63,6 @@ public class CharacterController2D : MonoBehaviour {
     private bool PlayingWallSlide;
     private bool walkingSound;
     private bool swimmingAnimOn;
-
 
     private IEnumerator activeJumpCoroutine;
     public float JumpProgress { get; private set; }
@@ -246,7 +247,8 @@ public class CharacterController2D : MonoBehaviour {
                 if (!m_OnJumpPad)
                 {
                     m_RigidBody2D.AddForce(new Vector2(0f,  m_JumpForce));
-                    m_AirJumpsLeft--;
+                    if(!m_godMode)
+                        m_AirJumpsLeft--;
                 }
                     m_DashLeft = 1;
             }
@@ -564,5 +566,11 @@ public class CharacterController2D : MonoBehaviour {
         SoundEffectManager.instance.Play("FootStep" + step);
         yield return new WaitForSeconds(.5f);
         walkingSound = false;
+    }
+
+    public void GodMode(bool active)
+    {
+        m_godMode = active;
+        godModeParticles.SetActive(active);
     }
 }
