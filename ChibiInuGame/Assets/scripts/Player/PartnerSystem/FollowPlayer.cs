@@ -10,6 +10,7 @@ public class FollowPlayer : MonoBehaviour {
     [Header("Stats")]
     public float closeSpeed = 25f;
     public float distanceToTeleport = 15f;
+    public float offSet = 0f;
     [Space][Space]
 
     [Header("Components")]
@@ -37,8 +38,8 @@ public class FollowPlayer : MonoBehaviour {
 
     void FollowThePlayer()
     {
-         if (playerController.m_FacingRight)
-         {
+        if (playerController.m_FacingRight)
+        {
             if (Mathf.Abs(transform.position.x - player.transform.position.x) <= distanceToTeleport || Mathf.Abs(transform.position.y - player.transform.position.y) < distanceToTeleport)
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, closeSpeed * Time.deltaTime);
 
@@ -49,7 +50,7 @@ public class FollowPlayer : MonoBehaviour {
          else if(!playerController.m_FacingRight)
          {
              if (Mathf.Abs(transform.position.x - player.transform.position.x) <= distanceToTeleport || Mathf.Abs(transform.position.y - player.transform.position.y) < distanceToTeleport)
-                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position + new Vector3(7f, 0, 0), closeSpeed * Time.deltaTime);
+                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position + new Vector3(7f + offSet, 0, 0), closeSpeed * Time.deltaTime);
             else if (Mathf.Abs(transform.position.x - player.transform.position.x) > distanceToTeleport)
                 transform.position = player.transform.position;
          }

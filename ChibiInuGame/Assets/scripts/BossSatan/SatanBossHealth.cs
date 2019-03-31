@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SatanBossHealth : BossHealth {
+
+    public GameObject fakePartner;
 	public override void TakeDamage(float damage)
     {
         health -= damage;
@@ -11,7 +13,8 @@ public class SatanBossHealth : BossHealth {
         healthBar.fillAmount = currentHp;
         if (health <= 0)
         {
-			GetComponent<SatanBossManager>().EndBattle();
+            fakePartner.SetActive(false);
+            GetComponent<SatanBossManager>().EndBattle();
             gameObject.SetActive(false);
             SoundEffectManager.instance.Stop("SatanBattle");
             //health = maxHealth;
