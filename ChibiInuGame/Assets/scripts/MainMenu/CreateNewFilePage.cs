@@ -17,6 +17,15 @@ public class CreateNewFilePage : MonoBehaviour {
 	public Text[] nameCharacterUIs;
 	public ImageColorfulEffect enterImageEffect;
 
+	void OnEnable()
+	{
+		MenuInputManager.SetButtonName("ControllerHori", "ControllerVerti");
+	}
+
+	void OnDisable()
+	{
+		MenuInputManager.SetButtonName("Horizontal", "Vertical");
+	}
 	// Use this for initialization
 	void Start () {
 		newName = "";
@@ -63,15 +72,20 @@ public class CreateNewFilePage : MonoBehaviour {
 				AddCharacter(character);
 			}
 		}
+
+		//checked inside CheckVirtualKeyboardInput() now
 		//users delete character
-		if(Input.GetKeyDown(KeyCode.Backspace))
-		{
-			DeleteCharacter();
-		}
+		//if(Input.GetKeyDown(KeyCode.Backspace))
+		//{
+		//	DeleteCharacter();
+		//}
 	}
 
 	public void CheckVirtualKeyboardInput()
 	{
+		//for keyboard
+		CheckModifyName();
+		//for controller
 		//navigate the board
 		if(MenuInputManager.CheckLeft())
 			virtualKeyboard.MoveLeft();
@@ -100,6 +114,9 @@ public class CreateNewFilePage : MonoBehaviour {
 		}else if(Input.GetKeyDown(KeyCode.Backspace))
 		{
 			DeleteCharacter();
+		}else if(Input.GetKeyDown(KeyCode.KeypadEnter))
+		{
+			FinishInput();
 		}
 	}
 	//==========================================================================================================================
