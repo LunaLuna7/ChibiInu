@@ -15,6 +15,7 @@ public class CreateNewFilePage : MonoBehaviour {
 	private int newSlotIndex;
 	public VirtualKeyboard virtualKeyboard;
 	public Text[] nameCharacterUIs;
+	public ImageColorfulEffect enterImageEffect;
 
 	// Use this for initialization
 	void Start () {
@@ -140,7 +141,10 @@ public class CreateNewFilePage : MonoBehaviour {
 		if(newName.Length < maxCharacterAllowed)
 		{
 			newName += character;
-				UpdateInputText(newName);
+			UpdateInputText(newName);
+			//enter's image effect start when name gets to 1 from 0
+			if(newName.Length == 1)
+				enterImageEffect.StartEffect();
 		}
 	}
 	//remove the last character in the name
@@ -150,6 +154,9 @@ public class CreateNewFilePage : MonoBehaviour {
 		{
 			newName = newName.Substring(0, newName.Length - 1);
 			UpdateInputText(newName);
+			//enter's image effect stops when name is empty
+			if(newName.Length <= 0)
+				enterImageEffect.StopEffect();
 		}
 	}
 	//finish input and open comfirm page
