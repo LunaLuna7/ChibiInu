@@ -4681,6 +4681,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1637817138868202, guid: 370047f4eb85de64b96c6d661eda900d,
     type: 2}
   m_PrefabInternal: {fileID: 709005489}
+--- !u!114 &709005492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 709005491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614f9be2b397695459885f0e843c9776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changingSpeed: 2
 --- !u!1 &727962412
 GameObject:
   m_ObjectHideFlags: 0
@@ -5995,7 +6007,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 800, y: -39.85}
+  m_AnchoredPosition: {x: 800, y: -39.850098}
   m_SizeDelta: {x: 1194.3, y: 79.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1091740171
@@ -7001,6 +7013,7 @@ MonoBehaviour:
   - {fileID: 1336541961}
   - {fileID: 1612171525}
   - {fileID: 540136011}
+  enterImageEffect: {fileID: 709005492}
 --- !u!1 &1310391506
 GameObject:
   m_ObjectHideFlags: 0
@@ -8586,6 +8599,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  enterImageEffect: {fileID: 0}
 --- !u!114 &1601995180
 MonoBehaviour:
   m_ObjectHideFlags: 0

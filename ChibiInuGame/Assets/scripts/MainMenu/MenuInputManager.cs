@@ -15,7 +15,8 @@ public class MenuInputManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		timer += Time.deltaTime;
+		if(timer < timeInterval)
+			timer += Time.deltaTime;
 		//if unpress a button, allow players to press it again
 		if(lastVerticalArrow == ArrowKey.Up && Input.GetAxis(verticalButtonName) < 0.1f)
 			lastVerticalArrow = ArrowKey.None;

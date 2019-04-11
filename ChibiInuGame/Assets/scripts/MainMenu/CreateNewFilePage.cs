@@ -15,7 +15,17 @@ public class CreateNewFilePage : MonoBehaviour {
 	private int newSlotIndex;
 	public VirtualKeyboard virtualKeyboard;
 	public Text[] nameCharacterUIs;
+	public ImageColorfulEffect enterImageEffect;
 
+	void OnEnable()
+	{
+		MenuInputManager.SetButtonName("ControllerHori", "ControllerVerti");
+	}
+
+	void OnDisable()
+	{
+		MenuInputManager.SetButtonName("Horizontal", "Vertical");
+	}
 	// Use this for initialization
 	void Start () {
 		newName = "";
@@ -62,15 +72,20 @@ public class CreateNewFilePage : MonoBehaviour {
 				AddCharacter(character);
 			}
 		}
+
+		//checked inside CheckVirtualKeyboardInput() now
 		//users delete character
-		if(Input.GetKeyDown(KeyCode.Backspace))
-		{
-			DeleteCharacter();
-		}
+		//if(Input.GetKeyDown(KeyCode.Backspace))
+		//{
+		//	DeleteCharacter();
+		//}
 	}
 
 	public void CheckVirtualKeyboardInput()
 	{
+		//for keyboard
+		CheckModifyName();
+		//for controller
 		//navigate the board
 		if(MenuInputManager.CheckLeft())
 			virtualKeyboard.MoveLeft();
@@ -81,7 +96,7 @@ public class CreateNewFilePage : MonoBehaviour {
 		else if(MenuInputManager.CheckDown())
 			virtualKeyboard.MoveDown();
 		//comfirm/type
-		else if(Input.GetButtonDown("Submit"))
+		else if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0))
 		{
 			string key = virtualKeyboard.GetKeyValue();
 			Debug.Log(key);
@@ -99,6 +114,9 @@ public class CreateNewFilePage : MonoBehaviour {
 		}else if(Input.GetKeyDown(KeyCode.Backspace))
 		{
 			DeleteCharacter();
+		}else if(Input.GetKeyDown(KeyCode.Return))
+		{
+			FinishInput();
 		}
 	}
 	//==========================================================================================================================
@@ -140,7 +158,10 @@ public class CreateNewFilePage : MonoBehaviour {
 		if(newName.Length < maxCharacterAllowed)
 		{
 			newName += character;
-				UpdateInputText(newName);
+			UpdateInputText(newName);
+			//enter's image effect start when name gets to 1 from 0
+			if(newName.Length == 1)
+				enterImageEffect.StartEffect();
 		}
 	}
 	//remove the last character in the name
@@ -150,6 +171,9 @@ public class CreateNewFilePage : MonoBehaviour {
 		{
 			newName = newName.Substring(0, newName.Length - 1);
 			UpdateInputText(newName);
+			//enter's image effect stops when name is empty
+			if(newName.Length <= 0)
+				enterImageEffect.StopEffect();
 		}
 	}
 	//finish input and open comfirm page
