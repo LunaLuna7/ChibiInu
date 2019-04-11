@@ -96,7 +96,7 @@ public class CreateNewFilePage : MonoBehaviour {
 		else if(MenuInputManager.CheckDown())
 			virtualKeyboard.MoveDown();
 		//comfirm/type
-		else if(Input.GetButtonDown("Submit"))
+		else if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0))
 		{
 			string key = virtualKeyboard.GetKeyValue();
 			Debug.Log(key);
@@ -114,7 +114,7 @@ public class CreateNewFilePage : MonoBehaviour {
 		}else if(Input.GetKeyDown(KeyCode.Backspace))
 		{
 			DeleteCharacter();
-		}else if(Input.GetKeyDown(KeyCode.KeypadEnter))
+		}else if(Input.GetKeyDown(KeyCode.Return))
 		{
 			FinishInput();
 		}
