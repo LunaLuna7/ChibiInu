@@ -105,7 +105,7 @@ TextureImporter:
         serializedVersion: 2
         x: 12
         y: 8
-        width: 69
+        width: 105
         height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -125,7 +125,7 @@ TextureImporter:
         serializedVersion: 2
         x: 12
         y: 139
-        width: 69
+        width: 105
         height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -145,7 +145,7 @@ TextureImporter:
         serializedVersion: 2
         x: 12
         y: 74
-        width: 69
+        width: 105
         height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -155,6 +155,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: fd7f2ca96a219774299f289d59b7c5a5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healthHearths_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 205
+        width: 105
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 945db5bace376674c8b0f40bb6cb4c12
       vertices: []
       indices: 
       edges: []

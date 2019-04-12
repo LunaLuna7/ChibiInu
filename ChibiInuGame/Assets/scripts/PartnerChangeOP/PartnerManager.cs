@@ -187,11 +187,11 @@ public class PartnerManager : MonoBehaviour {
 
     private void Update()
     {
-        if (firstSkill != null && !characterController.m_Paralyzed && (Input.GetKeyDown(KeyCode.J) || Input.GetButtonDown("PartnerA")))
+        if (firstSkill != null && !characterController.m_Paralyzed && (Input.GetKeyDown(KeyCode.J) || Input.GetButtonDown("PartnerA") || Input.GetKeyDown(KeyCode.Z)))
         {
             firstSkill();
         }
-        if (secondSkill != null && !characterController.m_Paralyzed && (Input.GetKeyDown(KeyCode.K) || Input.GetButtonDown("PartnerB")))
+        if (secondSkill != null && !characterController.m_Paralyzed && (Input.GetKeyDown(KeyCode.K) || Input.GetButtonDown("PartnerB") || Input.GetKeyDown(KeyCode.X)))
         {
             secondSkill();
         }

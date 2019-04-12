@@ -26,12 +26,7 @@ public class CheckPoint : MonoBehaviour {
         {
             for (int i = 0; i < enemies.Count; ++i)
             {
-                /*
-                Rigidbody2D rb = enemies[i].GetComponent<Rigidbody2D>();
-                if (rb == null)
-                    rb = enemies[i].GetComponentInChildren<Rigidbody2D>();
-                if(rb != null)
-                    enemies[i].transform.position = sc.originLocation.position;*/
+                
                 enemies[i].SetActive(true);
             }
         }
@@ -51,7 +46,7 @@ public class CheckPoint : MonoBehaviour {
     {
         if (onCheckPoint && !SatanCheckPoint && !onDialogue)
         {
-            if (Input.GetKeyDown(KeyCode.P) && !book.activeSelf)
+            if (Input.GetKeyDown(KeyCode.B) && !book.activeSelf)
             {
                 book.SetActive(true);
                 uIPartnerBook.openWithKeyboard = true;
@@ -64,7 +59,7 @@ public class CheckPoint : MonoBehaviour {
                 uIPartnerBook.openWithXbox = true;
             }
 
-            else if ((Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("CallBook") || Input.GetButtonDown("Back")) && book.activeSelf)
+            else if ((Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown("CallBook") || Input.GetButtonDown("Back")) && book.activeSelf)
                 book.SetActive(false);
         }
     }
