@@ -6,15 +6,13 @@ using UnityEngine.UI;
 //[RequireComponent(typeof(SpriteRenderer))]
 public class PlayerHealth : MonoBehaviour {
 
-    public float HP = 2;
-    public float HPLeft;
+    public int HP = 2;
+    public int HPLeft;
     public CharacterController2D controller;
     public SpriteRenderer m_SpriteRender;
     public GameManager gameManager;
     public GameObject HealthUI;
-    public Sprite fullHearth;
-    public Sprite halfHearth;
-    public Sprite emptyHearth;
+    public List<Sprite> hearths;
     public Animator anim;
     private bool spikeCanHit;
 
@@ -26,7 +24,7 @@ public class PlayerHealth : MonoBehaviour {
         anim = GetComponentInChildren<Animator>();
         HPLeft = HP;
         playerHealth = HealthUI.GetComponent<Image>();
-        playerHealth.sprite = fullHearth;
+        playerHealth.sprite = hearths[HPLeft];
     }
 	
     
@@ -40,7 +38,6 @@ public class PlayerHealth : MonoBehaviour {
         {
             if (!controller.m_Immune)
             {
-                //StartCoroutine(BlinkSprite());
                 StartCoroutine(DamageState());
             }
         }
@@ -54,11 +51,9 @@ public class PlayerHealth : MonoBehaviour {
 
     public IEnumerator DamageState()
     {
-        //controller.m_Damaged = true;
-            TakeDamage(1);
-        
+        TakeDamage(1);
+      
         yield return new WaitForSeconds(1f);
-        //controller.m_Damaged = false;
         if(!controller.m_OnShield)
             controller.m_Immune = false;
         
@@ -70,23 +65,17 @@ public class PlayerHealth : MonoBehaviour {
         {
 
             spikeCanHit = false;
-            //controller.m_Damaged = true;
             HPLeft -= 1;
             anim.Play("ShibDead");
             controller.m_Immune = true;
             StartCoroutine(BlinkSprite());
 
-            if (HPLeft == 1)
-                playerHealth.sprite = halfHearth;
-
-            else if (HPLeft == 2)
-                playerHealth.sprite = fullHearth;
-
+            
+            
+            playerHealth.sprite = hearths[HPLeft];
             if (HPLeft <= 0)
             {
-                //anim.Play("ShibDead");
                 controller.m_Paralyzed = true;
-                playerHealth.sprite = emptyHearth;
                 gameManager.GameOver(this.transform);
 
                 StartCoroutine(DelayHearth());
@@ -94,7 +83,6 @@ public class PlayerHealth : MonoBehaviour {
         }
 
         yield return new WaitForSeconds(1f);
-        //controller.m_Damaged = false;
         spikeCanHit = true;
         if(!controller.m_OnShield)
             controller.m_Immune = false;
@@ -119,7 +107,7 @@ public class PlayerHealth : MonoBehaviour {
         m_SpriteRender.enabled = true;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         if(!controller.m_Immune)
         {
@@ -129,19 +117,12 @@ public class PlayerHealth : MonoBehaviour {
             controller.m_Immune = true;
             StartCoroutine(BlinkSprite());
 
-            if (HPLeft == 1)
-                playerHealth.sprite = halfHearth;
-
-            else if (HPLeft == 2)
-                playerHealth.sprite = fullHearth;
-
+           
+            playerHealth.sprite = hearths[HPLeft];
             if (HPLeft <= 0)
             {
-                //anim.Play("ShibaDead");
                 controller.m_Paralyzed = true;
-                playerHealth.sprite = emptyHearth;
                 gameManager.GameOver(this.transform);
-
                 StartCoroutine(DelayHearth());
             }
         }   
@@ -150,20 +131,20 @@ public class PlayerHealth : MonoBehaviour {
     public void HealDamage()
     {
         HPLeft = HP;
-        playerHealth.sprite = fullHearth;
+        playerHealth.sprite = hearths[HP];
     }
 
 
     public void ResetPlayer()
     {
         HPLeft = HP;
-        playerHealth.sprite = fullHearth;
+        playerHealth.sprite = hearths[HP];
     }
 
     IEnumerator DelayHearth()
     {
         yield return new WaitForSeconds(1f);
-        playerHealth.sprite = fullHearth;
+        playerHealth.sprite = hearths[HP];
     }
 
    

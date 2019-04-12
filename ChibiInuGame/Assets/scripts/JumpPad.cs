@@ -19,10 +19,9 @@ public class JumpPad : MonoBehaviour {
     //============================================================
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("satan is dumb");
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("SATAN IS REALLY DUMB");
+
             if (Mathf.Abs(collision.transform.position.y - transform.position.y) < .7f) //hit on side
                 return;
 

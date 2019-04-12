@@ -298,12 +298,15 @@ public class CharacterController2D : MonoBehaviour {
             }
 
             
-            else if ((m_RigidBody2D.velocity.y > 0) && !Input.GetButton("Jump"))
+            else if ( (m_RigidBody2D.velocity.y > 0) && !Input.GetButton("Jump") && !Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.UpArrow))
             {
                 m_RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity -1) * Time.deltaTime;
             }
-           
+
+            
         
+
+
     }
     
     void Flip()

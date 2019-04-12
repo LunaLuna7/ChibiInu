@@ -65,14 +65,14 @@ public class UIPartnerBook : MonoBehaviour {
             RightArrow();
         }
 
-        if (Input.GetButtonDown("PartnerA") || Input.GetKeyDown(KeyCode.J))
+        if (Input.GetButtonDown("PartnerA") || Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.Z))
         {
             if (firstPartnerButtonSummon.activeSelf)
                 SummonPartnerButton(0);
             else
                 UnSummonPartnerButton();
         }
-        else if (Input.GetButtonDown("PartnerB") || Input.GetKeyDown(KeyCode.K))
+        else if (Input.GetButtonDown("PartnerB") || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.X))
         {
             if (secondPartnerButtonSummon.activeSelf)
                 SummonPartnerButton(1);
