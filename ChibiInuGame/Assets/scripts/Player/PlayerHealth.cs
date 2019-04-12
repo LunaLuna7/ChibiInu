@@ -6,7 +6,7 @@ using UnityEngine.UI;
 //[RequireComponent(typeof(SpriteRenderer))]
 public class PlayerHealth : MonoBehaviour {
 
-    public int HP = 2;
+    public int HP = 3;
     public int HPLeft;
     public CharacterController2D controller;
     public SpriteRenderer m_SpriteRender;
