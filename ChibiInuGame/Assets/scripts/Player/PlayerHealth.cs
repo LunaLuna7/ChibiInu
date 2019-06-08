@@ -43,7 +43,7 @@ public class PlayerHealth : MonoBehaviour {
         }
         if(collide.gameObject.tag == "GSlimeHitBox")
         {
-            TakeDamage(2);
+            TakeDamage(3);
             controller.m_Immune = false;
         }
     }
@@ -71,8 +71,11 @@ public class PlayerHealth : MonoBehaviour {
             StartCoroutine(BlinkSprite());
 
             
-            
-            playerHealth.sprite = hearths[HPLeft];
+            if(HPLeft <= 0)
+                playerHealth.sprite = hearths[0];
+            else
+                playerHealth.sprite = hearths[HPLeft];
+
             if (HPLeft <= 0)
             {
                 anim.SetBool("Dead", true);
@@ -117,8 +120,11 @@ public class PlayerHealth : MonoBehaviour {
             controller.m_Immune = true;
             StartCoroutine(BlinkSprite());
 
-           
-            playerHealth.sprite = hearths[HPLeft];
+            if (HPLeft <= 0)
+                playerHealth.sprite = hearths[0];
+            else
+                playerHealth.sprite = hearths[HPLeft];
+
             if (HPLeft <= 0)
             {
                 //anim.Play("ShibaDead");
