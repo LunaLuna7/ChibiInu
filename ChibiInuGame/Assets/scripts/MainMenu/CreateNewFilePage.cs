@@ -24,7 +24,7 @@ public class CreateNewFilePage : MonoBehaviour {
 
 	void OnDisable()
 	{
-		MenuInputManager.SetButtonName("Horizontal", "Vertical");
+		MenuInputManager.SetButtonName("Horizontal", "MainMenuVertical");
 	}
 	// Use this for initialization
 	void Start () {
