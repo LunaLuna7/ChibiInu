@@ -13,6 +13,8 @@ public class CreateNewFilePage : MonoBehaviour {
 	public Text confirmText;
 	private string newName;
 	private int newSlotIndex;
+	public GameObject virtualKeyboardObject;
+	public GameObject promptForKeyboard;
 	public VirtualKeyboard virtualKeyboard;
 	public Text[] nameCharacterUIs;
 	public ImageColorfulEffect enterImageEffect;
@@ -35,18 +37,47 @@ public class CreateNewFilePage : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
 		if(!confirmWindow.activeSelf)
 		{
-			//for keyboard
-			CheckModifyName();
-			
-			CheckVirtualKeyboardInput();
+			//checking if controller is connected, and switch mode due to it
+			Debug.Log(Input.GetJoystickNames()[0].ToString());
+			if(ControllerConnected())
+			{
+				//show virtual keyboard, hide prompt
+				if(!virtualKeyboardObject.activeSelf) virtualKeyboardObject.SetActive(true);
+				if(promptForKeyboard.activeSelf) promptForKeyboard.SetActive(false);
+				CheckVirtualKeyboardInput();
+			}
+			else
+			{
+				//hide virtual keyboard, show prompt
+				if(virtualKeyboardObject.activeSelf) virtualKeyboardObject.SetActive(false);
+				if(!promptForKeyboard.activeSelf) promptForKeyboard.SetActive(true);
+				//for keyboard
+				CheckModifyName();
+			}
 			CheckFinishAndCancel();
 		}
 		else//confirm if 
 		{
 			CheckConfirm();
 		}
+	}
+
+	private bool ControllerConnected()
+	{
+		string[] controllerList = Input.GetJoystickNames();
+		if(controllerList.Length > 0)
+		{
+			foreach(string controllerName in controllerList)
+			{
+				//if name is empty, still not a controller or it is disabled
+				if(controllerName.Length > 0)
+					return true;
+			}
+		}
+		return false;
 	}
 
 	public void Initalize(int targetIndex)
@@ -175,6 +206,8 @@ public class CreateNewFilePage : MonoBehaviour {
 	{
 		if(newName != "")
 		{
+			//hide prompt for keyboard first
+			if(promptForKeyboard.activeSelf) promptForKeyboard.SetActive(false);
 			confirmWindow.SetActive(true);
 			confirmText.text = "Your name is " + newName +" ?";
 		}
