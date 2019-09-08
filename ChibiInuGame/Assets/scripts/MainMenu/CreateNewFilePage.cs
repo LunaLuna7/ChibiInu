@@ -37,7 +37,9 @@ public class CreateNewFilePage : MonoBehaviour {
 	void Update () {
 		if(!confirmWindow.activeSelf)
 		{
-			//CheckModifyName();
+			//for keyboard
+			CheckModifyName();
+			
 			CheckVirtualKeyboardInput();
 			CheckFinishAndCancel();
 		}
@@ -62,8 +64,15 @@ public class CreateNewFilePage : MonoBehaviour {
 	//==========================================================================================================================
 	public void CheckModifyName()
 	{
-		//users type new name
-		if(Input.anyKeyDown)
+		if(Input.GetKeyDown(KeyCode.Backspace))
+		{
+			DeleteCharacter();
+		}//delete character
+		else if(Input.GetKeyDown(KeyCode.Return))
+		{
+			FinishInput();
+		}//users type new name
+		else if(Input.anyKeyDown)
 		{
 			string character = Input.inputString;
 			//make sure it is a character
@@ -72,19 +81,10 @@ public class CreateNewFilePage : MonoBehaviour {
 				AddCharacter(character);
 			}
 		}
-
-		//checked inside CheckVirtualKeyboardInput() now
-		//users delete character
-		//if(Input.GetKeyDown(KeyCode.Backspace))
-		//{
-		//	DeleteCharacter();
-		//}
 	}
 
 	public void CheckVirtualKeyboardInput()
 	{
-		//for keyboard
-		CheckModifyName();
 		//for controller
 		//navigate the board
 		if(MenuInputManager.CheckLeft())
@@ -111,12 +111,6 @@ public class CreateNewFilePage : MonoBehaviour {
 			}else{
 				AddCharacter(key);
 			}
-		}else if(Input.GetKeyDown(KeyCode.Backspace))
-		{
-			DeleteCharacter();
-		}else if(Input.GetKeyDown(KeyCode.Return))
-		{
-			FinishInput();
 		}
 	}
 	//==========================================================================================================================
