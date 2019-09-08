@@ -6174,7 +6174,7 @@ MonoBehaviour:
   - {fileID: 880940723}
   - {fileID: 1167258314}
   - {fileID: 1167258314}
-  selectedColor: {r: 0.504717, g: 1, b: 0.9999999, a: 1}
+  selectedColor: {r: 0.89411765, g: 0.5764706, b: 0.48235294, a: 1}
   capsOutline: {fileID: 1283630218}
   unSelectedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1166870005
