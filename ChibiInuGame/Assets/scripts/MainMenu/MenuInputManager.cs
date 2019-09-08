@@ -6,7 +6,7 @@ public class MenuInputManager : MonoBehaviour {
 	enum ArrowKey{Left, Right,Up,Down,None}
 
 	private static string horizontalButtonName = "Horizontal";
-	private static string verticalButtonName = "Vertical";
+	private static string verticalButtonName = "MainMenuVertical";
 	//information I need
 	private static ArrowKey lastVerticalArrow = ArrowKey.None;
 	private static ArrowKey lastHorizontalArrow = ArrowKey.None;
