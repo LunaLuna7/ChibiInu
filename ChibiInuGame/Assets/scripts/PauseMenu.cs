@@ -83,7 +83,6 @@ public class PauseMenu: MonoBehaviour{
         //when press Space
         else if (Input.GetButtonDown("Submit"))
         {
-            Debug.Log(mainArrowIndex);
             SoundEffectManager.instance.Play("MenuSelect");
             switch (mainArrowIndex)
             {
