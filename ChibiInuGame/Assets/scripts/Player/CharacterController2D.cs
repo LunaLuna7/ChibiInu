@@ -7,10 +7,15 @@ using Cinemachine;
 public class CharacterController2D : MonoBehaviour {
 
     [Header("Stats")]
-    [SerializeField] private float m_JumpForce = 1300f;
+    private float m_JumpForce = 1300f;
+    [SerializeField] 
+    private float groundJumpPower = 1300f;
+    public float waterJumpPower = 1000f;
     [SerializeField] private float m_WallJumpTime = .5f;
     [SerializeField] public int m_AirJumps = 0;
-    [SerializeField] private float m_FallGravity = 4f;
+    private float m_FallGravity = 4f;
+    [SerializeField] private float m_fallGravityLand = 7f;
+    [SerializeField] private float m_FallGavityWater;
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;
     [SerializeField] private LayerMask m_GroundLayer;
     [SerializeField] private LayerMask m_WallLayer;
@@ -67,7 +72,7 @@ public class CharacterController2D : MonoBehaviour {
     private IEnumerator activeJumpCoroutine;
     public float JumpProgress { get; private set; }
     bool goBackToZero;
-    public float waterJumpPower = 1000f;
+   
 
     void Awake () {
         m_Paralyzed = paralyzedWhenStart;
@@ -134,8 +139,8 @@ public class CharacterController2D : MonoBehaviour {
             swimmingAnimOn = false;
             if (!m_OnShield)
             {
-                m_JumpForce = 1300;
-                m_FallGravity = 7;
+                m_JumpForce = groundJumpPower;
+                m_FallGravity = m_fallGravityLand;
                 m_RigidBody2D.gravityScale = 5;
             }
         }
